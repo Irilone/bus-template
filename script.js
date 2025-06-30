@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // SEKTION 1: RESPONSIV BILDOPTIMERING OCH PRESTANDA
   // ═══════════════════════════════════════════════════════════════
 
-  const responsiveBreakpoints = [576, 768, 992, 1200];
+  const responsiveBreakpoints = [576, 768, 992, 1200, 1536];
 
   document.querySelectorAll('img[data-fluid]').forEach(img => {
     const url = new URL(img.src, location.origin);
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       picture.appendChild(source);
     });
-    img.src = `${url.pathname}?width=1200&mode=max&format=auto&q=80`;
+    img.src = `${url.pathname}?width=1920&mode=max&format=auto&q=80`;
     img.classList.add('img-fluid');
     img.loading = 'lazy';
     picture.appendChild(img.cloneNode());
@@ -316,4 +316,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSecurityFramework();
   initGDPRCompliance();
+
+  /* =============================================================
+     SECTION 1b: Schedule table responsive date abbreviations
+     ===========================================================*/
+  function updateScheduleFormats() {
+    const bpSmall = 480;
+    const bpMedium = 768;
+    const bpLarge = 992;
+    document.querySelectorAll('.location-schedule tbody tr').forEach(row => {
+      const dateCell = row.cells[0];
+      const dayCell = row.cells[1];
+      if (!dateCell || !dayCell) return;
+      const fullDate = dateCell.dataset.full || dateCell.textContent.trim();
+      const fullDay = dayCell.dataset.full || dayCell.textContent.trim();
+
+      // Store originals once
+      if (!dateCell.dataset.full) {
+        dateCell.dataset.full = fullDate;
+        dayCell.dataset.full = fullDay;
+      }
+
+      let nowTextDate = fullDate;
+      let nowTextDay = fullDay;
+
+      const [day, mon, yr] = fullDate.split(' '); // e.g., 24 feb 2025
+      const monthMap = {
+        jan: 1, feb: 2, mar: 3, apr: 4, maj: 5, jun: 6,
+        jul: 7, aug: 8, sep: 9, okt: 10, nov: 11, dec: 12
+      };
+      const monthNum = monthMap[mon?.toLowerCase().slice(0,3)] || mon;
+
+      if (window.innerWidth < bpSmall) {
+        // Ultra small – show 24/2
+        nowTextDate = `${day}/${monthNum}`;
+        nowTextDay = fullDay.slice(0,3); // Mån → Mån, Tis → Tis etc.
+      } else if (window.innerWidth < bpMedium) {
+        // Small – show 24 feb 25
+        nowTextDate = `${day} ${mon} ${yr.slice(2)}`;
+        nowTextDay = fullDay.slice(0,3);
+      } else if (window.innerWidth < bpLarge) {
+        // Medium – show 24 feb 2025 (unchanged) but day abbreviated
+        nowTextDay = fullDay.slice(0,3);
+      }
+      dateCell.textContent = nowTextDate;
+      dayCell.textContent = nowTextDay;
+    });
+  }
+  updateScheduleFormats();
+  window.addEventListener('resize', updateScheduleFormats);
 });
