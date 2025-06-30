@@ -641,7 +641,6 @@ h1#page-content.page__content-title {
      --clr-white: #0B1929;
      --clr-black: #E0F3FA;
 }
-}
 /* ==========================================================================
    1. Base Element Styling
    Grundstilar för HTML-element utan klasser
@@ -9009,6 +9008,15 @@ nav.footer__link-nav ul#footer__links:target > li.col {
     }
 }
 
+/* --------------------------------------------------------------------------
+   Mobile tables – remove corner radius for full-width look
+   ----------------------------------------------------------------------- */
+@media (max-width: 575.98px) {
+  .price-table,
+  .location-schedule {
+    border-radius: 0;
+  }
+}
 @supports not selector(:has(*)) {
     @media (max-width: 575.98px) {
        /* Fallback for browsers without :has() */
@@ -9322,3 +9330,90 @@ section.faq.sidebar-content details.faq-item {
     position: fixed;
     z-index: 9999;
     top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 92vw;
+    max-width: 92vw;
+    height: 85vh;
+    max-height: 85vh;
+    background: rgba(0, 0, 0, 0.92);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+}
+
+.img-lightbox.open {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.img-lightbox::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/loader.gif');
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.img-lightbox.loading::before {
+    opacity: 1;
+}
+
+.img-lightbox img, .img-lightbox .lightbox-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 92vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+}
+
+.img-lightbox img:hover, .img-lightbox .lightbox-img:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.img-lightbox .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--clr-white);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.img-lightbox .close-btn:hover {
+    color: var(--clr-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Mobile tables – remove corner radius for full-width look
+   ----------------------------------------------------------------------- */
+@media (max-width: 575.98px) {
+  .price-table,
+  .location-schedule {
+    border-radius: 0;
+  }
+}
