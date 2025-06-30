@@ -1294,8 +1294,6 @@ html body .price-table.price-table thead th:nth-child(4) {
      box-shadow: 0 0 var(--space-xl) rgba(0, 0, 0, 0.5);
      display: block;
      margin: 0 auto;
-     max-width: 90vw;
-     max-height: 90vh;
      width: auto;
      height: auto;
      object-fit: contain;
@@ -3197,7 +3195,6 @@ header .container-fluid {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
-
 .navigation__logo.flex-start {
     display: flex;
     justify-content: center;
@@ -5075,7 +5072,6 @@ nav.footer__link-nav {
     box-sizing: border-box;
     font-family: filsonpro, sans-serif;
 }
-
 nav.footer__link-nav ul#footer__links {
     list-style: none;
     padding-left: 0;
@@ -6717,7 +6713,6 @@ nav.footer__link-nav {
     box-sizing: border-box;
     font-family: filsonpro, sans-serif;
 }
-
 nav.footer__link-nav ul#footer__links {
     list-style: none;
     padding-left: 0;
@@ -8362,7 +8357,6 @@ nav.footer__link-nav {
     box-sizing: border-box;
     font-family: filsonpro, sans-serif;
 }
-
 nav.footer__link-nav ul#footer__links {
     list-style: none;
     padding-left: 0;
@@ -8688,7 +8682,7 @@ nav.footer__link-nav ul#footer__links:target > li.col {
         background-color: #ffffff;
         display: block;
    }
-    .offside-navbar--menu__item a, .offside-navbar--menu__item span[role="button"] {
+    .offside-navbar--menu a, .offside-navbar--menu span[role="button"] {
         padding: 14px 18px;
         font-size: 1rem;
         display: block;
