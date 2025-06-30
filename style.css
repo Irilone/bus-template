@@ -1054,7 +1054,7 @@ html body .price-table.price-table thead th:nth-child(4) {
 }
  .vaccination-info {
      background: transparent;
-     border-radius: var(--PXR-18);
+     border-radius: var(--PXP-17);
      padding: 0;
      margin: 0;
      max-width: var(--PXP-17);
@@ -1606,7 +1606,7 @@ html body .price-table.price-table thead th:nth-child(4) {
      display: flex;
      justify-content: center;
      padding: var(--space-lg) var(--space-md);
-     margin-left: 0;
+     margin-left: 0.25rem;
      box-sizing: border-box;
      height: auto;
      line-height: normal;
@@ -2546,7 +2546,6 @@ footer img[alt="Praktikertjänst"]{
     text-align: right;
     padding-right: var(--PXR-12);
 }
-
 /* Visa alltid alla tre priskolumner på mobil */
 @media (max-width: 575.98px) {
     .price-table {
@@ -2718,7 +2717,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-summary::after {
-    content: '▼';
+    content: '›';
     font-size: var(--fluid-sm);
     color: var(--clr-primary);
     transition: transform 0.2s ease;
@@ -2727,7 +2726,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-item[open] .vaccine-summary::after {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
 .vaccine-desc {
@@ -2824,8 +2823,8 @@ section.faq.sidebar-content details.faq-item {
     box-shadow: 0 0 var(--space-xl) rgba(0, 0, 0, 0.5);
     display: block;
     margin: 0 auto;
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: 92vw;
+    max-height: 85vh;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -3194,7 +3193,6 @@ header .container-fluid {
     margin: 0;
     font-weight: 600;
 }
-
 /* Navigation Logo */
 .navigation__logo {
     order: -1;
@@ -3202,7 +3200,7 @@ header .container-fluid {
     display: flex;
     justify-content: center;
     padding: var(--space-lg) var(--space-md);
-    margin-left: 0;
+    margin-left: 0.25rem;
     box-sizing: border-box;
     height: auto;
     line-height: normal;
@@ -4369,7 +4367,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-summary::after {
-    content: '▼';
+    content: '›';
     font-size: var(--fluid-sm);
     color: var(--clr-primary);
     transition: transform 0.2s ease;
@@ -4378,7 +4376,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-item[open] .vaccine-summary::after {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
 .vaccine-desc {
@@ -4437,7 +4435,6 @@ section.faq.sidebar-content details.faq-item {
     inset: 0;
     background: rgba(0, 0, 0, 0.92);
 }
-
 .img-lightbox.open {
     display: flex;
     opacity: 1;
@@ -4475,8 +4472,8 @@ section.faq.sidebar-content details.faq-item {
     box-shadow: 0 0 var(--space-xl) rgba(0, 0, 0, 0.5);
     display: block;
     margin: 0 auto;
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: 92vw;
+    max-height: 85vh;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -4524,7 +4521,6 @@ section.faq.sidebar-content details.faq-item {
 .mb-2 {
     margin-bottom: var(--CLAMP-9);
 }
-
 .visually-hidden, .sr-only {
     position: absolute;
     width: var(--PXR-1);
@@ -4857,7 +4853,7 @@ header .container-fluid {
     display: flex;
     justify-content: center;
     padding: var(--space-lg) var(--space-md);
-    margin-left: 0;
+    margin-left: 0.25rem;
     box-sizing: border-box;
     height: auto;
     line-height: normal;
@@ -5085,7 +5081,6 @@ footer.footer p a:not([href^="tel:"]):not([href^="mailto:"]) {
     font-size: inherit;
     font-weight: normal;
 }
-
 footer.footer a[href^="tel:"], footer.footer a[href^="mailto:"] {
     font-family: filsonpro, sans-serif;
     color: #0066CC;
@@ -5327,7 +5322,6 @@ nav.footer__link-nav button#footer__links-toggle-button {
         max-width: 1320px;
    }
 }
-
 /* Container Queries */
  @container main-container (min-width: 400px) {
      .price-box {
@@ -6025,7 +6019,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-summary::after {
-    content: '▼';
+    content: '›';
     font-size: var(--fluid-sm);
     color: var(--clr-primary);
     transition: transform 0.2s ease;
@@ -6034,7 +6028,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-item[open] .vaccine-summary::after {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
 .vaccine-desc {
@@ -6093,7 +6087,6 @@ section.faq.sidebar-content details.faq-item {
     inset: 0;
     background: rgba(0, 0, 0, 0.92);
 }
-
 .img-lightbox.open {
     display: flex;
     opacity: 1;
@@ -6129,8 +6122,8 @@ section.faq.sidebar-content details.faq-item {
     box-shadow: 0 0 var(--space-xl) rgba(0, 0, 0, 0.5);
     display: block;
     margin: 0 auto;
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: 92vw;
+    max-height: 85vh;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -6512,7 +6505,7 @@ header .container-fluid {
     display: flex;
     justify-content: center;
     padding: var(--space-lg) var(--space-md);
-    margin-left: 0;
+    margin-left: 0.25rem;
     box-sizing: border-box;
     height: auto;
     line-height: normal;
@@ -6740,7 +6733,6 @@ footer.footer p a:not([href^="tel:"]):not([href^="mailto:"]) {
     font-size: inherit;
     font-weight: normal;
 }
-
 footer.footer a[href^="tel:"], footer.footer a[href^="mailto:"] {
     font-family: filsonpro, sans-serif;
     color: #0066CC;
@@ -6920,7 +6912,6 @@ nav.footer__link-nav button#footer__links-toggle-button {
         animation: none;
    }
 }
-
 /* Print Styles */
 @media print {
     .faq-item details {
@@ -7107,7 +7098,6 @@ nav.footer__link-nav ul#footer__links:target > li.col {
         padding-left: 30px;
    }
 }
-
 @media (max-width: 575.98px) {
    /* Re-order content for mobile
       Ordning: 1. Intro, 2. Platsschemat, 3. Prislista, 4. Vaccininformation, 5. FAQ */
@@ -7687,7 +7677,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-summary::after {
-    content: '▼';
+    content: '›';
     font-size: var(--fluid-sm);
     color: var(--clr-primary);
     transition: transform 0.2s ease;
@@ -7696,7 +7686,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-item[open] .vaccine-summary::after {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
 .vaccine-desc {
@@ -7720,11 +7710,9 @@ footer img[alt="Praktikertjänst"]{
 .vaccine-content p:last-child {
     margin-bottom: 0;
 }
-
 section.faq.sidebar-content details.faq-item {
     min-width: var(--PXR-180);
 }
-
 .faq-question:focus {
     outline: var(--PXR-2) solid var(--clr-accent);
     outline-offset: var(--PXR-2);
@@ -7754,7 +7742,6 @@ section.faq.sidebar-content details.faq-item {
     inset: 0;
     background: rgba(0, 0, 0, 0.92);
 }
-
 .img-lightbox.open {
     display: flex;
     opacity: 1;
@@ -7792,8 +7779,8 @@ section.faq.sidebar-content details.faq-item {
     box-shadow: 0 0 var(--space-xl) rgba(0, 0, 0, 0.5);
     display: block;
     margin: 0 auto;
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: 92vw;
+    max-height: 85vh;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -8175,7 +8162,7 @@ header .container-fluid {
     display: flex;
     justify-content: center;
     padding: var(--space-lg) var(--space-md);
-    margin-left: 0;
+    margin-left: 0.25rem;
     box-sizing: border-box;
     height: auto;
     line-height: normal;
@@ -8225,7 +8212,7 @@ body[class*="logo--normal"] .navigation__logo {
     margin: 0;
     list-style: none;
     height: 60px;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* Förhindrar radbrytning */
     align-content: center;
     align-items: center;
 }
@@ -8403,7 +8390,6 @@ footer.footer p a:not([href^="tel:"]):not([href^="mailto:"]) {
     font-size: inherit;
     font-weight: normal;
 }
-
 footer.footer a[href^="tel:"], footer.footer a[href^="mailto:"] {
     font-family: filsonpro, sans-serif;
     color: #0066CC;
@@ -8527,7 +8513,6 @@ nav.footer__link-nav button#footer__links-toggle-button {
     animation: map-spinner-rotation 0.8s linear infinite;
     z-index: 0;
 }
-
 .map-embed-container::after {
     content: "Laddar karta...";
     position: absolute;
@@ -8769,7 +8754,6 @@ nav.footer__link-nav ul#footer__links:target > li.col {
         padding-left: 30px;
    }
 }
-
 @media (max-width: 575.98px) {
    /* Re-order content for mobile
       Ordning: 1. Intro, 2. Platsschemat, 3. Prislista, 4. Vaccininformation, 5. FAQ */
@@ -9325,7 +9309,6 @@ footer img[alt="Praktikertjänst"]{
     border-radius: var(--radius-xs);
     margin-left: auto;
 }
-
 /* Health Service Item */
 .health-service {
     border-left: 4px solid var(--clr-secondary);
@@ -9348,7 +9331,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-summary::after {
-    content: '▼';
+    content: '›';
     font-size: var(--fluid-sm);
     color: var(--clr-primary);
     transition: transform 0.2s ease;
@@ -9357,7 +9340,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-item[open] .vaccine-summary::after {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
 .vaccine-desc {

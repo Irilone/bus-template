@@ -365,4 +365,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   updateScheduleFormats();
   window.addEventListener('resize', updateScheduleFormats);
+
+  /* =============================================================
+     SECTION 8: Vaccine teaser generation
+     ===========================================================*/
+  function injectVaccineTeasers() {
+    document.querySelectorAll('.vaccine-item').forEach(item => {
+      const descEl = item.querySelector('.vaccine-desc');
+      const contentEl = item.querySelector('.vaccine-content');
+      if (!descEl || !contentEl) return;
+
+      // Only generate once
+      if (descEl.dataset.teaserGenerated) return;
+
+      const plainText = contentEl.textContent.trim().replace(/\s+/g, ' ');
+      const firstSentence = plainText.split('. ')[0].trim();
+      descEl.textContent = `${firstSentence}${firstSentence.endsWith('.') ? '' : '…'}`;
+      descEl.style.opacity = '0.65';
+      descEl.dataset.teaserGenerated = 'true';
+    });
+  }
+  injectVaccineTeasers();
 });
