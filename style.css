@@ -1288,8 +1288,8 @@ html body .price-table.price-table thead th:nth-child(4) {
      top: 50%;
      left: 50%;
      transform: translate(-50%, -50%);
-     max-width: 90%;
-     max-height: 90%;
+     max-width: 92vw;
+     max-height: 85vh;
      border-radius: var(--radius-md);
      box-shadow: 0 0 var(--space-xl) rgba(0, 0, 0, 0.5);
      display: block;
@@ -2817,28 +2817,18 @@ section.faq.sidebar-content details.faq-item {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: var(--radius-md);
-    box-shadow: 0 0 var(--space-xl) rgba(0, 0, 0, 0.5);
-    display: block;
-    margin: 0 auto;
     max-width: 92vw;
     max-height: 85vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
+    display: block;
+    margin: 0 auto;
     width: auto;
     height: auto;
     object-fit: contain;
-    position: static;
-    float: none;
     cursor: default;
     user-select: none;
     pointer-events: none;
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
-    top: auto;
-    right: auto;
-    bottom: auto;
-    opacity: 1;
-    visibility: visible;
 }
 
 /* ==========================================================================
@@ -4466,28 +4456,18 @@ section.faq.sidebar-content details.faq-item {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: var(--radius-md);
-    box-shadow: 0 0 var(--space-xl) rgba(0, 0, 0, 0.5);
-    display: block;
-    margin: 0 auto;
     max-width: 92vw;
     max-height: 85vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
+    display: block;
+    margin: 0 auto;
     width: auto;
     height: auto;
     object-fit: contain;
-    position: static;
-    float: none;
     cursor: default;
     user-select: none;
     pointer-events: none;
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
-    top: auto;
-    right: auto;
-    bottom: auto;
-    opacity: 1;
-    visibility: visible;
 }
 
 /* ==========================================================================
@@ -6116,28 +6096,18 @@ section.faq.sidebar-content details.faq-item {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: var(--radius-md);
-    box-shadow: 0 0 var(--space-xl) rgba(0, 0, 0, 0.5);
-    display: block;
-    margin: 0 auto;
     max-width: 92vw;
     max-height: 85vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
+    display: block;
+    margin: 0 auto;
     width: auto;
     height: auto;
     object-fit: contain;
-    position: static;
-    float: none;
     cursor: default;
     user-select: none;
     pointer-events: none;
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
-    top: auto;
-    right: auto;
-    bottom: auto;
-    opacity: 1;
-    visibility: visible;
 }
 
 /* ==========================================================================
@@ -7772,28 +7742,18 @@ section.faq.sidebar-content details.faq-item {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: var(--radius-md);
-    box-shadow: 0 0 var(--space-xl) rgba(0, 0, 0, 0.5);
-    display: block;
-    margin: 0 auto;
     max-width: 92vw;
     max-height: 85vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
+    display: block;
+    margin: 0 auto;
     width: auto;
     height: auto;
     object-fit: contain;
-    position: static;
-    float: none;
     cursor: default;
     user-select: none;
     pointer-events: none;
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
-    top: auto;
-    right: auto;
-    bottom: auto;
-    opacity: 1;
-    visibility: visible;
 }
 
 /* ==========================================================================
