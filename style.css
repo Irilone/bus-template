@@ -516,7 +516,7 @@ h1#page-content.page__content-title {
      --PXE-30: 1.6667em;
      --PXE-31: 1.7222em;
      --PXE-32: 1.7778em;
-     --PXE-33: 1.8333em;
+     --PXE-33: 1.8333rem;
      --PXE-34: 1.8889em;
      --PXE-35: 1.9444em;
      --PXE-36: 2em;
@@ -9046,7 +9046,6 @@ nav.footer__link-nav ul#footer__links:target > li.col {
         min-height: 5rem;
     }
 }
-
 @media (max-width: 480px) {
     .welcome-title {
         font-size: 1.4em;
