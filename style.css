@@ -2942,11 +2942,6 @@ section.faq.sidebar-content details.faq-item {
 .py-md {
     padding-block: var(--space-md);
 }
-
-.py-lg {
-    padding-block: var(--space-lg);
-}
-
 .py-xl {
     padding-block: var(--space-xl);
 }
@@ -4526,7 +4521,6 @@ section.faq.sidebar-content details.faq-item {
 .mt-2 {
     margin-top: var(--CLAMP-9);
 }
-
 .mb-2 {
     margin-bottom: var(--CLAMP-9);
 }
@@ -5323,13 +5317,11 @@ nav.footer__link-nav button#footer__links-toggle-button {
          padding-right: var(--CLAMP-110);
     }
 }
-
 @media (min-width: 1200px) {
     .container {
         max-width: 1140px;
    }
 }
-
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
@@ -6123,11 +6115,9 @@ section.faq.sidebar-content details.faq-item {
     opacity: 0;
     transition: opacity 0.2s;
 }
-
 .img-lightbox.loading::before {
     opacity: 1;
 }
-
 .img-lightbox img, .img-lightbox .lightbox-img {
     position: absolute;
     top: 50%;
@@ -7722,7 +7712,6 @@ footer img[alt="Praktikertjänst"]{
     border-top: 1px solid var(--clr-border-subtle);
     background: var(--clr-bg);
 }
-
 .vaccine-content p {
     margin: 0;
     color: var(--clr-white);
@@ -8523,7 +8512,6 @@ nav.footer__link-nav button#footer__links-toggle-button {
     display: block;
     z-index: 1;
 }
-
 .map-embed-container::before {
     content: "";
     position: absolute;
@@ -9323,7 +9311,6 @@ footer img[alt="Praktikertjänst"]{
     border-color: var(--clr-primary);
     background: var(--clr-primary-subtle);
 }
-
 /* Vaccine Priority Badge */
 .vaccine-priority {
     border-left: 4px solid var(--clr-accent);
