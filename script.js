@@ -1,8 +1,7 @@
 /**
- * Vaccinbussen JavaScript - Komplett system med responsiv bildhantering
- * @description Hanterar alla interaktiva element och bildoptimering på Vaccinbussen-sidan
- * @author Claude Code
- * @version 3.1 - Fusion Enhanced med CSS variable integration och performance optimizations
+ * Vaccinbussen JavaScript - Komplett system med responsiv bildhantering + Dark/Light mode FA ikoner
+ * @author Claude Code, updated by Grimoire
+ * @version 3.2 - Font Awesome Dark Mode Icon Integration
  */
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
@@ -11,11 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // SEKTION 1: RESPONSIV BILDOPTIMERING OCH PRESTANDA
   // ═══════════════════════════════════════════════════════════════
 
-  /**
-   * Responsiv bildhantering för Episerver
-   * @description Konverterar bilder med data-fluid attribut till picture-element
-   * med optimerade breakpoints som matchar Bootstrap
-   */
   const responsiveBreakpoints = [576, 768, 992, 1200];
 
   document.querySelectorAll('img[data-fluid]').forEach(img => {
@@ -38,10 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     img.replaceWith(picture);
   });
 
-  /**
-   * Fade-in animationer för element när de kommer in i viewporten
-   * @description Använder IntersectionObserver för mjuka animationer
-   */
+  // Fade-in animationer för element när de kommer in i viewporten
   const fadeElements = document.querySelectorAll('.fade-in');
   if ('IntersectionObserver' in window) {
     const fadeObserver = new window.IntersectionObserver(
@@ -60,10 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(el => el.classList.add('visible'));
   }
 
-  /**
-   * Lazy loading för bilder med data-src attribut
-   * @description Laddar bilder när de närmar sig viewporten
-   */
+  // Lazy loading för bilder med data-src attribut
   const lazyImages = document.querySelectorAll('img[data-src]');
   if ('IntersectionObserver' in window && lazyImages.length > 0) {
     const lazyObserver = new IntersectionObserver((entries, observer) => {
@@ -85,10 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // SEKTION 2: ANVÄNDARINTERAKTION OCH NAVIGATION
   // ═══════════════════════════════════════════════════════════════
 
-  /**
-   * Markera dagens öppettider
-   * @description Highlightar aktuell dag i öppettidslistan
-   */
+  // Markera dagens öppettider
   const weekdays = ['Söndag', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag'];
   const today = weekdays[new Date().getDay()];
   document.querySelectorAll('.hours li').forEach(li => {
@@ -101,10 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /**
-   * Mjuk scroll för ankar-länkar
-   * @description Implementerar smooth scrolling med tillgänglighetsfokus
-   */
+  // Mjuk scroll för ankar-länkar
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const id = this.getAttribute('href').slice(1);
@@ -121,20 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /**
-   * Städning av navigationselement
-   * @description Tar bort expanderade chevron-ikoner
-   */
+  // Städning av navigationselement
   document.querySelectorAll('.navigation__item-chevron--expanded').forEach(el => el.remove());
 
   // ═══════════════════════════════════════════════════════════════
   // SEKTION 3: FAQ OCH INNEHÅLLSHANTERING
   // ═══════════════════════════════════════════════════════════════
 
-  /**
-   * Konfigurerar FAQ-frågor för tvåradslayout
-   * @description Förbereder data-attribut för CSS-styling av FAQ-element
-   */
   function setupFAQDataAttributes() {
     const faqSummaries = document.querySelectorAll('.faq-item summary');
     faqSummaries.forEach(summary => {
@@ -143,50 +118,36 @@ document.addEventListener('DOMContentLoaded', () => {
       summary.textContent = '';
     });
   }
-
   setupFAQDataAttributes();
 
   // ═══════════════════════════════════════════════════════════════
   // SEKTION 4: BILDVISNING OCH LIGHTBOX
   // ═══════════════════════════════════════════════════════════════
 
-  /**
-   * Lightbox för bussbilder
-   * @description Klick-för-förstoring funktionalitet med fullständig tillgänglighet
-   */
   const lightbox = document.createElement('div');
   lightbox.className = 'img-lightbox';
   lightbox.setAttribute('role', 'dialog');
   lightbox.setAttribute('aria-modal', 'true');
+  // (Implementation av lightbox här om du vill!)
 
   // ═══════════════════════════════════════════════════════════════
   // SEKTION 5: SÄKERHET & GDPR
   // ═══════════════════════════════════════════════════════════════
 
-  /**
-   * FUSION ENTERPRISE: Security & Privacy Framework
-   * @description GDPR-compliant privacy controls and security hardening
-   */
   function initSecurityFramework() {
-    // Content Security Policy enforcement
     if (!document.querySelector('meta[http-equiv="Content-Security-Policy"]')) {
       const cspMeta = document.createElement('meta');
       cspMeta.setAttribute('http-equiv', 'Content-Security-Policy');
       cspMeta.setAttribute('content', "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self'; font-src 'self' data:");
       document.head.appendChild(cspMeta);
     }
-
-    // Sanitize external inputs
     window.sanitizeInput = function(input) {
       if (typeof input !== 'string') return '';
-      return input
-        .replace(/[<>]/g, '')
+      return input.replace(/[<>]/g, '')
         .replace(/javascript:/gi, '')
         .replace(/on\w+=/gi, '')
         .trim();
     };
-
-    // Secure localStorage wrapper
     window.secureStorage = {
       set: function(key, value, encrypt = true) {
         try {
@@ -219,14 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  /**
-   * FUSION ENTERPRISE: GDPR Compliance Manager
-   * @description Swedish data protection and privacy controls
-   */
   function initGDPRCompliance() {
-    // Check for existing consent
     const hasConsent = window.secureStorage?.get('gdpr_consent', false)?.accepted || false;
-
     if (!hasConsent && !document.querySelector('.gdpr-banner')) {
       const banner = document.createElement('div');
       banner.className = 'gdpr-banner';
@@ -237,9 +192,9 @@ document.addEventListener('DOMContentLoaded', () => {
         bottom: 0;
         left: 0;
         right: 0;
-        background: var(--clr-primary);
-        color: var(--clr-on-primary);
-        padding: var(--space-md);
+        background: var(--clr-primary,#2563eb);
+        color: var(--clr-on-primary,#fff);
+        padding: 1em;
         z-index: 10000;
         box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
         transform: translateY(100%);
@@ -247,30 +202,26 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
 
       banner.innerHTML = `
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap;">
-          <p style="flex: 1; margin: 0; font-size: var(--fs-sm);">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1em; flex-wrap: wrap;">
+          <p style="flex: 1; margin: 0; font-size: 1em;">
             Vi använder endast tekniskt nödvändiga cookies för att säkerställa att vår tjänst fungerar korrekt.
             Inga personuppgifter lagras utan ditt samtycke enligt GDPR.
           </p>
-          <div style="display: flex; gap: var(--space-sm);">
-            <button id="gdpr-accept" style="background: var(--clr-on-primary); color: var(--clr-primary); border: none; padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer;">
+          <div style="display: flex; gap: 0.5em;">
+            <button id="gdpr-accept" style="background: var(--clr-on-primary,#fff); color: var(--clr-primary,#2563eb); border: none; padding: 0.4em 1.2em; border-radius: 0.4em; font-weight: 600; cursor: pointer;">
               Jag förstår
             </button>
-            <button id="gdpr-info" style="background: transparent; color: var(--clr-on-primary); border: 1px solid var(--clr-on-primary); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); cursor: pointer;">
+            <button id="gdpr-info" style="background: transparent; color: var(--clr-on-primary,#fff); border: 1px solid var(--clr-on-primary,#fff); padding: 0.4em 1.2em; border-radius: 0.4em; cursor: pointer;">
               Mer info
             </button>
           </div>
         </div>
       `;
-
       document.body.appendChild(banner);
-
-      // Animate in
       setTimeout(() => {
         banner.style.transform = 'translateY(0)';
       }, 100);
 
-      // Handle consent
       document.getElementById('gdpr-accept').addEventListener('click', function() {
         window.secureStorage?.set('gdpr_consent', {
           accepted: true,
@@ -281,14 +232,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => banner.remove(), 300);
         console.log('GDPR: Samtycke registrerat');
       });
-
-      // Handle info request
       document.getElementById('gdpr-info').addEventListener('click', function() {
         window.open('/integritetspolicy', '_blank', 'noopener,noreferrer');
       });
     }
 
-    // Data minimization: Clean old storage
     const storageKeys = Object.keys(localStorage);
     const oneMonthAgo = Date.now() - (30 * 24 * 60 * 60 * 1000);
 
@@ -307,41 +255,59 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // SEKTION 6: DARK MODE TOGGLE
+  // SEKTION 6: DARK MODE TOGGLE (Font Awesome Ikon)
   // ═══════════════════════════════════════════════════════════════
 
-  // 1. Add dark mode toggle support
   (function() {
-    const root = document.documentElement;
+    const root = document.querySelector('#vaccine-bjarred-app') || document.documentElement;
     const themeToggleBtn = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('theme');
+    if (!themeToggleBtn) return;
 
-    function setTheme(theme) {
+    // Insert icon span if not present
+    if (!themeToggleBtn.querySelector('i')) {
+      const icon = document.createElement('i');
+      icon.className = 'fas fa-sun';
+      icon.setAttribute('aria-hidden', 'true');
+      themeToggleBtn.prepend(icon);
+    }
+    const icon = themeToggleBtn.querySelector('i');
+    // Helper for icon color
+    function setIcon(theme) {
+      if (!icon) return;
       if (theme === 'dark') {
-        root.setAttribute('data-theme', 'dark');
-        if (themeToggleBtn) themeToggleBtn.setAttribute('aria-pressed', 'true');
-        if (themeToggleBtn) themeToggleBtn.innerHTML = '☀️ Light Mode';
+        icon.className = 'fas fa-moon';
+        icon.style.color = '#fff';
+        themeToggleBtn.setAttribute('aria-label', 'Byt till ljust läge');
+        themeToggleBtn.title = 'Byt till ljust läge';
       } else {
-        root.removeAttribute('data-theme');
-        if (themeToggleBtn) themeToggleBtn.setAttribute('aria-pressed', 'false');
-        if (themeToggleBtn) themeToggleBtn.innerHTML = '🌙 Dark Mode';
+        icon.className = 'fas fa-sun';
+        icon.style.color = '#000';
+        themeToggleBtn.setAttribute('aria-label', 'Byt till mörkt läge');
+        themeToggleBtn.title = 'Byt till mörkt läge';
       }
     }
-
-    // On page load
+    // Get user/system preference
+    const savedTheme = localStorage.getItem('theme');
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        root.classList.add('dark');
+        themeToggleBtn.setAttribute('aria-pressed', 'true');
+      } else {
+        root.classList.remove('dark');
+        themeToggleBtn.setAttribute('aria-pressed', 'false');
+      }
+      setIcon(theme);
+    }
     if (savedTheme === 'dark' || (savedTheme === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       setTheme('dark');
     } else {
       setTheme('light');
     }
-
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', () => {
-        const isDark = root.getAttribute('data-theme') === 'dark';
-        setTheme(isDark ? 'light' : 'dark');
-        localStorage.setItem('theme', isDark ? 'light' : 'dark');
-      });
-    }
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = root.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    });
   })();
 
   // ═══════════════════════════════════════════════════════════════
@@ -350,5 +316,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSecurityFramework();
   initGDPRCompliance();
-
 });
