@@ -2,7 +2,6 @@
    VACCINE BJARRED APP - ISOLATED SCOPED STYLES
    All styles are scoped under #vaccine-bjarred-app to prevent conflicts
 ========================================================================== */
-
 #vaccine-bjarred-app {
     /* Custom Properties - Scoped */
     --vb-primary: #012363;
@@ -10,21 +9,21 @@
     --vb-text: #333333;
     --vb-bg: #ffffff;
     --vb-border: #e0e0e0;
-    
+
     /* Typography - Scoped - Optimized Bootstrap 5.3 Pattern */
     --vb-fs-h1: clamp(2rem, 4vw + 1rem, 3rem);
     --vb-fs-h2: clamp(1.75rem, 3vw + 1rem, 2.25rem);
     --vb-fs-h3: clamp(1.3rem, 2vw + 1rem, 1.75rem);
     --vb-fs-body: clamp(0.875rem, 1vw + 0.8rem, 1rem);
     --vb-fs-small: clamp(0.75rem, 0.5vw + 0.7rem, 0.875rem);
-    
+
     /* Spacing - Scoped - Optimized Bootstrap 5.3 Pattern */
     --vb-space-xs: clamp(0.25rem, 0.5vw + 0.2rem, 0.375rem);
     --vb-space-sm: clamp(0.5rem, 1vw + 0.4rem, 0.75rem);
     --vb-space-md: clamp(1rem, 2vw + 0.8rem, 1.5rem);
     --vb-space-lg: clamp(2rem, 4vw + 1.5rem, 3rem);
     --vb-space-xl: clamp(3rem, 6vw + 2rem, 5rem);
-    
+
     /* Radius - Scoped */
     --vb-radius-sm: 4px;
     --vb-radius-md: 8px;
@@ -137,6 +136,13 @@ h1#page-content.page__content-title {
 }
 /* Root Variable Definitions */
  :root {
+  --clr-primary: #012363;
+  --clr-bg: #fff;
+  --clr-on-primary: #012363;
+  --clr-gdpr-light-bg: #E0F3FA;
+  --clr-gdpr-light-text: #012363;
+  --clr-gdpr-light-btn-bg: #012363;
+  --clr-gdpr-light-btn-text: #fff;
     /* Bootstrap 5.3 Breakpoints */
      --bs-breakpoint-xs: 0;
      --bs-breakpoint-sm: 576px;
@@ -190,8 +196,7 @@ h1#page-content.page__content-title {
      --fluid-3xl: clamp(2.5rem, 5vw + 2rem, 3.5rem);
     /* 40-56px */
     /* Colors - Light Mode (default) & from second :root block */
-     --clr-primary: #012363;
-     --clr-primary-dark: #0B496E;
+    --clr-primary-dark: #0B496E;
      --clr-heading: #003366;
      --clr-body: #012363;
      --clr-accent: #4AA6C9;
@@ -429,25 +434,15 @@ h1#page-content.page__content-title {
      --CLAMP-198: clamp(9.9rem, 19.8vw, 11rem);
 }
 /* Dark Mode Support */
- @media (prefers-color-scheme: dark) {
-     :root {
-         --clr-primary: #4AA6C9;
-         --clr-primary-dark: #5BB5D8;
-         --clr-heading: #E0F3FA;
-         --clr-body: #CDDBE6;
-         --clr-accent: #6BC4E7;
-         --clr-brand-500: #5BB5D8;
-         --clr-bg: #0B1929;
-         --clr-bg-alt: #142438;
-         --clr-bg-card: #1A2F47;
-         --clr-border: #2A3F5C;
-         --clr-white: #0B1929;
-         --clr-black: #E0F3FA;
-    }
-}
 /* Manual Dark Mode Toggle */
- [data-theme="dark"] {
-     --clr-primary: #4AA6C9;
+[data-theme="dark"] {
+  --clr-primary: #0B1929;
+  --clr-bg: #0B1929;
+  --clr-on-primary: #E0F3FA;
+  --clr-gdpr-light-bg: #1A2F47;
+  --clr-gdpr-light-text: #E0F3FA;
+  --clr-gdpr-light-btn-bg: #E0F3FA;
+  --clr-gdpr-light-btn-text: #0B1929;
      --clr-primary-dark: #5BB5D8;
      --clr-heading: #E0F3FA;
      --clr-body: #CDDBE6;
@@ -459,6 +454,7 @@ h1#page-content.page__content-title {
      --clr-border: #2A3F5C;
      --clr-white: #0B1929;
      --clr-black: #E0F3FA;
+}
 }
 /* ==========================================================================
    1. Base Element Styling
@@ -1811,7 +1807,7 @@ nav.footer__link-nav ul#footer__links>li.col {
     .container {
         max-width: 1320px;
     }
-    
+
     .location-section {
         display: grid !important;
         grid-template-columns: 1fr 2fr !important;
@@ -1873,7 +1869,7 @@ nav.footer__link-nav ul#footer__links:target > li.col {
         flex-direction: row !important;
         align-items: flex-start !important;
     }
-    
+
     nav.footer__link-nav ul#footer__links.open > li.col,
     nav.footer__link-nav ul#footer__links:target > li.col {
         width: auto !important;
@@ -2583,26 +2579,26 @@ footer img[alt="Praktikertjänst"]{
         padding: var(--CLAMP-6) !important;
         margin-bottom: var(--CLAMP-8) !important;
     }
-    
+
     .vaccine-summary {
         padding: var(--CLAMP-4) var(--CLAMP-5) !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: var(--CLAMP-2) !important;
     }
-    
+
     .vaccine-summary::after {
         position: absolute !important;
         top: var(--CLAMP-4) !important;
         right: var(--CLAMP-5) !important;
         margin-left: 0 !important;
     }
-    
+
     .vaccine-desc {
         font-size: var(--fluid-xs) !important;
         margin-top: var(--CLAMP-1) !important;
     }
-    
+
     .vaccine-badge {
         font-size: 0.7rem !important;
         padding: 0.2rem 0.4rem !important;
@@ -2620,7 +2616,7 @@ footer img[alt="Praktikertjänst"]{
     .navbar-nav, .header__nav {
         display: none !important;
     }
-    
+
     /* Create hamburger button */
     .mobile-menu-btn {
         display: block !important;
@@ -2636,7 +2632,7 @@ footer img[alt="Praktikertjänst"]{
         cursor: pointer !important;
         padding: 0 !important;
     }
-    
+
     /* Hamburger icon */
     .mobile-menu-btn::before {
         content: "☰" !important;
@@ -2645,12 +2641,12 @@ footer img[alt="Praktikertjänst"]{
         display: block !important;
         line-height: 48px !important;
     }
-    
+
     /* Active state - X icon */
     body.menu-open .mobile-menu-btn::before {
         content: "✕" !important;
     }
-    
+
     /* Mobile menu panel */
     .mobile-nav {
         position: fixed !important;
@@ -2666,11 +2662,11 @@ footer img[alt="Praktikertjänst"]{
         overflow-y: auto !important;
         padding: 4rem 1rem 2rem !important;
     }
-    
+
     body.menu-open .mobile-nav {
         right: 0 !important;
     }
-    
+
     /* Menu overlay */
     .menu-overlay {
         display: none !important;
@@ -2682,7 +2678,7 @@ footer img[alt="Praktikertjänst"]{
         background: rgba(0,0,0,0.5) !important;
         z-index: 9997 !important;
     }
-    
+
     body.menu-open .menu-overlay {
         display: block !important;
     }
@@ -2698,13 +2694,13 @@ footer img[alt="Praktikertjänst"]{
         margin: 0 -1rem !important;
         padding: 0 1rem !important;
     }
-    
+
     /* Table styling */
     table {
         min-width: 500px !important;
         font-size: var(--fluid-sm, 14px) !important;
     }
-    
+
     /* Scroll indicator */
     .table-responsive-wrapper::after {
         content: "← Dra för att se mer →" !important;
@@ -2716,7 +2712,7 @@ footer img[alt="Praktikertjänst"]{
         color: var(--clr-body-secondary, #666) !important;
         white-space: nowrap !important;
     }
-    
+
     /* Fade edges */
     .table-responsive-wrapper::before {
         content: "" !important;
@@ -2737,15 +2733,15 @@ footer img[alt="Praktikertjänst"]{
     html {
         font-size: 16px !important; /* Prevent iOS zoom */
     }
-    
+
     /* Heading scaling */
     h1 { font-size: clamp(1.5rem, 5vw, 2rem) !important; }
     h2 { font-size: clamp(1.25rem, 4vw, 1.5rem) !important; }
     h3 { font-size: clamp(1.125rem, 3.5vw, 1.25rem) !important; }
     h4, h5, h6 { font-size: clamp(1rem, 3vw, 1.125rem) !important; }
-    
+
     /* Body text */
-    p, li, td { 
+    p, li, td {
         font-size: var(--fluid-base, 16px) !important;
         line-height: 1.6 !important;
     }
@@ -2759,14 +2755,14 @@ footer img[alt="Praktikertjänst"]{
         display: block !important;
         margin: 0 auto !important;
     }
-    
+
     /* Bus images specific */
     .bus-img {
         width: 100% !important;
         max-height: 200px !important;
         object-fit: cover !important;
     }
-    
+
     /* Gallery adjustments */
     .bus-gallery-col {
         margin-bottom: 2rem !important;
@@ -2780,25 +2776,25 @@ footer img[alt="Praktikertjänst"]{
         overflow-x: hidden !important;
         width: 100% !important;
     }
-    
+
     /* Container adjustments */
     .container, .container-fluid {
         padding-left: 1rem !important;
         padding-right: 1rem !important;
         max-width: 100% !important;
     }
-    
+
     /* Row/column fixes */
     .row {
         margin-left: -0.5rem !important;
         margin-right: -0.5rem !important;
     }
-    
+
     [class*="col-"] {
         padding-left: 0.5rem !important;
         padding-right: 0.5rem !important;
     }
-    
+
     /* Stack columns on mobile */
     .col-md-8, .col-md-4 {
         width: 100% !important;
@@ -2810,7 +2806,7 @@ footer img[alt="Praktikertjänst"]{
 /* 6. TOUCH TARGETS */
 @media (max-width: 768px) {
     /* Minimum touch target size */
-    a, button, input, select, textarea, 
+    a, button, input, select, textarea,
     .btn, .clickable, [role="button"] {
         min-height: 44px !important;
         min-width: 44px !important;
@@ -2818,7 +2814,7 @@ footer img[alt="Praktikertjänst"]{
         align-items: center !important;
         justify-content: center !important;
     }
-    
+
     /* Button spacing */
     .btn {
         padding: 0.75rem 1.5rem !important;
@@ -2833,18 +2829,18 @@ footer img[alt="Praktikertjänst"]{
         padding-left: 0.75rem !important;
         padding-right: 0.75rem !important;
     }
-    
+
     /* Smaller headings */
     h1 { font-size: 1.375rem !important; }
     h2 { font-size: 1.25rem !important; }
     h3 { font-size: 1.125rem !important; }
-    
+
     /* Compact cards */
     .vaccine-card, .price-card {
         padding: 0.75rem !important;
         margin-bottom: 0.75rem !important;
     }
-    
+
     /* Smaller images */
     .bus-img {
         max-height: 150px !important;
@@ -2857,26 +2853,26 @@ footer img[alt="Praktikertjänst"]{
     * {
         max-width: 100vw !important;
     }
-    
+
     /* Fix floating elements */
     .float-left, .float-right {
         float: none !important;
         margin: 1rem auto !important;
         display: block !important;
     }
-    
+
     /* Fix position fixed elements */
     .fixed-top {
         position: relative !important;
     }
-    
+
     /* Word wrap for long text */
     p, h1, h2, h3, h4, h5, h6, li, td, th {
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
         hyphens: auto !important;
     }
-    
+
     /* Hide non-essential elements */
     .desktop-only, .d-none-mobile {
         display: none !important;
@@ -3041,7 +3037,7 @@ footer img[alt="Praktikertjänst"]{
     table {
         min-width: 600px !important;
     }
-    
+
     .table-responsive-wrapper::after {
         content: '→' !important;
         position: absolute !important;
@@ -3066,12 +3062,12 @@ footer img[alt="Praktikertjänst"]{
         padding-left: 1rem !important;
         padding-right: 1rem !important;
     }
-    
+
     .row {
         margin-left: -0.5rem !important;
         margin-right: -0.5rem !important;
     }
-    
+
     [class*="col-"] {
         padding-left: 0.5rem !important;
         padding-right: 0.5rem !important;
@@ -3086,7 +3082,7 @@ footer img[alt="Praktikertjänst"]{
     h4 { font-size: clamp(1.125rem, 3.5vw, 1.5rem) !important; }
     h5 { font-size: clamp(1rem, 3vw, 1.25rem) !important; }
     h6 { font-size: clamp(0.875rem, 2.5vw, 1.125rem) !important; }
-    
+
     p, li {
         font-size: clamp(0.875rem, 2.5vw, 1rem) !important;
         line-height: 1.6 !important;
@@ -3098,26 +3094,26 @@ footer img[alt="Praktikertjänst"]{
     .form-group {
         margin-bottom: 1.5rem !important;
     }
-    
+
     .form-label {
         font-size: 0.875rem !important;
         margin-bottom: 0.5rem !important;
     }
-    
+
     .form-control,
     .form-select {
         padding: 0.75rem 1rem !important;
         font-size: 16px !important; /* Prevents zoom on iOS */
         border-radius: var(--radius-sm) !important;
     }
-    
+
     .btn {
         padding: 0.75rem 1.5rem !important;
         font-size: 1rem !important;
         width: 100% !important;
         margin-bottom: 0.5rem !important;
     }
-    
+
     .btn-group {
         flex-direction: column !important;
         width: 100% !important;
@@ -3130,12 +3126,12 @@ footer img[alt="Praktikertjänst"]{
         min-height: 44px !important;
         min-width: 44px !important;
     }
-    
+
     .clickable-card {
         cursor: pointer !important;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
     }
-    
+
     .clickable-card:active {
         transform: scale(0.98) !important;
     }
@@ -3147,15 +3143,15 @@ footer img[alt="Praktikertjänst"]{
         border-radius: var(--radius-sm) !important;
         margin-bottom: 1rem !important;
     }
-    
+
     .card-body {
         padding: 1rem !important;
     }
-    
+
     .container-fluid {
         padding: 0 !important;
     }
-    
+
     .page__content,
     .page__sidebar {
         width: 100% !important;
@@ -3170,13 +3166,13 @@ footer img[alt="Praktikertjänst"]{
         max-width: 100% !important;
         height: auto !important;
     }
-    
+
     .hero-image,
     .banner-image {
         height: 200px !important;
         object-fit: cover !important;
     }
-    
+
     .gallery-grid {
         grid-template-columns: 1fr !important;
         gap: 1rem !important;
@@ -3188,11 +3184,11 @@ footer img[alt="Praktikertjänst"]{
     .desktop-nav {
         display: none !important;
     }
-    
+
     .mobile-nav-toggle {
         display: flex !important;
     }
-    
+
     .navbar-collapse {
         position: fixed !important;
         top: 0 !important;
@@ -3204,7 +3200,7 @@ footer img[alt="Praktikertjänst"]{
         padding: 5rem 1rem 2rem !important;
         overflow-y: auto !important;
     }
-    
+
     .navbar-collapse.show {
         right: 0 !important;
     }
@@ -3226,11 +3222,11 @@ footer img[alt="Praktikertjänst"]{
         top: 0.5rem !important;
         right: 0.5rem !important;
     }
-    
+
     .hero-section {
         min-height: 70vh !important;
     }
-    
+
     .mobile-menu {
         padding-top: 3rem !important;
     }
@@ -3243,13 +3239,13 @@ footer img[alt="Praktikertjänst"]{
         animation-duration: 0.3s !important;
         transition-duration: 0.3s !important;
     }
-    
+
     /* Optimize shadows for performance */
     .card,
     .btn {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
     }
-    
+
     /* Simplify gradients */
     .gradient-bg {
         background: var(--clr-primary) !important;
@@ -3262,7 +3258,7 @@ footer img[alt="Praktikertjänst"]{
     a, button {
         position: relative !important;
     }
-    
+
     a::after,
     button::after {
         content: '' !important;
@@ -3272,7 +3268,7 @@ footer img[alt="Praktikertjänst"]{
         bottom: -8px !important;
         left: -8px !important;
     }
-    
+
     /* Focus indicators */
     :focus {
         outline: 3px solid var(--clr-primary) !important;
@@ -3287,7 +3283,7 @@ footer img[alt="Praktikertjänst"]{
     .mobile-menu-overlay {
         display: none !important;
     }
-    
+
     .container {
         width: 100% !important;
         max-width: 100% !important;
@@ -3320,7 +3316,7 @@ footer img[alt="Praktikertjänst"]{
         margin-inline: auto;
         padding-inline: clamp(1rem, 4vw, 2rem);
     }
-    
+
     /* Two column layout starts */
     .row > .col-sm-6 {
         flex: 0 0 50% !important;
@@ -3336,24 +3332,24 @@ footer img[alt="Praktikertjänst"]{
         margin-inline: auto;
         padding-inline: clamp(1rem, 4vw, 2rem);
     }
-    
+
     /* Show navigation, hide mobile menu */
     .mobile-nav-toggle {
         display: none !important;
     }
-    
+
     /* Restore desktop navigation */
     nav.main-navigation {
         display: block !important;
         position: static !important;
     }
-    
+
     /* Three column layout available */
     .row > .col-md-4 {
         flex: 0 0 33.333333% !important;
         max-width: 33.333333% !important;
     }
-    
+
     .row > .col-md-8 {
         flex: 0 0 66.666667% !important;
         max-width: 66.666667% !important;
@@ -3368,13 +3364,13 @@ footer img[alt="Praktikertjänst"]{
         margin-inline: auto;
         padding-inline: clamp(1rem, 4vw, 2rem);
     }
-    
+
     /* Full desktop layout */
     .row > .col-lg-3 {
         flex: 0 0 25% !important;
         max-width: 25% !important;
     }
-    
+
     /* Remove mobile-specific styling */
     .mobile-only {
         display: none !important;
@@ -3386,7 +3382,7 @@ footer img[alt="Praktikertjänst"]{
     .container {
         max-width: 1140px !important;
     }
-    
+
     /* Optimal reading width for content */
     .content-wrapper {
         max-width: 800px !important;
@@ -3407,25 +3403,25 @@ footer img[alt="Praktikertjänst"]{
     .mobile-nav-toggle {
         display: block !important;
     }
-    
+
     /* Hide desktop navigation */
     nav.main-navigation,
     .desktop-navigation {
         display: none !important;
     }
-    
+
     /* Stack all columns */
     .row > [class*="col-"] {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         margin-bottom: var(--space-md) !important;
     }
-    
+
     /* Mobile-specific utilities */
     .text-center-mobile {
         text-align: center !important;
     }
-    
+
     .order-first-mobile {
         order: -1 !important;
     }
@@ -3439,11 +3435,11 @@ footer img[alt="Praktikertjänst"]{
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
     }
-    
+
     .price-table {
         min-width: 500px !important;
     }
-    
+
     /* Scroll indicator */
     .price-table-wrapper::after {
         content: 'Swipa →' !important;
@@ -3461,7 +3457,7 @@ footer img[alt="Praktikertjänst"]{
 /* Touch-Optimized Components */
 @media (hover: none) and (pointer: coarse) {
     /* Increase all interactive element sizes */
-    button, 
+    button,
     a.btn,
     input[type="submit"],
     input[type="button"],
@@ -3469,7 +3465,7 @@ footer img[alt="Praktikertjänst"]{
         min-height: 44px !important;
         padding: 0.75rem 1rem !important;
     }
-    
+
     /* Remove hover effects on touch devices */
     :hover {
         transition: none !important;
@@ -3482,7 +3478,7 @@ footer img[alt="Praktikertjänst"]{
     .container {
         padding-inline: var(--space-sm) !important;
     }
-    
+
     section {
         padding-block: var(--space-lg) !important;
     }
@@ -3494,7 +3490,7 @@ footer img[alt="Praktikertjänst"]{
     .container {
         padding-inline: clamp(1rem, 2vw, 2rem) !important;
     }
-    
+
     section {
         padding-block: clamp(2rem, 5vw, 4rem) !important;
     }
@@ -3570,25 +3566,25 @@ details[open] summary.vaccine-summary::after {
         padding: var(--space-lg) var(--space-md) !important;
         min-height: 60px !important;
     }
-    
+
     /* Stack vaccine info vertically */
     .vaccine-summary {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: var(--space-xs) !important;
     }
-    
+
     .vaccine-summary::after {
         position: absolute !important;
         right: var(--space-md) !important;
         top: 50% !important;
         transform: translateY(-50%) !important;
     }
-    
+
     details[open] .vaccine-summary::after {
         transform: translateY(-50%) rotate(180deg) !important;
     }
-    
+
     /* Visual hierarchy for vaccine badges */
     .vaccine-badge {
         background: var(--clr-primary) !important;
@@ -3598,7 +3594,7 @@ details[open] summary.vaccine-summary::after {
         font-size: var(--fluid-xs) !important;
         font-weight: 500 !important;
     }
-    
+
     /* Prioritized vaccine highlight */
     .vaccine-priority {
         border-color: var(--clr-primary) !important;
@@ -3628,7 +3624,7 @@ details[open] summary.vaccine-summary::after {
         margin-bottom: var(--space-sm) !important;
         background: var(--clr-bg) !important;
     }
-    
+
     summary.faq-summary {
         padding: var(--space-md) !important;
         cursor: pointer !important;
@@ -3636,7 +3632,7 @@ details[open] summary.vaccine-summary::after {
         font-size: var(--fluid-base) !important;
         min-height: 44px !important;
     }
-    
+
     .faq-content {
         padding: 0 var(--space-md) var(--space-md) !important;
     }
@@ -3650,4 +3646,134 @@ details[open] summary.vaccine-summary::after {
     }
 }
 
-/* End of CSS Injection - Total lines: 3550+ */
+/* --- General Layout & Font --- */
+#vaccine-bjarred-app.vb-app {
+  font-family: 'Inter', Arial, sans-serif;
+  background: var(--vb-bg, #f8fafc);
+  color: var(--vb-fg, #222);
+  padding: 0;
+  min-height: 100vh;
+  transition: background 0.2s, color 0.2s;
+}
+.vb-app.dark {
+  --vb-bg: #151718;
+  --vb-fg: #e2e8f0;
+}
+.vb-app {
+  --vb-bg: #f8fafc;
+  --vb-fg: #222;
+}
+
+/* --- Header --- */
+.vb-app header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  padding: 1.25rem 1rem 0.5rem 1rem;
+  border-bottom: 2px solid #1e293b12;
+}
+.vb-app h1 {
+  font-size: 2.1rem;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+/* --- Theme Toggle Button --- */
+.theme-toggle-btn {
+  border: none;
+  background: none;
+  padding: 0.5em;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #0001;
+  transition: background 0.2s;
+  outline: none;
+  margin-left: auto;
+  margin-right: 0;
+}
+.theme-toggle-btn:focus,
+.theme-toggle-btn:hover {
+  background: #94a3b820;
+}
+.theme-toggle-btn i.fas {
+  font-size: 1.6em;
+  transition: color 0.2s;
+  color: #222;
+}
+.vb-app.dark .theme-toggle-btn i.fas {
+  color: #fff;
+}
+
+/* --- Gallery Card --- */
+.bus-gallery-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--vb-card-bg, #fff);
+  box-shadow: 0 4px 24px #0f172a13;
+  border-radius: 1.1em;
+  padding: 1.1em;
+  margin: 1.25rem auto;
+  max-width: 450px;
+  width: 100%;
+  gap: 0.6em;
+  transition: background 0.2s, color 0.2s;
+}
+.vb-app.dark .bus-gallery-col {
+  --vb-card-bg: #23272c;
+  color: #e2e8f0;
+}
+
+/* --- Image Styles --- */
+.img-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.bus-img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 1em;
+  box-shadow: 0 2px 24px #2563eb15, 0 1.5px 12px #06b6d43a;
+  transition: box-shadow 0.2s;
+}
+.img-blue-glow {
+  box-shadow: 0 0 24px #2563eb42, 0 2px 12px #2563eb1a;
+}
+.vb-app.dark .bus-img,
+.vb-app.dark .img-blue-glow {
+  box-shadow: 0 0 24px #38bdf8, 0 2px 18px #0369a1bb;
+}
+
+/* --- Text Styles --- */
+.bus-title {
+  font-size: 1.15em;
+  font-weight: 700;
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
+  text-align: center;
+  color: var(--vb-fg, #222);
+}
+
+/* --- Article/Intro --- */
+.intro-content, .why-choose-section > p {
+  margin: 0.9em auto 1em auto;
+  max-width: 650px;
+  font-size: 1.07em;
+  line-height: 1.6;
+}
+.call-to-action {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* --- Responsive --- */
+@media (max-width: 700px) {
+  .bus-gallery-col { max-width: 99vw; padding: 0.7em; }
+  .img-wrapper { padding: 0; }
+  .bus-img { max-width: 94vw; }
+  .vb-app header { flex-direction: column; align-items: flex-start; gap: 0.5em; }
+}
