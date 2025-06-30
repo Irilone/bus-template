@@ -4,31 +4,217 @@
 ========================================================================== */
 
 #vaccine-bjarred-app {
-    /* Custom Properties - Scoped */
-    --vb-primary: #012363;
-    --vb-secondary: #40E0D0;
-    --vb-text: #333333;
-    --vb-bg: #ffffff;
-    --vb-border: #e0e0e0;
-    
-    /* Typography - Scoped - Optimized Bootstrap 5.3 Pattern */
-    --vb-fs-h1: clamp(2rem, 4vw + 1rem, 3rem);
-    --vb-fs-h2: clamp(1.75rem, 3vw + 1rem, 2.25rem);
-    --vb-fs-h3: clamp(1.3rem, 2vw + 1rem, 1.75rem);
-    --vb-fs-body: clamp(0.875rem, 1vw + 0.8rem, 1rem);
-    --vb-fs-small: clamp(0.75rem, 0.5vw + 0.7rem, 0.875rem);
-    
-    /* Spacing - Scoped - Optimized Bootstrap 5.3 Pattern */
-    --vb-space-xs: clamp(0.25rem, 0.5vw + 0.2rem, 0.375rem);
-    --vb-space-sm: clamp(0.5rem, 1vw + 0.4rem, 0.75rem);
-    --vb-space-md: clamp(1rem, 2vw + 0.8rem, 1.5rem);
-    --vb-space-lg: clamp(2rem, 4vw + 1.5rem, 3rem);
-    --vb-space-xl: clamp(3rem, 6vw + 2rem, 5rem);
-    
-    /* Radius - Scoped */
-    --vb-radius-sm: 4px;
-    --vb-radius-md: 8px;
-    --vb-radius-lg: 16px;
+    /* == Core Palette == */
+    --vb-white: #ffffff;
+    --vb-black: #000000;
+    --vb-primary-main: #012363; /* Core brand blue */
+    --vb-primary-dark: #0B496E; /* Darker shade of primary */
+    --vb-primary-light: #eef5ff; /* Light shade, often for backgrounds */
+    --vb-secondary-main: #40E0D0; /* Turquoise accent */
+    --vb-accent-blue: #4AA6C9;   /* Lighter blue accent */
+    --vb-accent-blue-dark: #1f7ea4; /* Darker accent blue */
+
+    /* == Semantic Colors - Light Mode == */
+    /* Text */
+    --vb-text-primary: var(--vb-primary-main); /* Default text color, was --clr-body, --vb-text */
+    --vb-text-secondary: #003366; /* For headings, was --clr-heading, --blue-dark */
+    --vb-text-inverse: var(--vb-white); /* Text on dark/colored backgrounds */
+    --vb-text-accent: var(--vb-accent-blue); /* Accent text color */
+    --vb-text-disabled: #6c757d; /* General disabled text color */
+
+    /* Background */
+    --vb-bg-primary: var(--vb-white); /* Main background, was --clr-bg, --vb-bg */
+    --vb-bg-secondary: var(--vb-primary-light); /* Alternate backgrounds, e.g., table rows, was --clr-bg-alt */
+    --vb-bg-accent: var(--vb-accent-blue); /* Backgrounds for accented sections */
+    --vb-bg-card: #E0F3FA; /* Card backgrounds, was --clr-bg-card */
+    --vb-bg-footer: #eff9ff; /* Footer background, was --bg-footer */
+    --vb-bg-service: #46b5ff; /* Service background, was --bg-service */
+
+    /* Borders */
+    --vb-border-primary: #e0e0e0; /* Default border, was --vb-border, --clr-border */
+    --vb-border-secondary: #ced4da; /* Secondary border color */
+    --vb-border-accent: var(--vb-accent-blue);
+
+    /* Focus */
+    --vb-focus-ring-color: var(--vb-accent-blue); /* For focus indicators */
+
+    /* == Gradients == */
+    --vb-gradient-table-header-location: linear-gradient(145deg, #5a8fc7 0%, #4a7bb0 60%, #406ba0 100%); /* From .location-schedule th */
+    --vb-gradient-table-header-price: linear-gradient(150deg, #5a9fe0 0%, #518ece 50%, #477eba 100%); /* From --grad-price-table */
+    --vb-gradient-faq-item: linear-gradient(145deg, #5a8fc7 0%, #4a7bb0 60%, #406ba0 100%); /* From .faq-item */
+    --vb-gradient-faq-item-hover: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.06) 60%, rgba(255, 255, 255, 0.04) 100%); /* From .faq-item summary:hover */
+
+    /* == Typography == */
+    /* Font Families */
+    --vb-font-family-primary: 'Filson Pro', sans-serif;
+    --vb-font-family-monospace: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+
+    /* Font Sizes (using established clamp patterns) */
+    --vb-fs-xs: clamp(0.75rem, 0.5vw + 0.7rem, 0.875rem); /* ~12-14px, was --fluid-xs, --vb-fs-small */
+    --vb-fs-sm: clamp(0.875rem, 1vw + 0.8rem, 1rem);    /* ~14-16px, was --fluid-sm, --vb-fs-body (for smaller body text like table cells) */
+    --vb-fs-md: clamp(1rem, 1.5vw + 0.9rem, 1.125rem);  /* ~16-18px, was --fluid-base, (primary body text size) */
+    --vb-fs-lg: clamp(1.125rem, 2vw + 1rem, 1.25rem);   /* ~18-20px, was --fluid-md */
+    --vb-fs-xl: clamp(1.3rem, 2vw + 1rem, 1.75rem);     /* ~20-28px, was --vb-fs-h3, --fluid-lg */
+    --vb-fs-2xl: clamp(1.75rem, 3vw + 1rem, 2.25rem);   /* ~28-36px, was --vb-fs-h2, --fluid-xl */
+    --vb-fs-3xl: clamp(2rem, 4vw + 1rem, 3rem);         /* ~32-48px, was --vb-fs-h1, --fluid-2xl */
+
+    /* Specific Semantic Font Sizes */
+    --vb-fs-body: var(--vb-fs-md); /* Default body text */
+    --vb-fs-body-small: var(--vb-fs-sm); /* Smaller body text, e.g. table content */
+    --vb-fs-caption: var(--vb-fs-xs); /* Captions, very small text */
+    --vb-fs-h1: var(--vb-fs-3xl);
+    --vb-fs-h2: var(--vb-fs-2xl);
+    --vb-fs-h3: var(--vb-fs-xl);
+    --vb-fs-h4: var(--vb-fs-lg);
+    --vb-fs-h5: var(--vb-fs-md); /* Or a new smaller step if needed */
+    --vb-fs-h6: var(--vb-fs-sm); /* Or a new smaller step if needed */
+    --vb-fs-table-header: var(--vb-fs-sm); /* Based on exemplar and legacy */
+    --vb-fs-table-body: var(--vb-fs-sm);   /* Based on exemplar and legacy */
+    --vb-fs-button: var(--vb-fs-md);
+
+    /* Font Weights */
+    --vb-fw-light: 300;
+    --vb-fw-normal: 400; /* was --fw-normal */
+    --vb-fw-medium: 500; /* was --fw-regular (500) and --fw-medium (600), choosing 500 as a mid-point or we can have both */
+    --vb-fw-semibold: 600; /* New addition if needed, or map to medium */
+    --vb-fw-bold: 700;   /* was --fw-bold */
+    --vb-fw-black: 900;  /* was --fw-black */
+
+    /* Line Heights */
+    --vb-lh-condensed: 1.2; /* For headings, was --lh-heading */
+    --vb-lh-normal: 1.5;    /* For base/body text, was --lh-base */
+    --vb-lh-relaxed: 1.7;   /* For longer paragraphs if needed, similar to --lh-body 1.6 */
+
+    /* == Spacing (using established clamp patterns) == */
+    --vb-space-xxs: clamp(0.125rem, 0.25vw + 0.1rem, 0.25rem); /* ~2-4px, new smaller step */
+    --vb-space-xs: clamp(0.25rem, 0.5vw + 0.2rem, 0.5rem);    /* ~4-8px, adjusted --vb-space-xs upper bound */
+    --vb-space-sm: clamp(0.5rem, 1vw + 0.4rem, 0.75rem);     /* ~8-12px, was --vb-space-sm */
+    --vb-space-md: clamp(1rem, 1.5vw + 0.8rem, 1.5rem);    /* ~16-24px, adjusted --vb-space-md, was 2vw */
+    --vb-space-lg: clamp(1.5rem, 2vw + 1rem, 2rem);        /* ~24-32px, adjusted --vb-space-lg */
+    --vb-space-xl: clamp(2rem, 3vw + 1.5rem, 3rem);        /* ~32-48px, adjusted --vb-space-xl */
+    --vb-space-2xl: clamp(3rem, 4vw + 2rem, 4rem);         /* ~48-64px, new step */
+    --vb-space-3xl: clamp(4rem, 5vw + 3rem, 5rem);         /* ~64-80px, new step, adjusted --vb-space-xl upper bound */
+
+    /* == Borders & Radii == */
+    --vb-border-width-thin: 1px;
+    --vb-border-width-medium: 2px;
+    --vb-border-style-solid: solid;
+
+    --vb-radius-sm: 4px;    /* was --vb-radius-sm */
+    --vb-radius-md: 8px;    /* was --vb-radius-md */
+    --vb-radius-lg: 16px;   /* was --vb-radius-lg */
+    --vb-radius-pill: 9999px; /* for fully rounded items */
+    --vb-radius-circle: 50%;
+
+    /* == Shadows == */
+    --vb-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --vb-shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.1);  /* was --shadow-sm */
+    --vb-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12); /* was --shadow-md, adjusted alpha */
+    --vb-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.15); /* was --shadow-lg, adjusted alpha */
+
+    /* == Transitions & Animations == */
+    --vb-duration-instant: 0ms;
+    --vb-duration-fast: 150ms;
+    --vb-duration-normal: 250ms;
+    --vb-duration-slow: 400ms;
+    --vb-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --vb-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --vb-ease-in: cubic-bezier(0.4, 0, 1, 1);
+
+    /* == Z-Indexes (use sparingly) == */
+    --vb-z-dropdown: 1000;
+    --vb-z-sticky: 1020;
+    --vb-z-modal-backdrop: 1040;
+    --vb-z-modal: 1050;
+    --vb-z-popover: 1060;
+    --vb-z-tooltip: 1070;
+    --vb-z-lightbox: 9999; /* From existing .img-lightbox */
+
+    /* == Component Specific (Examples, expand as needed) == */
+    /* Table */
+    --vb-table-padding-cell: var(--vb-space-sm) var(--vb-space-md); /* Default cell padding */
+    --vb-table-bg-header: var(--vb-gradient-table-header-location);
+    --vb-table-text-header: var(--vb-text-inverse);
+    --vb-table-bg-row-odd: var(--vb-bg-secondary);
+    --vb-table-bg-row-even: var(--vb-bg-primary);
+    --vb-table-border-color: var(--vb-border-primary);
+
+    /* Button */
+    --vb-button-padding-y: var(--vb-space-sm);
+    --vb-button-padding-x: var(--vb-space-md);
+    --vb-button-bg-primary: var(--vb-primary-main);
+    --vb-button-text-primary: var(--vb-text-inverse);
+    --vb-button-radius: var(--vb-radius-md);
+}
+
+/* == Dark Mode Semantic Colors == */
+@media (prefers-color-scheme: dark) {
+    #vaccine-bjarred-app {
+        /* Text */
+        --vb-text-primary: #CDDBE6; /* was legacy --clr-body */
+        --vb-text-secondary: #E0F3FA; /* was legacy --clr-heading */
+        /* --vb-text-inverse: var(--vb-black); */ /* Consider if black text on light primary dark needed */
+        --vb-text-accent: #6BC4E7; /* was legacy --clr-accent */
+
+        /* Background */
+        --vb-bg-primary: #0B1929; /* was legacy --clr-bg */
+        --vb-bg-secondary: #142438; /* was legacy --clr-bg-alt */
+        --vb-bg-accent: #5BB5D8; /* was legacy --clr-brand-500 */
+        --vb-bg-card: #1A2F47; /* was legacy --clr-bg-card */
+        --vb-bg-footer: #142438; /* Darker footer */
+
+        /* Borders */
+        --vb-border-primary: #2A3F5C; /* was legacy --clr-border */
+        --vb-border-secondary: #3e5675;
+        --vb-border-accent: #6BC4E7;
+
+        /* Focus */
+        --vb-focus-ring-color: #6BC4E7;
+
+        /* Shadows (adjust if needed for dark backgrounds) */
+        --vb-shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.25);
+        --vb-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+        --vb-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.35);
+
+        /* Component Specific Dark Mode */
+        --vb-table-bg-header: var(--vb-primary-dark); /* Example adjustment */
+        --vb-table-bg-row-odd: var(--vb-bg-secondary);
+        --vb-table-bg-row-even: var(--vb-bg-primary);
+        --vb-table-border-color: var(--vb-border-primary);
+    }
+}
+
+#vaccine-bjarred-app[data-theme="dark"] {
+    /* Text */
+    --vb-text-primary: #CDDBE6;
+    --vb-text-secondary: #E0F3FA;
+    --vb-text-accent: #6BC4E7;
+
+    /* Background */
+    --vb-bg-primary: #0B1929;
+    --vb-bg-secondary: #142438;
+    --vb-bg-accent: #5BB5D8;
+    --vb-bg-card: #1A2F47;
+    --vb-bg-footer: #142438;
+
+    /* Borders */
+    --vb-border-primary: #2A3F5C;
+    --vb-border-secondary: #3e5675;
+    --vb-border-accent: #6BC4E7;
+
+    /* Focus */
+    --vb-focus-ring-color: #6BC4E7;
+
+    /* Shadows */
+    --vb-shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.25);
+    --vb-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --vb-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.35);
+
+    /* Component Specific Dark Mode */
+    --vb-table-bg-header: var(--vb-primary-dark);
+    --vb-table-bg-row-odd: var(--vb-bg-secondary);
+    --vb-table-bg-row-even: var(--vb-bg-primary);
+    --vb-table-border-color: var(--vb-border-primary);
 }
 
 /* Legacy styles - TO BE REFACTORED */
