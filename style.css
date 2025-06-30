@@ -7747,7 +7747,6 @@ section.faq.sidebar-content details.faq-item {
     opacity: 1;
     pointer-events: auto;
 }
-
 .img-lightbox::before {
     content: '';
     position: absolute;
@@ -8396,7 +8395,6 @@ footer.footer a[href^="tel:"], footer.footer a[href^="mailto:"] {
     text-decoration: underline;
     font-size: inherit;
 }
-
 nav.footer__link-nav {
     background-color: #1f7ea4;
     padding: 15px 15px;
