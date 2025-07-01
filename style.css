@@ -325,7 +325,11 @@
     --vb-table-border-color: var(--vb-border-primary);
 }
 
-/* Legacy styles - TO BE REFACTORED */
+/* ==========================================================================
+   ÄLDRE STILAR - SKA REFAKTORERAS
+
+   Dessa stilar är kvar från tidigare versioner och behöver ses över
+========================================================================== */
 .address-label {
   font-weight: 500;
 }
