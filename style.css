@@ -2824,13 +2824,16 @@ footer img[alt="Praktikertjänst"]{
 }
 
 /* ==========================================================================
-   FAQ Grid Layout - Exakt 2 rader med balanserad bredd
+   FAQ GRID-LAYOUT
+
+   Strukturerar FAQ-frågor i exakt 2 rader för konsekvent utseende
 ========================================================================== */
+
 .faq-item summary {
     /* Grid layout för exakt 2 rader */
     display: grid !important;
-    grid-template-columns: 1fr auto !important;
-    grid-template-rows: 1fr 1fr !important;
+    grid-template-columns: 1fr auto !important;    /* Text + chevron */
+    grid-template-rows: 1fr 1fr !important;        /* 2 textrader */
     align-items: start !important;
     gap: 0 var(--space-sm) !important;
 }
@@ -2860,10 +2863,18 @@ footer img[alt="Praktikertjänst"]{
 }
 
 /* ==========================================================================
-   Vaccine Information Progressive Disclosure Styles
-   ========================================================================== */
+   VACCININFORMATION - PROGRESSIV VISNING
 
-/* Vaccine Categories */
+   INNEHÅLL:
+   - Vaccinkategorier
+   - Expanderbara vaccinkort
+   - Prioritetsmarkeringar
+   - Responsiv layout
+
+   Använder details/summary för tillgänglig interaktion
+========================================================================== */
+
+/* ===== VACCINKATEGORIER ===== */
 .vaccine-category {
     margin-bottom: var(--CLAMP-12) !important;
     border-radius: var(--radius-md) !important;
