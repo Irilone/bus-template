@@ -876,13 +876,25 @@ h1#page-content.page__content-title {
      color: var(--blue-dark) !important;
 }
 /* ==========================================================================
-   2. TYPOGRAPHY SYSTEM v2.0 (HIGH SPECIFICITY OVERRIDE)
-   Typografi med hög specificitet för att överskriva standardstilar
+   2. TYPOGRAFISYSTEM v2.0 (HÖG SPECIFICITET)
+
+   INNEHÅLL:
+   - Rubriker (H1-H6)
+   - Brödtext och stycken
+   - Listor
+   - Tabelltext
+   - Specialtypografi
+
+   Använder hög specificitet (html body) för att säkerställa att våra stilar
+   alltid får företräde över andra CSS-regler
 ========================================================================== */
+
+/* ===== RUBRIKER =====
+   Konsekvent utseende för alla rubriknivåer */
  html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
      font-family: var(--ff-primary) !important;
      color: var(--clr-heading) !important;
-     line-height: var(--lh-heading) !important;
+     line-height: var(--lh-heading) !important;    /* Tätt radavstånd för rubriker */
      margin: var(--space-md) 0 var(--space-sm) !important;
 }
  html body p {
@@ -961,14 +973,24 @@ h1#page-content.page__content-title {
      font-weight: var(--fw-normal) !important;
 }
 /* ==========================================================================
-   3. LAYOUT & CORE COMPONENTS
+   3. LAYOUT & KÄRNKOMPONENTER
+
+   INNEHÅLL:
+   - Bussgalleri (bildvisning)
+   - Pristabeller och prisboxar
+   - Vaccinationsinformation
+   - FAQ-sektion
+   - Bildvisare (Lightbox)
+
    Huvudkomponenter för layout och innehållsstruktur
 ========================================================================== */
-/* Bus Gallery */
+
+/* ===== BUSSGALLERI =====
+   Layout för bildvisning av vaccinationsbussar */
  .bus-gallery-row {
      display: flex !important;
-     flex-wrap: wrap !important;
-     gap: var(--space-md) !important;
+     flex-wrap: wrap !important;          /* Tillåter radbrytning på små skärmar */
+     gap: var(--space-md) !important;     /* Mellanrum mellan bilder */
      margin-block: var(--space-md) !important;
 }
  .bus-gallery-col {
