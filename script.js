@@ -192,13 +192,14 @@ document.addEventListener('DOMContentLoaded', () => {
         bottom: 0;
         left: 0;
         right: 0;
-        background: var(--clr-gdpr-light-bg,#c5e17a);
-        color: var(--clr-gdpr-light-text,#012363);
+        background: var(--vb-bg-card, #E0F3FA);
+        color: var(--vb-text-primary, #012363);
         padding: 1em;
         z-index: 10000;
         box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
         transform: translateY(100%);
         transition: transform 0.3s ease;
+        border-top: 1px solid var(--vb-border-primary, #e0e0e0);
       `;
 
       banner.innerHTML = `
@@ -208,10 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
             Inga personuppgifter lagras utan ditt samtycke enligt GDPR.
           </p>
           <div style="display: flex; gap: 0.5em;">
-            <button id="gdpr-accept" style="background: var(--clr-gdpr-light-btn-bg,#012363); color: var(--clr-gdpr-light-btn-text,#ffffff); border: none; padding: 0.4em 1.2em; border-radius: 0.4em; font-weight: 600; cursor: pointer;">
+            <button id="gdpr-accept" style="background: var(--vb-primary-main, #012363); color: var(--vb-text-inverse, #fff); border: none; padding: 0.4em 1.2em; border-radius: 0.4em; font-weight: 600; cursor: pointer;">
               Jag förstår
             </button>
-            <button id="gdpr-info" style="background: transparent; color: var(--clr-gdpr-light-text,#012363); border: 1px solid var(--clr-gdpr-light-text,#012363); padding: 0.4em 1.2em; border-radius: 0.4em; cursor: pointer;">
+            <button id="gdpr-info" style="background: transparent; color: var(--vb-text-primary, #012363); border: 1px solid var(--vb-border-primary, #e0e0e0); padding: 0.4em 1.2em; border-radius: 0.4em; cursor: pointer;">
               Mer info
             </button>
           </div>
