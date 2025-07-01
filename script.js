@@ -231,6 +231,20 @@ document.addEventListener('DOMContentLoaded', () => {
       banner.className = 'gdpr-banner';
       banner.setAttribute('role', 'banner');
       banner.setAttribute('aria-label', 'Cookie- och dataskyddsmeddelande');
+      banner.style.cssText = `
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--clr-gdpr-light-bg,#FFB74D);
+        color: var(--clr-on-primary,#fff);
+        padding: 1em;
+        z-index: 10000;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      `;
+
       banner.classList.add('gdpr-banner');
       banner.innerHTML = `
         <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1em; flex-wrap: wrap;">

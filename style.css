@@ -232,8 +232,8 @@
 	margin-bottom: 0;
 
 
-#vaccine-bjarred-app article#Priser, 
-#vaccine-bjarred-app article#Schema, 
+#vaccine-bjarred-app article#Priser,
+#vaccine-bjarred-app article#Schema,
 #vaccine-bjarred-app article#FAQ {
 	margin-block: 0;
 
@@ -271,7 +271,7 @@
 #vaccine-bjarred-app table.location-schedule.caption-top {
 	caption-side: top;
 }
-#vaccine-bjarred-app .row.row2, 
+#vaccine-bjarred-app .row.row2,
 #vaccine-bjarred-app .row.row1 {
 	margin-top: 0;
 }
@@ -294,8 +294,8 @@
    0. Normalizr, Resets, and Root Variables
    Basgrunder för hela webbplatsen - resettar standardstilar och definierar variabler<=================================================================== */
 /* Box Sizing & Font Smoothing Reset */
-#vaccine-bjarred-app *, 
-#vaccine-bjarred-app *::before, 
+#vaccine-bjarred-app *,
+#vaccine-bjarred-app *::before,
 #vaccine-bjarred-app *::after {
      box-sizing: border-box;
      -webkit-box-sizing: border-box;
@@ -649,7 +649,7 @@
      --clr-white: #0B1929;
      --clr-black: #E0F3FA;
 }
-}
+
 /* ==========================================================================
    1. Base Element Styling
    Grundstilar för HTML-element utan klasser
@@ -662,13 +662,13 @@
      padding-inline-start: 0;
      padding-inline-end: 0;
 }
-#vaccine-bjarred-app b, 
+#vaccine-bjarred-app b,
 #vaccine-bjarred-app strong {
      font-weight: var(--vb-fw-bold);
 }
-#vaccine-bjarred-app code, 
-#vaccine-bjarred-app kbd, 
-#vaccine-bjarred-app pre, 
+#vaccine-bjarred-app code,
+#vaccine-bjarred-app kbd,
+#vaccine-bjarred-app pre,
 #vaccine-bjarred-app samp {
      font-family: var(--vb-font-family-monospace);
      font-size: 1em;
@@ -676,7 +676,7 @@
 #vaccine-bjarred-app small {
      font-size: 0.875em;
 }
-#vaccine-bjarred-app sub, 
+#vaccine-bjarred-app sub,
 #vaccine-bjarred-app sup {
      font-size: 0.75em;
      line-height: 0;
@@ -692,19 +692,19 @@
 #vaccine-bjarred-app table {
      border-color: currentColor;
 }
-#vaccine-bjarred-app button, 
-#vaccine-bjarred-app input, 
-#vaccine-bjarred-app optgroup, 
-#vaccine-bjarred-app select, 
+#vaccine-bjarred-app button,
+#vaccine-bjarred-app input,
+#vaccine-bjarred-app optgroup,
+#vaccine-bjarred-app select,
 #vaccine-bjarred-app textarea {
      font-family: inherit;
      font-size: 1em;
      line-height: var(--vb-lh-normal);
      margin: 0;
 }
-#vaccine-bjarred-app button, 
-#vaccine-bjarred-app [type="button"], 
-#vaccine-bjarred-app [type="reset"], 
+#vaccine-bjarred-app button,
+#vaccine-bjarred-app [type="button"],
+#vaccine-bjarred-app [type="reset"],
 #vaccine-bjarred-app [type="submit"] {
      -webkit-appearance: button;
 }
@@ -714,7 +714,7 @@
 #vaccine-bjarred-app progress {
      vertical-align: baseline;
 }
-#vaccine-bjarred-app ::-webkit-inner-spin-button, 
+#vaccine-bjarred-app ::-webkit-inner-spin-button,
 #vaccine-bjarred-app ::-webkit-outer-spin-button {
      height: auto;
 }
@@ -732,8 +732,8 @@
 #vaccine-bjarred-app summary {
      display: list-item;
 }
-#vaccine-bjarred-app img, 
-#vaccine-bjarred-app svg, 
+#vaccine-bjarred-app img,
+#vaccine-bjarred-app svg,
 #vaccine-bjarred-app video {
      display: block;
      max-width: 100%;
@@ -750,11 +750,11 @@
 #vaccine-bjarred-app a:hover {
      color: var(--vb-accent-blue-dark);
 }
-#vaccine-bjarred-app h1, 
-#vaccine-bjarred-app h2, 
-#vaccine-bjarred-app h3, 
-#vaccine-bjarred-app h4, 
-#vaccine-bjarred-app h5, 
+#vaccine-bjarred-app h1,
+#vaccine-bjarred-app h2,
+#vaccine-bjarred-app h3,
+#vaccine-bjarred-app h4,
+#vaccine-bjarred-app h5,
 #vaccine-bjarred-app h6 {
      color: var(--vb-text-secondary);
 }
@@ -762,11 +762,11 @@
    2. TYPOGRAPHY SYSTEM v2.0 (SCOPED STYLES)
    Typografi med scope för att förhindra konflikter
 ========================================================================== */
-#vaccine-bjarred-app h1, 
-#vaccine-bjarred-app h2, 
-#vaccine-bjarred-app h3, 
-#vaccine-bjarred-app h4, 
-#vaccine-bjarred-app h5, 
+#vaccine-bjarred-app h1,
+#vaccine-bjarred-app h2,
+#vaccine-bjarred-app h3,
+#vaccine-bjarred-app h4,
+#vaccine-bjarred-app h5,
 #vaccine-bjarred-app h6 {
      font-family: var(--vb-font-family-primary);
      color: var(--vb-text-secondary);
@@ -782,12 +782,12 @@
      margin: 0 0 var(--vb-space-md) 0;
      max-width: 100%;
 }
-#vaccine-bjarred-app h1, 
+#vaccine-bjarred-app h1,
 #vaccine-bjarred-app .page__content-title {
      font-size: var(--vb-fs-h1);
      font-weight: var(--vb-fw-black);
 }
-#vaccine-bjarred-app h2, 
+#vaccine-bjarred-app h2,
 #vaccine-bjarred-app .subtitle {
      font-size: var(--vb-fs-h2);
      font-weight: var(--vb-fw-bold);
@@ -805,7 +805,7 @@
      background-color: var(--vb-primary-main);
      opacity: 0.3;
 }
-#vaccine-bjarred-app h3, 
+#vaccine-bjarred-app h3,
 #vaccine-bjarred-app .faq-title {
      font-size: var(--vb-fs-h3);
      font-weight: var(--vb-fw-semibold);
@@ -837,7 +837,7 @@
      overflow: hidden;
      text-overflow: ellipsis;
 }
-#vaccine-bjarred-app h4, 
+#vaccine-bjarred-app h4,
 #vaccine-bjarred-app .vaccine-heading {
      font-size: var(--vb-fs-h4);
      font-weight: var(--vb-fw-medium);
@@ -850,12 +850,12 @@
      font-size: var(--vb-fs-h6);
      font-weight: var(--vb-fw-semibold);
 }
-#vaccine-bjarred-app ul, 
+#vaccine-bjarred-app ul,
 #vaccine-bjarred-app ol {
      padding-left: 1.5em;
      margin-bottom: var(--vb-space-md);
 }
-#vaccine-bjarred-app th, 
+#vaccine-bjarred-app th,
 #vaccine-bjarred-app .list-heading {
      font-size: var(--vb-fs-table-header);
      font-weight: var(--vb-fw-semibold);
@@ -989,21 +989,21 @@
      transform: translateY(-1px);
      box-shadow: var(--vb-shadow-xs);
 }
-#vaccine-bjarred-app:has(#v-ord:checked) label[for="v-ord"], 
-#vaccine-bjarred-app:has(#v-pen:checked) label[for="v-pen"], 
+#vaccine-bjarred-app:has(#v-ord:checked) label[for="v-ord"],
+#vaccine-bjarred-app:has(#v-pen:checked) label[for="v-pen"],
 #vaccine-bjarred-app:has(#v-stu:checked) label[for="v-stu"] {
      background: var(--vb-primary-main);
      color: var(--vb-text-inverse);
      border-color: var(--vb-primary-main);
      box-shadow: var(--vb-shadow-sm);
 }
-#vaccine-bjarred-app .price-table th:nth-child(3), 
-#vaccine-bjarred-app .price-table td:nth-child(3), 
-#vaccine-bjarred-app .price-table th:nth-child(4), 
+#vaccine-bjarred-app .price-table th:nth-child(3),
+#vaccine-bjarred-app .price-table td:nth-child(3),
+#vaccine-bjarred-app .price-table th:nth-child(4),
 #vaccine-bjarred-app .price-table td:nth-child(4) {
      display: none;
 }
-/* ========================================================================== 
+/* ==========================================================================
    8. PRICE TABLE + LOCATION SCHEDULE (SCOPED STYLES)
    ========================================================================== */
 /* Responsive table layout with improved spacing */
@@ -1166,15 +1166,15 @@
 }
 
 /* Price table column visibility based on toggle */
-#vaccine-bjarred-app:has(#v-pen:checked) .price-table th:nth-child(3), 
+#vaccine-bjarred-app:has(#v-pen:checked) .price-table th:nth-child(3),
 #vaccine-bjarred-app:has(#v-pen:checked) .price-table td:nth-child(3) {
      display: table-cell;
 }
-#vaccine-bjarred-app:has(#v-stu:checked) .price-table th:nth-child(4), 
+#vaccine-bjarred-app:has(#v-stu:checked) .price-table th:nth-child(4),
 #vaccine-bjarred-app:has(#v-stu:checked) .price-table td:nth-child(4) {
      display: table-cell;
 }
-#vaccine-bjarred-app .price-table td:nth-child(3), 
+#vaccine-bjarred-app .price-table td:nth-child(3),
 #vaccine-bjarred-app .price-table td:nth-child(4) {
      color: var(--vb-accent-blue);
      font-weight: var(--vb-fw-medium);
@@ -1184,8 +1184,8 @@
    Komponenter för FAQ (vanliga frågor) och andra innehållsblock
 ========================================================================== */
 /* Section Titles & Info Blocks */
-#vaccine-bjarred-app .section-title, 
-#vaccine-bjarred-app .page__content-title, 
+#vaccine-bjarred-app .section-title,
+#vaccine-bjarred-app .page__content-title,
 #vaccine-bjarred-app .subtitle {
      font-size: var(--vb-fs-h2);
      font-weight: var(--vb-fw-bold);
@@ -1286,7 +1286,7 @@
      white-space: normal;
      -webkit-tap-highlight-color: transparent;
 }
-#vaccine-bjarred-app .faq-item summary::-webkit-details-marker, 
+#vaccine-bjarred-app .faq-item summary::-webkit-details-marker,
 #vaccine-bjarred-app .faq-item summary::marker {
      display: none;
 }
@@ -1779,8 +1779,8 @@
      object-position: left center;
      width: 50vw;
 }
-#vaccine-bjarred-app .navigation__logo>a, 
-#vaccine-bjarred-app .navigation__logo>img, 
+#vaccine-bjarred-app .navigation__logo>a,
+#vaccine-bjarred-app .navigation__logo>img,
 #vaccine-bjarred-app .navigation__logo>svg {
      margin-right: auto;
 }
@@ -2108,8 +2108,17 @@ nav.footer__link-nav ul#footer__links>li.col {
     }
 }
 /* ==========================================================================
-   11. MEDIA QUERIES
-   Responsiva brytpunkter för olika skärmstorlekar
+   11. MEDIA QUERIES (RESPONSIV DESIGN)
+
+   INNEHÅLL:
+   - Tillgänglighet (reduced motion)
+   - Utskriftsstilar
+   - Mobil (< 576px)
+   - Surfplatta (576px - 991px)
+   - Desktop (992px+)
+   - Landskapsläge
+
+   Responsiva brytpunkter för olika skärmstorlekar och enheter
 ========================================================================== */
 /* Reduced Motion */
  @media (prefers-reduced-motion: reduce) {
@@ -4228,7 +4237,7 @@ details[open] summary.vaccine-summary::after {
           text-align: center;
           gap: var(--vb-space-sm);
      }
-     
+
      #vaccine-bjarred-app .gdpr-banner .gdpr-buttons {
           width: 100%;
           justify-content: center;
