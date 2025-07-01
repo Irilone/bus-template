@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // SEKTION 1: RESPONSIV BILDOPTIMERING OCH PRESTANDA
   // ═══════════════════════════════════════════════════════════════
 
-  const responsiveBreakpoints = [576, 768, 992, 1200];
+  const responsiveBreakpoints = [576, 768, 992, 1200, 1536];
 
   document.querySelectorAll('img[data-fluid]').forEach(img => {
     const url = new URL(img.src, location.origin);
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       picture.appendChild(source);
     });
-    img.src = `${url.pathname}?width=1200&mode=max&format=auto&q=80`;
+    img.src = `${url.pathname}?width=1920&mode=max&format=auto&q=80`;
     img.classList.add('img-fluid');
     img.loading = 'lazy';
     picture.appendChild(img.cloneNode());
@@ -192,8 +192,8 @@ document.addEventListener('DOMContentLoaded', () => {
         bottom: 0;
         left: 0;
         right: 0;
-        background: var(--clr-gdpr-light-bg,#c5e17a);
-        color: var(--clr-gdpr-light-text,#012363);
+        background: var(--clr-gdpr-light-bg,#FFB74D);
+        color: var(--clr-on-primary,#fff);
         padding: 1em;
         z-index: 10000;
         box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
@@ -208,10 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
             Inga personuppgifter lagras utan ditt samtycke enligt GDPR.
           </p>
           <div style="display: flex; gap: 0.5em;">
-            <button id="gdpr-accept" style="background: var(--clr-gdpr-light-btn-bg,#012363); color: var(--clr-gdpr-light-btn-text,#ffffff); border: none; padding: 0.4em 1.2em; border-radius: 0.4em; font-weight: 600; cursor: pointer;">
+            <button id="gdpr-accept" style="background: var(--clr-on-primary,#fff); color: var(--clr-primary,#2563eb); border: none; padding: 0.4em 1.2em; border-radius: 0.4em; font-weight: 600; cursor: pointer;">
               Jag förstår
             </button>
-            <button id="gdpr-info" style="background: transparent; color: var(--clr-gdpr-light-text,#012363); border: 1px solid var(--clr-gdpr-light-text,#012363); padding: 0.4em 1.2em; border-radius: 0.4em; cursor: pointer;">
+            <button id="gdpr-info" style="background: transparent; color: var(--clr-on-primary,#fff); border: 1px solid var(--clr-on-primary,#fff); padding: 0.4em 1.2em; border-radius: 0.4em; cursor: pointer;">
               Mer info
             </button>
           </div>
@@ -316,4 +316,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSecurityFramework();
   initGDPRCompliance();
+
+  /* =============================================================
+     SECTION 1b: Schedule table responsive date abbreviations
+     ===========================================================*/
+  function updateScheduleFormats() {
+    const bpSmall = 480;
+    const bpMedium = 768;
+    const bpLarge = 992;
+    document.querySelectorAll('.location-schedule tbody tr').forEach(row => {
+      const dateCell = row.cells[0];
+      const dayCell = row.cells[1];
+      if (!dateCell || !dayCell) return;
+      const fullDate = dateCell.dataset.full || dateCell.textContent.trim();
+      const fullDay = dayCell.dataset.full || dayCell.textContent.trim();
+
+      // Store originals once
+      if (!dateCell.dataset.full) {
+        dateCell.dataset.full = fullDate;
+        dayCell.dataset.full = fullDay;
+      }
+
+      let nowTextDate = fullDate;
+      let nowTextDay = fullDay;
+
+      const [day, mon, yr] = fullDate.split(' '); // e.g., 24 feb 2025
+      const monthMap = {
+        jan: 1, feb: 2, mar: 3, apr: 4, maj: 5, jun: 6,
+        jul: 7, aug: 8, sep: 9, okt: 10, nov: 11, dec: 12
+      };
+      const monthNum = monthMap[mon?.toLowerCase().slice(0,3)] || mon;
+
+      if (window.innerWidth < bpSmall) {
+        // Ultra small – show 24/2
+        nowTextDate = `${day}/${monthNum}`;
+        nowTextDay = fullDay.slice(0,3); // Mån → Mån, Tis → Tis etc.
+      } else if (window.innerWidth < bpMedium) {
+        // Small – show 24 feb 25
+        nowTextDate = `${day} ${mon} ${yr.slice(2)}`;
+        nowTextDay = fullDay.slice(0,3);
+      } else if (window.innerWidth < bpLarge) {
+        // Medium – show 24 feb 2025 (unchanged) but day abbreviated
+        nowTextDay = fullDay.slice(0,3);
+      }
+      dateCell.textContent = nowTextDate;
+      dayCell.textContent = nowTextDay;
+    });
+  }
+  updateScheduleFormats();
+  window.addEventListener('resize', updateScheduleFormats);
+
+  /* =============================================================
+     SECTION 8: Vaccine teaser generation
+     ===========================================================*/
+  function injectVaccineTeasers() {
+    document.querySelectorAll('.vaccine-item').forEach(item => {
+      const descEl = item.querySelector('.vaccine-desc');
+      const contentEl = item.querySelector('.vaccine-content');
+      if (!descEl || !contentEl) return;
+
+      // Only generate once
+      if (descEl.dataset.teaserGenerated) return;
+
+      const plainText = contentEl.textContent.trim().replace(/\s+/g, ' ');
+      const teaser = plainText.slice(0, 100);
+      descEl.textContent = teaser + (plainText.length > 100 ? '…' : '');
+      descEl.style.opacity = '0.65';
+      descEl.dataset.teaserGenerated = 'true';
+    });
+  }
+  injectVaccineTeasers();
 });

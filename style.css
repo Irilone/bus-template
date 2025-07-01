@@ -404,15 +404,15 @@ h1#page-content.page__content-title {
    Säkerställer att padding och border ingår i elementens totala bredd/höjd
    Förbättrar textrendering på olika enheter */
  *, *::before, *::after {
-     -moz-box-sizing: border-box;
-     -webkit-box-sizing: border-box;
      box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
      -webkit-font-smoothing: antialiased;
      -moz-osx-font-smoothing: grayscale;
-     -o-text-rendering: optimizeLegibility;
+     text-rendering: optimizeLegibility;
      -webkit-text-rendering: optimizeLegibility;
      -moz-text-rendering: optimizeLegibility;
-     text-rendering: optimizeLegibility;
+     -o-text-rendering: optimizeLegibility;
 }
 /* Fix: Removes the unwanted top margin from the accessibility navigation bar. */
  nav#accessibility-navigation {
@@ -452,10 +452,10 @@ h1#page-content.page__content-title {
   --clr-primary: #012363;
   --clr-bg: #fff;
   --clr-on-primary: #012363;
-  --clr-gdpr-light-bg: #c5e17a;
+  --clr-gdpr-light-bg: #F0F9CC;
   --clr-gdpr-light-text: #012363;
   --clr-gdpr-light-btn-bg: #012363;
-  --clr-gdpr-light-btn-text: #ffffff;
+  --clr-gdpr-light-btn-text: #fff;
     /* Bootstrap 5.3 Breakpoints */
      --bs-breakpoint-xs: 0;
      --bs-breakpoint-sm: 576px;      /* Mobiltelefoner liggande */
@@ -643,7 +643,7 @@ h1#page-content.page__content-title {
      --PXE-30: 1.6667em;
      --PXE-31: 1.7222em;
      --PXE-32: 1.7778em;
-     --PXE-33: 1.8333em;
+     --PXE-33: 1.8333rem;
      --PXE-34: 1.8889em;
      --PXE-35: 1.9444em;
      --PXE-36: 2em;
@@ -752,7 +752,7 @@ h1#page-content.page__content-title {
   --clr-primary: #0B1929;
   --clr-bg: #0B1929;
   --clr-on-primary: #E0F3FA;
-  --clr-gdpr-light-bg: #374a20;
+  --clr-gdpr-light-bg: #1A2F47;
   --clr-gdpr-light-text: #E0F3FA;
   --clr-gdpr-light-btn-bg: #E0F3FA;
   --clr-gdpr-light-btn-text: #0B1929;
@@ -768,7 +768,6 @@ h1#page-content.page__content-title {
      --clr-white: #0B1929;
      --clr-black: #E0F3FA;
 }
-
 /* ==========================================================================
    1. BASISELEMENTSTILLAR
 
@@ -1125,7 +1124,7 @@ html body .location-schedule.location-schedule {
 	background: var(--clr-white);
 }
 html body .price-table.price-table {
-	width: clamp(16rem, 17vw, 20rem)
+	width: clamp(18.64rem, 19vw, 22rem)
 }
 html body .faq-section.faq-section {
 	width: clamp(18.64rem, 19vw, 22rem)
@@ -1227,7 +1226,7 @@ html body .price-table.price-table thead th:nth-child(4) {
 }
  .vaccination-info {
      background: transparent;
-     border-radius: var(--PXR-18);
+     border-radius: var(--PXP-17);
      padding: 0;
      margin: 0;
      max-width: var(--PXP-17);
@@ -1307,7 +1306,6 @@ html body .price-table.price-table thead th:nth-child(4) {
      height: auto;
      word-break: break-word;
      hyphens: manual;
-     -webkit-hyphens: manual;
      white-space: normal;
 }
  .faq-item summary::-webkit-details-marker, .faq-item summary::marker {
@@ -1352,7 +1350,6 @@ html body .price-table.price-table thead th:nth-child(4) {
      color: var(--clr-heading);
      list-style: none;
      user-select: none;
-     -webkit-user-select: none;
 }
  .faq-question::-webkit-details-marker, .faq-question::marker {
      display: none;
@@ -1463,21 +1460,18 @@ html body .price-table.price-table thead th:nth-child(4) {
      top: 50%;
      left: 50%;
      transform: translate(-50%, -50%);
-     max-width: 90%;
-     max-height: 90%;
+     max-width: 92vw;
+     max-height: 85vh;
      border-radius: var(--radius-md);
      box-shadow: 0 0 var(--space-xl) rgba(0, 0, 0, 0.5);
      display: block;
      margin: 0 auto;
-     max-width: 90vw;
-     max-height: 90vh;
      width: auto;
      height: auto;
      object-fit: contain;
      position: static;
      float: none;
      cursor: default;
-     -webkit-user-select: none; /* Added for Safari support */
      user-select: none;
      pointer-events: none;
      box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
@@ -1814,7 +1808,7 @@ html body .price-table.price-table thead th:nth-child(4) {
      display: flex;
      justify-content: center;
      padding: var(--space-lg) var(--space-md);
-     margin-left: 0;
+     margin-left: 0.25rem;
      box-sizing: border-box;
      height: auto;
      line-height: normal;
@@ -2824,7 +2818,6 @@ footer img[alt="Praktikertjänst"]{
     text-align: right;
     padding-right: var(--PXR-12);
 }
-
 /* Visa alltid alla tre priskolumner på mobil */
 @media (max-width: 575.98px) {
     .price-table {
@@ -3007,7 +3000,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-summary::after {
-    content: '▼';
+    content: '›';
     font-size: var(--fluid-sm);
     color: var(--clr-primary);
     transition: transform 0.2s ease;
@@ -3016,7 +3009,7 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-item[open] .vaccine-summary::after {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
 .vaccine-desc {
@@ -3034,1278 +3027,6705 @@ footer img[alt="Praktikertjänst"]{
 }
 
 .vaccine-content p {
-    margin-bottom: var(--CLAMP-4);
-    line-height: var(--lh-relaxed);
+    margin: 0;
+    color: var(--clr-white);
 }
 
-.vaccine-content ul {
-    margin: var(--CLAMP-4) 0;
-    padding-left: var(--CLAMP-6);
+.vaccine-content p:last-child {
+    margin-bottom: 0;
 }
 
-.vaccine-content li {
-    margin-bottom: var(--CLAMP-2);
-    line-height: var(--lh-body);
+section.faq.sidebar-content details.faq-item {
+    min-width: var(--PXR-180);
 }
 
-/* Mobile Optimizations */
-@media (max-width: 575.98px) {
-    .vaccine-category {
-        padding: var(--CLAMP-6);
-        margin-bottom: var(--CLAMP-8);
-    }
-
-    .vaccine-summary {
-        padding: var(--CLAMP-4) var(--CLAMP-5);
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--CLAMP-2);
-    }
-
-    .vaccine-summary::after {
-        position: absolute;
-        top: var(--CLAMP-4);
-        right: var(--CLAMP-5);
-        margin-left: 0;
-    }
-
-    .vaccine-desc {
-        font-size: var(--fluid-xs);
-        margin-top: var(--CLAMP-1);
-    }
-
-    .vaccine-badge {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.4rem;
-    }
+.faq-question:focus {
+    outline: var(--PXR-2) solid var(--clr-accent);
+    outline-offset: var(--PXR-2);
+    box-shadow: 0 0 0 var(--PXR-4) rgba(74, 166, 201, 0.1);
 }
 
-/* ==========================================================================
-   12. MOBIL RESPONSIVITET - KOMPLETT ÖVERSYN
-
-   INNEHÅLL:
-   - Hamburgermeny
-   - Responsiva tabeller
-   - Touch-vänlig interaktion
-   - Optimerad typografi
-   - Bildhantering
-
-   Omfattande mobilanpassning för enheter 320px-768px
-========================================================================== */
-
-/* ===== 1. HAMBURGERMENY NAVIGATION ===== */
-@media (max-width: 768px) {
-    /* Dölj desktop-navigation */
-    .navbar-nav, .header__nav {
-        display: none;
-    }
-
-    /* Create hamburger button */
-    .mobile-menu-btn {
-        display: block;
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        z-index: 9999;
-        width: 48px;
-        height: 48px;
-        background: var(--clr-primary, #012363);
-        border: none;
-        border-radius: var(--radius-sm, 4px);
-        cursor: pointer;
-        padding: 0;
-    }
-
-    /* Hamburger icon */
-    .mobile-menu-btn::before {
-        content: "☰";
-        font-size: 24px;
-        color: white;
-        display: block;
-        line-height: 48px;
-    }
-
-    /* Active state - X icon */
-    body.menu-open .mobile-menu-btn::before {
-        content: "✕";
-    }
-
-    /* Mobile menu panel */
-    .mobile-nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        background: white;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-        transition: right 0.3s ease;
-        z-index: 9998;
-        overflow-y: auto;
-        padding: 4rem 1rem 2rem;
-    }
-
-    body.menu-open .mobile-nav {
-        right: 0;
-    }
-
-    /* Menu overlay */
-    .menu-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        z-index: 9997;
-    }
-
-    body.menu-open .menu-overlay {
-        display: block;
-    }
+.faq-question:focus-visible {
+    outline: var(--PXR-2) solid var(--clr-accent);
+    outline-offset: var(--PXR-2);
 }
 
-/* ===== 2. RESPONSIVA TABELLER ===== */
-@media (max-width: 768px) {
-    /* Tabellomslag med horisontell scrollning */
-    .table-responsive-wrapper {
-        position: relative;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        margin: 0 -1rem;
-        padding: 0 1rem;
-    }
-
-    /* Table styling */
-    table {
-        min-width: 500px;
-        font-size: var(--fluid-sm, 14px);
-    }
-
-    /* Scroll indicator */
-    .table-responsive-wrapper::after {
-        content: "← Dra för att se mer →";
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 12px;
-        color: var(--clr-body-secondary, #666);
-        white-space: nowrap;
-    }
-
-    /* Fade edges */
-    .table-responsive-wrapper::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 30px;
-        background: linear-gradient(to left, white, transparent);
-        pointer-events: none;
-        z-index: 1;
-    }
-}
-
-/* ===== 3. TYPOGRAFISKALNING ===== */
-@media (max-width: 480px) {
-    /* Basjusteringar */
-    html {
-        font-size: 16px; /* Prevent iOS zoom */
-    }
-
-    /* Heading scaling */
-    h1 { font-size: clamp(1.5rem, 5vw, 2rem); }
-    h2 { font-size: clamp(1.25rem, 4vw, 1.5rem); }
-    h3 { font-size: clamp(1.125rem, 3.5vw, 1.25rem); }
-    h4, h5, h6 { font-size: clamp(1rem, 3vw, 1.125rem); }
-
-    /* Brödtext */
-    p, li, td {
-        font-size: var(--fluid-base, 16px);
-        line-height: 1.6;
-    }
-}
-
-/* 4. IMAGE RESPONSIVENESS */
-@media (max-width: 768px) {
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
-
-    /* Bus images specific */
-    .bus-img {
-        width: 100%;
-        max-height: 200px;
-        object-fit: cover;
-    }
-
-    /* Gallery adjustments */
-    .bus-gallery-col {
-        margin-bottom: 2rem;
-    }
-}
-
-/* 5. LAYOUT FIXES */
-@media (max-width: 768px) {
-    /* Prevent horizontal scroll */
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-
-    /* Container adjustments */
-    .container, .container-fluid {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        max-width: 100%;
-    }
-
-    /* Row/column fixes */
-    .row {
-        margin-left: -0.5rem;
-        margin-right: -0.5rem;
-    }
-
-    [class*="col-"] {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-    }
-
-    /* Stack columns on mobile */
-    .col-md-8, .col-md-4 {
-        width: 100%;
-        max-width: 100%;
-        flex: 0 0 100%;
-    }
-}
-
-/* 6. TOUCH TARGETS */
-@media (max-width: 768px) {
-    /* Minimum touch target size */
-    a, button, input, select, textarea,
-    .btn, .clickable, [role="button"] {
-        min-height: 44px;
-        min-width: 44px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* Button spacing */
-    .btn {
-        padding: 0.75rem 1.5rem;
-        margin: 0.25rem;
-    }
-}
-
-/* 7. IPHONE SE SPECIFIC (320px) */
-@media (max-width: 374px) {
-    /* Ultra compact spacing */
-    .container {
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
-    }
-
-    /* Smaller headings */
-    h1 { font-size: 1.375rem; }
-    h2 { font-size: 1.25rem; }
-    h3 { font-size: 1.125rem; }
-
-    /* Compact cards */
-    .vaccine-card, .price-card {
-        padding: 0.75rem;
-        margin-bottom: 0.75rem;
-    }
-
-    /* Smaller images */
-    .bus-img {
-        max-height: 150px;
-    }
-}
-
-/* 8. CRITICAL MOBILE FIXES */
-@media (max-width: 768px) {
-    /* Remove fixed widths */
-    * {
-        max-width: 100vw;
-    }
-
-    /* Fix floating elements */
-    .float-left, .float-right {
-        float: none;
-        margin: 1rem auto;
-        display: block;
-    }
-
-    /* Fix position fixed elements */
-    .fixed-top {
-        position: relative;
-    }
-
-    /* Word wrap for long text */
-    p, h1, h2, h3, h4, h5, h6, li, td, th {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-    }
-
-    /* Hide non-essential elements */
-    .desktop-only, .d-none-mobile {
-        display: none;
-    }
-}
-
-/* 9. EMERGENCY HAMBURGER INJECTION */
-@media (max-width: 768px) {
-    body::before {
-        content: "☰";
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        width: 48px;
-        height: 48px;
-        background: var(--clr-primary, #012363);
-        color: white;
-        font-size: 24px;
-        line-height: 48px;
-        text-align: center;
-        border-radius: 4px;
-        cursor: pointer;
-        z-index: 10000;
-        display: block;
-    }
-}
-
-/* END OF MOBILE RESPONSIVENESS FIXES */
-
-/* ==========================================================================
-   13. OMFATTANDE MOBILRESPONSIVITETSSYSTEM
-
-   INNEHÅLL:
-   - Mobilnavigering med hamburgermeny
-   - Responsiva tabeller med scrollning
-   - Touch-optimering
-   - Anpassad layout för små skärmar
-
-   Komplett mobiloptimering för modern användarupplevelse
-========================================================================== */
-
-/* ===== MOBILNAVIGATIONSSYSTEM ===== */
-.mobile-nav-toggle {
+/* Lightbox */
+.img-lightbox {
     display: none;
     position: fixed;
-    top: 1rem;
-    right: 1rem;
     z-index: 9999;
-    background: var(--clr-primary);
-    color: var(--clr-white);
-    border: none;
-    padding: 0.75rem;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.mobile-nav-toggle:hover {
-    background: var(--clr-primary-dark);
-    transform: scale(1.05);
-}
-
-/* Hamburger Icon */
-.hamburger-icon {
-    display: flex;
-    flex-direction: column;
-    width: 24px;
-    height: 20px;
-    justify-content: space-between;
-}
-
-.hamburger-icon span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background: var(--clr-white);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-/* Animated Hamburger */
-.mobile-nav-toggle.active .hamburger-icon span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.mobile-nav-toggle.active .hamburger-icon span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-nav-toggle.active .hamburger-icon span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* Mobile Menu Overlay */
-.mobile-menu-overlay {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 9998;
-}
-
-.mobile-menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Mobile Menu Panel */
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100%;
-    background: var(--clr-bg);
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
-    z-index: 9999;
-    overflow-y: auto;
-    padding: 5rem 1.5rem 2rem;
-}
-
-.mobile-menu.active {
-    right: 0;
-}
-
-/* Mobile Menu Items */
-.mobile-menu nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.mobile-menu nav li {
-    margin-bottom: 1rem;
-}
-
-.mobile-menu nav a {
-    display: block;
-    padding: 0.75rem 1rem;
-    color: var(--clr-body);
-    text-decoration: none;
-    border-radius: var(--radius-sm);
-    transition: all 0.2s ease;
-    font-size: var(--fluid-base);
-}
-
-.mobile-menu nav a:hover,
-.mobile-menu nav a:focus {
-    background: var(--clr-bg-subtle);
-    color: var(--clr-primary);
-    transform: translateX(5px);
-}
-
-/* Responsive Tables */
-.table-responsive-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 0 -1rem;
-    padding: 0 1rem;
-}
-
-@media (max-width: 767px) {
-    table {
-        min-width: 600px;
-    }
-
-    .table-responsive-wrapper::after {
-        content: '→';
-        position: absolute;
-        right: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.5rem;
-        color: var(--clr-primary);
-        animation: slide-hint 2s infinite;
-    }
-}
-
-@keyframes slide-hint {
-    0%, 100% { transform: translateY(-50%) translateX(0); }
-    50% { transform: translateY(-50%) translateX(10px); }
-}
-
-/* Mobile-First Grid System */
-@media (max-width: 575.98px) {
-    .container,
-    .container-fluid {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .row {
-        margin-left: -0.5rem;
-        margin-right: -0.5rem;
-    }
-
-    [class*="col-"] {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-    }
-}
-
-/* Responsive Typography */
-@media (max-width: 767px) {
-    h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); }
-    h2 { font-size: clamp(1.5rem, 4.5vw, 2rem); }
-    h3 { font-size: clamp(1.25rem, 4vw, 1.75rem); }
-    h4 { font-size: clamp(1.125rem, 3.5vw, 1.5rem); }
-    h5 { font-size: clamp(1rem, 3vw, 1.25rem); }
-    h6 { font-size: clamp(0.875rem, 2.5vw, 1.125rem); }
-
-    p, li {
-        font-size: clamp(0.875rem, 2.5vw, 1rem);
-        line-height: 1.6;
-    }
-}
-
-/* Mobile Forms */
-@media (max-width: 575.98px) {
-    .form-group {
-        margin-bottom: 1.5rem;
-    }
-
-    .form-label {
-        font-size: 0.875rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .form-control,
-    .form-select {
-        padding: 0.75rem 1rem;
-        font-size: 16px; /* Prevents zoom on iOS */
-        border-radius: var(--radius-sm);
-    }
-
-    .btn {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
-
-    .btn-group {
-        flex-direction: column;
-        width: 100%;
-    }
-}
-
-/* Touch-Friendly Interactions */
-@media (hover: none) and (pointer: coarse) {
-    a, button, input, select, textarea {
-        min-height: 44px;
-        min-width: 44px;
-    }
-
-    .clickable-card {
-        cursor: pointer;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .clickable-card:active {
-        transform: scale(0.98);
-    }
-}
-
-/* Mobile Cards and Containers */
-@media (max-width: 575.98px) {
-    .card {
-        border-radius: var(--radius-sm);
-        margin-bottom: 1rem;
-    }
-
-    .card-body {
-        padding: 1rem;
-    }
-
-    .container-fluid {
-        padding: 0;
-    }
-
-    .page__content,
-    .page__sidebar {
-        width: 100%;
-        max-width: 100%;
-        padding: 1rem;
-    }
-}
-
-/* Mobile Images and Media */
-@media (max-width: 767px) {
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .hero-image,
-    .banner-image {
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-
-/* Mobile Navigation Visibility */
-@media (max-width: 991.98px) {
-    .desktop-nav {
-        display: none;
-    }
-
-    .mobile-nav-toggle {
-        display: flex;
-    }
-
-    .navbar-collapse {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        height: 100vh;
-        background: var(--clr-bg);
-        transition: right 0.3s ease;
-        padding: 5rem 1rem 2rem;
-        overflow-y: auto;
-    }
-
-    .navbar-collapse.show {
-        right: 0;
-    }
-}
-
-/* Mobile Utility Classes */
-@media (max-width: 575.98px) {
-    .mobile-hide { display: none; }
-    .mobile-show { display: block; }
-    .mobile-text-center { text-align: center; }
-    .mobile-full-width { width: 100%; }
-    .mobile-padding-sm { padding: 0.5rem; }
-    .mobile-margin-bottom { margin-bottom: 1rem; }
-}
-
-/* Landscape Mode Optimizations */
-@media (max-width: 767px) and (orientation: landscape) {
-    .mobile-nav-toggle {
-        top: 0.5rem;
-        right: 0.5rem;
-    }
-
-    .hero-section {
-        min-height: 70vh;
-    }
-
-    .mobile-menu {
-        padding-top: 3rem;
-    }
-}
-
-/* Performance Optimizations */
-@media (max-width: 767px) {
-    /* Disable expensive animations on mobile */
-    * {
-        animation-duration: 0.3s;
-        transition-duration: 0.3s;
-    }
-
-    /* Optimize shadows for performance */
-    .card,
-    .btn {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Simplify gradients */
-    .gradient-bg {
-        background: var(--clr-primary);
-    }
-}
-
-/* Accessibility Enhancements for Mobile */
-@media (max-width: 767px) {
-    /* Larger touch targets */
-    a, button {
-        position: relative;
-    }
-
-    a::after,
-    button::after {
-        content: '';
-        position: absolute;
-        top: -8px;
-        right: -8px;
-        bottom: -8px;
-        left: -8px;
-    }
-
-    /* Focus indicators */
-    :focus {
-        outline: 3px solid var(--clr-primary);
-        outline-offset: 2px;
-    }
-}
-
-/* Print Styles for Mobile */
-@media print {
-    .mobile-nav-toggle,
-    .mobile-menu,
-    .mobile-menu-overlay {
-        display: none;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 100%;
-    }
-}
-
-/* ==========================================================================
-   14. BOOTSTRAP 5.3 RESPONSIVA BRYTPUNKTER
-
-   INNEHÅLL:
-   - Brytpunktsvariabler
-   - Mobile-first implementation
-   - Responsiva utilities
-   - Grid-system
-
-   Komplett mobile-first responsiv implementation
-========================================================================== */
-
-/* ===== BOOTSTRAP 5.3 BRYTPUNKTSVARIABLER =====
-   Definierar standardbrytpunkter för responsiv design */
-:root {
-    --bs-breakpoint-xs: 0;           /* Extra liten (mobil) */
-    --bs-breakpoint-sm: 576px;       /* Liten (större mobil) */
-    --bs-breakpoint-md: 768px;       /* Medium (surfplatta) */
-    --bs-breakpoint-lg: 992px;       /* Stor (mindre desktop) */
-    --bs-breakpoint-xl: 1200px;      /* Extra stor (desktop) */
-    --bs-breakpoint-xxl: 1400px;     /* Extra extra stor (stora skärmar) */
-}
-
-/* Mobile First - XS (Extra Small) - Default styles */
-/* All base styles apply to mobile first */
-
-/* SM (Small) - Landscape phones */
-@media (min-width: 576px) {
-    .container {
-        width: 100%;
-        max-width: 1320px;
-        margin-inline: auto;
-        padding-inline: clamp(1rem, 4vw, 2rem);
-    }
-
-    /* Two column layout starts */
-    .row > .col-sm-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-}
-
-/* MD (Medium) - Tablets */
-@media (min-width: 768px) {
-    .container {
-        width: 100%;
-        max-width: 1320px;
-        margin-inline: auto;
-        padding-inline: clamp(1rem, 4vw, 2rem);
-    }
-
-    /* Show navigation, hide mobile menu */
-    .mobile-nav-toggle {
-        display: none;
-    }
-
-    /* Restore desktop navigation */
-    nav.main-navigation {
-        display: block;
-        position: static;
-    }
-
-    /* Three column layout available */
-    .row > .col-md-4 {
-        flex: 0 0 33.333333%;
-        max-width: 33.333333%;
-    }
-
-    .row > .col-md-8 {
-        flex: 0 0 66.666667%;
-        max-width: 66.666667%;
-    }
-}
-
-/* LG (Large) - Desktops */
-@media (min-width: 992px) {
-    .container {
-        width: 100%;
-        max-width: 1320px;
-        margin-inline: auto;
-        padding-inline: clamp(1rem, 4vw, 2rem);
-    }
-
-    /* Full desktop layout */
-    .row > .col-lg-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
-
-    /* Remove mobile-specific styling */
-    .mobile-only {
-        display: none;
-    }
-}
-
-/* XL (Extra Large) - Large desktops */
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1140px;
-    }
-
-    /* Optimal reading width for content */
-    .content-wrapper {
-        max-width: 800px;
-        margin-inline: auto;
-    }
-}
-
-/* XXL (Extra Extra Large) - Very large screens */
-@media (min-width: 1400px) {
-    .container {
-        max-width: 1320px;
-    }
-}
-
-/* Mobile Navigation Enhancement */
-@media (max-width: 767.98px) {
-    /* Show mobile toggle */
-    .mobile-nav-toggle {
-        display: block;
-    }
-
-    /* Hide desktop navigation */
-    nav.main-navigation,
-    .desktop-navigation {
-        display: none;
-    }
-
-    /* Stack all columns */
-    .row > [class*="col-"] {
-        flex: 0 0 100%;
-        max-width: 100%;
-        margin-bottom: var(--space-md);
-    }
-
-    /* Mobile-specific utilities */
-    .text-center-mobile {
-        text-align: center;
-    }
-
-    .order-first-mobile {
-        order: -1;
-    }
-}
-
-/* Responsive Tables Enhancement */
-@media (max-width: 767.98px) {
-    /* Price table responsiveness */
-    .price-table-wrapper {
-        position: relative;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .price-table {
-        min-width: 500px;
-    }
-
-    /* Scroll indicator */
-    .price-table-wrapper::after {
-        content: 'Swipa →';
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        background: var(--clr-primary);
-        color: white;
-        padding: 0.25rem 0.5rem;
-        border-radius: var(--radius-sm);
-        font-size: var(--fluid-xs);
-    }
-}
-
-/* Touch-Optimized Components */
-@media (hover: none) and (pointer: coarse) {
-    /* Increase all interactive element sizes */
-    button,
-    a.btn,
-    input[type="submit"],
-    input[type="button"],
-    .touch-target {
-        min-height: 44px;
-        padding: 0.75rem 1rem;
-    }
-
-    /* Remove hover effects on touch devices */
-    :hover {
-        transition: none;
-    }
-}
-
-/* Responsive Spacing System */
-@media (max-width: 575.98px) {
-    /* Tighter spacing on mobile */
-    .container {
-        padding-inline: var(--space-sm);
-    }
-
-    section {
-        padding-block: var(--space-lg);
-    }
-}
-
-/* Progressive Enhancement for Modern Devices */
-@supports (padding: clamp(1rem, 2vw, 2rem)) {
-    /* Use fluid spacing on supported devices */
-    .container {
-        padding-inline: clamp(1rem, 2vw, 2rem);
-    }
-
-    section {
-        padding-block: clamp(2rem, 5vw, 4rem);
-    }
-}
-
-/* ==========================================================================
-   15. PROGRESSIV VISNING FÖR MOBIL
-
-   INNEHÅLL:
-   - Details/Summary element
-   - Expanderbara sektioner
-   - Touch-vänlig interaktion
-   - Animerade övergångar
-
-   Optimerad informationsvisning för mobila enheter
-========================================================================== */
-
-/* ===== DETAILS/SUMMARY STYLING FÖR MOBIL ===== */
-details.vaccine-item {
-    border: 1px solid var(--clr-border, #e0e0e0);
-    border-radius: var(--radius-md);
-    margin-bottom: var(--space-sm);
-    background: var(--clr-bg);
-    transition: all 0.3s ease;
-}
-
-details.vaccine-item[open] {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-summary.vaccine-summary {
-    padding: var(--space-md);
+    background-color: rgba(0, 0, 0, 0.9);
     cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
+    animation: fadeIn var(--duration-fast) var(--ease-out);
+    justify-content: center;
     align-items: center;
+    transition: opacity 0.2s;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+}
+
+.img-lightbox.open {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.img-lightbox::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: lightboxSpin 0.8s linear infinite;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.img-lightbox.loading::before {
+    opacity: 1;
+}
+
+.img-lightbox img, .img-lightbox .lightbox-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 92vw;
+    max-height: 85vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    cursor: default;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   5. UTILITY CLASSES
+   Återanvändbara hjälpklasser för layout och styling
+========================================================================== */
+/* Text Alignment & Padding */
+.text-center {
+    text-align: center;
+}
+
+.text-start {
+    text-align: left;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.card-body.p-0 {
+    padding: 0;
+}
+
+.mt-2 {
+    margin-top: var(--CLAMP-9);
+}
+
+.mb-2 {
+    margin-bottom: var(--CLAMP-9);
+}
+
+.visually-hidden, .sr-only {
+    position: absolute;
+    width: var(--PXR-1);
+    height: var(--PXR-1);
+    padding: 0;
+    margin: calc(var(--PXR-1) * -1);
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Spacing Utilities */
+.p-xs {
+    padding: var(--space-xs);
+}
+
+.p-sm {
+    padding: var(--space-sm);
+}
+
+.p-md {
+    padding: var(--space-md);
+}
+
+.p-lg {
+    padding: var(--space-lg);
+}
+
+.p-xl {
+    padding: var(--space-xl);
+}
+
+.p-2xl {
+    padding: var(--space-2xl);
+}
+
+.px-xs {
+    padding-inline: var(--space-xs);
+}
+
+.px-sm {
+    padding-inline: var(--space-sm);
+}
+
+.px-md {
+    padding-inline: var(--space-md);
+}
+
+.px-lg {
+    padding-inline: var(--space-lg);
+}
+
+.px-xl {
+    padding-inline: var(--space-xl);
+}
+
+.py-xs {
+    padding-block: var(--space-xs);
+}
+
+.py-sm {
+    padding-block: var(--space-sm);
+}
+
+.py-md {
+    padding-block: var(--space-md);
+}
+.py-xl {
+    padding-block: var(--space-xl);
+}
+
+.m-xs {
+    margin: var(--space-xs);
+}
+
+.m-sm {
+    margin: var(--space-sm);
+}
+
+.m-md {
+    margin: var(--space-md);
+}
+
+.m-lg {
+    margin: var(--space-lg);
+}
+
+.m-xl {
+    margin: var(--space-xl);
+}
+
+.mx-auto {
+    margin-inline: auto;
+}
+
+.my-xs {
+    margin-block: var(--space-xs);
+}
+
+.my-sm {
+    margin-block: var(--space-sm);
+}
+
+.my-md {
+    margin-block: var(--space-md);
+}
+
+.my-lg {
+    margin-block: var(--space-lg);
+}
+
+.my-xl {
+    margin-block: var(--space-xl);
+}
+
+/* Typography Utilities */
+.text-xs {
+    font-size: var(--fluid-xs);
+}
+
+.text-sm {
+    font-size: var(--fluid-sm);
+}
+
+.text-base {
     font-size: var(--fluid-base);
-    min-height: 44px; /* Touch target */
 }
 
-/* Remove default arrow */
-summary.vaccine-summary::-webkit-details-marker {
-    display: none;
+.text-md {
+    font-size: var(--fluid-md);
 }
 
-/* Custom arrow indicator */
-summary.vaccine-summary::after {
-    content: '▼';
-    font-size: 0.8em;
+.text-lg {
+    font-size: var(--fluid-lg);
+}
+
+.text-xl {
+    font-size: var(--fluid-xl);
+}
+
+.text-2xl {
+    font-size: var(--fluid-2xl);
+}
+
+.text-3xl {
+    font-size: var(--fluid-3xl);
+}
+
+/* Gap Utilities */
+.gap-xs {
+    gap: var(--space-xs);
+}
+
+.gap-sm {
+    gap: var(--space-sm);
+}
+
+.gap-md {
+    gap: var(--space-md);
+}
+
+.gap-lg {
+    gap: var(--space-lg);
+}
+
+.gap-xl {
+    gap: var(--space-xl);
+}
+
+/* Border Radius Utilities */
+.rounded-sm {
+    border-radius: var(--radius-sm);
+}
+
+.rounded-md {
+    border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+    border-radius: var(--radius-lg);
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+/* Animation & Transition Utilities */
+.transition-fast {
+    transition-duration: var(--duration-fast);
+}
+
+.transition-normal {
+    transition-duration: var(--duration-normal);
+}
+
+.transition-slow {
+    transition-duration: var(--duration-slow);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(var(--PXR-20));
+    transition: opacity var(--duration-slower) var(--ease-out), transform var(--duration-slower) var(--ease-out);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   6. GRID & CONTAINER SYSTEM
+   Responsiva behållare och kolumnsystem för layout
+========================================================================== */
+.container {
+    width: var(--PXP-18);
+    padding-right: var(--space-md);
+    padding-left: var(--space-md);
+    margin-right: auto;
+    margin-left: auto;
+    container-type: inline-size;
+    container-name: main-container;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(var(--space-md) * -1);
+    margin-left: calc(var(--space-md) * -1);
+}
+
+.col {
+    flex: 1 0 0%;
+    padding-right: var(--space-md);
+    padding-left: var(--space-md);
+}
+
+.page__content-wrapper {
+    margin-bottom: 0;
+    margin-top: var(--space-sm);
+}
+
+/* ========================================================================== 7. HEADER & NAVIGATION ========================================================================== */
+/* Icon Font Base */
+.fa, .fab, .fad, .fal, .far, .fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    font-size: 1em;
+    font-family: 'Font Awesome 5 Pro';
+}
+
+/* Main Header Container */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+}
+
+header .container-fluid {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    width: clamp(95vw, 100vw, 95vw);
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.header .float-right, .header .pull-right {
+    float: none;
+}
+
+.header [class*="position-absolute"] {
+    position: relative;
+}
+
+/* Welcome Header */
+.welcome-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    margin-bottom: 16px;
+    font-family: filsonpro, sans-serif;
+    text-align: center;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.welcome-title {
+    font-size: 38px;
+    color: var(--blue-primary);
+    margin: 0 0 4px;
+    font-weight: 800;
+}
+
+.welcome-subtitle {
+    font-size: 32px;
+    color: var(--blue-dark);
+    margin: 0;
+    font-weight: 600;
+}
+/* Navigation Logo */
+.navigation__logo {
+    order: -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-lg) var(--space-md);
+    margin-left: 0.25rem;
+    box-sizing: border-box;
+    height: auto;
+    line-height: normal;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+.navigation__logo.flex-start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation__logo img {
+    max-width: 350px;
+    min-width: 225px;
+    display: block;
+    max-height: 40px;
+    object-fit: contain;
+    object-position: left top;
+    width: 50vw;
+}
+
+.navigation__logo>a, .navigation__logo>img, .navigation__logo>svg {
+    margin-right: auto;
+}
+
+body[class*="logo--normal"] .navigation__logo {
+    height: 60px;
+    padding-top: 50px;
+}
+
+/* Navigation Menu */
+.navigation__left, .navigation__left--menu {
+    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.navigation__left--menu, nav.navigation__item--has-mega-menu .navigation__item-category, .header-navigation-menu {
+    order: -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: 0 0;
+    margin: 0;
+    list-style: none;
+    height: 60px;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+
+.navigation__item {
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: center;
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: none;
+    border-right: none;
+}
+
+button.navigation__item-category,
+a.navigation__item-category {
+  color: #012363;
+ font-weight: 500;
+ font-size: 1rem;
+}
+
+.navigation__item-category {
+    color: #012363;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: 600;
+}
+
+.fal.fa-chevron-down.navigation__item-chevron--collapsed {
+    color: #012363;
+    font-weight: 600;
+}
+
+.navigation__item-chevron--collapsed, .navigation__item-chevron--expanded {
+    font-weight: 600;
     transition: transform 0.3s ease;
-    color: var(--clr-primary);
 }
 
-details[open] summary.vaccine-summary::after {
+.navigation__item-category[aria-expanded="true"] .navigation__item-chevron--collapsed {
     transform: rotate(180deg);
 }
 
-/* Vaccine content styling */
-.vaccine-content {
-    padding: 0 var(--space-md) var(--space-md);
-    animation: slideDown 0.3s ease;
+/* Mega Menu */
+ .navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--collapsed, .navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--expanded {
+     font-size: .75rem;
+     margin-left: .5rem;
 }
 
-@keyframes slideDown {
+.mega-menu__wrapper a.link {
+     color: #fff;
+     font-weight: 700;
+}
+
+.mega-menu__wrapper .mega-menu__item {
+     font-weight: 700;
+     align-items: center;
+     display: inline-flex;
+     min-height: 2em;
+     position: relative;
+     width: 100%;
+}
+
+body.megamenu-visible .mega-container {
+     overflow-y: auto;
+     margin-top: 1.94rem;
+}
+
+/* CORRECTED Specificity Comment */
+ body.theme--white.accent--turquoise .mega-container .mega-menu__wrapper .mega-menu__item, body.theme--white.accent--turquoise .mega-container .mega-menu__wrapper .mega-menu__item a.link
+/* Specificity: (0,6,2) */
+ {
+     color: #fff;
+}
+
+/* FontAwesome Chevrons */
+ .navigation__item-category .fa-chevron-up {
+     display: none
+}
+
+.navigation__item-category .fa-chevron-down {
+     transform: rotate(0deg);
+     transition: transform .3s ease-in-out
+}
+
+.navigation__item-category[aria-expanded=true] .fa-chevron-down {
+     display: inline-block;
+     transform: rotate(180deg)
+}
+
+.fa-chevron-down:before {
+     content: "\f078"
+}
+
+.fa-chevron-up:before {
+     content: "\f077"
+}
+
+.fa-external-link:before {
+     content: "\f35d"
+}
+
+/* ==========================================================================
+   8. FOOTER
+   Sidfotsstilar och innehåll
+========================================================================== */
+footer.footer {
+    font-family: filsonpro, sans-serif;
+    background-color: #eff9ff;
+    color: #012363;
+    padding: 24px 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer.footer a {
+    transition: all 0.2s ease;
+    font-family: filsonpro, sans-serif;
+    color: var(--clr-body-text);
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+footer.footer a:hover {
+    color: var(--clr-brand-500);
+    text-decoration: none;
+}
+
+footer.footer .container-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+footer.footer .block-container, footer.footer .textblock, footer.footer .row {
+    margin: 0;
+}
+
+footer.footer h4, footer.footer h5 {
+    font-family: filsonpro, sans-serif;
+    color: #012363;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+}
+
+footer.footer h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+footer.footer h5 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+footer.footer p {
+    font-family: filsonpro, sans-serif;
+    font-size: 14px;
+    color: #003366;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+footer.footer p:last-child, footer.footer .textblock__body>p:last-of-type {
+    margin-bottom: 0;
+}
+
+footer.footer p a:not([href^="tel:"]):not([href^="mailto:"]) {
+    font-family: filsonpro, sans-serif;
+    color: #044999;
+    text-decoration: underline;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+footer.footer a[href^="tel:"], footer.footer a[href^="mailto:"] {
+    font-family: filsonpro, sans-serif;
+    color: #0066CC;
+    text-decoration: underline;
+    font-size: inherit;
+}
+
+nav.footer__link-nav {
+    background-color: #1f7ea4;
+    padding: 15px 15px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: filsonpro, sans-serif;
+}
+
+nav.footer__link-nav ul#footer__links {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row; /* Säkerställer radlayout */
+    justify-content: space-between; /* Jämn fördelning */
+    align-items: center;
+    flex-wrap: nowrap; /* Förhindrar radbrytning */
+    gap: var(--space-md); /* Mellanrum mellan länkar */
+}
+
+nav.footer__link-nav ul#footer__links>li.col {
+	flex: unset;
+	padding: 5px 10px;
+	text-align: initial;
+	white-space: nowrap;
+}
+
+nav.footer__link-nav a.footer__link {
+    font-family: filsonpro, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav.footer__link-nav a.footer__link:hover {
+    text-decoration: underline;
+}
+
+.footer__link .fa-external-link {
+    font-size: .9em;
+    margin-right: .5em
+}
+
+nav.footer__link-nav button#footer__links-toggle-button {
+    background: transparent;
+    border: 1px solid #ffffff;
+    padding: 8px 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   9. MAP STYLES
+   Kartstilar för Google Maps inbäddning
+========================================================================== */
+ .map-embed-container {
+     --map-radius: 12px;
+     --map-shadow: 0 4px 12px rgba(1, 35, 99, 0.1);
+     --map-hover-shadow: 0 7px 28px rgba(1, 35, 99, 0.18);
+     --map-focus-outline-color: #007bff;
+     --map-max-width: 375px;
+     --map-aspect-ratio: 16/9;
+     --map-vertical-margin: 16px;
+     --map-border-width: 1px;
+     --map-border-color: rgba(1, 35, 99, 0.15);
+     --map-loading-text-color: #333;
+     --map-loading-bg-color: #f0f2f5;
+     --map-spinner-color: var(--map-focus-outline-color);
+     --map-transition-duration: 0.25s;
+     position: relative;
+     width: 100%;
+     max-width: var(--map-max-width);
+     margin-top: var(--map-vertical-margin);
+     margin-bottom: var(--map-vertical-margin);
+     margin-left: 0;
+     margin-right: auto;
+     border-radius: var(--map-radius);
+     overflow: hidden;
+     box-shadow: var(--map-shadow);
+     border: var(--map-border-width) solid var(--map-border-color);
+     aspect-ratio: var(--map-aspect-ratio);
+     background-color: var(--map-loading-bg-color);
+     transition: transform var(--map-transition-duration) ease, box-shadow var(--map-transition-duration) ease, border-color var(--map-transition-duration) ease;
+}
+
+.map-embed-container:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--map-hover-shadow);
+    border-color: var(--map-spinner-color);
+}
+
+.map-embed-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    z-index: 1;
+}
+
+.map-embed-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 36px;
+    margin-top: -28px;
+    margin-left: -18px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--map-spinner-color);
+    border-radius: 50%;
+    animation: map-spinner-rotation 0.8s linear infinite;
+    z-index: 0;
+}
+
+.map-embed-container::after {
+    content: "Laddar karta...";
+    position: absolute;
+    top: calc(50% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--map-loading-text-color);
+    font-size: 13px;
+    z-index: 0;
+}
+
+@keyframes map-spinner-rotation {
     from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
+        transform: rotate(0deg);
+   }
     to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+        transform: rotate(360deg);
+   }
 }
 
-/* Mobile-specific enhancements */
-@media (max-width: 767.98px) {
-    /* Larger touch targets on mobile */
-    summary.vaccine-summary {
-        padding: var(--space-lg) var(--space-md);
-        min-height: 60px;
-    }
-
-    /* Stack vaccine info vertically */
-    .vaccine-summary {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-xs);
-    }
-
-    .vaccine-summary::after {
-        position: absolute;
-        right: var(--space-md);
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    details[open] .vaccine-summary::after {
-        transform: translateY(-50%) rotate(180deg);
-    }
-
-    /* Visual hierarchy for vaccine badges */
-    .vaccine-badge {
-        background: var(--clr-primary);
-        color: white;
-        padding: 0.25rem 0.5rem;
-        border-radius: var(--radius-sm);
-        font-size: var(--fluid-xs);
-        font-weight: 500;
-    }
-
-    /* Prioritized vaccine highlight */
-    .vaccine-priority {
-        border-color: var(--clr-primary);
-        border-width: 2px;
-    }
+/* ==========================================================================
+   10. PERFORMANCE OPTIMIZATIONS
+   Prestandaoptimeringar för snabbare rendering
+========================================================================== */
+ .faq-item:not([open]) {
+     content-visibility: auto;
+     contain-intrinsic-size: 0 60px;
 }
 
-/* Vaccine category styling */
-.vaccine-category {
-    margin-bottom: var(--space-xl);
+.faq-item summary::after {
+     will-change: transform;
 }
 
-.vaccine-category-title {
-    font-size: var(--fluid-lg);
-    color: var(--clr-primary);
-    margin-bottom: var(--space-md);
-    padding-bottom: var(--space-sm);
-    border-bottom: 2px solid var(--clr-primary);
+.faq-item[open] summary::after {
+     will-change: auto;
 }
 
-/* Mobile FAQ Enhancement */
-@media (max-width: 767.98px) {
-    /* FAQ items use same progressive disclosure */
-    details.faq-item {
-        border: 1px solid var(--clr-border);
-        border-radius: var(--radius-md);
-        margin-bottom: var(--space-sm);
-        background: var(--clr-bg);
-    }
-
-    summary.faq-summary {
-        padding: var(--space-md);
-        cursor: pointer;
-        list-style: none;
-        font-size: var(--fluid-base);
-        min-height: 44px;
-    }
-
-    .faq-content {
-        padding: 0 var(--space-md) var(--space-md);
-    }
-}
-
-/* Accordion behavior on mobile */
-@media (max-width: 575.98px) {
-    /* Auto-close other details when opening new one */
-    details.vaccine-item:not([open]) + details.vaccine-item[open] {
-        margin-top: var(--space-md);
+@keyframes lightboxSpin {
+     to {
+         transform: rotate(360deg);
     }
 }
 
 /* ==========================================================================
-   16. VACCINE BJARRED APP - MODERN TEMA
-
-   Separat modern stil som kan aktiveras/deaktiveras
+   11. MEDIA QUERIES
+   Responsiva brytpunkter för olika skärmstorlekar
 ========================================================================== */
-
-/* ===== ALLMÄN LAYOUT & TYPSNITT ===== */
-#vaccine-bjarred-app.vb-app {
-  font-family: 'Inter', Arial, sans-serif;     /* Modern typsnitt */
-  background: var(--vb-bg, #f8fafc);          /* Ljus bakgrund */
-  color: var(--vb-fg, #222);                  /* Mörk text */
-  padding: 0;
-  min-height: 100vh;                          /* Full viewport-höjd */
-  transition: background 0.2s, color 0.2s;    /* Mjuka temaövergångar */
-}
-.vb-app.dark {
-  --vb-bg: #151718;
-  --vb-fg: #e2e8f0;
-}
-.vb-app {
-  --vb-bg: #f8fafc;
-  --vb-fg: #222;
+/* Reduced Motion */
+ @media (prefers-reduced-motion: reduce) {
+     html body *, .faq-item, .faq-icon::before, .faq-icon::after, .fade-in {
+         transition: none;
+         animation: none;
+    }
 }
 
-/* --- Header --- */
-.vb-app header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: transparent;
-  padding: 1.25rem 1rem 0.5rem 1rem;
-  border-bottom: 2px solid #1e293b12;
-}
-.vb-app h1 {
-  font-size: 2.1rem;
-  margin: 0;
-  font-weight: 800;
-  letter-spacing: -1px;
+/* Print Styles */
+ @media print {
+     .faq-item details {
+         open: true;
+    }
+     .faq-icon {
+         display: none;
+    }
+     .location-schedule tr[data-upcoming]::before {
+         display: none;
+    }
 }
 
-/* --- Theme Toggle Button --- */
-.theme-toggle-btn {
-  border: none;
-  background: none;
-  padding: 0.5em;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 2px 12px #0001;
-  transition: background 0.2s;
-  outline: none;
-  margin-left: auto;
-  margin-right: 0;
-}
-.theme-toggle-btn:focus,
-.theme-toggle-btn:hover {
-  background: #94a3b820;
-}
-.theme-toggle-btn i.fas {
-  font-size: 1.6em;
-  transition: color 0.2s;
-  color: #222;
-}
-.vb-app.dark .theme-toggle-btn i.fas {
-  color: #fff;
+/* Container System - Mobile-First Bootstrap 5.3 Pattern */
+.container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
 }
 
-/* --- Gallery Card --- */
-.bus-gallery-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--vb-card-bg, #fff);
-  box-shadow: 0 4px 24px #0f172a13;
-  border-radius: 1.1em;
-  padding: 1.1em;
-  margin: 1.25rem auto;
-  max-width: 450px;
-  width: 100%;
-  gap: 0.6em;
-  transition: background 0.2s, color 0.2s;
-}
-.vb-app.dark .bus-gallery-col {
-  --vb-card-bg: #23272c;
-  color: #e2e8f0;
+@media (min-width: 576px) {
+    .container {
+        padding-inline: clamp(1rem, 4vw, 2rem);
+    }
 }
 
-/* --- Image Styles --- */
-.img-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+@media (min-width: 992px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    .location-section {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: var(--space-xl);
+         align-items: start;
+    }
+     .location-info {
+         text-align: left;
+    }
+     .faq-item {
+         transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-slow) var(--ease-out);
+    }
+     .faq-item:hover {
+         transform: translateY(calc(var(--PXR-2) * -1));
+         box-shadow: 0 var(--PXR-4) var(--PXR-12) rgba(0, 0, 0, 0.1);
+    }
+     .page__content-body {
+         padding-right: var(--CLAMP-110);
+    }
 }
-.bus-img {
-  width: 100%;
-  max-width: 350px;
-  height: auto;
-  border-radius: 1em;
-  box-shadow: 0 2px 24px #2563eb15, 0 1.5px 12px #06b6d43a;
-  transition: box-shadow 0.2s;
+ @media (min-width: 1200px) {
+     .container {
+         max-width: 1140px;
+    }
 }
-.img-blue-glow {
-  box-shadow: 0 0 24px #2563eb42, 0 2px 12px #2563eb1a;
+ @media (min-width: 1400px) {
+     .container {
+         max-width: 1320px;
+    }
 }
-.vb-app.dark .bus-img,
-.vb-app.dark .img-blue-glow {
-  box-shadow: 0 0 24px #38bdf8, 0 2px 18px #0369a1bb;
+/* Container Queries */
+ @container main-container (min-width: 400px) {
+     .price-box {
+         padding: var(--space-lg);
+    }
+}
+ @container main-container (min-width: 600px) {
+     .vaccination-info {
+         padding: var(--space-xl);
+    }
+}
+/* Mobile & Tablet Styles */
+/* Footer Navigation - Mobile-First */
+nav.footer__link-nav ul#footer__links.open,
+nav.footer__link-nav ul#footer__links:target {
+    flex-direction: column;
+    align-items: center;
 }
 
-/* --- Text Styles --- */
-.bus-title {
-  font-size: 1.15em;
-  font-weight: 700;
-  margin-top: 0.6em;
-  margin-bottom: 0.2em;
-  text-align: center;
-  color: var(--vb-fg, #222);
+nav.footer__link-nav ul#footer__links.open > li.col,
+nav.footer__link-nav ul#footer__links:target > li.col {
+    width: 100%;
+    margin-bottom: 5px;
 }
 
-/* --- Article/Intro --- */
-.intro-content, .why-choose-section > p {
-  margin: 0.9em auto 1em auto;
-  max-width: 650px;
-  font-size: 1.07em;
-  line-height: 1.6;
+@media (min-width: 992px) {
+    nav.footer__link-nav ul#footer__links.open,
+    nav.footer__link-nav ul#footer__links:target {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    nav.footer__link-nav ul#footer__links.open > li.col,
+    nav.footer__link-nav ul#footer__links:target > li.col {
+        width: auto;
+        margin-bottom: 0;
+    }
 }
-.call-to-action {
-  color: #2563eb;
-  font-weight: 600;
+ @media (min-width: 576px) and (max-width: 991.98px) {
+     .location-info {
+         text-align: center;
+         padding: 0 var(--CLAMP-27);
+    }
+     .faq-question {
+         padding: var(--CLAMP-16);
+    }
+     .faq-content {
+         padding: 0 var(--CLAMP-16) var(--CLAMP-16);
+    }
+}
+ @media (max-width: 767px) {
+     html, body {
+         overflow-x: hidden;
+    }
+     .welcome-header {
+         min-width: 0;
+         width: 100%;
+         max-width: 100vw;
+         padding-left: 15px;
+         padding-right: 15px;
+         box-sizing: border-box;
+         margin-bottom: 20px;
+    }
+     .welcome-title {
+         font-size: 1.6em;
+         line-height: 1.2;
+    }
+     .welcome-subtitle {
+         font-size: 1.1em;
+         line-height: 1.3;
+    }
+     footer.footer {
+         padding: 20px 15px;
+    }
+     footer.footer h4 {
+         font-size: 1.1em;
+    }
+     footer.footer p, footer.footer a {
+         font-size: 0.9em;
+    }
+     nav.footer__link-nav ul#footer__links.open>li.col a.footer__link, nav.footer__link-nav ul#footer__links:target>li.col a.footer__link {
+         padding: 12px 15px;
+         font-size: 0.95em;
+    }
+   /* Footer länkar på mobil - behåll radlayout om möjligt */
+   nav.footer__link-nav ul#footer__links {
+        flex-wrap: wrap; /* Tillåt radbrytning på små skärmar */
+        gap: var(--space-sm);
+        padding: 0 var(--space-sm);
+    }
+    nav.footer__link-nav ul#footer__links>li.col {
+         flex: 1 1 auto; /* Tillåt flex för mobil */
+         min-width: 0;
+         font-size: 0.875rem;
+    }
+    /* Off-Canvas Menu */
+     .mobile-navigation__left .mobile-navigation__item#open-offside-menu {
+         padding: 10px;
+    }
+     .hamburger-menu {
+         width: 24px;
+         height: 20px;
+    }
+     .hamburger-menu__line {
+         height: 3px;
+         margin: 4px 0;
+         background-color: #ffffff;
+         display: block;
+    }
+     .offside-navbar--menu__item a, .offside-navbar--menu__item span[role="button"] {
+         padding: 14px 18px;
+         font-size: 1rem;
+         display: block;
+    }
+     .offside-navbar--menu.child-menu .offside-navbar--menu__item a {
+         padding-left: 30px;
+    }
+}
+ @media (max-width: 575.98px) {
+    /* Re-order content for mobile
+       Ordning: 1. Intro, 2. Platsschemat, 3. Prislista, 4. Vaccininformation, 5. FAQ */
+     html {
+         overflow-x: hidden;
+    }
+     body {
+         width: 100%;
+         max-width: 100vw;
+         overflow-x: hidden;
+         margin: 0;
+         padding: 0;
+    }
+
+
+     /* Fix all containers to respect viewport width */
+     body * {
+         box-sizing: border-box;
+    }
+
+     /* Force proper viewport scaling and prevent zoom */
+     html {
+         font-size: 16px;
+         -webkit-text-size-adjust: 100%;
+         -ms-text-size-adjust: 100%;
+         text-size-adjust: 100%;
+         zoom: 1;
+         transform: scale(1);
+         position: relative;
+         left: 0;
+         right: 0;
+    }
+
+    /* Force viewport to start at left edge */
+    body {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        transform: translateX(0);
+    }
+
+    /* Prevent any element from causing horizontal scroll and fix left cutoff */
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+
+
+     .welcome-header,
+     .navigation,
+     .main-content,
+     .page-content,
+     main,
+     section,
+     article {
+         max-width: 100vw;
+         overflow-x: hidden;
+         box-sizing: border-box;
+    }
+
+     /* Ensure content doesn't get cut off on left */
+     .page__content--left-align,
+     article.page__content--left-align {
+         padding-left: 15px;
+         padding-right: 15px;
+         margin-left: 0;
+         margin-right: 0;
+    }
+
+     /* Fix mobile menu - ensure it starts hidden */
+     .offside-navbar {
+         width: 0;
+         display: none;
+    }
+    .offside-navbar--menu.child-menu {
+        display: none;
+    }
+    .footer__links {
+        display: none;
+    }
+    .navigation__left--menu,
+    .header-navigation-menu {
+        display: none;
+    }
+
+    /* FORCE footer menu closed by default */
+    nav.footer__link-nav ul#footer__links {
+        display: none;
+    }
+    nav.footer__link-nav ul#footer__links:not(.open):not(.visible):not(:target) {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    /* Only show mobile menu when toggled */
+    .offside-navbar.show-side-nav,
+    .offside-navbar.open {
+        width: 100%;
+        display: block;
+    }
+    .offside-navbar--menu.child-menu.open {
+        display: block;
+    }
+    .footer__links.visible,
+    .footer__links.open,
+    nav.footer__link-nav ul#footer__links.open,
+    nav.footer__link-nav ul#footer__links.visible,
+    nav.footer__link-nav ul#footer__links:target {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+    }
+
+    /* Fix footer layout on mobile */
+    footer.footer {
+        padding: 15px;
+        margin: 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    nav.footer__link-nav {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    nav.footer__link-nav ul#footer__links {
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+    }
+
+    nav.footer__link-nav ul#footer__links > li.col {
+        flex: 0 1 auto;
+        margin: 2px;
+        padding: 5px 8px;
+    }
+
+    /* MOBILE ORDERING - Make main container flex */
+    main,
+    .main-content,
+    .page-content,
+    body > .container,
+    body > .container-fluid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 1. Intro first */
+    article.page__content--left-align,
+    .intro-content {
+        order: 1;
+    }
+
+    /* 2. Location/Schedule */
+    aside,
+    .sidebar-content,
+    .location-schedule-wrapper,
+    .location-schedule {
+        order: 2;
+    }
+
+    /* 3. Price heading */
+    .price-heading {
+        order: 3;
+    }
+
+    /* 4. Price toggles */
+    .price-toggle-labels {
+        order: 4;
+    }
+
+    /* 5. Price table */
+    .price-box,
+    section.price-box {
+        order: 5;
+    }
+
+    /* 6. Vaccine info */
+    .vaccination-info,
+    section.vaccination-info,
+    .vaccine-heading {
+        order: 6;
+    }
+
+    /* 7. FAQ */
+    .faq,
+    section.faq,
+    .faq-title {
+        order: 7;
+    }
+
+    /* Övriga innehåll */
+    .page__content--left-align,
+    article.page__content--left-align {
+        order: 0;
+    }
+    .location-info {
+        text-align: left;
+        padding: 0 var(--CLAMP-18);
+    }
+    .faq-question {
+        padding: var(--CLAMP-14);
+        font-size: var(--CLAMP-16);
+    }
+    .faq-content {
+        padding: 0 var(--CLAMP-14) var(--CLAMP-14);
+        font-size: var(--CLAMP-15);
+    }
+    .table-container {
+        margin: 0 calc(var(--PXR-18) * -1);
+        padding: 0 var(--PXR-18);
+    }
+    .bus-img {
+        width: calc(var(--PXP-11) * 1.2);
+    }
+    .price-table {
+        font-size: var(--fs-table-body);
+        table-layout: auto;
+    }
+    .price-table th, .price-table td {
+        padding: var(--PXR-4) var(--PXR-4);
+        font-size: var(--fluid-sm); /* 14-16px - WCAG AA compliant */
+    }
+
+    /* Keep first 2 columns always visible */
+    .price-table th:nth-child(1), .price-table td:nth-child(1),
+    .price-table th:nth-child(2), .price-table td:nth-child(2) {
+        display: table-cell;
+    }
+
+    /* Hide columns 3 and 4 by default, show only when toggled */
+    .price-table th:nth-child(3), .price-table td:nth-child(3),
+    .price-table th:nth-child(4), .price-table td:nth-child(4) {
+        display: none;
+    }
+    .price-table th:first-child, .price-table td:first-child {
+        width: 27%;
+        padding-right: var(--PXR-6);
+    }
+    .price-table th:nth-child(n+2), .price-table td:nth-child(n+2) {
+        width: 20%;
+        text-align: right;
+        white-space: nowrap;
+    }
+    .price-table thead th {
+        font-size: var(--fluid-xs); /* 12-14px - Minimum accessibility */
+        line-height: 1.2;
+    }
+    .price-table thead th br {
+        display: none;
+    }
+    .faq-item:not([open]) .faq-content {
+        display: none;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+    }
+    .faq-item:not([open]) {
+        height: auto;
+        min-height: 0;
+        padding-bottom: var(--PXR-4);
+    }
+    .faq-item:not([open]) summary {
+        margin-bottom: 0;
+    }
+    details.faq-item:not([open]) > *:not(summary) {
+        display: none;
+    }
+    .price-toggle-labels {
+        gap: var(--PXR-8);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .price-toggle-label {
+        font-size: var(--CLAMP-14);
+        padding: var(--CLAMP-7) var(--CLAMP-9);
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    .map-embed-container {
+        --map-max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        --map-border-width: 0px;
+    }
+    .faq-item summary {
+        font-size: clamp(0.95rem, 1rem + 0.2vw, 1.1rem);
+        padding-block: var(--space-lg);
+        min-height: 5rem;
+    }
 }
 
-/* --- Responsive --- */
-@media (max-width: 700px) {
-  .bus-gallery-col { max-width: 99vw; padding: 0.7em; }
-  .img-wrapper { padding: 0; }
-  .bus-img { max-width: 94vw; }
-  .vb-app header { flex-direction: column; align-items: flex-start; gap: 0.5em; }
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 1.4em;
+    }
+    .welcome-subtitle {
+        font-size: 1.0em;
+    }
 }
-/* Mobile table adjustments */
-@media (max-width: 576px) {
+
+@supports not selector(:has(*)) {
+    @media (max-width: 575.98px) {
+       /* Fallback for browsers without :has() */
+        .location-schedule-wrapper, .location-schedule {
+            order: -8;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .price-box, .price-toggle-labels {
+            order: -6;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .vaccination-info {
+            order: -4;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .faq-sidebar {
+            order: 1;
+       }
+   }
+}
+
+nav#accessibility-navigation ul.accessibility-navigation__items {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Footer PTJ Logo - Begränsar storleken till max 60px (3.75rem)
+========================================================================== */
+/* Målselektor för footer-logotypen med inline-stil */
+footer img[alt="Praktikertjänst"]{
+	max-width: 19.44rem;
+	min-width: 3rem;
+    height: auto;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Page Content Wrapper & Body - Responsiva marginaler och padding
+========================================================================== */
+/* Emulerar margin-bottom: 0, margin-top: 1rem responsivt */
+.page__content-wrapper {
+    margin-bottom: 0;
+    margin-top: clamp(0.75rem, 0.625rem + 0.625vw, 1rem); /* 12px-16px */
+}
+
+/* Emulerar padding-right: 100px för desktop */
+@media (min-width: 992px) {
+    .page__content-body {
+        padding-right: clamp(4rem, 3rem + 2.5vw, 6.25rem); /* 64px-100px */
+    }
+}
+
+/* ==========================================================================
+   Price Table Optimeringar - Minimerar whitespace, bibehåller 3 kolumner
+========================================================================== */
+.price-table {
+    /* Kompakt tabellayout */
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0;
+}
+
+.price-table th,
+.price-table td {
+    /* Minimalt padding för kompakt layout */
+    padding: var(--PXR-6) var(--PXR-8);
+    vertical-align: middle;
+}
+
+/* Första kolumnen får mer plats för vaccinnamn */
+.price-table th:first-child,
+.price-table td:first-child {
+    width: 26.9%;
+    text-align: left;
+    padding-left: var(--PXR-12);
+}
+
+/* Priskolumnerna får lika bredd */
+.price-table th:not(:first-child),
+.price-table td:not(:first-child) {
+    width: 18.33%;
+    text-align: right;
+    padding-right: var(--PXR-12);
+}
+
+/* Visa alltid alla tre priskolumner på mobil */
+@media (max-width: 575.98px) {
+    .price-table {
+        font-size: var(--fluid-sm); /* 14-16px - WCAG AA compliant */
+    }
+
+    /* Keep first 2 columns always visible */
+    .price-table th:nth-child(1), .price-table td:nth-child(1),
+    .price-table th:nth-child(2), .price-table td:nth-child(2) {
+        display: table-cell;
+        padding: var(--PXR-3) var(--PXR-4);
+    }
+
+    /* Hide columns 3 and 4 by default on mobile too */
+    .price-table th:nth-child(3), .price-table td:nth-child(3),
+    .price-table th:nth-child(4), .price-table td:nth-child(4) {
+        display: none;
+        padding: var(--PXR-3) var(--PXR-4);
+    }
+
+    /* Mobile toggle functionality */
+    body:has(#v-pen:checked) .price-table th:nth-child(3),
+    body:has(#v-pen:checked) .price-table td:nth-child(3) {
+        display: table-cell;
+    }
+    body:has(#v-stu:checked) .price-table th:nth-child(4),
+    body:has(#v-stu:checked) .price-table td:nth-child(4) {
+        display: table-cell;
+    }
+
+    /* Justera kolumnbredder för mobil */
+    .price-table th:first-child,
+    .price-table td:first-child {
+        width: 40%;
+        padding-left: var(--PXR-6);
+    }
+
+    .price-table th:not(:first-child),
+    .price-table td:not(:first-child) {
+        width: 20%;
+        padding-right: var(--PXR-6);
+    }
+
+    /* Enable two-row headers on mobile */
+    .price-table thead th {
+        font-size: var(--fluid-sm); /* 14-16px - WCAG compliant */
+        line-height: 1.1;
+        white-space: pre-line;
+        vertical-align: top;
+    }
+
+    /* Center price column headers */
+    .price-table thead th:nth-child(2),
+    .price-table thead th:nth-child(3),
+    .price-table thead th:nth-child(4) {
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   FAQ Grid Layout - Exakt 2 rader med balanserad bredd
+========================================================================== */
+.faq-item summary {
+    /* Grid layout för exakt 2 rader */
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr 1fr;
+    align-items: start;
+    gap: 0 var(--space-sm);
+}
+
+/* FAQ frågetext som grid child */
+.faq-item summary::before {
+    content: attr(data-question);
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: center;
+    line-height: 1.4;
+    word-break: break-word;
+    hyphens: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Chevron i grid */
+.faq-item summary::after {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+}
+
+/* ==========================================================================
+   Vaccine Information Progressive Disclosure Styles
+   ========================================================================== */
+
+/* Vaccine Categories */
+.vaccine-category {
+    margin-bottom: var(--CLAMP-12);
+    border-radius: var(--radius-md);
+    background: var(--clr-surface-subtle);
+    padding: var(--CLAMP-8);
+}
+
+.vaccine-category-title {
+    font-size: var(--fluid-md);
+    font-weight: var(--fw-semibold);
+    margin-bottom: var(--CLAMP-6);
+    padding-bottom: var(--CLAMP-3);
+    border-bottom: 2px solid var(--clr-primary-subtle);
+    color: var(--clr-primary);
+}
+
+/* Vaccine Items */
+.vaccine-item {
+    background: var(--clr-bg);
+    border: 1px solid var(--clr-border-subtle);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--CLAMP-4);
+    transition: all 0.2s ease;
+}
+
+.vaccine-item:hover {
+    border-color: var(--clr-primary-subtle);
+    box-shadow: 0 2px 8px var(--clr-shadow-subtle);
+}
+
+.vaccine-item[open] {
+    border-color: var(--clr-primary);
+    background: var(--clr-primary-subtle);
+}
+
+/* Vaccine Priority Badge */
+.vaccine-priority {
+    border-left: 4px solid var(--clr-accent);
+}
+
+.vaccine-priority .vaccine-badge {
+    background: var(--clr-accent);
+    color: var(--clr-on-accent);
+    font-size: var(--fluid-xs);
+    font-weight: var(--fw-medium);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-xs);
+    margin-left: auto;
+}
+
+/* Health Service Item */
+.health-service {
+    border-left: 4px solid var(--clr-secondary);
+}
+
+/* Vaccine Summary */
+.vaccine-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--CLAMP-5) var(--CLAMP-6);
+    cursor: pointer;
+    font-weight: var(--fw-medium);
+    list-style: none;
+    position: relative;
+}
+
+.vaccine-summary::-webkit-details-marker {
+    display: none;
+}
+
+.vaccine-summary::after {
+    content: '›';
+    font-size: var(--fluid-sm);
+    color: var(--clr-primary);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: var(--CLAMP-4);
+}
+
+.vaccine-item[open] .vaccine-summary::after {
+    transform: rotate(90deg);
+}
+
+.vaccine-desc {
+    font-size: var(--fluid-sm);
+    color: var(--clr-body-secondary);
+    font-weight: var(--fw-normal);
+    font-style: italic;
+}
+
+/* Vaccine Content */
+.vaccine-content {
+    padding: 0 var(--CLAMP-6) var(--CLAMP-6) var(--CLAMP-6);
+    border-top: 1px solid var(--clr-border-subtle);
+    background: var(--clr-bg);
+}
+
+.vaccine-content p {
+    margin: 0;
+    color: var(--clr-white);
+}
+
+.vaccine-content p:last-child {
+    margin-bottom: 0;
+}
+
+section.faq.sidebar-content details.faq-item {
+    min-width: var(--PXR-180);
+}
+
+.faq-question:focus {
+    outline: var(--PXR-2) solid var(--clr-accent);
+    outline-offset: var(--PXR-2);
+    box-shadow: 0 0 0 var(--PXR-4) rgba(74, 166, 201, 0.1);
+}
+
+.faq-question:focus-visible {
+    outline: var(--PXR-2) solid var(--clr-accent);
+    outline-offset: var(--PXR-2);
+}
+
+/* Lightbox */
+.img-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+    animation: fadeIn var(--duration-fast) var(--ease-out);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+}
+.img-lightbox.open {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.img-lightbox::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: lightboxSpin 0.8s linear infinite;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.img-lightbox.loading::before {
+    opacity: 1;
+}
+
+.img-lightbox img, .img-lightbox .lightbox-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 92vw;
+    max-height: 85vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    cursor: default;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   5. UTILITY CLASSES
+   Återanvändbara hjälpklasser för layout och styling
+========================================================================== */
+/* Text Alignment & Padding */
+.text-center {
+    text-align: center;
+}
+
+.text-start {
+    text-align: left;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.card-body.p-0 {
+    padding: 0;
+}
+
+.mt-2 {
+    margin-top: var(--CLAMP-9);
+}
+.mb-2 {
+    margin-bottom: var(--CLAMP-9);
+}
+.visually-hidden, .sr-only {
+    position: absolute;
+    width: var(--PXR-1);
+    height: var(--PXR-1);
+    padding: 0;
+    margin: calc(var(--PXR-1) * -1);
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Spacing Utilities */
+.p-xs {
+    padding: var(--space-xs);
+}
+
+.p-sm {
+    padding: var(--space-sm);
+}
+
+.p-md {
+    padding: var(--space-md);
+}
+
+.p-lg {
+    padding: var(--space-lg);
+}
+
+.p-xl {
+    padding: var(--space-xl);
+}
+
+.p-2xl {
+    padding: var(--space-2xl);
+}
+
+.px-xs {
+    padding-inline: var(--space-xs);
+}
+
+.px-sm {
+    padding-inline: var(--space-sm);
+}
+
+.px-md {
+    padding-inline: var(--space-md);
+}
+
+.px-lg {
+    padding-inline: var(--space-lg);
+}
+
+.px-xl {
+    padding-inline: var(--space-xl);
+}
+
+.py-xs {
+    padding-block: var(--space-xs);
+}
+
+.py-sm {
+    padding-block: var(--space-sm);
+}
+
+.py-md {
+    padding-block: var(--space-md);
+}
+
+.py-lg {
+    padding-block: var(--space-lg);
+}
+
+.py-xl {
+    padding-block: var(--space-xl);
+}
+
+.m-xs {
+    margin: var(--space-xs);
+}
+
+.m-sm {
+    margin: var(--space-sm);
+}
+
+.m-md {
+    margin: var(--space-md);
+}
+
+.m-lg {
+    margin: var(--space-lg);
+}
+
+.m-xl {
+    margin: var(--space-xl);
+}
+
+.mx-auto {
+    margin-inline: auto;
+}
+
+.my-xs {
+    margin-block: var(--space-xs);
+}
+
+.my-sm {
+    margin-block: var(--space-sm);
+}
+
+.my-md {
+    margin-block: var(--space-md);
+}
+
+.my-lg {
+    margin-block: var(--space-lg);
+}
+
+.my-xl {
+    margin-block: var(--space-xl);
+}
+
+/* Typography Utilities */
+.text-xs {
+    font-size: var(--fluid-xs);
+}
+
+.text-sm {
+    font-size: var(--fluid-sm);
+}
+
+.text-base {
+    font-size: var(--fluid-base);
+}
+
+.text-md {
+    font-size: var(--fluid-md);
+}
+
+.text-lg {
+    font-size: var(--fluid-lg);
+}
+
+.text-xl {
+    font-size: var(--fluid-xl);
+}
+
+.text-2xl {
+    font-size: var(--fluid-2xl);
+}
+
+.text-3xl {
+    font-size: var(--fluid-3xl);
+}
+
+/* Gap Utilities */
+.gap-xs {
+    gap: var(--space-xs);
+}
+
+.gap-sm {
+    gap: var(--space-sm);
+}
+
+.gap-md {
+    gap: var(--space-md);
+}
+
+.gap-lg {
+    gap: var(--space-lg);
+}
+
+.gap-xl {
+    gap: var(--space-xl);
+}
+
+/* Border Radius Utilities */
+.rounded-sm {
+    border-radius: var(--radius-sm);
+}
+
+.rounded-md {
+    border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+    border-radius: var(--radius-lg);
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+/* Animation & Transition Utilities */
+.transition-fast {
+    transition-duration: var(--duration-fast);
+}
+
+.transition-normal {
+    transition-duration: var(--duration-normal);
+}
+
+.transition-slow {
+    transition-duration: var(--duration-slow);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(var(--PXR-20));
+    transition: opacity var(--duration-slower) var(--ease-out), transform var(--duration-slower) var(--ease-out);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   6. GRID & CONTAINER SYSTEM
+   Responsiva behållare och kolumnsystem för layout
+========================================================================== */
+.container {
+    width: var(--PXP-18);
+    padding-right: var(--space-md);
+    padding-left: var(--space-md);
+    margin-right: auto;
+    margin-left: auto;
+    container-type: inline-size;
+    container-name: main-container;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(var(--space-md) * -1);
+    margin-left: calc(var(--space-md) * -1);
+}
+
+.col {
+    flex: 1 0 0%;
+    padding-right: var(--space-md);
+    padding-left: var(--space-md);
+}
+
+.page__content-wrapper {
+    margin-bottom: 0;
+    margin-top: var(--space-sm);
+}
+
+/* ========================================================================== 7. HEADER & NAVIGATION ========================================================================== */
+/* Icon Font Base */
+.fa, .fab, .fad, .fal, .far, .fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    font-size: 1em;
+    font-family: 'Font Awesome 5 Pro';
+}
+
+/* Main Header Container */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+}
+
+header .container-fluid {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    width: clamp(95vw, 100vw, 95vw);
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.header .float-right, .header .pull-right {
+    float: none;
+}
+
+.header [class*="position-absolute"] {
+    position: relative;
+}
+
+/* Welcome Header */
+.welcome-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    margin-bottom: 16px;
+    font-family: filsonpro, sans-serif;
+    text-align: center;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.welcome-title {
+    font-size: 38px;
+    color: var(--blue-primary);
+    margin: 0 0 4px;
+    font-weight: 800;
+}
+
+.welcome-subtitle {
+    font-size: 32px;
+    color: var(--blue-dark);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Navigation Logo */
+.navigation__logo {
+    order: -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-lg) var(--space-md);
+    margin-left: 0.25rem;
+    box-sizing: border-box;
+    height: auto;
+    line-height: normal;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.navigation__logo.flex-start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation__logo img {
+    max-width: 350px;
+    min-width: 225px;
+    display: block;
+    max-height: 40px;
+    object-fit: contain;
+    object-position: left top;
+    width: 50vw;
+}
+
+.navigation__logo>a, .navigation__logo>img, .navigation__logo>svg {
+    margin-right: auto;
+}
+
+body[class*="logo--normal"] .navigation__logo {
+    height: 60px;
+    padding-top: 50px;
+}
+
+/* Navigation Menu */
+.navigation__left, .navigation__left--menu {
+    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.navigation__left--menu, nav.navigation__item--has-mega-menu .navigation__item-category, .header-navigation-menu {
+    order: -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: 0 0;
+    margin: 0;
+    list-style: none;
+    height: 60px;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+
+.navigation__item {
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: center;
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: none;
+    border-right: none;
+}
+
+button.navigation__item-category,
+a.navigation__item-category {
+  color: #012363;
+ font-weight: 500;
+ font-size: 1rem;
+}
+
+.navigation__item-category {
+    color: #012363;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: 600;
+}
+
+.fal.fa-chevron-down.navigation__item-chevron--collapsed {
+    color: #012363;
+    font-weight: 600;
+}
+
+.navigation__item-chevron--collapsed, .navigation__item-chevron--expanded {
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.navigation__item-category[aria-expanded="true"] .navigation__item-chevron--collapsed {
+    transform: rotate(180deg);
+}
+
+/* Mega Menu */
+ .navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--collapsed, .navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--expanded {
+     font-size: .75rem;
+     margin-left: .5rem;
+}
+
+.mega-menu__wrapper a.link {
+     color: #fff;
+     font-weight: 700;
+}
+
+.mega-menu__wrapper .mega-menu__item {
+     font-weight: 700;
+     align-items: center;
+     display: inline-flex;
+     min-height: 2em;
+     position: relative;
+     width: 100%;
+}
+
+body.megamenu-visible .mega-container {
+     overflow-y: auto;
+     margin-top: 1.94rem;
+}
+
+/* CORRECTED Specificity Comment */
+ body.theme--white.accent--turquoise .mega-container .mega-menu__wrapper .mega-menu__item, body.theme--white.accent--turquoise .mega-container .mega-menu__wrapper .mega-menu__item a.link
+/* Specificity: (0,6,2) */
+ {
+     color: #fff;
+}
+
+/* FontAwesome Chevrons */
+ .navigation__item-category .fa-chevron-up {
+     display: none
+}
+
+.navigation__item-category .fa-chevron-down {
+     transform: rotate(0deg);
+     transition: transform .3s ease-in-out
+}
+
+.navigation__item-category[aria-expanded=true] .fa-chevron-down {
+     display: inline-block;
+     transform: rotate(180deg)
+}
+
+.fa-chevron-down:before {
+     content: "\f078"
+}
+
+.fa-chevron-up:before {
+     content: "\f077"
+}
+
+.fa-external-link:before {
+     content: "\f35d"
+}
+
+/* ==========================================================================
+   8. FOOTER
+   Sidfotsstilar och innehåll
+========================================================================== */
+footer.footer {
+    font-family: filsonpro, sans-serif;
+    background-color: #eff9ff;
+    color: #012363;
+    padding: 24px 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer.footer a {
+    transition: all 0.2s ease;
+    font-family: filsonpro, sans-serif;
+    color: var(--clr-body-text);
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+footer.footer a:hover {
+    color: var(--clr-brand-500);
+    text-decoration: none;
+}
+
+footer.footer .container-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+footer.footer .block-container, footer.footer .textblock, footer.footer .row {
+    margin: 0;
+}
+
+footer.footer h4, footer.footer h5 {
+    font-family: filsonpro, sans-serif;
+    color: #012363;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+}
+
+footer.footer h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+footer.footer h5 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+footer.footer p {
+    font-family: filsonpro, sans-serif;
+    font-size: 14px;
+    color: #003366;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+footer.footer p:last-child, footer.footer .textblock__body>p:last-of-type {
+    margin-bottom: 0;
+}
+
+footer.footer p a:not([href^="tel:"]):not([href^="mailto:"]) {
+    font-family: filsonpro, sans-serif;
+    color: #044999;
+    text-decoration: underline;
+    font-size: inherit;
+    font-weight: normal;
+}
+footer.footer a[href^="tel:"], footer.footer a[href^="mailto:"] {
+    font-family: filsonpro, sans-serif;
+    color: #0066CC;
+    text-decoration: underline;
+    font-size: inherit;
+}
+
+nav.footer__link-nav {
+    background-color: #1f7ea4;
+    padding: 15px 15px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: filsonpro, sans-serif;
+}
+nav.footer__link-nav ul#footer__links {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row; /* Säkerställer radlayout */
+    justify-content: space-between; /* Jämn fördelning */
+    align-items: center;
+    flex-wrap: nowrap; /* Förhindrar radbrytning */
+    gap: var(--space-md); /* Mellanrum mellan länkar */
+}
+
+nav.footer__link-nav ul#footer__links>li.col {
+	flex: unset;
+	padding: 5px 10px;
+	text-align: initial;
+	white-space: nowrap;
+}
+
+nav.footer__link-nav a.footer__link {
+    font-family: filsonpro, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav.footer__link-nav a.footer__link:hover {
+    text-decoration: underline;
+}
+
+.footer__link .fa-external-link {
+    font-size: .9em;
+    margin-right: .5em
+}
+
+nav.footer__link-nav button#footer__links-toggle-button {
+    background: transparent;
+    border: 1px solid #ffffff;
+    padding: 8px 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   9. MAP STYLES
+   Kartstilar för Google Maps inbäddning
+========================================================================== */
+.map-embed-container {
+    --map-radius: 12px;
+    --map-shadow: 0 4px 12px rgba(1, 35, 99, 0.1);
+    --map-hover-shadow: 0 7px 28px rgba(1, 35, 99, 0.18);
+    --map-focus-outline-color: #007bff;
+    --map-max-width: 375px;
+    --map-aspect-ratio: 16/9;
+    --map-vertical-margin: 16px;
+    --map-border-width: 1px;
+    --map-border-color: rgba(1, 35, 99, 0.15);
+    --map-loading-text-color: #333;
+    --map-loading-bg-color: #f0f2f5;
+    --map-spinner-color: var(--map-focus-outline-color);
+    --map-transition-duration: 0.25s;
+    position: relative;
+    width: 100%;
+    max-width: var(--map-max-width);
+    margin-top: var(--map-vertical-margin);
+    margin-bottom: var(--map-vertical-margin);
+    margin-left: 0;
+    margin-right: auto;
+    border-radius: var(--map-radius);
+    overflow: hidden;
+    box-shadow: var(--map-shadow);
+    border: var(--map-border-width) solid var(--map-border-color);
+    aspect-ratio: var(--map-aspect-ratio);
+    background-color: var(--map-loading-bg-color);
+    transition: transform var(--map-transition-duration) ease, box-shadow var(--map-transition-duration) ease, border-color var(--map-transition-duration) ease;
+}
+
+.map-embed-container:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--map-hover-shadow);
+    border-color: var(--map-spinner-color);
+}
+
+.map-embed-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    z-index: 1;
+}
+
+.map-embed-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 36px;
+    margin-top: -28px;
+    margin-left: -18px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--map-spinner-color);
+    border-radius: 50%;
+    animation: map-spinner-rotation 0.8s linear infinite;
+    z-index: 0;
+}
+
+.map-embed-container::after {
+    content: "Laddar karta...";
+    position: absolute;
+    top: calc(50% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--map-loading-text-color);
+    font-size: 13px;
+    z-index: 0;
+}
+
+@keyframes map-spinner-rotation {
+    from {
+        transform: rotate(0deg);
+   }
+    to {
+        transform: rotate(360deg);
+   }
+}
+
+/* ==========================================================================
+   10. PERFORMANCE OPTIMIZATIONS
+   Prestandaoptimeringar för snabbare rendering
+========================================================================== */
+.faq-item:not([open]) {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 60px;
+}
+
+.faq-item summary::after {
+    will-change: transform;
+}
+
+.faq-item[open] summary::after {
+    will-change: auto;
+}
+
+@keyframes lightboxSpin {
+    to {
+        transform: rotate(360deg);
+   }
+}
+
+/* ==========================================================================
+   11. MEDIA QUERIES
+   Responsiva brytpunkter för olika skärmstorlekar
+========================================================================== */
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    html body *, .faq-item, .faq-icon::before, .faq-icon::after, .fade-in {
+        transition: none;
+        animation: none;
+   }
+}
+
+/* Print Styles */
+@media print {
+    .faq-item details {
+        open: true;
+   }
+    .faq-icon {
+        display: none;
+   }
+    .location-schedule tr[data-upcoming]::before {
+        display: none;
+   }
+}
+
+/* Container System - Mobile-First Bootstrap 5.3 Pattern */
+.container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+@media (min-width: 576px) {
+    .container {
+        padding-inline: clamp(1rem, 4vw, 2rem);
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    .location-section {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: var(--space-xl);
+         align-items: start;
+    }
+     .location-info {
+         text-align: left;
+    }
+     .faq-item {
+         transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-slow) var(--ease-out);
+    }
+     .faq-item:hover {
+         transform: translateY(calc(var(--PXR-2) * -1));
+         box-shadow: 0 var(--PXR-4) var(--PXR-12) rgba(0, 0, 0, 0.1);
+    }
+     .page__content-body {
+         padding-right: var(--CLAMP-110);
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+   }
+}
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+   }
+}
+/* Container Queries */
+ @container main-container (min-width: 400px) {
+     .price-box {
+         padding: var(--space-lg);
+    }
+}
+ @container main-container (min-width: 600px) {
+     .vaccination-info {
+         padding: var(--space-xl);
+    }
+}
+/* Mobile & Tablet Styles */
+/* Footer Navigation - Mobile-First */
+nav.footer__link-nav ul#footer__links.open,
+nav.footer__link-nav ul#footer__links:target {
+    flex-direction: column;
+    align-items: center;
+}
+
+nav.footer__link-nav ul#footer__links.open > li.col,
+nav.footer__link-nav ul#footer__links:target > li.col {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 992px) {
+    nav.footer__link-nav ul#footer__links.open,
+    nav.footer__link-nav ul#footer__links:target {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    nav.footer__link-nav ul#footer__links.open > li.col,
+    nav.footer__link-nav ul#footer__links:target > li.col {
+        width: auto;
+        margin-bottom: 0;
+    }
+}
+ @media (min-width: 576px) and (max-width: 991.98px) {
+     .location-info {
+         text-align: center;
+         padding: 0 var(--CLAMP-27);
+    }
+     .faq-question {
+         padding: var(--CLAMP-16);
+    }
+     .faq-content {
+         padding: 0 var(--CLAMP-16) var(--CLAMP-16);
+    }
+}
+ @media (max-width: 767px) {
+     html, body {
+         overflow-x: hidden;
+    }
+     .welcome-header {
+         min-width: 0;
+         width: 100%;
+         max-width: 100vw;
+         padding-left: 15px;
+         padding-right: 15px;
+         box-sizing: border-box;
+         margin-bottom: 20px;
+    }
+     .welcome-title {
+         font-size: 1.6em;
+         line-height: 1.2;
+    }
+     .welcome-subtitle {
+         font-size: 1.1em;
+         line-height: 1.3;
+    }
+     footer.footer {
+         padding: 20px 15px;
+    }
+     footer.footer h4 {
+         font-size: 1.1em;
+    }
+     footer.footer p, footer.footer a {
+         font-size: 0.9em;
+    }
+     nav.footer__link-nav ul#footer__links.open>li.col a.footer__link, nav.footer__link-nav ul#footer__links:target>li.col a.footer__link {
+         padding: 12px 15px;
+         font-size: 0.95em;
+    }
+   /* Footer länkar på mobil - behåll radlayout om möjligt */
+   nav.footer__link-nav ul#footer__links {
+        flex-wrap: wrap; /* Tillåt radbrytning på små skärmar */
+        gap: var(--space-sm);
+        padding: 0 var(--space-sm);
+    }
+    nav.footer__link-nav ul#footer__links>li.col {
+         flex: 1 1 auto; /* Tillåt flex för mobil */
+         min-width: 0;
+         font-size: 0.875rem;
+    }
+    /* Off-Canvas Menu */
+     .mobile-navigation__left .mobile-navigation__item#open-offside-menu {
+         padding: 10px;
+    }
+     .hamburger-menu {
+         width: 24px;
+         height: 20px;
+    }
+     .hamburger-menu__line {
+         height: 3px;
+         margin: 4px 0;
+         background-color: #ffffff;
+         display: block;
+    }
+     .offside-navbar--menu__item a, .offside-navbar--menu__item span[role="button"] {
+         padding: 14px 18px;
+         font-size: 1rem;
+         display: block;
+    }
+     .offside-navbar--menu.child-menu .offside-navbar--menu__item a {
+         padding-left: 30px;
+    }
+}
+ @media (max-width: 575.98px) {
+    /* Re-order content for mobile
+       Ordning: 1. Intro, 2. Platsschemat, 3. Prislista, 4. Vaccininformation, 5. FAQ */
+     html {
+         overflow-x: hidden;
+    }
+     body {
+         width: 100%;
+         max-width: 100vw;
+         overflow-x: hidden;
+         margin: 0;
+         padding: 0;
+    }
+
+
+     /* Fix all containers to respect viewport width */
+     body * {
+         box-sizing: border-box;
+    }
+
+     /* Force proper viewport scaling and prevent zoom */
+     html {
+         font-size: 16px;
+         -webkit-text-size-adjust: 100%;
+         -ms-text-size-adjust: 100%;
+         text-size-adjust: 100%;
+         zoom: 1;
+         transform: scale(1);
+         position: relative;
+         left: 0;
+         right: 0;
+    }
+
+    /* Force viewport to start at left edge */
+    body {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        transform: translateX(0);
+    }
+
+    /* Prevent any element from causing horizontal scroll and fix left cutoff */
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+
+
+     .welcome-header,
+     .navigation,
+     .main-content,
+     .page-content,
+     main,
+     section,
+     article {
+         max-width: 100vw;
+         overflow-x: hidden;
+         box-sizing: border-box;
+    }
+
+     /* Ensure content doesn't get cut off on left */
+     .page__content--left-align,
+     article.page__content--left-align {
+         padding-left: 15px;
+         padding-right: 15px;
+         margin-left: 0;
+         margin-right: 0;
+    }
+
+     /* Fix mobile menu - ensure it starts hidden */
+     .offside-navbar {
+         width: 0;
+         display: none;
+    }
+    .offside-navbar--menu.child-menu {
+        display: none;
+    }
+    .footer__links {
+        display: none;
+    }
+    .navigation__left--menu,
+    .header-navigation-menu {
+        display: none;
+    }
+
+    /* FORCE footer menu closed by default */
+    nav.footer__link-nav ul#footer__links {
+        display: none;
+    }
+    nav.footer__link-nav ul#footer__links:not(.open):not(.visible):not(:target) {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    /* Only show mobile menu when toggled */
+    .offside-navbar.show-side-nav,
+    .offside-navbar.open {
+        width: 100%;
+        display: block;
+    }
+    .offside-navbar--menu.child-menu.open {
+        display: block;
+    }
+    .footer__links.visible,
+    .footer__links.open,
+    nav.footer__link-nav ul#footer__links.open,
+    nav.footer__link-nav ul#footer__links.visible,
+    nav.footer__link-nav ul#footer__links:target {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+    }
+
+    /* Fix footer layout on mobile */
+    footer.footer {
+        padding: 15px;
+        margin: 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    nav.footer__link-nav {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    nav.footer__link-nav ul#footer__links {
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+    }
+
+    nav.footer__link-nav ul#footer__links > li.col {
+        flex: 0 1 auto;
+        margin: 2px;
+        padding: 5px 8px;
+    }
+
+    /* MOBILE ORDERING - Make main container flex */
+    main,
+    .main-content,
+    .page-content,
+    body > .container,
+    body > .container-fluid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 1. Intro first */
+    article.page__content--left-align,
+    .intro-content {
+        order: 1;
+    }
+
+    /* 2. Location/Schedule */
+    aside,
+    .sidebar-content,
+    .location-schedule-wrapper,
+    .location-schedule {
+        order: 2;
+    }
+
+    /* 3. Price heading */
+    .price-heading {
+        order: 3;
+    }
+
+    /* 4. Price toggles */
+    .price-toggle-labels {
+        order: 4;
+    }
+
+    /* 5. Price table */
+    .price-box,
+    section.price-box {
+        order: 5;
+    }
+
+    /* 6. Vaccine info */
+    .vaccination-info,
+    section.vaccination-info,
+    .vaccine-heading {
+        order: 6;
+    }
+
+    /* 7. FAQ */
+    .faq,
+    section.faq,
+    .faq-title {
+        order: 7;
+    }
+
+    /* Övriga innehåll */
+    .page__content--left-align,
+    article.page__content--left-align {
+        order: 0;
+    }
+    .location-info {
+        text-align: left;
+        padding: 0 var(--CLAMP-18);
+    }
+    .faq-question {
+        padding: var(--CLAMP-14);
+        font-size: var(--CLAMP-16);
+    }
+    .faq-content {
+        padding: 0 var(--CLAMP-14) var(--CLAMP-14);
+        font-size: var(--CLAMP-15);
+    }
+    .table-container {
+        margin: 0 calc(var(--PXR-18) * -1);
+        padding: 0 var(--PXR-18);
+    }
+    .bus-img {
+        width: calc(var(--PXP-11) * 1.2);
+    }
+    .price-table {
+        font-size: var(--fs-table-body);
+        table-layout: auto;
+    }
+    .price-table th, .price-table td {
+        padding: var(--PXR-4) var(--PXR-4);
+        font-size: var(--fluid-sm); /* 14-16px - WCAG AA compliant */
+    }
+
+    /* Keep first 2 columns always visible */
+    .price-table th:nth-child(1), .price-table td:nth-child(1),
+    .price-table th:nth-child(2), .price-table td:nth-child(2) {
+        display: table-cell;
+    }
+
+    /* Hide columns 3 and 4 by default, show only when toggled */
+    .price-table th:nth-child(3), .price-table td:nth-child(3),
+    .price-table th:nth-child(4), .price-table td:nth-child(4) {
+        display: none;
+    }
+    .price-table th:first-child, .price-table td:first-child {
+        width: 27%;
+        padding-right: var(--PXR-6);
+    }
+    .price-table th:nth-child(n+2), .price-table td:nth-child(n+2) {
+        width: 20%;
+        text-align: right;
+        white-space: nowrap;
+    }
+    .price-table thead th {
+        font-size: var(--fluid-xs); /* 12-14px - Minimum accessibility */
+        line-height: 1.2;
+    }
+    .price-table thead th br {
+        display: none;
+    }
+    .faq-item:not([open]) .faq-content {
+        display: none;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+    }
+    .faq-item:not([open]) {
+        height: auto;
+        min-height: 0;
+        padding-bottom: var(--PXR-4);
+    }
+    .faq-item:not([open]) summary {
+        margin-bottom: 0;
+    }
+    details.faq-item:not([open]) > *:not(summary) {
+        display: none;
+    }
+    .price-toggle-labels {
+        gap: var(--PXR-8);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .price-toggle-label {
+        font-size: var(--CLAMP-14);
+        padding: var(--CLAMP-7) var(--CLAMP-9);
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    .map-embed-container {
+        --map-max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        --map-border-width: 0px;
+    }
+    .faq-item summary {
+        font-size: clamp(0.95rem, 1rem + 0.2vw, 1.1rem);
+        padding-block: var(--space-lg);
+        min-height: 5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 1.4em;
+    }
+    .welcome-subtitle {
+        font-size: 1.0em;
+    }
+}
+
+@supports not selector(:has(*)) {
+    @media (max-width: 575.98px) {
+       /* Fallback for browsers without :has() */
+        .location-schedule-wrapper, .location-schedule {
+            order: -8;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .price-box, .price-toggle-labels {
+            order: -6;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .vaccination-info {
+            order: -4;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .faq-sidebar {
+            order: 1;
+       }
+   }
+}
+
+nav#accessibility-navigation ul.accessibility-navigation__items {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Footer PTJ Logo - Begränsar storleken till max 60px (3.75rem)
+========================================================================== */
+/* Målselektor för footer-logotypen med inline-stil */
+footer img[alt="Praktikertjänst"]{
+	max-width: 19.44rem;
+	min-width: 3rem;
+    height: auto;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Page Content Wrapper & Body - Responsiva marginaler och padding
+========================================================================== */
+/* Emulerar margin-bottom: 0, margin-top: 1rem responsivt */
+.page__content-wrapper {
+    margin-bottom: 0;
+    margin-top: clamp(0.75rem, 0.625rem + 0.625vw, 1rem); /* 12px-16px */
+}
+
+/* Emulerar padding-right: 100px för desktop */
+@media (min-width: 992px) {
+    .page__content-body {
+        padding-right: clamp(4rem, 3rem + 2.5vw, 6.25rem); /* 64px-100px */
+    }
+}
+
+/* ==========================================================================
+   Price Table Optimeringar - Minimerar whitespace, bibehåller 3 kolumner
+========================================================================== */
+.price-table {
+    /* Kompakt tabellayout */
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0;
+}
+
+.price-table th,
+.price-table td {
+    /* Minimalt padding för kompakt layout */
+    padding: var(--PXR-6) var(--PXR-8);
+    vertical-align: middle;
+}
+
+/* Första kolumnen får mer plats för vaccinnamn */
+.price-table th:first-child,
+.price-table td:first-child {
+    width: 26.9%;
+    text-align: left;
+    padding-left: var(--PXR-12);
+}
+
+/* Priskolumnerna får lika bredd */
+.price-table th:not(:first-child),
+.price-table td:not(:first-child) {
+    width: 18.33%;
+    text-align: right;
+    padding-right: var(--PXR-12);
+}
+
+/* Visa alltid alla tre priskolumner på mobil */
+@media (max-width: 575.98px) {
+    .price-table {
+        font-size: var(--fluid-sm); /* 14-16px - WCAG AA compliant */
+    }
+
+    /* Keep first 2 columns always visible */
+    .price-table th:nth-child(1), .price-table td:nth-child(1),
+    .price-table th:nth-child(2), .price-table td:nth-child(2) {
+        display: table-cell;
+        padding: var(--PXR-3) var(--PXR-4);
+    }
+
+    /* Hide columns 3 and 4 by default on mobile too */
+    .price-table th:nth-child(3), .price-table td:nth-child(3),
+    .price-table th:nth-child(4), .price-table td:nth-child(4) {
+        display: none;
+        padding: var(--PXR-3) var(--PXR-4);
+    }
+
+    /* Mobile toggle functionality */
+    body:has(#v-pen:checked) .price-table th:nth-child(3),
+    body:has(#v-pen:checked) .price-table td:nth-child(3) {
+        display: table-cell;
+    }
+    body:has(#v-stu:checked) .price-table th:nth-child(4),
+    body:has(#v-stu:checked) .price-table td:nth-child(4) {
+        display: table-cell;
+    }
+
+    /* Justera kolumnbredder för mobil */
+    .price-table th:first-child,
+    .price-table td:first-child {
+        width: 40%;
+        padding-left: var(--PXR-6);
+    }
+
+    .price-table th:not(:first-child),
+    .price-table td:not(:first-child) {
+        width: 20%;
+        padding-right: var(--PXR-6);
+    }
+
+    /* Enable two-row headers on mobile */
+    .price-table thead th {
+        font-size: var(--fluid-sm); /* 14-16px - WCAG compliant */
+        line-height: 1.1;
+        white-space: pre-line;
+        vertical-align: top;
+    }
+
+    /* Center price column headers */
+    .price-table thead th:nth-child(2),
+    .price-table thead th:nth-child(3),
+    .price-table thead th:nth-child(4) {
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   FAQ Grid Layout - Exakt 2 rader med balanserad bredd
+========================================================================== */
+.faq-item summary {
+    /* Grid layout för exakt 2 rader */
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr 1fr;
+    align-items: start;
+    gap: 0 var(--space-sm);
+}
+
+/* FAQ frågetext som grid child */
+.faq-item summary::before {
+    content: attr(data-question);
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: center;
+    line-height: 1.4;
+    word-break: break-word;
+    hyphens: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Chevron i grid */
+.faq-item summary::after {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+}
+
+/* ==========================================================================
+   Vaccine Information Progressive Disclosure Styles
+   ========================================================================== */
+
+/* Vaccine Categories */
+.vaccine-category {
+    margin-bottom: var(--CLAMP-12);
+    border-radius: var(--radius-md);
+    background: var(--clr-surface-subtle);
+    padding: var(--CLAMP-8);
+}
+
+.vaccine-category-title {
+    font-size: var(--fluid-md);
+    font-weight: var(--fw-semibold);
+    margin-bottom: var(--CLAMP-6);
+    padding-bottom: var(--CLAMP-3);
+    border-bottom: 2px solid var(--clr-primary-subtle);
+    color: var(--clr-primary);
+}
+
+/* Vaccine Items */
+.vaccine-item {
+    background: var(--clr-bg);
+    border: 1px solid var(--clr-border-subtle);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--CLAMP-4);
+    transition: all 0.2s ease;
+}
+
+.vaccine-item:hover {
+    border-color: var(--clr-primary-subtle);
+    box-shadow: 0 2px 8px var(--clr-shadow-subtle);
+}
+
+.vaccine-item[open] {
+    border-color: var(--clr-primary);
+    background: var(--clr-primary-subtle);
+}
+
+/* Vaccine Priority Badge */
+.vaccine-priority {
+    border-left: 4px solid var(--clr-accent);
+}
+
+.vaccine-priority .vaccine-badge {
+    background: var(--clr-accent);
+    color: var(--clr-on-accent);
+    font-size: var(--fluid-xs);
+    font-weight: var(--fw-medium);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-xs);
+    margin-left: auto;
+}
+
+/* Health Service Item */
+.health-service {
+    border-left: 4px solid var(--clr-secondary);
+}
+
+/* Vaccine Summary */
+.vaccine-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--CLAMP-5) var(--CLAMP-6);
+    cursor: pointer;
+    font-weight: var(--fw-medium);
+    list-style: none;
+    position: relative;
+}
+
+.vaccine-summary::-webkit-details-marker {
+    display: none;
+}
+
+.vaccine-summary::after {
+    content: '›';
+    font-size: var(--fluid-sm);
+    color: var(--clr-primary);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: var(--CLAMP-4);
+}
+
+.vaccine-item[open] .vaccine-summary::after {
+    transform: rotate(90deg);
+}
+
+.vaccine-desc {
+    font-size: var(--fluid-sm);
+    color: var(--clr-body-secondary);
+    font-weight: var(--fw-normal);
+    font-style: italic;
+}
+
+/* Vaccine Content */
+.vaccine-content {
+    padding: 0 var(--CLAMP-6) var(--CLAMP-6) var(--CLAMP-6);
+    border-top: 1px solid var(--clr-border-subtle);
+    background: var(--clr-bg);
+}
+
+.vaccine-content p {
+    margin: 0;
+    color: var(--clr-white);
+}
+
+.vaccine-content p:last-child {
+    margin-bottom: 0;
+}
+
+section.faq.sidebar-content details.faq-item {
+    min-width: var(--PXR-180);
+}
+
+.faq-question:focus {
+    outline: var(--PXR-2) solid var(--clr-accent);
+    outline-offset: var(--PXR-2);
+    box-shadow: 0 0 0 var(--PXR-4) rgba(74, 166, 201, 0.1);
+}
+
+.faq-question:focus-visible {
+    outline: var(--PXR-2) solid var(--clr-accent);
+    outline-offset: var(--PXR-2);
+}
+
+/* Lightbox */
+.img-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+    animation: fadeIn var(--duration-fast) var(--ease-out);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+}
+.img-lightbox.open {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.img-lightbox::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: lightboxSpin 0.8s linear infinite;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.img-lightbox.loading::before {
+    opacity: 1;
+}
+.img-lightbox img, .img-lightbox .lightbox-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 92vw;
+    max-height: 85vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    cursor: default;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   5. UTILITY CLASSES
+   Återanvändbara hjälpklasser för layout och styling
+========================================================================== */
+/* Text Alignment & Padding */
+.text-center {
+    text-align: center;
+}
+
+.text-start {
+    text-align: left;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.card-body.p-0 {
+    padding: 0;
+}
+
+.mt-2 {
+    margin-top: var(--CLAMP-9);
+}
+
+.mb-2 {
+    margin-bottom: var(--CLAMP-9);
+}
+
+.visually-hidden, .sr-only {
+    position: absolute;
+    width: var(--PXR-1);
+    height: var(--PXR-1);
+    padding: 0;
+    margin: calc(var(--PXR-1) * -1);
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Spacing Utilities */
+.p-xs {
+    padding: var(--space-xs);
+}
+
+.p-sm {
+    padding: var(--space-sm);
+}
+
+.p-md {
+    padding: var(--space-md);
+}
+
+.p-lg {
+    padding: var(--space-lg);
+}
+
+.p-xl {
+    padding: var(--space-xl);
+}
+
+.p-2xl {
+    padding: var(--space-2xl);
+}
+
+.px-xs {
+    padding-inline: var(--space-xs);
+}
+
+.px-sm {
+    padding-inline: var(--space-sm);
+}
+
+.px-md {
+    padding-inline: var(--space-md);
+}
+
+.px-lg {
+    padding-inline: var(--space-lg);
+}
+
+.px-xl {
+    padding-inline: var(--space-xl);
+}
+
+.py-xs {
+    padding-block: var(--space-xs);
+}
+
+.py-sm {
+    padding-block: var(--space-sm);
+}
+
+.py-md {
+    padding-block: var(--space-md);
+}
+
+.py-lg {
+    padding-block: var(--space-lg);
+}
+
+.py-xl {
+    padding-block: var(--space-xl);
+}
+
+.m-xs {
+    margin: var(--space-xs);
+}
+
+.m-sm {
+    margin: var(--space-sm);
+}
+
+.m-md {
+    margin: var(--space-md);
+}
+
+.m-lg {
+    margin: var(--space-lg);
+}
+
+.m-xl {
+    margin: var(--space-xl);
+}
+
+.mx-auto {
+    margin-inline: auto;
+}
+
+.my-xs {
+    margin-block: var(--space-xs);
+}
+
+.my-sm {
+    margin-block: var(--space-sm);
+}
+
+.my-md {
+    margin-block: var(--space-md);
+}
+
+.my-lg {
+    margin-block: var(--space-lg);
+}
+
+.my-xl {
+    margin-block: var(--space-xl);
+}
+
+/* Typography Utilities */
+.text-xs {
+    font-size: var(--fluid-xs);
+}
+
+.text-sm {
+    font-size: var(--fluid-sm);
+}
+
+.text-base {
+    font-size: var(--fluid-base);
+}
+
+.text-md {
+    font-size: var(--fluid-md);
+}
+
+.text-lg {
+    font-size: var(--fluid-lg);
+}
+
+.text-xl {
+    font-size: var(--fluid-xl);
+}
+
+.text-2xl {
+    font-size: var(--fluid-2xl);
+}
+
+.text-3xl {
+    font-size: var(--fluid-3xl);
+}
+
+/* Gap Utilities */
+.gap-xs {
+    gap: var(--space-xs);
+}
+
+.gap-sm {
+    gap: var(--space-sm);
+}
+
+.gap-md {
+    gap: var(--space-md);
+}
+
+.gap-lg {
+    gap: var(--space-lg);
+}
+
+.gap-xl {
+    gap: var(--space-xl);
+}
+
+/* Border Radius Utilities */
+.rounded-sm {
+    border-radius: var(--radius-sm);
+}
+
+.rounded-md {
+    border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+    border-radius: var(--radius-lg);
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+/* Animation & Transition Utilities */
+.transition-fast {
+    transition-duration: var(--duration-fast);
+}
+
+.transition-normal {
+    transition-duration: var(--duration-normal);
+}
+
+.transition-slow {
+    transition-duration: var(--duration-slow);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(var(--PXR-20));
+    transition: opacity var(--duration-slower) var(--ease-out), transform var(--duration-slower) var(--ease-out);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   6. GRID & CONTAINER SYSTEM
+   Responsiva behållare och kolumnsystem för layout
+========================================================================== */
+.container {
+    width: var(--PXP-18);
+    padding-right: var(--space-md);
+    padding-left: var(--space-md);
+    margin-right: auto;
+    margin-left: auto;
+    container-type: inline-size;
+    container-name: main-container;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(var(--space-md) * -1);
+    margin-left: calc(var(--space-md) * -1);
+}
+
+.col {
+    flex: 1 0 0%;
+    padding-right: var(--space-md);
+    padding-left: var(--space-md);
+}
+
+.page__content-wrapper {
+    margin-bottom: 0;
+    margin-top: var(--space-sm);
+}
+
+/* ========================================================================== 7. HEADER & NAVIGATION ========================================================================== */
+/* Icon Font Base */
+.fa, .fab, .fad, .fal, .far, .fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    font-size: 1em;
+    font-family: 'Font Awesome 5 Pro';
+}
+
+/* Main Header Container */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+}
+
+header .container-fluid {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    width: clamp(95vw, 100vw, 95vw);
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.header .float-right, .header .pull-right {
+    float: none;
+}
+
+.header [class*="position-absolute"] {
+    position: relative;
+}
+
+/* Welcome Header */
+.welcome-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    margin-bottom: 16px;
+    font-family: filsonpro, sans-serif;
+    text-align: center;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.welcome-title {
+    font-size: 38px;
+    color: var(--blue-primary);
+    margin: 0 0 4px;
+    font-weight: 800;
+}
+
+.welcome-subtitle {
+    font-size: 32px;
+    color: var(--blue-dark);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Navigation Logo */
+.navigation__logo {
+    order: -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-lg) var(--space-md);
+    margin-left: 0.25rem;
+    box-sizing: border-box;
+    height: auto;
+    line-height: normal;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.navigation__logo.flex-start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation__logo img {
+    max-width: 350px;
+    min-width: 225px;
+    display: block;
+    max-height: 40px;
+    object-fit: contain;
+    object-position: left top;
+    width: 50vw;
+}
+
+.navigation__logo>a, .navigation__logo>img, .navigation__logo>svg {
+    margin-right: auto;
+}
+
+body[class*="logo--normal"] .navigation__logo {
+    height: 60px;
+    padding-top: 50px;
+}
+
+/* Navigation Menu */
+.navigation__left, .navigation__left--menu {
+    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.navigation__left--menu, nav.navigation__item--has-mega-menu .navigation__item-category, .header-navigation-menu {
+    order: -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: 0 0;
+    margin: 0;
+    list-style: none;
+    height: 60px;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+
+.navigation__item {
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: center;
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: none;
+    border-right: none;
+}
+
+button.navigation__item-category,
+a.navigation__item-category {
+  color: #012363;
+ font-weight: 500;
+ font-size: 1rem;
+}
+
+.navigation__item-category {
+    color: #012363;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: 600;
+}
+
+.fal.fa-chevron-down.navigation__item-chevron--collapsed {
+    color: #012363;
+    font-weight: 600;
+}
+
+.navigation__item-chevron--collapsed, .navigation__item-chevron--expanded {
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.navigation__item-category[aria-expanded="true"] .navigation__item-chevron--collapsed {
+    transform: rotate(180deg);
+}
+
+/* Mega Menu */
+ .navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--collapsed, .navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--expanded {
+     font-size: .75rem;
+     margin-left: .5rem;
+}
+
+.mega-menu__wrapper a.link {
+     color: #fff;
+     font-weight: 700;
+}
+
+.mega-menu__wrapper .mega-menu__item {
+     font-weight: 700;
+     align-items: center;
+     display: inline-flex;
+     min-height: 2em;
+     position: relative;
+     width: 100%;
+}
+
+body.megamenu-visible .mega-container {
+     overflow-y: auto;
+     margin-top: 1.94rem;
+}
+
+/* CORRECTED Specificity Comment */
+ body.theme--white.accent--turquoise .mega-container .mega-menu__wrapper .mega-menu__item, body.theme--white.accent--turquoise .mega-container .mega-menu__wrapper .mega-menu__item a.link
+/* Specificity: (0,6,2) */
+ {
+     color: #fff;
+}
+
+/* FontAwesome Chevrons */
+ .navigation__item-category .fa-chevron-up {
+     display: none
+}
+
+.navigation__item-category .fa-chevron-down {
+     transform: rotate(0deg);
+     transition: transform .3s ease-in-out
+}
+
+.navigation__item-category[aria-expanded=true] .fa-chevron-down {
+     display: inline-block;
+     transform: rotate(180deg)
+}
+
+.fa-chevron-down:before {
+     content: "\f078"
+}
+
+.fa-chevron-up:before {
+     content: "\f077"
+}
+
+.fa-external-link:before {
+     content: "\f35d"
+}
+
+/* ==========================================================================
+   8. FOOTER
+   Sidfotsstilar och innehåll
+========================================================================== */
+footer.footer {
+    font-family: filsonpro, sans-serif;
+    background-color: #eff9ff;
+    color: #012363;
+    padding: 24px 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer.footer a {
+    transition: all 0.2s ease;
+    font-family: filsonpro, sans-serif;
+    color: var(--clr-body-text);
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+footer.footer a:hover {
+    color: var(--clr-brand-500);
+    text-decoration: none;
+}
+
+footer.footer .container-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+footer.footer .block-container, footer.footer .textblock, footer.footer .row {
+    margin: 0;
+}
+
+footer.footer h4, footer.footer h5 {
+    font-family: filsonpro, sans-serif;
+    color: #012363;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+}
+
+footer.footer h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+footer.footer h5 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+footer.footer p {
+    font-family: filsonpro, sans-serif;
+    font-size: 14px;
+    color: #003366;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+footer.footer p:last-child, footer.footer .textblock__body>p:last-of-type {
+    margin-bottom: 0;
+}
+
+footer.footer p a:not([href^="tel:"]):not([href^="mailto:"]) {
+    font-family: filsonpro, sans-serif;
+    color: #044999;
+    text-decoration: underline;
+    font-size: inherit;
+    font-weight: normal;
+}
+footer.footer a[href^="tel:"], footer.footer a[href^="mailto:"] {
+    font-family: filsonpro, sans-serif;
+    color: #0066CC;
+    text-decoration: underline;
+    font-size: inherit;
+}
+
+nav.footer__link-nav {
+    background-color: #1f7ea4;
+    padding: 15px 15px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: filsonpro, sans-serif;
+}
+nav.footer__link-nav ul#footer__links {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row; /* Säkerställer radlayout */
+    justify-content: space-between; /* Jämn fördelning */
+    align-items: center;
+    flex-wrap: nowrap; /* Förhindrar radbrytning */
+    gap: var(--space-md); /* Mellanrum mellan länkar */
+}
+
+nav.footer__link-nav ul#footer__links>li.col {
+	flex: unset;
+	padding: 5px 10px;
+	text-align: initial;
+	white-space: nowrap;
+}
+
+nav.footer__link-nav a.footer__link {
+    font-family: filsonpro, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav.footer__link-nav a.footer__link:hover {
+    text-decoration: underline;
+}
+
+.footer__link .fa-external-link {
+    font-size: .9em;
+    margin-right: .5em
+}
+
+nav.footer__link-nav button#footer__links-toggle-button {
+    background: transparent;
+    border: 1px solid #ffffff;
+    padding: 8px 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   9. MAP STYLES
+   Kartstilar för Google Maps inbäddning
+========================================================================== */
+.map-embed-container {
+    --map-radius: 12px;
+    --map-shadow: 0 4px 12px rgba(1, 35, 99, 0.1);
+    --map-hover-shadow: 0 7px 28px rgba(1, 35, 99, 0.18);
+    --map-focus-outline-color: #007bff;
+    --map-max-width: 375px;
+    --map-aspect-ratio: 16/9;
+    --map-vertical-margin: 16px;
+    --map-border-width: 1px;
+    --map-border-color: rgba(1, 35, 99, 0.15);
+    --map-loading-text-color: #333;
+    --map-loading-bg-color: #f0f2f5;
+    --map-spinner-color: var(--map-focus-outline-color);
+    --map-transition-duration: 0.25s;
+    position: relative;
+    width: 100%;
+    max-width: var(--map-max-width);
+    margin-top: var(--map-vertical-margin);
+    margin-bottom: var(--map-vertical-margin);
+    margin-left: 0;
+    margin-right: auto;
+    border-radius: var(--map-radius);
+    overflow: hidden;
+    box-shadow: var(--map-shadow);
+    border: var(--map-border-width) solid var(--map-border-color);
+    aspect-ratio: var(--map-aspect-ratio);
+    background-color: var(--map-loading-bg-color);
+    transition: transform var(--map-transition-duration) ease, box-shadow var(--map-transition-duration) ease, border-color var(--map-transition-duration) ease;
+}
+
+.map-embed-container:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--map-hover-shadow);
+    border-color: var(--map-spinner-color);
+}
+
+.map-embed-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    z-index: 1;
+}
+
+.map-embed-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 36px;
+    margin-top: -28px;
+    margin-left: -18px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--map-spinner-color);
+    border-radius: 50%;
+    animation: map-spinner-rotation 0.8s linear infinite;
+    z-index: 0;
+}
+
+.map-embed-container::after {
+    content: "Laddar karta...";
+    position: absolute;
+    top: calc(50% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--map-loading-text-color);
+    font-size: 13px;
+    z-index: 0;
+}
+
+@keyframes map-spinner-rotation {
+    from {
+        transform: rotate(0deg);
+   }
+    to {
+        transform: rotate(360deg);
+   }
+}
+
+/* ==========================================================================
+   10. PERFORMANCE OPTIMIZATIONS
+   Prestandaoptimeringar för snabbare rendering
+========================================================================== */
+.faq-item:not([open]) {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 60px;
+}
+
+.faq-item summary::after {
+    will-change: transform;
+}
+
+.faq-item[open] summary::after {
+    will-change: auto;
+}
+
+@keyframes lightboxSpin {
+    to {
+        transform: rotate(360deg);
+   }
+}
+
+/* ==========================================================================
+   11. MEDIA QUERIES
+   Responsiva brytpunkter för olika skärmstorlekar
+========================================================================== */
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    html body *, .faq-item, .faq-icon::before, .faq-icon::after, .fade-in {
+        transition: none;
+        animation: none;
+   }
+}
+/* Print Styles */
+@media print {
+    .faq-item details {
+        open: true;
+   }
+    .faq-icon {
+        display: none;
+   }
+    .location-schedule tr[data-upcoming]::before {
+        display: none;
+   }
+}
+
+/* Container System - Mobile-First Bootstrap 5.3 Pattern */
+.container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+@media (min-width: 576px) {
+    .container {
+        padding-inline: clamp(1rem, 4vw, 2rem);
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    .location-section {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: var(--space-xl);
+         align-items: start;
+    }
+     .location-info {
+         text-align: left;
+    }
+     .faq-item {
+         transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-slow) var(--ease-out);
+    }
+     .faq-item:hover {
+         transform: translateY(calc(var(--PXR-2) * -1));
+         box-shadow: 0 var(--PXR-4) var(--PXR-12) rgba(0, 0, 0, 0.1);
+    }
+     .page__content-body {
+         padding-right: var(--CLAMP-110);
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+   }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+   }
+}
+
+/* Container Queries */
+@container main-container (min-width: 400px) {
+    .price-box {
+        padding: var(--space-lg);
+   }
+}
+
+@container main-container (min-width: 600px) {
+    .vaccination-info {
+        padding: var(--space-xl);
+   }
+}
+
+/* Mobile & Tablet Styles */
+/* Footer Navigation - Mobile-First */
+nav.footer__link-nav ul#footer__links.open,
+nav.footer__link-nav ul#footer__links:target {
+    flex-direction: column;
+    align-items: center;
+}
+
+nav.footer__link-nav ul#footer__links.open > li.col,
+nav.footer__link-nav ul#footer__links:target > li.col {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 992px) {
+    nav.footer__link-nav ul#footer__links.open,
+    nav.footer__link-nav ul#footer__links:target {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    nav.footer__link-nav ul#footer__links.open > li.col,
+    nav.footer__link-nav ul#footer__links:target > li.col {
+        width: auto;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .location-info {
+        text-align: center;
+        padding: 0 var(--CLAMP-27);
+   }
+    .faq-question {
+        padding: var(--CLAMP-16);
+   }
+    .faq-content {
+        padding: 0 var(--CLAMP-16) var(--CLAMP-16);
+   }
+}
+
+@media (max-width: 767px) {
+    html, body {
+        overflow-x: hidden;
+   }
+    .welcome-header {
+        min-width: 0;
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+   }
+    .welcome-title {
+        font-size: 1.6em;
+        line-height: 1.2;
+   }
+    .welcome-subtitle {
+        font-size: 1.1em;
+        line-height: 1.3;
+   }
+    footer.footer {
+        padding: 20px 15px;
+   }
+    footer.footer h4 {
+        font-size: 1.1em;
+   }
+    footer.footer p, footer.footer a {
+        font-size: 0.9em;
+   }
+    nav.footer__link-nav ul#footer__links.open>li.col a.footer__link, nav.footer__link-nav ul#footer__links:target>li.col a.footer__link {
+        padding: 12px 15px;
+        font-size: 0.95em;
+   }
+   /* Footer länkar på mobil - behåll radlayout om möjligt */
+   nav.footer__link-nav ul#footer__links {
+        flex-wrap: wrap; /* Tillåt radbrytning på små skärmar */
+        gap: var(--space-sm);
+        padding: 0 var(--space-sm);
+   }
+   nav.footer__link-nav ul#footer__links>li.col {
+        flex: 1 1 auto; /* Tillåt flex för mobil */
+        min-width: 0;
+        font-size: 0.875rem;
+   }
+   /* Off-Canvas Menu */
+    .mobile-navigation__left .mobile-navigation__item#open-offside-menu {
+        padding: 10px;
+   }
+    .hamburger-menu {
+        width: 24px;
+        height: 20px;
+   }
+    .hamburger-menu__line {
+        height: 3px;
+        margin: 4px 0;
+        background-color: #ffffff;
+        display: block;
+   }
+    .offside-navbar--menu__item a, .offside-navbar--menu__item span[role="button"] {
+        padding: 14px 18px;
+        font-size: 1rem;
+        display: block;
+   }
+    .offside-navbar--menu.child-menu .offside-navbar--menu__item a {
+        padding-left: 30px;
+   }
+}
+@media (max-width: 575.98px) {
+   /* Re-order content for mobile
+      Ordning: 1. Intro, 2. Platsschemat, 3. Prislista, 4. Vaccininformation, 5. FAQ */
+    html {
+        overflow-x: hidden;
+   }
+    body {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+   }
+
+
+    /* Fix all containers to respect viewport width */
+    body * {
+        box-sizing: border-box;
+   }
+
+    /* Force proper viewport scaling and prevent zoom */
+    html {
+        font-size: 16px;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        zoom: 1;
+        transform: scale(1);
+        position: relative;
+        left: 0;
+        right: 0;
+   }
+
+    /* Force viewport to start at left edge */
+    body {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        transform: translateX(0);
+   }
+
+    /* Prevent any element from causing horizontal scroll and fix left cutoff */
+    body, html {
+        margin: 0;
+        padding: 0;
+   }
+
+
+    .welcome-header,
+    .navigation,
+    .main-content,
+    .page-content,
+    main,
+    section,
+    article {
+        max-width: 100vw;
+        overflow-x: hidden;
+        box-sizing: border-box;
+   }
+
+     /* Ensure content doesn't get cut off on left */
+     .page__content--left-align,
+     article.page__content--left-align {
+         padding-left: 15px;
+         padding-right: 15px;
+         margin-left: 0;
+         margin-right: 0;
+    }
+
+     /* Fix mobile menu - ensure it starts hidden */
+     .offside-navbar {
+         width: 0;
+         display: none;
+    }
+    .offside-navbar--menu.child-menu {
+        display: none;
+    }
+    .footer__links {
+        display: none;
+    }
+    .navigation__left--menu,
+    .header-navigation-menu {
+        display: none;
+    }
+
+    /* FORCE footer menu closed by default */
+    nav.footer__link-nav ul#footer__links {
+        display: none;
+    }
+    nav.footer__link-nav ul#footer__links:not(.open):not(.visible):not(:target) {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    /* Only show mobile menu when toggled */
+    .offside-navbar.show-side-nav,
+    .offside-navbar.open {
+        width: 100%;
+        display: block;
+    }
+    .offside-navbar--menu.child-menu.open {
+        display: block;
+    }
+    .footer__links.visible,
+    .footer__links.open,
+    nav.footer__link-nav ul#footer__links.open,
+    nav.footer__link-nav ul#footer__links.visible,
+    nav.footer__link-nav ul#footer__links:target {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+    }
+
+    /* Fix footer layout on mobile */
+    footer.footer {
+        padding: 15px;
+        margin: 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    nav.footer__link-nav {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    nav.footer__link-nav ul#footer__links {
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+    }
+
+    nav.footer__link-nav ul#footer__links > li.col {
+        flex: 0 1 auto;
+        margin: 2px;
+        padding: 5px 8px;
+    }
+
+    /* MOBILE ORDERING - Make main container flex */
+    main,
+    .main-content,
+    .page-content,
+    body > .container,
+    body > .container-fluid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 1. Intro first */
+    article.page__content--left-align,
+    .intro-content {
+        order: 1;
+    }
+
+    /* 2. Location/Schedule */
+    aside,
+    .sidebar-content,
+    .location-schedule-wrapper,
+    .location-schedule {
+        order: 2;
+    }
+
+    /* 3. Price heading */
+    .price-heading {
+        order: 3;
+    }
+
+    /* 4. Price toggles */
+    .price-toggle-labels {
+        order: 4;
+    }
+
+    /* 5. Price table */
+    .price-box,
+    section.price-box {
+        order: 5;
+    }
+
+    /* 6. Vaccine info */
+    .vaccination-info,
+    section.vaccination-info,
+    .vaccine-heading {
+        order: 6;
+    }
+
+    /* 7. FAQ */
+    .faq,
+    section.faq,
+    .faq-title {
+        order: 7;
+    }
+
+    /* Övriga innehåll */
+    .page__content--left-align,
+    article.page__content--left-align {
+        order: 0;
+    }
+    .location-info {
+        text-align: left;
+        padding: 0 var(--CLAMP-18);
+    }
+    .faq-question {
+        padding: var(--CLAMP-14);
+        font-size: var(--CLAMP-16);
+    }
+    .faq-content {
+        padding: 0 var(--CLAMP-14) var(--CLAMP-14);
+        font-size: var(--CLAMP-15);
+    }
+    .table-container {
+        margin: 0 calc(var(--PXR-18) * -1);
+        padding: 0 var(--PXR-18);
+    }
+    .bus-img {
+        width: calc(var(--PXP-11) * 1.2);
+    }
+    .price-table {
+        font-size: var(--fs-table-body);
+        table-layout: auto;
+    }
+    .price-table th, .price-table td {
+        padding: var(--PXR-4) var(--PXR-4);
+        font-size: var(--fluid-sm); /* 14-16px - WCAG AA compliant */
+    }
+
+    /* Keep first 2 columns always visible */
+    .price-table th:nth-child(1), .price-table td:nth-child(1),
+    .price-table th:nth-child(2), .price-table td:nth-child(2) {
+        display: table-cell;
+    }
+
+    /* Hide columns 3 and 4 by default, show only when toggled */
+    .price-table th:nth-child(3), .price-table td:nth-child(3),
+    .price-table th:nth-child(4), .price-table td:nth-child(4) {
+        display: none;
+    }
+    .price-table th:first-child, .price-table td:first-child {
+        width: 27%;
+        padding-right: var(--PXR-6);
+    }
+    .price-table th:nth-child(n+2), .price-table td:nth-child(n+2) {
+        width: 20%;
+        text-align: right;
+        white-space: nowrap;
+    }
+    .price-table thead th {
+        font-size: var(--fluid-xs); /* 12-14px - Minimum accessibility */
+        line-height: 1.2;
+    }
+    .price-table thead th br {
+        display: none;
+    }
+    .faq-item:not([open]) .faq-content {
+        display: none;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+    }
+    .faq-item:not([open]) {
+        height: auto;
+        min-height: 0;
+        padding-bottom: var(--PXR-4);
+    }
+    .faq-item:not([open]) summary {
+        margin-bottom: 0;
+    }
+    details.faq-item:not([open]) > *:not(summary) {
+        display: none;
+    }
+    .price-toggle-labels {
+        gap: var(--PXR-8);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .price-toggle-label {
+        font-size: var(--CLAMP-14);
+        padding: var(--CLAMP-7) var(--CLAMP-9);
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    .map-embed-container {
+        --map-max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        --map-border-width: 0px;
+    }
+    .faq-item summary {
+        font-size: clamp(0.95rem, 1rem + 0.2vw, 1.1rem);
+        padding-block: var(--space-lg);
+        min-height: 5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 1.4em;
+    }
+    .welcome-subtitle {
+        font-size: 1.0em;
+    }
+}
+
+@supports not selector(:has(*)) {
+    @media (max-width: 575.98px) {
+       /* Fallback for browsers without :has() */
+        .location-schedule-wrapper, .location-schedule {
+            order: -8;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .price-box, .price-toggle-labels {
+            order: -6;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .vaccination-info {
+            order: -4;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .faq-sidebar {
+            order: 1;
+       }
+   }
+}
+
+nav#accessibility-navigation ul.accessibility-navigation__items {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Footer PTJ Logo - Begränsar storleken till max 60px (3.75rem)
+========================================================================== */
+/* Målselektor för footer-logotypen med inline-stil */
+footer img[alt="Praktikertjänst"]{
+	max-width: 19.44rem;
+	min-width: 3rem;
+    height: auto;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Page Content Wrapper & Body - Responsiva marginaler och padding
+========================================================================== */
+/* Emulerar margin-bottom: 0, margin-top: 1rem responsivt */
+.page__content-wrapper {
+    margin-bottom: 0;
+    margin-top: clamp(0.75rem, 0.625rem + 0.625vw, 1rem); /* 12px-16px */
+}
+
+/* Emulerar padding-right: 100px för desktop */
+@media (min-width: 992px) {
+    .page__content-body {
+        padding-right: clamp(4rem, 3rem + 2.5vw, 6.25rem); /* 64px-100px */
+    }
+}
+
+/* ==========================================================================
+   Price Table Optimeringar - Minimerar whitespace, bibehåller 3 kolumner
+========================================================================== */
+.price-table {
+    /* Kompakt tabellayout */
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0;
+}
+
+.price-table th,
+.price-table td {
+    /* Minimalt padding för kompakt layout */
+    padding: var(--PXR-6) var(--PXR-8);
+    vertical-align: middle;
+}
+
+/* Första kolumnen får mer plats för vaccinnamn */
+.price-table th:first-child,
+.price-table td:first-child {
+    width: 26.9%;
+    text-align: left;
+    padding-left: var(--PXR-12);
+}
+
+/* Priskolumnerna får lika bredd */
+.price-table th:not(:first-child),
+.price-table td:not(:first-child) {
+    width: 18.33%;
+    text-align: right;
+    padding-right: var(--PXR-12);
+}
+
+/* Visa alltid alla tre priskolumner på mobil */
+@media (max-width: 575.98px) {
+    .price-table {
+        font-size: var(--fluid-sm); /* 14-16px - WCAG AA compliant */
+    }
+
+    /* Keep first 2 columns always visible */
+    .price-table th:nth-child(1), .price-table td:nth-child(1),
+    .price-table th:nth-child(2), .price-table td:nth-child(2) {
+        display: table-cell;
+        padding: var(--PXR-3) var(--PXR-4);
+    }
+
+    /* Hide columns 3 and 4 by default on mobile too */
+    .price-table th:nth-child(3), .price-table td:nth-child(3),
+    .price-table th:nth-child(4), .price-table td:nth-child(4) {
+        display: none;
+        padding: var(--PXR-3) var(--PXR-4);
+    }
+
+    /* Mobile toggle functionality */
+    body:has(#v-pen:checked) .price-table th:nth-child(3),
+    body:has(#v-pen:checked) .price-table td:nth-child(3) {
+        display: table-cell;
+    }
+    body:has(#v-stu:checked) .price-table th:nth-child(4),
+    body:has(#v-stu:checked) .price-table td:nth-child(4) {
+        display: table-cell;
+    }
+
+    /* Justera kolumnbredder för mobil */
+    .price-table th:first-child,
+    .price-table td:first-child {
+        width: 40%;
+        padding-left: var(--PXR-6);
+    }
+
+    .price-table th:not(:first-child),
+    .price-table td:not(:first-child) {
+        width: 20%;
+        padding-right: var(--PXR-6);
+    }
+
+    /* Enable two-row headers on mobile */
+    .price-table thead th {
+        font-size: var(--fluid-sm); /* 14-16px - WCAG compliant */
+        line-height: 1.1;
+        white-space: pre-line;
+        vertical-align: top;
+    }
+
+    /* Center price column headers */
+    .price-table thead th:nth-child(2),
+    .price-table thead th:nth-child(3),
+    .price-table thead th:nth-child(4) {
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   FAQ Grid Layout - Exakt 2 rader med balanserad bredd
+========================================================================== */
+.faq-item summary {
+    /* Grid layout för exakt 2 rader */
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr 1fr;
+    align-items: start;
+    gap: 0 var(--space-sm);
+}
+
+/* FAQ frågetext som grid child */
+.faq-item summary::before {
+    content: attr(data-question);
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: center;
+    line-height: 1.4;
+    word-break: break-word;
+    hyphens: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Chevron i grid */
+.faq-item summary::after {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+}
+
+/* ==========================================================================
+   Vaccine Information Progressive Disclosure Styles
+   ========================================================================== */
+
+/* Vaccine Categories */
+.vaccine-category {
+    margin-bottom: var(--CLAMP-12);
+    border-radius: var(--radius-md);
+    background: var(--clr-surface-subtle);
+    padding: var(--CLAMP-8);
+}
+
+.vaccine-category-title {
+    font-size: var(--fluid-md);
+    font-weight: var(--fw-semibold);
+    margin-bottom: var(--CLAMP-6);
+    padding-bottom: var(--CLAMP-3);
+    border-bottom: 2px solid var(--clr-primary-subtle);
+    color: var(--clr-primary);
+}
+
+/* Vaccine Items */
+.vaccine-item {
+    background: var(--clr-bg);
+    border: 1px solid var(--clr-border-subtle);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--CLAMP-4);
+    transition: all 0.2s ease;
+}
+
+.vaccine-item:hover {
+    border-color: var(--clr-primary-subtle);
+    box-shadow: 0 2px 8px var(--clr-shadow-subtle);
+}
+
+.vaccine-item[open] {
+    border-color: var(--clr-primary);
+    background: var(--clr-primary-subtle);
+}
+
+/* Vaccine Priority Badge */
+.vaccine-priority {
+    border-left: 4px solid var(--clr-accent);
+}
+
+.vaccine-priority .vaccine-badge {
+    background: var(--clr-accent);
+    color: var(--clr-on-accent);
+    font-size: var(--fluid-xs);
+    font-weight: var(--fw-medium);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-xs);
+    margin-left: auto;
+}
+
+/* Health Service Item */
+.health-service {
+    border-left: 4px solid var(--clr-secondary);
+}
+
+/* Vaccine Summary */
+.vaccine-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--CLAMP-5) var(--CLAMP-6);
+    cursor: pointer;
+    font-weight: var(--fw-medium);
+    list-style: none;
+    position: relative;
+}
+
+.vaccine-summary::-webkit-details-marker {
+    display: none;
+}
+
+.vaccine-summary::after {
+    content: '›';
+    font-size: var(--fluid-sm);
+    color: var(--clr-primary);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: var(--CLAMP-4);
+}
+
+.vaccine-item[open] .vaccine-summary::after {
+    transform: rotate(90deg);
+}
+
+.vaccine-desc {
+    font-size: var(--fluid-sm);
+    color: var(--clr-body-secondary);
+    font-weight: var(--fw-normal);
+    font-style: italic;
+}
+
+/* Vaccine Content */
+.vaccine-content {
+    padding: 0 var(--CLAMP-6) var(--CLAMP-6) var(--CLAMP-6);
+    border-top: 1px solid var(--clr-border-subtle);
+    background: var(--clr-bg);
+}
+.vaccine-content p {
+    margin: 0;
+    color: var(--clr-white);
+}
+
+.vaccine-content p:last-child {
+    margin-bottom: 0;
+}
+section.faq.sidebar-content details.faq-item {
+    min-width: var(--PXR-180);
+}
+.faq-question:focus {
+    outline: var(--PXR-2) solid var(--clr-accent);
+    outline-offset: var(--PXR-2);
+    box-shadow: 0 0 0 var(--PXR-4) rgba(74, 166, 201, 0.1);
+}
+
+.faq-question:focus-visible {
+    outline: var(--PXR-2) solid var(--clr-accent);
+    outline-offset: var(--PXR-2);
+}
+
+/* Lightbox */
+.img-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+    animation: fadeIn var(--duration-fast) var(--ease-out);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+}
+.img-lightbox.open {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+.img-lightbox::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: lightboxSpin 0.8s linear infinite;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.img-lightbox.loading::before {
+    opacity: 1;
+}
+
+.img-lightbox img, .img-lightbox .lightbox-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 92vw;
+    max-height: 85vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    cursor: default;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   5. UTILITY CLASSES
+   Återanvändbara hjälpklasser för layout och styling
+========================================================================== */
+/* Text Alignment & Padding */
+.text-center {
+    text-align: center;
+}
+
+.text-start {
+    text-align: left;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.card-body.p-0 {
+    padding: 0;
+}
+
+.mt-2 {
+    margin-top: var(--CLAMP-9);
+}
+
+.mb-2 {
+    margin-bottom: var(--CLAMP-9);
+}
+
+.visually-hidden, .sr-only {
+    position: absolute;
+    width: var(--PXR-1);
+    height: var(--PXR-1);
+    padding: 0;
+    margin: calc(var(--PXR-1) * -1);
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Spacing Utilities */
+.p-xs {
+    padding: var(--space-xs);
+}
+
+.p-sm {
+    padding: var(--space-sm);
+}
+
+.p-md {
+    padding: var(--space-md);
+}
+
+.p-lg {
+    padding: var(--space-lg);
+}
+
+.p-xl {
+    padding: var(--space-xl);
+}
+
+.p-2xl {
+    padding: var(--space-2xl);
+}
+
+.px-xs {
+    padding-inline: var(--space-xs);
+}
+
+.px-sm {
+    padding-inline: var(--space-sm);
+}
+
+.px-md {
+    padding-inline: var(--space-md);
+}
+
+.px-lg {
+    padding-inline: var(--space-lg);
+}
+
+.px-xl {
+    padding-inline: var(--space-xl);
+}
+
+.py-xs {
+    padding-block: var(--space-xs);
+}
+
+.py-sm {
+    padding-block: var(--space-sm);
+}
+
+.py-md {
+    padding-block: var(--space-md);
+}
+
+.py-lg {
+    padding-block: var(--space-lg);
+}
+
+.py-xl {
+    padding-block: var(--space-xl);
+}
+
+.m-xs {
+    margin: var(--space-xs);
+}
+
+.m-sm {
+    margin: var(--space-sm);
+}
+
+.m-md {
+    margin: var(--space-md);
+}
+
+.m-lg {
+    margin: var(--space-lg);
+}
+
+.m-xl {
+    margin: var(--space-xl);
+}
+
+.mx-auto {
+    margin-inline: auto;
+}
+
+.my-xs {
+    margin-block: var(--space-xs);
+}
+
+.my-sm {
+    margin-block: var(--space-sm);
+}
+
+.my-md {
+    margin-block: var(--space-md);
+}
+
+.my-lg {
+    margin-block: var(--space-lg);
+}
+
+.my-xl {
+    margin-block: var(--space-xl);
+}
+
+/* Typography Utilities */
+.text-xs {
+    font-size: var(--fluid-xs);
+}
+
+.text-sm {
+    font-size: var(--fluid-sm);
+}
+
+.text-base {
+    font-size: var(--fluid-base);
+}
+
+.text-md {
+    font-size: var(--fluid-md);
+}
+
+.text-lg {
+    font-size: var(--fluid-lg);
+}
+
+.text-xl {
+    font-size: var(--fluid-xl);
+}
+
+.text-2xl {
+    font-size: var(--fluid-2xl);
+}
+
+.text-3xl {
+    font-size: var(--fluid-3xl);
+}
+
+/* Gap Utilities */
+.gap-xs {
+    gap: var(--space-xs);
+}
+
+.gap-sm {
+    gap: var(--space-sm);
+}
+
+.gap-md {
+    gap: var(--space-md);
+}
+
+.gap-lg {
+    gap: var(--space-lg);
+}
+
+.gap-xl {
+    gap: var(--space-xl);
+}
+
+/* Border Radius Utilities */
+.rounded-sm {
+    border-radius: var(--radius-sm);
+}
+
+.rounded-md {
+    border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+    border-radius: var(--radius-lg);
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+/* Animation & Transition Utilities */
+.transition-fast {
+    transition-duration: var(--duration-fast);
+}
+
+.transition-normal {
+    transition-duration: var(--duration-normal);
+}
+
+.transition-slow {
+    transition-duration: var(--duration-slow);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(var(--PXR-20));
+    transition: opacity var(--duration-slower) var(--ease-out), transform var(--duration-slower) var(--ease-out);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   6. GRID & CONTAINER SYSTEM
+   Responsiva behållare och kolumnsystem för layout
+========================================================================== */
+.container {
+    width: var(--PXP-18);
+    padding-right: var(--space-md);
+    padding-left: var(--space-md);
+    margin-right: auto;
+    margin-left: auto;
+    container-type: inline-size;
+    container-name: main-container;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(var(--space-md) * -1);
+    margin-left: calc(var(--space-md) * -1);
+}
+
+.col {
+    flex: 1 0 0%;
+    padding-right: var(--space-md);
+    padding-left: var(--space-md);
+}
+
+.page__content-wrapper {
+    margin-bottom: 0;
+    margin-top: var(--space-sm);
+}
+
+/* ========================================================================== 7. HEADER & NAVIGATION ========================================================================== */
+/* Icon Font Base */
+.fa, .fab, .fad, .fal, .far, .fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    font-size: 1em;
+    font-family: 'Font Awesome 5 Pro';
+}
+
+/* Main Header Container */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+}
+
+header .container-fluid {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    width: clamp(95vw, 100vw, 95vw);
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.header .float-right, .header .pull-right {
+    float: none;
+}
+
+.header [class*="position-absolute"] {
+    position: relative;
+}
+
+/* Welcome Header */
+.welcome-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    margin-bottom: 16px;
+    font-family: filsonpro, sans-serif;
+    text-align: center;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.welcome-title {
+    font-size: 38px;
+    color: var(--blue-primary);
+    margin: 0 0 4px;
+    font-weight: 800;
+}
+
+.welcome-subtitle {
+    font-size: 32px;
+    color: var(--blue-dark);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Navigation Logo */
+.navigation__logo {
+    order: -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-lg) var(--space-md);
+    margin-left: 0.25rem;
+    box-sizing: border-box;
+    height: auto;
+    line-height: normal;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.navigation__logo.flex-start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation__logo img {
+    max-width: 350px;
+    min-width: 225px;
+    display: block;
+    max-height: 40px;
+    object-fit: contain;
+    object-position: left top;
+    width: 50vw;
+}
+
+.navigation__logo>a, .navigation__logo>img, .navigation__logo>svg {
+    margin-right: auto;
+}
+
+body[class*="logo--normal"] .navigation__logo {
+    height: 60px;
+    padding-top: 50px;
+}
+
+/* Navigation Menu */
+.navigation__left, .navigation__left--menu {
+    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.navigation__left--menu, nav.navigation__item--has-mega-menu .navigation__item-category, .header-navigation-menu {
+    order: -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: 0 0;
+    margin: 0;
+    list-style: none;
+    height: 60px;
+    flex-wrap: nowrap; /* Förhindrar radbrytning */
+    align-content: center;
+    align-items: center;
+}
+
+.navigation__item {
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: center;
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: none;
+    border-right: none;
+}
+
+button.navigation__item-category,
+a.navigation__item-category {
+  color: #012363;
+ font-weight: 500;
+ font-size: 1rem;
+}
+
+.navigation__item-category {
+    color: #012363;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: 600;
+}
+
+.fal.fa-chevron-down.navigation__item-chevron--collapsed {
+    color: #012363;
+    font-weight: 600;
+}
+
+.navigation__item-chevron--collapsed, .navigation__item-chevron--expanded {
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.navigation__item-category[aria-expanded="true"] .navigation__item-chevron--collapsed {
+    transform: rotate(180deg);
+}
+
+/* Mega Menu */
+ .navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--collapsed, .navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--expanded {
+     font-size: .75rem;
+     margin-left: .5rem;
+}
+
+.mega-menu__wrapper a.link {
+     color: #fff;
+     font-weight: 700;
+}
+
+.mega-menu__wrapper .mega-menu__item {
+     font-weight: 700;
+     align-items: center;
+     display: inline-flex;
+     min-height: 2em;
+     position: relative;
+     width: 100%;
+}
+
+body.megamenu-visible .mega-container {
+     overflow-y: auto;
+     margin-top: 1.94rem;
+}
+
+/* CORRECTED Specificity Comment */
+ body.theme--white.accent--turquoise .mega-container .mega-menu__wrapper .mega-menu__item, body.theme--white.accent--turquoise .mega-container .mega-menu__wrapper .mega-menu__item a.link
+/* Specificity: (0,6,2) */
+ {
+     color: #fff;
+}
+
+/* FontAwesome Chevrons */
+ .navigation__item-category .fa-chevron-up {
+     display: none
+}
+
+.navigation__item-category .fa-chevron-down {
+     transform: rotate(0deg);
+     transition: transform .3s ease-in-out
+}
+
+.navigation__item-category[aria-expanded=true] .fa-chevron-down {
+     display: inline-block;
+     transform: rotate(180deg)
+}
+
+.fa-chevron-down:before {
+     content: "\f078"
+}
+
+.fa-chevron-up:before {
+     content: "\f077"
+}
+
+.fa-external-link:before {
+     content: "\f35d"
+}
+
+/* ==========================================================================
+   8. FOOTER
+   Sidfotsstilar och innehåll
+========================================================================== */
+footer.footer {
+    font-family: filsonpro, sans-serif;
+    background-color: #eff9ff;
+    color: #012363;
+    padding: 24px 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer.footer a {
+    transition: all 0.2s ease;
+    font-family: filsonpro, sans-serif;
+    color: var(--clr-body-text);
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+footer.footer a:hover {
+    color: var(--clr-brand-500);
+    text-decoration: none;
+}
+
+footer.footer .container-fluid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+footer.footer .block-container, footer.footer .textblock, footer.footer .row {
+    margin: 0;
+}
+
+footer.footer h4, footer.footer h5 {
+    font-family: filsonpro, sans-serif;
+    color: #012363;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+}
+
+footer.footer h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+footer.footer h5 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+footer.footer p {
+    font-family: filsonpro, sans-serif;
+    font-size: 14px;
+    color: #003366;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+footer.footer p:last-child, footer.footer .textblock__body>p:last-of-type {
+    margin-bottom: 0;
+}
+
+footer.footer p a:not([href^="tel:"]):not([href^="mailto:"]) {
+    font-family: filsonpro, sans-serif;
+    color: #044999;
+    text-decoration: underline;
+    font-size: inherit;
+    font-weight: normal;
+}
+footer.footer a[href^="tel:"], footer.footer a[href^="mailto:"] {
+    font-family: filsonpro, sans-serif;
+    color: #0066CC;
+    text-decoration: underline;
+    font-size: inherit;
+}
+nav.footer__link-nav {
+    background-color: #1f7ea4;
+    padding: 15px 15px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: filsonpro, sans-serif;
+}
+nav.footer__link-nav ul#footer__links {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row; /* Säkerställer radlayout */
+    justify-content: space-between; /* Jämn fördelning */
+    align-items: center;
+    flex-wrap: nowrap; /* Förhindrar radbrytning */
+    gap: var(--space-md); /* Mellanrum mellan länkar */
+}
+
+nav.footer__link-nav ul#footer__links>li.col {
+	flex: unset;
+	padding: 5px 10px;
+	text-align: initial;
+	white-space: nowrap;
+}
+
+nav.footer__link-nav a.footer__link {
+    font-family: filsonpro, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav.footer__link-nav a.footer__link:hover {
+    text-decoration: underline;
+}
+
+.footer__link .fa-external-link {
+    font-size: .9em;
+    margin-right: .5em
+}
+
+nav.footer__link-nav button#footer__links-toggle-button {
+    background: transparent;
+    border: 1px solid #ffffff;
+    padding: 8px 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   9. MAP STYLES
+   Kartstilar för Google Maps inbäddning
+========================================================================== */
+.map-embed-container {
+    --map-radius: 12px;
+    --map-shadow: 0 4px 12px rgba(1, 35, 99, 0.1);
+    --map-hover-shadow: 0 7px 28px rgba(1, 35, 99, 0.18);
+    --map-focus-outline-color: #007bff;
+    --map-max-width: 375px;
+    --map-aspect-ratio: 16/9;
+    --map-vertical-margin: 16px;
+    --map-border-width: 1px;
+    --map-border-color: rgba(1, 35, 99, 0.15);
+    --map-loading-text-color: #333;
+    --map-loading-bg-color: #f0f2f5;
+    --map-spinner-color: var(--map-focus-outline-color);
+    --map-transition-duration: 0.25s;
+    position: relative;
+    width: 100%;
+    max-width: var(--map-max-width);
+    margin-top: var(--map-vertical-margin);
+    margin-bottom: var(--map-vertical-margin);
+    margin-left: 0;
+    margin-right: auto;
+    border-radius: var(--map-radius);
+    overflow: hidden;
+    box-shadow: var(--map-shadow);
+    border: var(--map-border-width) solid var(--map-border-color);
+    aspect-ratio: var(--map-aspect-ratio);
+    background-color: var(--map-loading-bg-color);
+    transition: transform var(--map-transition-duration) ease, box-shadow var(--map-transition-duration) ease, border-color var(--map-transition-duration) ease;
+}
+
+.map-embed-container:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--map-hover-shadow);
+    border-color: var(--map-spinner-color);
+}
+
+.map-embed-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    z-index: 1;
+}
+.map-embed-container::after {
+    content: "Laddar karta...";
+    position: absolute;
+    top: calc(50% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--map-loading-text-color);
+    font-size: 13px;
+    z-index: 0;
+}
+
+@keyframes map-spinner-rotation {
+    from {
+        transform: rotate(0deg);
+   }
+    to {
+        transform: rotate(360deg);
+   }
+}
+
+/* ==========================================================================
+   10. PERFORMANCE OPTIMIZATIONS
+   Prestandaoptimeringar för snabbare rendering
+========================================================================== */
+.faq-item:not([open]) {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 60px;
+}
+
+.faq-item summary::after {
+    will-change: transform;
+}
+
+.faq-item[open] summary::after {
+    will-change: auto;
+}
+
+@keyframes lightboxSpin {
+    to {
+        transform: rotate(360deg);
+   }
+}
+
+/* ==========================================================================
+   11. MEDIA QUERIES
+   Responsiva brytpunkter för olika skärmstorlekar
+========================================================================== */
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    html body *, .faq-item, .faq-icon::before, .faq-icon::after, .fade-in {
+        transition: none;
+        animation: none;
+   }
+}
+
+/* Print Styles */
+@media print {
+    .faq-item details {
+        open: true;
+   }
+    .faq-icon {
+        display: none;
+   }
+    .location-schedule tr[data-upcoming]::before {
+        display: none;
+   }
+}
+
+/* Container System - Mobile-First Bootstrap 5.3 Pattern */
+.container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+@media (min-width: 576px) {
+    .container {
+        padding-inline: clamp(1rem, 4vw, 2rem);
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    .location-section {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: var(--space-xl);
+         align-items: start;
+    }
+     .location-info {
+         text-align: left;
+    }
+     .faq-item {
+         transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-slow) var(--ease-out);
+    }
+     .faq-item:hover {
+         transform: translateY(calc(var(--PXR-2) * -1));
+         box-shadow: 0 var(--PXR-4) var(--PXR-12) rgba(0, 0, 0, 0.1);
+    }
+     .page__content-body {
+         padding-right: var(--CLAMP-110);
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+   }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+   }
+}
+
+/* Container Queries */
+@container main-container (min-width: 400px) {
+    .price-box {
+        padding: var(--space-lg);
+   }
+}
+
+@container main-container (min-width: 600px) {
+    .vaccination-info {
+        padding: var(--space-xl);
+   }
+}
+
+/* Mobile & Tablet Styles */
+/* Footer Navigation - Mobile-First */
+nav.footer__link-nav ul#footer__links.open,
+nav.footer__link-nav ul#footer__links:target {
+    flex-direction: column;
+    align-items: center;
+}
+
+nav.footer__link-nav ul#footer__links.open > li.col,
+nav.footer__link-nav ul#footer__links:target > li.col {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 992px) {
+    nav.footer__link-nav ul#footer__links.open,
+    nav.footer__link-nav ul#footer__links:target {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    nav.footer__link-nav ul#footer__links.open > li.col,
+    nav.footer__link-nav ul#footer__links:target > li.col {
+        width: auto;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .location-info {
+        text-align: center;
+        padding: 0 var(--CLAMP-27);
+   }
+    .faq-question {
+        padding: var(--CLAMP-16);
+   }
+    .faq-content {
+        padding: 0 var(--CLAMP-16) var(--CLAMP-16);
+   }
+}
+
+@media (max-width: 767px) {
+    html, body {
+        overflow-x: hidden;
+   }
+    .welcome-header {
+        min-width: 0;
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+   }
+    .welcome-title {
+        font-size: 1.6em;
+        line-height: 1.2;
+   }
+    .welcome-subtitle {
+        font-size: 1.1em;
+        line-height: 1.3;
+   }
+    footer.footer {
+        padding: 20px 15px;
+   }
+    footer.footer h4 {
+        font-size: 1.1em;
+   }
+    footer.footer p, footer.footer a {
+        font-size: 0.9em;
+   }
+    nav.footer__link-nav ul#footer__links.open>li.col a.footer__link, nav.footer__link-nav ul#footer__links:target>li.col a.footer__link {
+        padding: 12px 15px;
+        font-size: 0.95em;
+   }
+   /* Footer länkar på mobil - behåll radlayout om möjligt */
+   nav.footer__link-nav ul#footer__links {
+        flex-wrap: wrap; /* Tillåt radbrytning på små skärmar */
+        gap: var(--space-sm);
+        padding: 0 var(--space-sm);
+   }
+   nav.footer__link-nav ul#footer__links>li.col {
+        flex: 1 1 auto; /* Tillåt flex för mobil */
+        min-width: 0;
+        font-size: 0.875rem;
+   }
+   /* Off-Canvas Menu */
+    .mobile-navigation__left .mobile-navigation__item#open-offside-menu {
+        padding: 10px;
+   }
+    .hamburger-menu {
+        width: 24px;
+        height: 20px;
+   }
+    .hamburger-menu__line {
+        height: 3px;
+        margin: 4px 0;
+        background-color: #ffffff;
+        display: block;
+   }
+    .offside-navbar--menu a, .offside-navbar--menu span[role="button"] {
+        padding: 14px 18px;
+        font-size: 1rem;
+        display: block;
+   }
+    .offside-navbar--menu.child-menu .offside-navbar--menu__item a {
+        padding-left: 30px;
+   }
+}
+@media (max-width: 575.98px) {
+   /* Re-order content for mobile
+      Ordning: 1. Intro, 2. Platsschemat, 3. Prislista, 4. Vaccininformation, 5. FAQ */
+    html {
+        overflow-x: hidden;
+   }
+    body {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+   }
+
+
+    /* Fix all containers to respect viewport width */
+    body * {
+        box-sizing: border-box;
+   }
+
+    /* Force proper viewport scaling and prevent zoom */
+    html {
+        font-size: 16px;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        zoom: 1;
+        transform: scale(1);
+        position: relative;
+        left: 0;
+        right: 0;
+   }
+
+    /* Force viewport to start at left edge */
+    body {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        transform: translateX(0);
+   }
+
+    /* Prevent any element from causing horizontal scroll and fix left cutoff */
+    body, html {
+        margin: 0;
+        padding: 0;
+   }
+
+
+    .welcome-header,
+    .navigation,
+    .main-content,
+    .page-content,
+    main,
+    section,
+    article {
+        max-width: 100vw;
+        overflow-x: hidden;
+        box-sizing: border-box;
+   }
+
+     /* Ensure content doesn't get cut off on left */
+     .page__content--left-align,
+     article.page__content--left-align {
+         padding-left: 15px;
+         padding-right: 15px;
+         margin-left: 0;
+         margin-right: 0;
+    }
+
+     /* Fix mobile menu - ensure it starts hidden */
+     .offside-navbar {
+         width: 0;
+         display: none;
+    }
+    .offside-navbar--menu.child-menu {
+        display: none;
+    }
+    .footer__links {
+        display: none;
+    }
+    .navigation__left--menu,
+    .header-navigation-menu {
+        display: none;
+    }
+
+    /* FORCE footer menu closed by default */
+    nav.footer__link-nav ul#footer__links {
+        display: none;
+    }
+    nav.footer__link-nav ul#footer__links:not(.open):not(.visible):not(:target) {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    /* Only show mobile menu when toggled */
+    .offside-navbar.show-side-nav,
+    .offside-navbar.open {
+        width: 100%;
+        display: block;
+    }
+    .offside-navbar--menu.child-menu.open {
+        display: block;
+    }
+    .footer__links.visible,
+    .footer__links.open,
+    nav.footer__link-nav ul#footer__links.open,
+    nav.footer__link-nav ul#footer__links.visible,
+    nav.footer__link-nav ul#footer__links:target {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+    }
+
+    /* Fix footer layout on mobile */
+    footer.footer {
+        padding: 15px;
+        margin: 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    nav.footer__link-nav {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    nav.footer__link-nav ul#footer__links {
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+    }
+
+    nav.footer__link-nav ul#footer__links > li.col {
+        flex: 0 1 auto;
+        margin: 2px;
+        padding: 5px 8px;
+    }
+
+    /* MOBILE ORDERING - Make main container flex */
+    main,
+    .main-content,
+    .page-content,
+    body > .container,
+    body > .container-fluid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 1. Intro first */
+    article.page__content--left-align,
+    .intro-content {
+        order: 1;
+    }
+
+    /* 2. Location/Schedule */
+    aside,
+    .sidebar-content,
+    .location-schedule-wrapper,
+    .location-schedule {
+        order: 2;
+    }
+
+    /* 3. Price heading */
+    .price-heading {
+        order: 3;
+    }
+
+    /* 4. Price toggles */
+    .price-toggle-labels {
+        order: 4;
+    }
+
+    /* 5. Price table */
+    .price-box,
+    section.price-box {
+        order: 5;
+    }
+
+    /* 6. Vaccine info */
+    .vaccination-info,
+    section.vaccination-info,
+    .vaccine-heading {
+        order: 6;
+    }
+
+    /* 7. FAQ */
+    .faq,
+    section.faq,
+    .faq-title {
+        order: 7;
+    }
+
+    /* Övriga innehåll */
+    .page__content--left-align,
+    article.page__content--left-align {
+        order: 0;
+    }
+    .location-info {
+        text-align: left;
+        padding: 0 var(--CLAMP-18);
+    }
+    .faq-question {
+        padding: var(--CLAMP-14);
+        font-size: var(--CLAMP-16);
+    }
+    .faq-content {
+        padding: 0 var(--CLAMP-14) var(--CLAMP-14);
+        font-size: var(--CLAMP-15);
+    }
+    .table-container {
+        margin: 0 calc(var(--PXR-18) * -1);
+        padding: 0 var(--PXR-18);
+    }
+    .bus-img {
+        width: calc(var(--PXP-11) * 1.2);
+    }
+    .price-table {
+        font-size: var(--fs-table-body);
+        table-layout: auto;
+    }
+    .price-table th, .price-table td {
+        padding: var(--PXR-4) var(--PXR-4);
+        font-size: var(--fluid-sm); /* 14-16px - WCAG AA compliant */
+    }
+
+    /* Keep first 2 columns always visible */
+    .price-table th:nth-child(1), .price-table td:nth-child(1),
+    .price-table th:nth-child(2), .price-table td:nth-child(2) {
+        display: table-cell;
+    }
+
+    /* Hide columns 3 and 4 by default, show only when toggled */
+    .price-table th:nth-child(3), .price-table td:nth-child(3),
+    .price-table th:nth-child(4), .price-table td:nth-child(4) {
+        display: none;
+    }
+    .price-table th:first-child, .price-table td:first-child {
+        width: 27%;
+        padding-right: var(--PXR-6);
+    }
+    .price-table th:nth-child(n+2), .price-table td:nth-child(n+2) {
+        width: 20%;
+        text-align: right;
+        white-space: nowrap;
+    }
+    .price-table thead th {
+        font-size: var(--fluid-xs); /* 12-14px - Minimum accessibility */
+        line-height: 1.2;
+    }
+    .price-table thead th br {
+        display: none;
+    }
+    .faq-item:not([open]) .faq-content {
+        display: none;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+    }
+    .faq-item:not([open]) {
+        height: auto;
+        min-height: 0;
+        padding-bottom: var(--PXR-4);
+    }
+    .faq-item:not([open]) summary {
+        margin-bottom: 0;
+    }
+    details.faq-item:not([open]) > *:not(summary) {
+        display: none;
+    }
+    .price-toggle-labels {
+        gap: var(--PXR-8);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .price-toggle-label {
+        font-size: var(--CLAMP-14);
+        padding: var(--CLAMP-7) var(--CLAMP-9);
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    .map-embed-container {
+        --map-max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        --map-border-width: 0px;
+    }
+    .faq-item summary {
+        font-size: clamp(0.95rem, 1rem + 0.2vw, 1.1rem);
+        padding-block: var(--space-lg);
+        min-height: 5rem;
+    }
+}
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 1.4em;
+    }
+    .welcome-subtitle {
+        font-size: 1.0em;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile tables – remove corner radius for full-width look
+   ----------------------------------------------------------------------- */
+@media (max-width: 575.98px) {
   .price-table,
   .location-schedule {
     border-radius: 0;
   }
-  .price-table th:first-child,
-  .location-schedule th:first-child {
-    border-top-left-radius: 0;
-  }
-  .price-table th:last-child,
-  .location-schedule th:last-child {
-    border-top-right-radius: 0;
+}
+@supports not selector(:has(*)) {
+    @media (max-width: 575.98px) {
+       /* Fallback for browsers without :has() */
+        .location-schedule-wrapper, .location-schedule {
+            order: -8;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .price-box, .price-toggle-labels {
+            order: -6;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .vaccination-info {
+            order: -4;
+            width: 100%;
+            margin-bottom: var(--space-lg);
+       }
+        .faq-sidebar {
+            order: 1;
+       }
+   }
+}
+
+nav#accessibility-navigation ul.accessibility-navigation__items {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Footer PTJ Logo - Begränsar storleken till max 60px (3.75rem)
+========================================================================== */
+/* Målselektor för footer-logotypen med inline-stil */
+footer img[alt="Praktikertjänst"]{
+	max-width: 19.44rem;
+	min-width: 3rem;
+    height: auto;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Page Content Wrapper & Body - Responsiva marginaler och padding
+========================================================================== */
+/* Emulerar margin-bottom: 0, margin-top: 1rem responsivt */
+.page__content-wrapper {
+    margin-bottom: 0;
+    margin-top: clamp(0.75rem, 0.625rem + 0.625vw, 1rem); /* 12px-16px */
+}
+
+/* Emulerar padding-right: 100px för desktop */
+@media (min-width: 992px) {
+    .page__content-body {
+        padding-right: clamp(4rem, 3rem + 2.5vw, 6.25rem); /* 64px-100px */
+    }
+}
+
+/* ==========================================================================
+   Price Table Optimeringar - Minimerar whitespace, bibehåller 3 kolumner
+========================================================================== */
+.price-table {
+    /* Kompakt tabellayout */
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0;
+}
+
+.price-table th,
+.price-table td {
+    /* Minimalt padding för kompakt layout */
+    padding: var(--PXR-6) var(--PXR-8);
+    vertical-align: middle;
+}
+
+/* Första kolumnen får mer plats för vaccinnamn */
+.price-table th:first-child,
+.price-table td:first-child {
+    width: 26.9%;
+    text-align: left;
+    padding-left: var(--PXR-12);
+}
+
+/* Priskolumnerna får lika bredd */
+.price-table th:not(:first-child),
+.price-table td:not(:first-child) {
+    width: 18.33%;
+    text-align: right;
+    padding-right: var(--PXR-12);
+}
+
+/* Visa alltid alla tre priskolumner på mobil */
+@media (max-width: 575.98px) {
+    .price-table {
+        font-size: var(--fluid-sm); /* 14-16px - WCAG AA compliant */
+    }
+
+    /* Keep first 2 columns always visible */
+    .price-table th:nth-child(1), .price-table td:nth-child(1),
+    .price-table th:nth-child(2), .price-table td:nth-child(2) {
+        display: table-cell;
+        padding: var(--PXR-3) var(--PXR-4);
+    }
+
+    /* Hide columns 3 and 4 by default on mobile too */
+    .price-table th:nth-child(3), .price-table td:nth-child(3),
+    .price-table th:nth-child(4), .price-table td:nth-child(4) {
+        display: none;
+        padding: var(--PXR-3) var(--PXR-4);
+    }
+
+    /* Mobile toggle functionality */
+    body:has(#v-pen:checked) .price-table th:nth-child(3),
+    body:has(#v-pen:checked) .price-table td:nth-child(3) {
+        display: table-cell;
+    }
+    body:has(#v-stu:checked) .price-table th:nth-child(4),
+    body:has(#v-stu:checked) .price-table td:nth-child(4) {
+        display: table-cell;
+    }
+
+    /* Justera kolumnbredder för mobil */
+    .price-table th:first-child,
+    .price-table td:first-child {
+        width: 40%;
+        padding-left: var(--PXR-6);
+    }
+
+    .price-table th:not(:first-child),
+    .price-table td:not(:first-child) {
+        width: 20%;
+        padding-right: var(--PXR-6);
+    }
+
+    /* Enable two-row headers on mobile */
+    .price-table thead th {
+        font-size: var(--fluid-sm); /* 14-16px - WCAG compliant */
+        line-height: 1.1;
+        white-space: pre-line;
+        vertical-align: top;
+    }
+
+    /* Center price column headers */
+    .price-table thead th:nth-child(2),
+    .price-table thead th:nth-child(3),
+    .price-table thead th:nth-child(4) {
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   FAQ Grid Layout - Exakt 2 rader med balanserad bredd
+========================================================================== */
+.faq-item summary {
+    /* Grid layout för exakt 2 rader */
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr 1fr;
+    align-items: start;
+    gap: 0 var(--space-sm);
+}
+
+/* FAQ frågetext som grid child */
+.faq-item summary::before {
+    content: attr(data-question);
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: center;
+    line-height: 1.4;
+    word-break: break-word;
+    hyphens: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Chevron i grid */
+.faq-item summary::after {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+}
+
+/* ==========================================================================
+   Vaccine Information Progressive Disclosure Styles
+   ========================================================================== */
+
+/* Vaccine Categories */
+.vaccine-category {
+    margin-bottom: var(--CLAMP-12);
+    border-radius: var(--radius-md);
+    background: var(--clr-surface-subtle);
+    padding: var(--CLAMP-8);
+}
+
+.vaccine-category-title {
+    font-size: var(--fluid-md);
+    font-weight: var(--fw-semibold);
+    margin-bottom: var(--CLAMP-6);
+    padding-bottom: var(--CLAMP-3);
+    border-bottom: 2px solid var(--clr-primary-subtle);
+    color: var(--clr-primary);
+}
+
+/* Vaccine Items */
+.vaccine-item {
+    background: var(--clr-bg);
+    border: 1px solid var(--clr-border-subtle);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--CLAMP-4);
+    transition: all 0.2s ease;
+}
+
+.vaccine-item:hover {
+    border-color: var(--clr-primary-subtle);
+    box-shadow: 0 2px 8px var(--clr-shadow-subtle);
+}
+
+.vaccine-item[open] {
+    border-color: var(--clr-primary);
+    background: var(--clr-primary-subtle);
+}
+/* Vaccine Priority Badge */
+.vaccine-priority {
+    border-left: 4px solid var(--clr-accent);
+}
+
+.vaccine-priority .vaccine-badge {
+    background: var(--clr-accent);
+    color: var(--clr-on-accent);
+    font-size: var(--fluid-xs);
+    font-weight: var(--fw-medium);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-xs);
+    margin-left: auto;
+}
+/* Health Service Item */
+.health-service {
+    border-left: 4px solid var(--clr-secondary);
+}
+/* Vaccine Summary */
+.vaccine-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--CLAMP-5) var(--CLAMP-6);
+    cursor: pointer;
+    font-weight: var(--fw-medium);
+    list-style: none;
+    position: relative;
+}
+
+.vaccine-summary::-webkit-details-marker {
+    display: none;
+}
+
+.vaccine-summary::after {
+    content: '›';
+    font-size: var(--fluid-sm);
+    color: var(--clr-primary);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: var(--CLAMP-4);
+}
+
+.vaccine-item[open] .vaccine-summary::after {
+    transform: rotate(90deg);
+}
+
+.vaccine-desc {
+    font-size: var(--fluid-sm);
+    color: var(--clr-body-secondary);
+    font-weight: var(--fw-normal);
+    font-style: italic;
+}
+
+/* Vaccine Content */
+.vaccine-content {
+    padding: 0 var(--CLAMP-6) var(--CLAMP-6) var(--CLAMP-6);
+    border-top: 1px solid var(--clr-border-subtle);
+    background: var(--clr-bg);
+}
+
+.vaccine-content p {
+    margin: 0;
+    color: var(--clr-white);
+}
+
+.vaccine-content p:last-child {
+    margin-bottom: 0;
+}
+
+section.faq.sidebar-content details.faq-item {
+    min-width: var(--PXR-180);
+}
+
+.faq-question:focus {
+    outline: var(--PXR-2) solid var(--clr-accent);
+    outline-offset: var(--PXR-2);
+    box-shadow: 0 0 0 var(--PXR-4) rgba(74, 166, 201, 0.1);
+}
+
+.faq-question:focus-visible {
+    outline: var(--PXR-2) solid var(--clr-accent);
+    outline-offset: var(--PXR-2);
+}
+
+/* Lightbox */
+.img-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 92vw;
+    max-width: 92vw;
+    height: 85vh;
+    max-height: 85vh;
+    background: rgba(0, 0, 0, 0.92);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+}
+
+.img-lightbox.open {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.img-lightbox::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/loader.gif');
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.img-lightbox.loading::before {
+    opacity: 1;
+}
+
+.img-lightbox img, .img-lightbox .lightbox-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 92vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+}
+
+.img-lightbox img:hover, .img-lightbox .lightbox-img:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.img-lightbox .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--clr-white);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.img-lightbox .close-btn:hover {
+    color: var(--clr-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Mobile tables – remove corner radius for full-width look
+   ----------------------------------------------------------------------- */
+@media (max-width: 575.98px) {
+  .price-table,
+  .location-schedule {
+    border-radius: 0;
   }
 }
 
-/* GDPR banner styling */
+/* ============================================================================
+   100. July-2025 Final Responsive Polish
+   ============================================================================ */
+:root {
+  /* Cat-eye amber for GDPR banner (light mode) */
+  --clr-gdpr-light-bg: #FFB74D;
+}
+
 .gdpr-banner {
   background: var(--clr-gdpr-light-bg);
-  color: var(--clr-gdpr-light-text);
+  color: var(--clr-gdpr-light-text, #012363);
+}
+
+/* Apple-style glass badge */
+.recommended-label {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.15rem 0.6rem;
+  font-weight: 600;
+  color: var(--clr-primary, #012363);
 }
