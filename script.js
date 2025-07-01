@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Responsive date formatting for location schedule
   function setupResponsiveDates() {
     const dateCells = document.querySelectorAll('.location-schedule td:first-child');
-    
+
     dateCells.forEach(cell => {
       const originalText = cell.textContent.trim();
       // Parse the date (assuming format like "24 feb 2025")
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const day = parts[0];
         const month = parts[1];
         const year = parts[2];
-        
+
         // Create responsive date spans
         cell.innerHTML = `
           <span class="date-full">${originalText}</span>
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  
+
   function getMonthNumber(monthName) {
     const months = {
       'jan': '1', 'januari': '1',
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     return months[monthName.toLowerCase()] || monthName;
   }
-  
+
   // Call the function after DOM is ready
   setupResponsiveDates();
 
@@ -231,19 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
       banner.className = 'gdpr-banner';
       banner.setAttribute('role', 'banner');
       banner.setAttribute('aria-label', 'Cookie- och dataskyddsmeddelande');
-      banner.style.cssText = `
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: var(--clr-primary,#2563eb);
-        color: var(--clr-on-primary,#fff);
-        padding: 1em;
-        z-index: 10000;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-        transform: translateY(100%);
-        transition: transform 0.3s ease;
-      `;
+      banner.classList.add('gdpr-banner');
 
       banner.innerHTML = `
         <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1em; flex-wrap: wrap;">
@@ -252,10 +240,10 @@ document.addEventListener('DOMContentLoaded', () => {
             Inga personuppgifter lagras utan ditt samtycke enligt GDPR.
           </p>
           <div style="display: flex; gap: 0.5em;">
-            <button id="gdpr-accept" style="background: var(--clr-on-primary,#fff); color: var(--clr-primary,#2563eb); border: none; padding: 0.4em 1.2em; border-radius: 0.4em; font-weight: 600; cursor: pointer;">
+            <button id="gdpr-accept" style="background: var(--vb-primary-main, #012363); color: var(--vb-text-inverse, #fff); border: none; padding: 0.4em 1.2em; border-radius: 0.4em; font-weight: 600; cursor: pointer;">
               Jag förstår
             </button>
-            <button id="gdpr-info" style="background: transparent; color: var(--clr-on-primary,#fff); border: 1px solid var(--clr-on-primary,#fff); padding: 0.4em 1.2em; border-radius: 0.4em; cursor: pointer;">
+            <button id="gdpr-info" style="background: transparent; color: var(--vb-text-primary, #012363); border: 1px solid var(--vb-border-primary, #e0e0e0); padding: 0.4em 1.2em; border-radius: 0.4em; cursor: pointer;">
               Mer info
             </button>
           </div>
