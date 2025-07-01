@@ -773,14 +773,25 @@ h1#page-content.page__content-title {
 }
 
 /* ==========================================================================
-   1. Base Element Styling
+   1. BASISELEMENTSTILLAR
+
+   INNEHÅLL:
+   - Artikel och innehållslayout
+   - Typografiska grundelement (b, strong, code, etc.)
+   - Formulärelement
+   - Bilder och media
+   - Länkar
+   - Rubriker
+
    Grundstilar för HTML-element utan klasser
 ========================================================================== */
+
+/* ===== ARTIKEL OCH INNEHÅLLSLAYOUT ===== */
  article.page__content--left-align.col-md-8 {
-    /* margin: logical sides */
-	margin-inline-start: 3vw;
-	margin-inline-end: 3vw;
-    /* padding: logical sides */
+    /* Logiska marginaler - anpassar sig till textens riktning (LTR/RTL) */
+	margin-inline-start: 3vw;    /* Vänster marginal (i LTR) */
+	margin-inline-end: 3vw;      /* Höger marginal (i LTR) */
+    /* Logisk padding */
      padding-inline-start: 0 !important;
      padding-inline-end: 0 !important;
 }
