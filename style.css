@@ -1626,17 +1626,27 @@ html body .location-schedule.location-schedule {
      transform: translateY(0) !important;
 }
 /* ==========================================================================
-   6. GRID & CONTAINER SYSTEM
-   Responsiva behållare och kolumnsystem för layout
+   6. RUTNÄT & BEHÅLLARSYSTEM
+
+   INNEHÅLL:
+   - Container (behållare)
+   - Row (rader)
+   - Columns (kolumner)
+   - Responsiva layoutsystem
+
+   Baserat på Bootstrap's grid-system för bekant användning
 ========================================================================== */
+
+/* ===== HUVUDBEHÅLLARE =====
+   Centrerar innehållet och sätter maxbredd */
  .container {
-     width: var(--PXP-18) !important;
-     padding-right: var(--space-md) !important;
-     padding-left: var(--space-md) !important;
-     margin-right: auto !important;
+     width: var(--PXP-18) !important;              /* 100% bredd */
+     padding-right: var(--space-md) !important;    /* Höger utfyllnad */
+     padding-left: var(--space-md) !important;     /* Vänster utfyllnad */
+     margin-right: auto !important;                /* Auto-centrering */
      margin-left: auto !important;
-     container-type: inline-size;
-     container-name: main-container;
+     container-type: inline-size;                  /* Container Queries stöd */
+     container-name: main-container;               /* Namn för Container Queries */
 }
  .row {
      display: flex !important;
@@ -1653,8 +1663,21 @@ html body .location-schedule.location-schedule {
      margin-bottom: 0 !important;
      margin-top: var(--space-sm) !important;
 }
-/* ========================================================================== 7. HEADER & NAVIGATION ========================================================================== */
-/* Icon Font Base */
+/* ==========================================================================
+   7. SIDHUVUD & NAVIGATION
+
+   INNEHÅLL:
+   - FontAwesome ikoner
+   - Huvudmeny
+   - Mobilmeny (hamburger)
+   - Mega-menyer
+   - Navigationslogotyp
+
+   Hanterar all navigering och sidhuvudets komponenter
+========================================================================== */
+
+/* ===== FONTAWESOME IKON-BAS =====
+   Grundinställningar för alla FontAwesome-ikoner */
  .fa, .fab, .fad, .fal, .far, .fas {
      -moz-osx-font-smoothing: grayscale !important;
      -webkit-font-smoothing: antialiased !important;
@@ -1862,13 +1885,22 @@ a.navigation__item-category {
      content: "\f35d"
 }
 /* ==========================================================================
-   8. FOOTER
+   8. SIDFOT (FOOTER)
+
+   INNEHÅLL:
+   - Huvudsidfot med kontaktinfo
+   - Länkar och navigation
+   - Responsiv layout
+   - Färgschema och typografi
+
    Sidfotsstilar och innehåll
 ========================================================================== */
+
+/* ===== HUVUDSIDFOT ===== */
  footer.footer {
      font-family: filsonpro, sans-serif !important;
-     background-color: #eff9ff !important;
-     color: #012363 !important;
+     background-color: #eff9ff !important;         /* Ljusblå bakgrund */
+     color: #012363 !important;                    /* Mörkblå text */
      padding: 24px 16px !important;
      width: 100% !important;
      box-sizing: border-box !important;
