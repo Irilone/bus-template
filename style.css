@@ -3021,13 +3021,21 @@ footer img[alt="Praktikertjänst"]{
 }
 
 /* ==========================================================================
-   MOBILE RESPONSIVENESS ULTRA - COMPLETE OVERHAUL
-   Emergency deployment for 320px-768px devices
-   ========================================================================== */
+   12. MOBIL RESPONSIVITET - KOMPLETT ÖVERSYN
 
-/* 1. HAMBURGER MENU NAVIGATION */
+   INNEHÅLL:
+   - Hamburgermeny
+   - Responsiva tabeller
+   - Touch-vänlig interaktion
+   - Optimerad typografi
+   - Bildhantering
+
+   Omfattande mobilanpassning för enheter 320px-768px
+========================================================================== */
+
+/* ===== 1. HAMBURGERMENY NAVIGATION ===== */
 @media (max-width: 768px) {
-    /* Hide desktop nav */
+    /* Dölj desktop-navigation */
     .navbar-nav, .header__nav {
         display: none !important;
     }
