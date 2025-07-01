@@ -2728,13 +2728,17 @@ footer img[alt="Praktikertjänst"]{
 }
 
 /* ==========================================================================
-   Price Table Optimeringar - Minimerar whitespace, bibehåller 3 kolumner
+   PRISTABELLSOPTIMERINGAR
+
+   Kompakt layout som visar alla priser effektivt
+   Responsiv hantering av kolumner på mobil
 ========================================================================== */
+
 .price-table {
     /* Kompakt tabellayout */
     width: 100% !important;
-    table-layout: fixed !important;
-    border-spacing: 0 !important;
+    table-layout: fixed !important;       /* Fast kolumnbredd */
+    border-spacing: 0 !important;         /* Ingen cellmellanrum */
 }
 
 .price-table th,
