@@ -2009,23 +2009,33 @@ nav.footer__link-nav ul#footer__links>li.col {
      cursor: pointer !important;
 }
 /* ==========================================================================
-   9. MAP STYLES
-   Kartstilar för Google Maps inbäddning
+   9. KARTSTILAR
+
+   INNEHÅLL:
+   - Google Maps inbäddning
+   - Laddningsanimation
+   - Responsiv kartvisning
+   - Hover-effekter
+
+   Stilar för interaktiv karta som visar bussens plats
 ========================================================================== */
+
+/* ===== KARTBEHÅLLARE =====
+   Lokala CSS-variabler för enkel anpassning */
  .map-embed-container {
-     --map-radius: 12px !important;
-     --map-shadow: 0 4px 12px rgba(1, 35, 99, 0.1) !important;
-     --map-hover-shadow: 0 7px 28px rgba(1, 35, 99, 0.18) !important;
-     --map-focus-outline-color: #007bff !important;
-     --map-max-width: 375px !important;
-     --map-aspect-ratio: 16/9 !important;
-     --map-vertical-margin: 16px !important;
-     --map-border-width: 1px !important;
-     --map-border-color: rgba(1, 35, 99, 0.15) !important;
-     --map-loading-text-color: #333 !important;
-     --map-loading-bg-color: #f0f2f5 !important;
-     --map-spinner-color: var(--map-focus-outline-color) !important;
-     --map-transition-duration: 0.25s !important;
+     --map-radius: 12px !important;                 /* Rundade hörn */
+     --map-shadow: 0 4px 12px rgba(1, 35, 99, 0.1) !important;      /* Normal skugga */
+     --map-hover-shadow: 0 7px 28px rgba(1, 35, 99, 0.18) !important; /* Hover-skugga */
+     --map-focus-outline-color: #007bff !important;                  /* Fokusmarkering */
+     --map-max-width: 375px !important;             /* Maxbredd för kartan */
+     --map-aspect-ratio: 16/9 !important;           /* Bildförhållande */
+     --map-vertical-margin: 16px !important;        /* Vertikal marginal */
+     --map-border-width: 1px !important;            /* Kantbredd */
+     --map-border-color: rgba(1, 35, 99, 0.15) !important;          /* Kantfärg */
+     --map-loading-text-color: #333 !important;     /* Laddningstextfärg */
+     --map-loading-bg-color: #f0f2f5 !important;    /* Laddningsbakgrund */
+     --map-spinner-color: var(--map-focus-outline-color) !important; /* Spinner-färg */
+     --map-transition-duration: 0.25s !important;    /* Övergångstid */
      position: relative !important;
      width: 100% !important;
      max-width: var(--map-max-width) !important;
@@ -2090,12 +2100,21 @@ nav.footer__link-nav ul#footer__links>li.col {
     }
 }
 /* ==========================================================================
-   10. PERFORMANCE OPTIMIZATIONS
-   Prestandaoptimeringar för snabbare rendering
+   10. PRESTANDAOPTIMERINGAR
+
+   INNEHÅLL:
+   - Content-visibility för lazy rendering
+   - Will-change för animationer
+   - Contain för layout-isolering
+
+   Tekniker för att förbättra sidans prestanda och renderingshastighet
 ========================================================================== */
+
+/* ===== LAZY RENDERING AV FAQ-OBJEKT =====
+   Förbättrar prestanda genom att inte rendera innehåll som inte visas */
  .faq-item:not([open]) {
-     content-visibility: auto;
-     contain-intrinsic-size: 0 60px;
+     content-visibility: auto;          /* Renderar endast synligt innehåll */
+     contain-intrinsic-size: 0 60px;    /* Reserverar plats för innehållet */
 }
  .faq-item summary::after {
      will-change: transform;
