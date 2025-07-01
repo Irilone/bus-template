@@ -4091,14 +4091,20 @@ details[open] summary.vaccine-summary::after {
     }
 }
 
-/* --- General Layout & Font --- */
+/* ==========================================================================
+   16. VACCINE BJARRED APP - MODERN TEMA
+
+   Separat modern stil som kan aktiveras/deaktiveras
+========================================================================== */
+
+/* ===== ALLMÄN LAYOUT & TYPSNITT ===== */
 #vaccine-bjarred-app.vb-app {
-  font-family: 'Inter', Arial, sans-serif;
-  background: var(--vb-bg, #f8fafc);
-  color: var(--vb-fg, #222);
+  font-family: 'Inter', Arial, sans-serif;     /* Modern typsnitt */
+  background: var(--vb-bg, #f8fafc);          /* Ljus bakgrund */
+  color: var(--vb-fg, #222);                  /* Mörk text */
   padding: 0;
-  min-height: 100vh;
-  transition: background 0.2s, color 0.2s;
+  min-height: 100vh;                          /* Full viewport-höjd */
+  transition: background 0.2s, color 0.2s;    /* Mjuka temaövergångar */
 }
 .vb-app.dark {
   --vb-bg: #151718;
