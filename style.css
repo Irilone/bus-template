@@ -388,10 +388,21 @@ h1#page-content.page__content-title {
 	width: 35% !important;
 }
 /* ==========================================================================
-   0. Normalizr, Resets, and Root Variables
+   0. NORMALIZR, RESETS OCH ROOT-VARIABLER
+
+   INNEHÅLL:
+   - Box-sizing reset för alla element
+   - Font-smoothing för bättre textrendering
+   - HTML och Body grundinställningar
+   - Root-variabler för hela webbplatsen
+   - Mörkt tema stöd
+
    Basgrunder för hela webbplatsen - resettar standardstilar och definierar variabler
 ========================================================================== */
-/* Box Sizing & Font Smoothing Reset */
+
+/* ===== BOX-SIZING OCH FONT-SMOOTHING RESET =====
+   Säkerställer att padding och border ingår i elementens totala bredd/höjd
+   Förbättrar textrendering på olika enheter */
  *, *::before, *::after {
      -webkit-box-sizing: border-box !important;
      -moz-box-sizing: border-box !important;
@@ -407,17 +418,18 @@ h1#page-content.page__content-title {
  nav#accessibility-navigation {
      margin-top: 0 !important;
 }
-/* Base HTML & Body Styles */
+/* ===== HTML & BODY GRUNDSTILAR =====
+   Definierar basstilarna för hela dokumentet */
  html {
      font-family: var(--ff-primary, 'Filson Pro', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji') !important;
      line-height: var(--lh-base) !important;
-     -webkit-text-size-adjust: 100% !important; /* Safari, iOS */
+     -webkit-text-size-adjust: 100% !important; /* Safari, iOS - förhindrar automatisk textskalning */
      -ms-text-size-adjust: 100% !important;     /* IE, Old Edge */
-     text-size-adjust: 100% !important;         /* Future standard - not supported by Firefox/Safari yet */
-     tab-size: var(--PXR-4) !important;
-     font-size: var(--fs-base) !important;
-     scroll-behavior: smooth !important;
-     overflow-x: hidden !important;
+     text-size-adjust: 100% !important;         /* Framtida standard - stöds inte av Firefox/Safari än */
+     tab-size: var(--PXR-4) !important;         /* Tabulatorbredd */
+     font-size: var(--fs-base) !important;      /* Basfontsstorlek */
+     scroll-behavior: smooth !important;        /* Mjuk scrollning */
+     overflow-x: hidden !important;             /* Förhindrar horisontell scrollning */
 }
  body {
      margin: 0 !important;
@@ -433,22 +445,27 @@ h1#page-content.page__content-title {
      text-rendering: optimizeLegibility !important;
      overflow-x: hidden !important;
 }
-/* Root Variable Definitions */
+/* ===== ROOT-VARIABLER (CSS Custom Properties) =====
+   Globala variabler som gäller för hela dokumentet
+   Organiserade i logiska grupper för enkel översikt */
  :root {
-  --clr-primary: #012363;
-  --clr-bg: #fff;
-  --clr-on-primary: #012363;
-  --clr-gdpr-light-bg: #E0F3FA;
-  --clr-gdpr-light-text: #012363;
-  --clr-gdpr-light-btn-bg: #012363;
-  --clr-gdpr-light-btn-text: #fff;
-    /* Bootstrap 5.3 Breakpoints */
+    /* --- GDPR & Grundfärger --- */
+    --clr-primary: #012363;
+    --clr-bg: #fff;
+    --clr-on-primary: #012363;
+    --clr-gdpr-light-bg: #E0F3FA;
+    --clr-gdpr-light-text: #012363;
+    --clr-gdpr-light-btn-bg: #012363;
+    --clr-gdpr-light-btn-text: #fff;
+
+    /* --- Bootstrap 5.3 Brytpunkter ---
+       Används för responsiv design */
      --bs-breakpoint-xs: 0;
-     --bs-breakpoint-sm: 576px;
-     --bs-breakpoint-md: 768px;
-     --bs-breakpoint-lg: 992px;
-     --bs-breakpoint-xl: 1200px;
-     --bs-breakpoint-xxl: 1400px;
+     --bs-breakpoint-sm: 576px;      /* Mobiltelefoner liggande */
+     --bs-breakpoint-md: 768px;      /* Surfplattor */
+     --bs-breakpoint-lg: 992px;      /* Mindre desktop */
+     --bs-breakpoint-xl: 1200px;     /* Desktop */
+     --bs-breakpoint-xxl: 1400px;    /* Stora skärmar */
     /* Animation Durations */
      --duration-instant: 0ms;
      --duration-fast: 150ms;
