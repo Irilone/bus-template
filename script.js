@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bottom: 0;
         left: 0;
         right: 0;
-        background: var(--clr-primary,#2563eb);
+        background: var(--clr-gdpr-light-bg,#FFB74D);
         color: var(--clr-on-primary,#fff);
         padding: 1em;
         z-index: 10000;
@@ -379,8 +379,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (descEl.dataset.teaserGenerated) return;
 
       const plainText = contentEl.textContent.trim().replace(/\s+/g, ' ');
-      const firstSentence = plainText.split('. ')[0].trim();
-      descEl.textContent = `${firstSentence}${firstSentence.endsWith('.') ? '' : '…'}`;
+      const teaser = plainText.slice(0, 100);
+      descEl.textContent = teaser + (plainText.length > 100 ? '…' : '');
       descEl.style.opacity = '0.65';
       descEl.dataset.teaserGenerated = 'true';
     });

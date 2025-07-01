@@ -9417,3 +9417,29 @@ section.faq.sidebar-content details.faq-item {
     border-radius: 0;
   }
 }
+
+/* ============================================================================
+   100. July-2025 Final Responsive Polish
+   ============================================================================ */
+:root {
+  /* Cat-eye amber for GDPR banner (light mode) */
+  --clr-gdpr-light-bg: #FFB74D;
+}
+
+.gdpr-banner {
+  background: var(--clr-gdpr-light-bg);
+  color: var(--clr-gdpr-light-text, #012363);
+}
+
+/* Apple-style glass badge */
+.recommended-label {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.15rem 0.6rem;
+  font-weight: 600;
+  color: var(--clr-primary, #012363);
+}
