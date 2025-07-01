@@ -280,15 +280,15 @@ h1#page-content.page__content-title {
 ========================================================================== */
 /* Box Sizing & Font Smoothing Reset */
  *, *::before, *::after {
-     box-sizing: border-box !important;
      -webkit-box-sizing: border-box !important;
      -moz-box-sizing: border-box !important;
+     box-sizing: border-box !important;
      -webkit-font-smoothing: antialiased !important;
      -moz-osx-font-smoothing: grayscale !important;
-     text-rendering: optimizeLegibility !important;
      -webkit-text-rendering: optimizeLegibility !important;
      -moz-text-rendering: optimizeLegibility !important;
      -o-text-rendering: optimizeLegibility !important;
+     text-rendering: optimizeLegibility !important;
 }
 /* Fix: Removes the unwanted top margin from the accessibility navigation bar. */
  nav#accessibility-navigation {
@@ -298,9 +298,9 @@ h1#page-content.page__content-title {
  html {
      font-family: var(--ff-primary, 'Filson Pro', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji') !important;
      line-height: var(--lh-base) !important;
-     -webkit-text-size-adjust: 100% !important;
-     -ms-text-size-adjust: 100% !important;
-     text-size-adjust: 100% !important;
+     -webkit-text-size-adjust: 100% !important; /* Safari, iOS */
+     -ms-text-size-adjust: 100% !important;     /* IE, Old Edge */
+     text-size-adjust: 100% !important;         /* Future standard - not supported by Firefox/Safari yet */
      tab-size: var(--PXR-4) !important;
      font-size: var(--fs-base) !important;
      scroll-behavior: smooth !important;
@@ -641,7 +641,7 @@ h1#page-content.page__content-title {
      --clr-white: #0B1929;
      --clr-black: #E0F3FA;
 }
-}
+
 /* ==========================================================================
    1. Base Element Styling
    Grundstilar för HTML-element utan klasser
@@ -687,6 +687,7 @@ h1#page-content.page__content-title {
 }
  button, [type="button"], [type="reset"], [type="submit"] {
      -webkit-appearance: button !important;
+     appearance: button !important;
 }
  legend {
      padding: 0 !important;
@@ -699,13 +700,16 @@ h1#page-content.page__content-title {
 }
  [type="search"] {
      -webkit-appearance: textfield !important;
+     appearance: textfield !important;
      outline-offset: calc(var(--PXR-2) * -1) !important;
 }
  ::-webkit-search-decoration {
      -webkit-appearance: none !important;
+     appearance: none !important;
 }
  ::-webkit-file-upload-button {
      -webkit-appearance: button !important;
+     appearance: button !important;
      font: inherit !important;
 }
  summary {
@@ -972,77 +976,7 @@ html body .location-schedule.location-schedule {
      border-bottom: none !important;
      vertical-align: top !important;
      line-height: 1.2 !important;
-}
-
-/* Two-row headers for price columns */
-html body .price-table.price-table thead th:nth-child(2),
-html body .price-table.price-table thead th:nth-child(3),
-html body .price-table.price-table thead th:nth-child(4) {
-     white-space: pre-line !important;
-     text-align: center !important;
-     padding: var(--CLAMP-6) var(--CLAMP-8) !important;
-     font-size: clamp(0.75rem, 0.8rem + 0.15vw, 0.875rem) !important;
-}
- html body .price-table.price-table td {
-     padding: var(--CLAMP-8) var(--CLAMP-12) !important;
-     border-bottom: var(--PXR-1) solid var(--clr-border) !important;
-     font-family: var(--ff-primary) !important;
-     font-size: clamp(0.8125rem, 0.825rem + 0.1vw, var(--fs-table-body)) !important;
-     font-weight: var(--fw-regular) !important;
-     line-height: var(--lh-body) !important;
-     text-align: left !important;
-     color: var(--clr-black) !important;
-     overflow-wrap: break-word !important;
-     word-wrap: break-word !important;
-     hyphens: auto !important;
-}
- html body .price-table.price-table tbody tr:last-child td {
-     border-bottom: none !important;
-}
- html body .price-table.price-table tbody tr:nth-of-type(odd) {
-     background: var(--clr-bg-alt) !important;
-}
- html body .location-schedule.location-schedule th {
-     background: linear-gradient(145deg, #5a8fc7 0%, #4a7bb0 60%, #406ba0 100%) !important;
-     color: var(--clr-white) !important;
-     padding: var(--CLAMP-8) var(--CLAMP-8) !important;
-     text-align: center !important;
-     font-size: clamp(0.875rem, 0.9rem + 0.2vw, var(--fs-table-header)) !important;
-     font-weight: var(--fw-medium) !important;
-     border-bottom: var(--PXR-2) solid var(--clr-heading) !important;
-}
- html body .location-schedule.location-schedule td {
-     padding: var(--CLAMP-8) var(--CLAMP-8) !important;
-     text-align: center !important;
-     color: var(--clr-black) !important;
-     font-size: clamp(0.8125rem, 0.825rem + 0.1vw, var(--fs-table-body)) !important;
-     font-weight: var(--fw-regular) !important;
-     border-bottom: var(--PXR-1) solid var(--clr-border) !important;
-     overflow-wrap: break-word !important;
-     word-wrap: break-word !important;
-     hyphens: auto !important;
-}
- html body .location-schedule.location-schedule tbody tr:last-child td {
-     border-bottom: none !important;
-}
- html body .location-schedule.location-schedule tbody tr:nth-child(odd) td {
-     background: var(--clr-bg-alt) !important;
-}
- html body .location-schedule.location-schedule tbody tr:nth-child(even) td {
-     background: var(--clr-white) !important;
-}
- body:has(#v-pen:checked) .price-table th:nth-child(3), body:has(#v-pen:checked) .price-table td:nth-child(3) {
-     display: table-cell;
-}
- body:has(#v-stu:checked) .price-table th:nth-child(4), body:has(#v-stu:checked) .price-table td:nth-child(4) {
-     display: table-cell;
-}
- .price-table td:nth-child(3), .price-table td:nth-child(4) {
-     color: var(--clr-accent) !important;
-     font-weight: var(--fw-medium) !important;
-}
-/* ==========================================================================
-   4. FAQ Component & Other Components
+/* FAQ Component & Other Components
    Komponenter för FAQ (vanliga frågor) och andra innehållsblock
 ========================================================================== */
 /* Section Titles & Info Blocks */
@@ -1127,12 +1061,14 @@ html body .price-table.price-table thead th:nth-child(4) {
      color: var(--clr-white) !important;
      background: transparent !important;
      transition: background-color var(--duration-fast), color var(--duration-fast) !important;
+     -webkit-user-select: none !important;
      user-select: none !important;
      outline: none !important;
      min-height: 4.5rem !important;
      line-height: 1.5 !important;
      height: auto !important;
      word-break: break-word !important;
+     -webkit-hyphens: manual !important;
      hyphens: manual !important;
      white-space: normal !important;
 }
@@ -1177,6 +1113,7 @@ html body .price-table.price-table thead th:nth-child(4) {
      font-weight: var(--fw-medium) !important;
      color: var(--clr-heading) !important;
      list-style: none !important;
+     -webkit-user-select: none !important;
      user-select: none !important;
 }
  .faq-question::-webkit-details-marker, .faq-question::marker {
@@ -1302,6 +1239,7 @@ html body .price-table.price-table thead th:nth-child(4) {
      position: static !important;
      float: none !important;
      cursor: default !important;
+     -webkit-user-select: none !important;
      user-select: none !important;
      pointer-events: none !important;
      box-shadow: 0 0 24px rgba(0, 0, 0, 0.7) !important;
@@ -1966,8 +1904,9 @@ nav.footer__link-nav ul#footer__links>li.col {
 }
 /* Print Styles */
  @media print {
-     .faq-item details {
-         open: true !important;
+     /* Force details to be open when printing */
+     .faq-item[open] {
+         display: block !important;
     }
      .faq-icon {
          display: none !important;
@@ -2629,6 +2568,7 @@ footer img[alt="Praktikertjänst"]{
     hyphens: auto !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -3962,4 +3902,5 @@ details[open] summary.vaccine-summary::after {
   .img-wrapper { padding: 0; }
   .bus-img { max-width: 94vw; }
   .vb-app header { flex-direction: column; align-items: flex-start; gap: 0.5em; }
+}
 }
