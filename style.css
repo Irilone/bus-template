@@ -3721,18 +3721,26 @@ footer img[alt="Praktikertjänst"]{
 }
 
 /* ==========================================================================
-   14. Bootstrap 5.3 Responsive Breakpoint System
-   Complete mobile-first responsive implementation
+   14. BOOTSTRAP 5.3 RESPONSIVA BRYTPUNKTER
+
+   INNEHÅLL:
+   - Brytpunktsvariabler
+   - Mobile-first implementation
+   - Responsiva utilities
+   - Grid-system
+
+   Komplett mobile-first responsiv implementation
 ========================================================================== */
 
-/* Bootstrap 5.3 Breakpoint Variables */
+/* ===== BOOTSTRAP 5.3 BRYTPUNKTSVARIABLER =====
+   Definierar standardbrytpunkter för responsiv design */
 :root {
-    --bs-breakpoint-xs: 0;
-    --bs-breakpoint-sm: 576px;
-    --bs-breakpoint-md: 768px;
-    --bs-breakpoint-lg: 992px;
-    --bs-breakpoint-xl: 1200px;
-    --bs-breakpoint-xxl: 1400px;
+    --bs-breakpoint-xs: 0;           /* Extra liten (mobil) */
+    --bs-breakpoint-sm: 576px;       /* Liten (större mobil) */
+    --bs-breakpoint-md: 768px;       /* Medium (surfplatta) */
+    --bs-breakpoint-lg: 992px;       /* Stor (mindre desktop) */
+    --bs-breakpoint-xl: 1200px;      /* Extra stor (desktop) */
+    --bs-breakpoint-xxl: 1400px;     /* Extra extra stor (stora skärmar) */
 }
 
 /* Mobile First - XS (Extra Small) - Default styles */
