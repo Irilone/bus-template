@@ -3107,14 +3107,14 @@ footer img[alt="Praktikertjänst"]{
     }
 }
 
-/* 2. TABLE RESPONSIVENESS */
+/* ===== 2. RESPONSIVA TABELLER ===== */
 @media (max-width: 768px) {
-    /* Table wrapper */
+    /* Tabellomslag med horisontell scrollning */
     .table-responsive-wrapper {
         position: relative !important;
         overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        margin: 0 -1rem !important;
+        -webkit-overflow-scrolling: touch !important;    /* Mjuk scrollning på iOS */
+        margin: 0 -1rem !important;                      /* Utökar till kanterna */
         padding: 0 1rem !important;
     }
 
@@ -3150,23 +3150,23 @@ footer img[alt="Praktikertjänst"]{
     }
 }
 
-/* 3. TYPOGRAPHY SCALING */
+/* ===== 3. TYPOGRAFISKALNING ===== */
 @media (max-width: 480px) {
-    /* Base adjustments */
+    /* Basjusteringar */
     html {
-        font-size: 16px !important; /* Prevent iOS zoom */
+        font-size: 16px !important; /* Förhindrar iOS zoom vid fokus */
     }
 
-    /* Heading scaling */
+    /* Rubrikskalning - responsiv med clamp() */
     h1 { font-size: clamp(1.5rem, 5vw, 2rem) !important; }
     h2 { font-size: clamp(1.25rem, 4vw, 1.5rem) !important; }
     h3 { font-size: clamp(1.125rem, 3.5vw, 1.25rem) !important; }
     h4, h5, h6 { font-size: clamp(1rem, 3vw, 1.125rem) !important; }
 
-    /* Body text */
+    /* Brödtext */
     p, li, td {
         font-size: var(--fluid-base, 16px) !important;
-        line-height: 1.6 !important;
+        line-height: 1.6 !important;      /* Luftigt radavstånd för läsbarhet */
     }
 }
 
@@ -3326,17 +3326,24 @@ footer img[alt="Praktikertjänst"]{
 /* END OF MOBILE RESPONSIVENESS FIXES */
 
 /* ==========================================================================
-   13. Comprehensive Mobile Responsiveness System
-   Complete mobile optimization with hamburger menu, table scrolling, and responsive design
+   13. OMFATTANDE MOBILRESPONSIVITETSSYSTEM
+
+   INNEHÅLL:
+   - Mobilnavigering med hamburgermeny
+   - Responsiva tabeller med scrollning
+   - Touch-optimering
+   - Anpassad layout för små skärmar
+
+   Komplett mobiloptimering för modern användarupplevelse
 ========================================================================== */
 
-/* Mobile Navigation System */
+/* ===== MOBILNAVIGATIONSSYSTEM ===== */
 .mobile-nav-toggle {
-    display: none !important;
-    position: fixed !important;
+    display: none !important;              /* Dold som standard */
+    position: fixed !important;            /* Fast position */
     top: 1rem !important;
     right: 1rem !important;
-    z-index: 9999 !important;
+    z-index: 9999 !important;              /* Överst i stacken */
     background: var(--clr-primary) !important;
     color: var(--clr-white) !important;
     border: none !important;
