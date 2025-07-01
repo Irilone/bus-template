@@ -2164,24 +2164,28 @@ nav.footer__link-nav ul#footer__links>li.col {
          display: none !important;
     }
 }
-/* Container System - Mobile-First Bootstrap 5.3 Pattern */
+/* ===== BEHÅLLARSYSTEM - MOBILE-FIRST =====
+   Följer Bootstrap 5.3 mönster för bekant användning */
 .container {
     width: 100%;
     margin-inline: auto;
     padding-inline: 1rem;
 }
 
+/* --- Små skärmar (576px+) --- */
 @media (min-width: 576px) {
     .container {
         padding-inline: clamp(1rem, 4vw, 2rem);
     }
 }
 
+/* --- Desktop (992px+) --- */
 @media (min-width: 992px) {
     .container {
         max-width: 1320px;
     }
 
+    /* Grid-layout för platssektionen */
     .location-section {
         display: grid !important;
         grid-template-columns: 1fr 2fr !important;
@@ -2191,6 +2195,8 @@ nav.footer__link-nav ul#footer__links>li.col {
      .location-info {
          text-align: left !important;
     }
+
+     /* Hover-effekter för FAQ på desktop */
      .faq-item {
          transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-slow) var(--ease-out) !important;
     }
@@ -2198,6 +2204,8 @@ nav.footer__link-nav ul#footer__links>li.col {
          transform: translateY(calc(var(--PXR-2) * -1)) !important;
          box-shadow: 0 var(--PXR-4) var(--PXR-12) rgba(0, 0, 0, 0.1) !important;
     }
+
+     /* Extra padding för läsbarhet */
      .page__content-body {
          padding-right: var(--CLAMP-110) !important;
     }
@@ -2223,11 +2231,12 @@ nav.footer__link-nav ul#footer__links>li.col {
          padding: var(--space-xl) !important;
     }
 }
-/* Mobile & Tablet Styles */
-/* Footer Navigation - Mobile-First */
+/* ===== MOBIL & SURFPLATTESTILAR ===== */
+
+/* --- Sidfot Navigation - Mobile-First --- */
 nav.footer__link-nav ul#footer__links.open,
 nav.footer__link-nav ul#footer__links:target {
-    flex-direction: column !important;
+    flex-direction: column !important;     /* Vertikal layout på mobil */
     align-items: center !important;
 }
 
@@ -2237,10 +2246,11 @@ nav.footer__link-nav ul#footer__links:target > li.col {
     margin-bottom: 5px !important;
 }
 
+/* Desktop återställning */
 @media (min-width: 992px) {
     nav.footer__link-nav ul#footer__links.open,
     nav.footer__link-nav ul#footer__links:target {
-        flex-direction: row !important;
+        flex-direction: row !important;    /* Horisontell layout på desktop */
         align-items: flex-start !important;
     }
 
@@ -2330,11 +2340,18 @@ nav.footer__link-nav ul#footer__links:target > li.col {
          padding-left: 30px !important;
     }
 }
+ /* ===== MOBIL EXTRA LITEN (< 576px) =====
+    Optimeringar för de minsta skärmarna */
  @media (max-width: 575.98px) {
-    /* Re-order content for mobile
-       Ordning: 1. Intro, 2. Platsschemat, 3. Prislista, 4. Vaccininformation, 5. FAQ */
+    /* INNEHÅLLSORDNING FÖR MOBIL:
+       1. Intro
+       2. Platsschema (var och när)
+       3. Prislista
+       4. Vaccininformation
+       5. FAQ (vanliga frågor) */
+
      html {
-         overflow-x: hidden !important;
+         overflow-x: hidden !important;    /* Förhindrar horisontell scroll */
     }
      body {
          width: 100% !important;
