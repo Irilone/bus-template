@@ -17,35 +17,36 @@
             justify-content: center;
             text-align: center;
         }
-        
+
         .offline-container {
             max-width: 400px;
             padding: 40px 20px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 16px;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
-        
+
         .offline-icon {
             font-size: 64px;
             margin-bottom: 20px;
             display: block;
         }
-        
+
         h1 {
             margin: 0 0 16px 0;
             font-size: 28px;
             font-weight: 600;
         }
-        
+
         p {
             margin: 0 0 24px 0;
             font-size: 16px;
             line-height: 1.6;
             opacity: 0.9;
         }
-        
+
         .retry-button {
             background: rgba(255, 255, 255, 0.2);
             border: 2px solid rgba(255, 255, 255, 0.3);
@@ -59,13 +60,13 @@
             text-decoration: none;
             margin: 8px;
         }
-        
+
         .retry-button:hover {
             background: rgba(255, 255, 255, 0.3);
             border-color: rgba(255, 255, 255, 0.5);
             transform: translateY(-2px);
         }
-        
+
         .offline-info {
             margin-top: 32px;
             padding: 20px;
@@ -74,32 +75,32 @@
             font-size: 14px;
             line-height: 1.5;
         }
-        
+
         .offline-info h3 {
             margin: 0 0 12px 0;
             font-size: 16px;
         }
-        
+
         .cached-links {
             margin-top: 20px;
         }
-        
+
         .cached-links a {
             color: white;
             text-decoration: underline;
             margin: 0 8px;
         }
-        
+
         @media (max-width: 480px) {
             .offline-container {
                 margin: 20px;
                 padding: 30px 15px;
             }
-            
+
             .offline-icon {
                 font-size: 48px;
             }
-            
+
             h1 {
                 font-size: 24px;
             }
@@ -111,29 +112,29 @@
         <span class="offline-icon">📱</span>
         <h1>Du är offline</h1>
         <p>Din internetanslutning verkar vara nedkopplad. Vissa funktioner kanske inte fungerar som förväntat.</p>
-        
+
         <a href="javascript:window.location.reload()" class="retry-button">
             🔄 Försök igen
         </a>
-        
+
         <a href="/" class="retry-button">
             🏠 Hem
         </a>
-        
+
         <div class="offline-info">
             <h3>🩺 Vaccinbussen Björred</h3>
             <p>Vi är en mobil vaccinationstjänst som kommer direkt till Coop i Björred.</p>
-            
+
             <p><strong>📍 Adress:</strong><br>
             Coop, Norra Västkustvägen 2<br>
             237 37 Björred</p>
-            
+
             <p><strong>🕒 Nästa besök:</strong><br>
             Se vårt schema när du kommer online igen</p>
-            
+
             <p><strong>💳 Betalning:</strong><br>
             Visa, Mastercard, Swish</p>
-            
+
             <div class="cached-links">
                 <strong>📋 Snabblänkar:</strong><br>
                 <a href="/vaccination-i-bjarred/">Startsida</a>
@@ -150,7 +151,7 @@
                 window.location.reload();
             }, 1000);
         });
-        
+
         // Check connection status
         function updateConnectionStatus() {
             if (navigator.onLine) {
@@ -160,10 +161,10 @@
                 }, 1500);
             }
         }
-        
+
         // Check periodically
         setInterval(updateConnectionStatus, 3000);
-        
+
         // Visual feedback for retry attempts
         document.querySelectorAll('.retry-button').forEach(button => {
             button.addEventListener('click', function() {

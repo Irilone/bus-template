@@ -404,15 +404,15 @@ h1#page-content.page__content-title {
    Säkerställer att padding och border ingår i elementens totala bredd/höjd
    Förbättrar textrendering på olika enheter */
  *, *::before, *::after {
-     box-sizing: border-box;
-     -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     box-sizing: border-box;
      -webkit-font-smoothing: antialiased;
      -moz-osx-font-smoothing: grayscale;
-     text-rendering: optimizeLegibility;
+     -o-text-rendering: optimizeLegibility;
      -webkit-text-rendering: optimizeLegibility;
      -moz-text-rendering: optimizeLegibility;
-     -o-text-rendering: optimizeLegibility;
+     text-rendering: optimizeLegibility;
 }
 /* Fix: Removes the unwanted top margin from the accessibility navigation bar. */
  nav#accessibility-navigation {
@@ -1307,6 +1307,7 @@ html body .price-table.price-table thead th:nth-child(4) {
      height: auto;
      word-break: break-word;
      hyphens: manual;
+     -webkit-hyphens: manual;
      white-space: normal;
 }
  .faq-item summary::-webkit-details-marker, .faq-item summary::marker {
@@ -1351,6 +1352,7 @@ html body .price-table.price-table thead th:nth-child(4) {
      color: var(--clr-heading);
      list-style: none;
      user-select: none;
+     -webkit-user-select: none;
 }
  .faq-question::-webkit-details-marker, .faq-question::marker {
      display: none;
@@ -1475,6 +1477,7 @@ html body .price-table.price-table thead th:nth-child(4) {
      position: static;
      float: none;
      cursor: default;
+     -webkit-user-select: none; /* Added for Safari support */
      user-select: none;
      pointer-events: none;
      box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
