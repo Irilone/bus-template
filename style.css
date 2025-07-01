@@ -1426,10 +1426,19 @@ html body .location-schedule.location-schedule {
      visibility: visible !important;
 }
 /* ==========================================================================
-   5. UTILITY CLASSES
-   Återanvändbara hjälpklasser för layout och styling
+   5. UTILITY-KLASSER (HJÄLPKLASSER)
+
+   INNEHÅLL:
+   - Textjustering
+   - Mellanrum (margin & padding)
+   - Typografi
+   - Synlighet
+   - Responsiva hjälpklasser
+
+   Återanvändbara hjälpklasser för snabb layout och styling
 ========================================================================== */
-/* Text Alignment & Padding */
+
+/* ===== TEXTJUSTERING & PADDING ===== */
  .text-center {
      text-align: center !important;
 }
