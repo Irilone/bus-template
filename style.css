@@ -1,185 +1,294 @@
 /* ==========================================================================
-   VACCINE BJARRED APP - ISOLATED SCOPED STYLES
-   All styles are scoped under #vaccine-bjarred-app to prevent conflicts
+   VACCINE BJARRED APP - CSS STILMALL
+   Version: 2.0
+   Senast uppdaterad: 2024
+
+   ÖVERSIKT:
+   Detta är huvudstilmallen för Vaccine Bjärred webbapplikation.
+   Alla stilar är scopade under #vaccine-bjarred-app för att förhindra konflikter
+   med andra delar av webbplatsen.
+
+   INNEHÅLLSFÖRTECKNING:
+
+   0. NORMALIZR, RESETS OCH ROOT-VARIABLER (rad ~290)
+      - Box-sizing reset
+      - HTML & Body grundstilar
+      - CSS Custom Properties
+      - Mörkt tema support
+
+   1. BASISELEMENTSTILLAR (rad ~700)
+      - Artikel och innehållslayout
+      - Typografiska grundelement
+      - Formulärelement
+      - Bilder och media
+
+   2. TYPOGRAFISYSTEM v2.0 (rad ~850)
+      - Rubriker (H1-H6)
+      - Brödtext och stycken
+      - Listor och tabelltext
+
+   3. LAYOUT & KÄRNKOMPONENTER (rad ~1000)
+      - Bussgalleri
+      - Pristabeller
+      - Vaccinationsinformation
+      - FAQ-sektion
+      - Bildvisare (Lightbox)
+
+   4. [SAKNAS I NUVARANDE FIL]
+
+   5. UTILITY-KLASSER (rad ~1700)
+      - Textjustering
+      - Mellanrum (margin & padding)
+      - Typografi utilities
+      - Synlighet
+
+   6. RUTNÄT & BEHÅLLARSYSTEM (rad ~2000)
+      - Container
+      - Rader och kolumner
+      - Responsiva layoutsystem
+
+   7. SIDHUVUD & NAVIGATION (rad ~2100)
+      - FontAwesome ikoner
+      - Huvudmeny
+      - Mobilmeny
+      - Mega-menyer
+
+   8. SIDFOT (rad ~2400)
+      - Kontaktinformation
+      - Länknavigering
+      - Responsiv layout
+
+   9. KARTSTILAR (rad ~2600)
+      - Google Maps inbäddning
+      - Laddningsanimation
+      - Responsiv kartvisning
+
+   10. PRESTANDAOPTIMERINGAR (rad ~2700)
+       - Content-visibility
+       - Will-change
+       - Contain
+
+   11. MEDIA QUERIES (rad ~2750)
+       - Tillgänglighet
+       - Utskriftsstilar
+       - Mobil/Surfplatta/Desktop
+
+   12. MOBIL RESPONSIVITET (rad ~3100)
+       - Hamburgermeny
+       - Touch-optimering
+       - Bildhantering
+
+   13. MOBILRESPONSIVITETSSYSTEM (rad ~3400)
+       - Mobilnavigering
+       - Responsiva tabeller
+       - Touch-optimering
+
+   14. BOOTSTRAP 5.3 BRYTPUNKTER (rad ~3600)
+       - Brytpunktsvariabler
+       - Mobile-first implementation
+
+   15. PROGRESSIV VISNING (rad ~3800)
+       - Details/Summary
+       - Expanderbara sektioner
+
+   16. MODERN TEMA (rad ~3900)
+       - Alternativ modern design
+       - Mörkt läge support
 ========================================================================== */
+
+/* ===== HUVUDCONTAINER FÖR APPEN =====
+   Detta ID-scope säkerställer att våra stilar inte påverkar resten av sidan */
 #vaccine-bjarred-app {
-    /* == Core Palette == */
+    /* ===== KÄRNFÄRGPALETT =====
+       Grundläggande färger som används genom hela applikationen */
     --vb-white: #ffffff;
     --vb-black: #000000;
-    --vb-primary-main: #012363; /* Core brand blue */
-    --vb-primary-dark: #0B496E; /* Darker shade of primary */
-    --vb-primary-light: #eef5ff; /* Light shade, often for backgrounds */
-    --vb-secondary-main: #40E0D0; /* Turquoise accent */
-    --vb-accent-blue: #4AA6C9;   /* Lighter blue accent */
-    --vb-accent-blue-dark: #1f7ea4; /* Darker accent blue */
+    --vb-primary-main: #012363; /* Huvudvarumärkesfärg - mörkblå */
+    --vb-primary-dark: #0B496E; /* Mörkare nyans av primärfärgen */
+    --vb-primary-light: #eef5ff; /* Ljus nyans, används ofta för bakgrunder */
+    --vb-secondary-main: #40E0D0; /* Turkos accentfärg */
+    --vb-accent-blue: #4AA6C9;   /* Ljusare blå accentfärg */
+    --vb-accent-blue-dark: #1f7ea4; /* Mörkare accentblå */
 
-    /* == Semantic Colors - Light Mode == */
-    /* Text */
-    --vb-text-primary: var(--vb-primary-main); /* Default text color, was --clr-body, --vb-text */
-    --vb-text-secondary: #003366; /* For headings, was --clr-heading, --blue-dark */
-    --vb-text-inverse: var(--vb-white); /* Text on dark/colored backgrounds */
-    --vb-text-accent: var(--vb-accent-blue); /* Accent text color */
-    --vb-text-disabled: #6c757d; /* General disabled text color */
+    /* ===== SEMANTISKA FÄRGER - LJUST LÄGE =====
+       Färger med specifika användningsområden för ljust tema */
 
-    /* Background */
-    --vb-bg-primary: var(--vb-white); /* Main background, was --clr-bg, --vb-bg */
-    --vb-bg-secondary: var(--vb-primary-light); /* Alternate backgrounds, e.g., table rows, was --clr-bg-alt */
-    --vb-bg-accent: var(--vb-accent-blue); /* Backgrounds for accented sections */
-    --vb-bg-card: #E0F3FA; /* Card backgrounds, was --clr-bg-card */
-    --vb-bg-footer: #eff9ff; /* Footer background, was --bg-footer */
-    --vb-bg-service: #46b5ff; /* Service background, was --bg-service */
+    /* --- Textfärger --- */
+    --vb-text-primary: var(--vb-primary-main); /* Huvudtextfärg */
+    --vb-text-secondary: #003366; /* För rubriker */
+    --vb-text-inverse: var(--vb-white); /* Text på mörka/färgade bakgrunder */
+    --vb-text-accent: var(--vb-accent-blue); /* Accenttextfärg */
+    --vb-text-disabled: #6c757d; /* Inaktiverad textfärg */
 
-    /* Borders */
-    --vb-border-primary: #e0e0e0; /* Default border, was --vb-border, --clr-border */
-    --vb-border-secondary: #ced4da; /* Secondary border color */
-    --vb-border-accent: var(--vb-accent-blue);
+    /* --- Bakgrundsfärger --- */
+    --vb-bg-primary: var(--vb-white); /* Huvudbakgrund */
+    --vb-bg-secondary: var(--vb-primary-light); /* Alternativa bakgrunder, t.ex. tabellrader */
+    --vb-bg-accent: var(--vb-accent-blue); /* Bakgrunder för accentuerade sektioner */
+    --vb-bg-card: #E0F3FA; /* Kortbakgrunder */
+    --vb-bg-footer: #eff9ff; /* Sidfotsbakgrund */
+    --vb-bg-service: #46b5ff; /* Servicebakgrund */
 
-    /* Focus */
-    --vb-focus-ring-color: var(--vb-accent-blue); /* For focus indicators */
+    /* --- Kantlinjer --- */
+    --vb-border-primary: #e0e0e0; /* Standardkantlinje */
+    --vb-border-secondary: #ced4da; /* Sekundär kantlinjefärg */
+    --vb-border-accent: var(--vb-accent-blue); /* Accentkantlinje */
 
-    /* == Gradients == */
-    --vb-gradient-table-header-location: linear-gradient(145deg, #5a8fc7 0%, #4a7bb0 60%, #406ba0 100%); /* From .location-schedule th */
-    --vb-gradient-table-header-price: linear-gradient(150deg, #5a9fe0 0%, #518ece 50%, #477eba 100%); /* From --grad-price-table */
-    --vb-gradient-faq-item: linear-gradient(145deg, #5a8fc7 0%, #4a7bb0 60%, #406ba0 100%); /* From .faq-item */
-    --vb-gradient-faq-item-hover: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.06) 60%, rgba(255, 255, 255, 0.04) 100%); /* From .faq-item summary:hover */
+    /* --- Fokusindikatorer --- */
+    --vb-focus-ring-color: var(--vb-accent-blue); /* För fokusringar */
 
-    /* == Typography == */
-    /* Font Families */
+    /* ===== GRADIENTER =====
+       Färgövergångar för visuell djup och moderna effekter */
+    --vb-gradient-table-header-location: linear-gradient(145deg, #5a8fc7 0%, #4a7bb0 60%, #406ba0 100%); /* Platsschematabellhuvud */
+    --vb-gradient-table-header-price: linear-gradient(150deg, #5a9fe0 0%, #518ece 50%, #477eba 100%); /* Pristabellhuvud */
+    --vb-gradient-faq-item: linear-gradient(145deg, #5a8fc7 0%, #4a7bb0 60%, #406ba0 100%); /* FAQ-objekt bakgrund */
+    --vb-gradient-faq-item-hover: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.06) 60%, rgba(255, 255, 255, 0.04) 100%); /* FAQ hover-effekt */
+
+    /* ===== TYPOGRAFI =====
+       Typsnitt och textstorlekar för konsekvent design */
+
+    /* --- Typsnittsfamiljer --- */
     --vb-font-family-primary: 'Filson Pro', sans-serif;
     --vb-font-family-monospace: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
 
-    /* Font Sizes (using established clamp patterns) */
-    --vb-fs-xs: clamp(0.75rem, 0.5vw + 0.7rem, 0.875rem); /* ~12-14px, was --fluid-xs, --vb-fs-small */
-    --vb-fs-sm: clamp(0.875rem, 1vw + 0.8rem, 1rem);    /* ~14-16px, was --fluid-sm, --vb-fs-body (for smaller body text like table cells) */
-    --vb-fs-md: clamp(1rem, 1.5vw + 0.9rem, 1.125rem);  /* ~16-18px, was --fluid-base, (primary body text size) */
-    --vb-fs-lg: clamp(1.125rem, 2vw + 1rem, 1.25rem);   /* ~18-20px, was --fluid-md */
-    --vb-fs-xl: clamp(1.3rem, 2vw + 1rem, 1.75rem);     /* ~20-28px, was --vb-fs-h3, --fluid-lg */
-    --vb-fs-2xl: clamp(1.75rem, 3vw + 1rem, 2.25rem);   /* ~28-36px, was --vb-fs-h2, --fluid-xl */
-    --vb-fs-3xl: clamp(2rem, 4vw + 1rem, 3rem);         /* ~32-48px, was --vb-fs-h1, --fluid-2xl */
+    /* --- Typsnittsstorlekar (responsiva med clamp) ---
+       Använder clamp() för att skapa flytande storlekar som anpassar sig till skärmstorlek */
+    --vb-fs-xs: clamp(0.75rem, 0.5vw + 0.7rem, 0.875rem);   /* ~12-14px - Mycket liten text */
+    --vb-fs-sm: clamp(0.875rem, 1vw + 0.8rem, 1rem);        /* ~14-16px - Liten text, t.ex. tabellceller */
+    --vb-fs-md: clamp(1rem, 1.5vw + 0.9rem, 1.125rem);      /* ~16-18px - Normal brödtext */
+    --vb-fs-lg: clamp(1.125rem, 2vw + 1rem, 1.25rem);       /* ~18-20px - Större text */
+    --vb-fs-xl: clamp(1.3rem, 2vw + 1rem, 1.75rem);         /* ~20-28px - Mindre rubriker */
+    --vb-fs-2xl: clamp(1.75rem, 3vw + 1rem, 2.25rem);       /* ~28-36px - Mellanstora rubriker */
+    --vb-fs-3xl: clamp(2rem, 4vw + 1rem, 3rem);             /* ~32-48px - Stora rubriker */
 
-    /* Specific Semantic Font Sizes */
-    --vb-fs-body: var(--vb-fs-md); /* Default body text */
-    --vb-fs-body-small: var(--vb-fs-sm); /* Smaller body text, e.g. table content */
-    --vb-fs-caption: var(--vb-fs-xs); /* Captions, very small text */
-    --vb-fs-h1: var(--vb-fs-3xl);
-    --vb-fs-h2: var(--vb-fs-2xl);
-    --vb-fs-h3: var(--vb-fs-xl);
-    --vb-fs-h4: var(--vb-fs-lg);
-    --vb-fs-h5: var(--vb-fs-md); /* Or a new smaller step if needed */
-    --vb-fs-h6: var(--vb-fs-sm); /* Or a new smaller step if needed */
-    --vb-fs-table-header: var(--vb-fs-sm); /* Based on exemplar and legacy */
-    --vb-fs-table-body: var(--vb-fs-sm);   /* Based on exemplar and legacy */
-    --vb-fs-button: var(--vb-fs-md);
+    /* --- Semantiska typsnittsstorlekar ---
+       Namngivna storlekar för specifika användningsområden */
+    --vb-fs-body: var(--vb-fs-md);           /* Standard brödtext */
+    --vb-fs-body-small: var(--vb-fs-sm);     /* Mindre brödtext, t.ex. tabellinnehåll */
+    --vb-fs-caption: var(--vb-fs-xs);        /* Bildtexter, mycket liten text */
+    --vb-fs-h1: var(--vb-fs-3xl);            /* Huvudrubrik */
+    --vb-fs-h2: var(--vb-fs-2xl);            /* Underrubrik nivå 2 */
+    --vb-fs-h3: var(--vb-fs-xl);             /* Underrubrik nivå 3 */
+    --vb-fs-h4: var(--vb-fs-lg);             /* Underrubrik nivå 4 */
+    --vb-fs-h5: var(--vb-fs-md);             /* Underrubrik nivå 5 */
+    --vb-fs-h6: var(--vb-fs-sm);             /* Underrubrik nivå 6 */
+    --vb-fs-table-header: var(--vb-fs-sm);   /* Tabellhuvuden */
+    --vb-fs-table-body: var(--vb-fs-sm);     /* Tabellinnehåll */
+    --vb-fs-button: var(--vb-fs-md);         /* Knapptext */
 
-    /* Font Weights */
-    --vb-fw-light: 300;
-    --vb-fw-normal: 400; /* was --fw-normal */
-    --vb-fw-medium: 500; /* was --fw-regular (500) and --fw-medium (600), choosing 500 as a mid-point or we can have both */
-    --vb-fw-semibold: 600; /* New addition if needed, or map to medium */
-    --vb-fw-bold: 700;   /* was --fw-bold */
-    --vb-fw-black: 900;  /* was --fw-black */
+    /* --- Typsnittsvikter --- */
+    --vb-fw-light: 300;                      /* Tunn */
+    --vb-fw-normal: 400;                     /* Normal */
+    --vb-fw-medium: 500;                     /* Medium */
+    --vb-fw-semibold: 600;                   /* Halvfet */
+    --vb-fw-bold: 700;                       /* Fet */
+    --vb-fw-black: 900;                      /* Extra fet */
 
-    /* Line Heights */
-    --vb-lh-condensed: 1.2; /* For headings, was --lh-heading */
-    --vb-lh-normal: 1.5;    /* For base/body text, was --lh-base */
-    --vb-lh-relaxed: 1.7;   /* For longer paragraphs if needed, similar to --lh-body 1.6 */
+    /* --- Radavstånd --- */
+    --vb-lh-condensed: 1.2;                  /* För rubriker - tätt radavstånd */
+    --vb-lh-normal: 1.5;                     /* För normal text */
+    --vb-lh-relaxed: 1.7;                    /* För längre stycken - luftigt radavstånd */
 
-    /* == Spacing (using established clamp patterns) == */
-    --vb-space-xxs: clamp(0.125rem, 0.25vw + 0.1rem, 0.25rem); /* ~2-4px, new smaller step */
-    --vb-space-xs: clamp(0.25rem, 0.5vw + 0.2rem, 0.5rem);    /* ~4-8px, adjusted --vb-space-xs upper bound */
-    --vb-space-sm: clamp(0.5rem, 1vw + 0.4rem, 0.75rem);     /* ~8-12px, was --vb-space-sm */
-    --vb-space-md: clamp(1rem, 1.5vw + 0.8rem, 1.5rem);    /* ~16-24px, adjusted --vb-space-md, was 2vw */
-    --vb-space-lg: clamp(1.5rem, 2vw + 1rem, 2rem);        /* ~24-32px, adjusted --vb-space-lg */
-    --vb-space-xl: clamp(2rem, 3vw + 1.5rem, 3rem);        /* ~32-48px, adjusted --vb-space-xl */
-    --vb-space-2xl: clamp(3rem, 4vw + 2rem, 4rem);         /* ~48-64px, new step */
-    --vb-space-3xl: clamp(4rem, 5vw + 3rem, 5rem);         /* ~64-80px, new step, adjusted --vb-space-xl upper bound */
+    /* ===== MELLANRUM OCH AVSTÅND =====
+       Konsekvent system för marginaler och padding */
+    --vb-space-xxs: clamp(0.125rem, 0.25vw + 0.1rem, 0.25rem); /* ~2-4px - Mycket litet mellanrum */
+    --vb-space-xs: clamp(0.25rem, 0.5vw + 0.2rem, 0.5rem);     /* ~4-8px - Extra litet mellanrum */
+    --vb-space-sm: clamp(0.5rem, 1vw + 0.4rem, 0.75rem);       /* ~8-12px - Litet mellanrum */
+    --vb-space-md: clamp(1rem, 1.5vw + 0.8rem, 1.5rem);        /* ~16-24px - Medium mellanrum */
+    --vb-space-lg: clamp(1.5rem, 2vw + 1rem, 2rem);            /* ~24-32px - Stort mellanrum */
+    --vb-space-xl: clamp(2rem, 3vw + 1.5rem, 3rem);            /* ~32-48px - Extra stort mellanrum */
+    --vb-space-2xl: clamp(3rem, 4vw + 2rem, 4rem);             /* ~48-64px - Dubbelt extra stort */
+    --vb-space-3xl: clamp(4rem, 5vw + 3rem, 5rem);             /* ~64-80px - Trippelt extra stort */
 
-    /* == Borders & Radii == */
-    --vb-border-width-thin: 1px;
-    --vb-border-width-medium: 2px;
-    --vb-border-style-solid: solid;
+    /* ===== KANTLINJER OCH HÖRN ===== */
+    --vb-border-width-thin: 1px;              /* Tunn kantlinje */
+    --vb-border-width-medium: 2px;            /* Medium kantlinje */
+    --vb-border-style-solid: solid;           /* Solid linjestil */
 
-    --vb-radius-sm: 4px;    /* was --vb-radius-sm */
-    --vb-radius-md: 8px;    /* was --vb-radius-md */
-    --vb-radius-lg: 16px;   /* was --vb-radius-lg */
-    --vb-radius-pill: 9999px; /* for fully rounded items */
-    --vb-radius-circle: 50%;
+    --vb-radius-sm: 4px;                      /* Små rundade hörn */
+    --vb-radius-md: 8px;                      /* Medium rundade hörn */
+    --vb-radius-lg: 16px;                     /* Stora rundade hörn */
+    --vb-radius-pill: 9999px;                 /* Helt rundade element (piller) */
+    --vb-radius-circle: 50%;                  /* Cirkulära element */
 
-    /* == Shadows == */
-    --vb-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --vb-shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.1);  /* was --shadow-sm */
-    --vb-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12); /* was --shadow-md, adjusted alpha */
-    --vb-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.15); /* was --shadow-lg, adjusted alpha */
+    /* ===== SKUGGOR =====
+       Skapar djup och visuell hierarki */
+    --vb-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);    /* Mycket liten skugga */
+    --vb-shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.1);     /* Liten skugga */
+    --vb-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);   /* Medium skugga */
+    --vb-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.15);   /* Stor skugga */
 
-    /* == Transitions & Animations == */
-    --vb-duration-instant: 0ms;
-    --vb-duration-fast: 150ms;
-    --vb-duration-normal: 250ms;
-    --vb-duration-slow: 400ms;
-    --vb-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --vb-ease-out: cubic-bezier(0, 0, 0.2, 1);
-    --vb-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    /* ===== ÖVERGÅNGAR OCH ANIMATIONER ===== */
+    --vb-duration-instant: 0ms;               /* Omedelbar */
+    --vb-duration-fast: 150ms;                /* Snabb övergång */
+    --vb-duration-normal: 250ms;              /* Normal övergång */
+    --vb-duration-slow: 400ms;                /* Långsam övergång */
+    --vb-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);   /* Mjuk in-ut kurva */
+    --vb-ease-out: cubic-bezier(0, 0, 0.2, 1);         /* Mjuk ut-kurva */
+    --vb-ease-in: cubic-bezier(0.4, 0, 1, 1);          /* Mjuk in-kurva */
 
-    /* == Z-Indexes (use sparingly) == */
-    --vb-z-dropdown: 1000;
-    --vb-z-sticky: 1020;
-    --vb-z-modal-backdrop: 1040;
-    --vb-z-modal: 1050;
-    --vb-z-popover: 1060;
-    --vb-z-tooltip: 1070;
-    --vb-z-lightbox: 9999; /* From existing .img-lightbox */
+    /* ===== Z-INDEX LAGER =====
+       Styr elementens stackordning */
+    --vb-z-dropdown: 1000;                    /* Dropdown-menyer */
+    --vb-z-sticky: 1020;                      /* Klistrade element */
+    --vb-z-modal-backdrop: 1040;              /* Modal bakgrund */
+    --vb-z-modal: 1050;                       /* Modaler */
+    --vb-z-popover: 1060;                     /* Popovers */
+    --vb-z-tooltip: 1070;                     /* Verktygstips */
+    --vb-z-lightbox: 9999;                    /* Bildvisare (lightbox) */
 
-    /* == Component Specific (Examples, expand as needed) == */
-    /* Table */
-    --vb-table-padding-cell: var(--vb-space-sm) var(--vb-space-md); /* Default cell padding */
-    --vb-table-bg-header: var(--vb-gradient-table-header-location);
-    --vb-table-text-header: var(--vb-text-inverse);
-    --vb-table-bg-row-odd: var(--vb-bg-secondary);
-    --vb-table-bg-row-even: var(--vb-bg-primary);
-    --vb-table-border-color: var(--vb-border-primary);
+    /* ===== KOMPONENTSPECIFIKA VARIABLER ===== */
 
-    /* Button */
-    --vb-button-padding-y: var(--vb-space-sm);
-    --vb-button-padding-x: var(--vb-space-md);
-    --vb-button-bg-primary: var(--vb-primary-main);
-    --vb-button-text-primary: var(--vb-text-inverse);
-    --vb-button-radius: var(--vb-radius-md);
+    /* --- Tabeller --- */
+    --vb-table-padding-cell: var(--vb-space-sm) var(--vb-space-md);  /* Cellpadding */
+    --vb-table-bg-header: var(--vb-gradient-table-header-location);  /* Huvudbakgrund */
+    --vb-table-text-header: var(--vb-text-inverse);                  /* Huvudtext */
+    --vb-table-bg-row-odd: var(--vb-bg-secondary);                   /* Udda rader */
+    --vb-table-bg-row-even: var(--vb-bg-primary);                    /* Jämna rader */
+    --vb-table-border-color: var(--vb-border-primary);                /* Tabellkanter */
+
+    /* --- Knappar --- */
+    --vb-button-padding-y: var(--vb-space-sm);        /* Vertikal padding */
+    --vb-button-padding-x: var(--vb-space-md);        /* Horisontell padding */
+    --vb-button-bg-primary: var(--vb-primary-main);   /* Primär knappbakgrund */
+    --vb-button-text-primary: var(--vb-text-inverse); /* Primär knapptext */
+    --vb-button-radius: var(--vb-radius-md);          /* Knapphörn */
 }
 
-/* == Dark Mode Semantic Colors == */
+/* ===== MÖRKT TEMA - AUTOMATISK VÄXLING =====
+   Aktiveras automatiskt när användaren har mörkt tema i sitt operativsystem */
 @media (prefers-color-scheme: dark) {
     #vaccine-bjarred-app {
-        /* Text */
-        --vb-text-primary: #CDDBE6; /* was legacy --clr-body */
-        --vb-text-secondary: #E0F3FA; /* was legacy --clr-heading */
-        /* --vb-text-inverse: var(--vb-black); */ /* Consider if black text on light primary dark needed */
-        --vb-text-accent: #6BC4E7; /* was legacy --clr-accent */
+        /* --- Textfärger för mörkt tema --- */
+        --vb-text-primary: #CDDBE6;      /* Ljus huvudtext för läsbarhet */
+        --vb-text-secondary: #E0F3FA;     /* Ännu ljusare för rubriker */
+        --vb-text-accent: #6BC4E7;        /* Ljusblå accent */
 
-        /* Background */
-        --vb-bg-primary: #0B1929; /* was legacy --clr-bg */
-        --vb-bg-secondary: #142438; /* was legacy --clr-bg-alt */
-        --vb-bg-accent: #5BB5D8; /* was legacy --clr-brand-500 */
-        --vb-bg-card: #1A2F47; /* was legacy --clr-bg-card */
-        --vb-bg-footer: #142438; /* Darker footer */
+        /* --- Bakgrundsfärger för mörkt tema --- */
+        --vb-bg-primary: #0B1929;         /* Mörk huvudbakgrund */
+        --vb-bg-secondary: #142438;       /* Ännu mörkare för kontrast */
+        --vb-bg-accent: #5BB5D8;          /* Ljusare accentbakgrund */
+        --vb-bg-card: #1A2F47;            /* Kortbakgrund */
+        --vb-bg-footer: #142438;          /* Mörkare sidfot */
 
-        /* Borders */
-        --vb-border-primary: #2A3F5C; /* was legacy --clr-border */
-        --vb-border-secondary: #3e5675;
-        --vb-border-accent: #6BC4E7;
+        /* --- Kantlinjer för mörkt tema --- */
+        --vb-border-primary: #2A3F5C;     /* Ljusare kanter för synlighet */
+        --vb-border-secondary: #3e5675;   /* Sekundära kanter */
+        --vb-border-accent: #6BC4E7;      /* Accentkanter */
 
-        /* Focus */
-        --vb-focus-ring-color: #6BC4E7;
+        /* --- Fokus för mörkt tema --- */
+        --vb-focus-ring-color: #6BC4E7;   /* Ljusblå fokusring */
 
-        /* Shadows (adjust if needed for dark backgrounds) */
+        /* --- Skuggor för mörkt tema ---
+           Starkare skuggor för bättre kontrast på mörk bakgrund */
         --vb-shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.25);
         --vb-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
         --vb-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.35);
 
-        /* Component Specific Dark Mode */
-        --vb-table-bg-header: var(--vb-primary-dark); /* Example adjustment */
-        --vb-table-bg-row-odd: var(--vb-bg-secondary);
-        --vb-table-bg-row-even: var(--vb-bg-primary);
-        --vb-table-border-color: var(--vb-border-primary);
+        /* --- Komponentspecifikt för mörkt tema --- */
+        --vb-table-bg-header: var(--vb-primary-dark);    /* Tabellhuvud */
+        --vb-table-bg-row-odd: var(--vb-bg-secondary);   /* Udda rader */
+        --vb-table-bg-row-even: var(--vb-bg-primary);    /* Jämna rader */
+        --vb-table-border-color: var(--vb-border-primary); /* Tabellkanter */
     }
 }
 
@@ -216,7 +325,11 @@
     --vb-table-border-color: var(--vb-border-primary);
 }
 
-/* Legacy styles - TO BE REFACTORED */
+/* ==========================================================================
+   ÄLDRE STILAR - SKA REFAKTORERAS
+
+   Dessa stilar är kvar från tidigare versioner och behöver ses över
+========================================================================== */
 .address-label {
   font-weight: 500;
 }
@@ -275,10 +388,21 @@ h1#page-content.page__content-title {
 	width: 35%;
 }
 /* ==========================================================================
-   0. Normalizr, Resets, and Root Variables
+   0. NORMALIZR, RESETS OCH ROOT-VARIABLER
+
+   INNEHÅLL:
+   - Box-sizing reset för alla element
+   - Font-smoothing för bättre textrendering
+   - HTML och Body grundinställningar
+   - Root-variabler för hela webbplatsen
+   - Mörkt tema stöd
+
    Basgrunder för hela webbplatsen - resettar standardstilar och definierar variabler
 ========================================================================== */
-/* Box Sizing & Font Smoothing Reset */
+
+/* ===== BOX-SIZING OCH FONT-SMOOTHING RESET =====
+   Säkerställer att padding och border ingår i elementens totala bredd/höjd
+   Förbättrar textrendering på olika enheter */
  *, *::before, *::after {
      box-sizing: border-box;
      -webkit-box-sizing: border-box;
@@ -294,7 +418,8 @@ h1#page-content.page__content-title {
  nav#accessibility-navigation {
      margin-top: 0;
 }
-/* Base HTML & Body Styles */
+/* ===== HTML & BODY GRUNDSTILAR =====
+   Definierar basstilarna för hela dokumentet */
  html {
      font-family: var(--ff-primary, 'Filson Pro', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji');
      line-height: var(--lh-base);
@@ -320,7 +445,9 @@ h1#page-content.page__content-title {
      text-rendering: optimizeLegibility;
      overflow-x: hidden;
 }
-/* Root Variable Definitions */
+/* ===== ROOT-VARIABLER (CSS Custom Properties) =====
+   Globala variabler som gäller för hela dokumentet
+   Organiserade i logiska grupper för enkel översikt */
  :root {
   --clr-primary: #012363;
   --clr-bg: #fff;
@@ -331,11 +458,11 @@ h1#page-content.page__content-title {
   --clr-gdpr-light-btn-text: #fff;
     /* Bootstrap 5.3 Breakpoints */
      --bs-breakpoint-xs: 0;
-     --bs-breakpoint-sm: 576px;
-     --bs-breakpoint-md: 768px;
-     --bs-breakpoint-lg: 992px;
-     --bs-breakpoint-xl: 1200px;
-     --bs-breakpoint-xxl: 1400px;
+     --bs-breakpoint-sm: 576px;      /* Mobiltelefoner liggande */
+     --bs-breakpoint-md: 768px;      /* Surfplattor */
+     --bs-breakpoint-lg: 992px;      /* Mindre desktop */
+     --bs-breakpoint-xl: 1200px;     /* Desktop */
+     --bs-breakpoint-xxl: 1400px;    /* Stora skärmar */
     /* Animation Durations */
      --duration-instant: 0ms;
      --duration-fast: 150ms;
@@ -642,9 +769,20 @@ h1#page-content.page__content-title {
      --clr-black: #E0F3FA;
 }
 /* ==========================================================================
-   1. Base Element Styling
+   1. BASISELEMENTSTILLAR
+
+   INNEHÅLL:
+   - Artikel och innehållslayout
+   - Typografiska grundelement (b, strong, code, etc.)
+   - Formulärelement
+   - Bilder och media
+   - Länkar
+   - Rubriker
+
    Grundstilar för HTML-element utan klasser
 ========================================================================== */
+
+/* ===== ARTIKEL OCH INNEHÅLLSLAYOUT ===== */
  article.page__content--left-align.col-md-8 {
     /* margin: logical sides */
 	margin-inline-start: 3vw;
@@ -730,9 +868,21 @@ h1#page-content.page__content-title {
      color: var(--blue-dark);
 }
 /* ==========================================================================
-   2. TYPOGRAPHY SYSTEM v2.0 (HIGH SPECIFICITY OVERRIDE)
-   Typografi med hög specificitet för att överskriva standardstilar
+   2. TYPOGRAFISYSTEM v2.0 (HÖG SPECIFICITET)
+
+   INNEHÅLL:
+   - Rubriker (H1-H6)
+   - Brödtext och stycken
+   - Listor
+   - Tabelltext
+   - Specialtypografi
+
+   Använder hög specificitet (html body) för att säkerställa att våra stilar
+   alltid får företräde över andra CSS-regler
 ========================================================================== */
+
+/* ===== RUBRIKER =====
+   Konsekvent utseende för alla rubriknivåer */
  html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
      font-family: var(--ff-primary);
      color: var(--clr-heading);
@@ -815,10 +965,20 @@ h1#page-content.page__content-title {
      font-weight: var(--fw-normal);
 }
 /* ==========================================================================
-   3. LAYOUT & CORE COMPONENTS
+   3. LAYOUT & KÄRNKOMPONENTER
+
+   INNEHÅLL:
+   - Bussgalleri (bildvisning)
+   - Pristabeller och prisboxar
+   - Vaccinationsinformation
+   - FAQ-sektion
+   - Bildvisare (Lightbox)
+
    Huvudkomponenter för layout och innehållsstruktur
 ========================================================================== */
-/* Bus Gallery */
+
+/* ===== BUSSGALLERI =====
+   Layout för bildvisning av vaccinationsbussar */
  .bus-gallery-row {
      display: flex;
      flex-wrap: wrap;
@@ -934,8 +1094,20 @@ color: var(--clr-heading);
  .price-table th:nth-child(3), .price-table td:nth-child(3), .price-table th:nth-child(4), .price-table td:nth-child(4) {
      display: none;
 }
-/* ========================================================================== 8. PRICE TABLE + LOCATION SCHEDULE (MAXIMUM SPECIFICITY) ========================================================================== */
-/* Använder fluid clamp() för responsiv tabellayout */
+/* ==========================================================================
+   8. PRIS- OCH PLATSSCHEMATABELLER (MAXIMAL SPECIFICITET)
+
+   INNEHÅLL:
+   - Pristabeller för vacciner
+   - Platsschema för bussen
+   - Responsiv tabellayout
+   - Zebra-striping för rader
+
+   Använder mycket hög specificitet för att garantera korrekt styling
+========================================================================== */
+
+/* ===== GEMENSAMMA TABELLSTILAR =====
+   Använder fluid clamp() för responsiv tabellayout */
 html body .price-table.price-table,
 html body .location-schedule.location-schedule {
 	margin-block-start: var(--CLAMP-14);
@@ -1044,7 +1216,8 @@ html body .price-table.price-table thead th:nth-child(4) {
    4. FAQ Component & Other Components
    Komponenter för FAQ (vanliga frågor) och andra innehållsblock
 ========================================================================== */
-/* Section Titles & Info Blocks */
+
+/* --- Sektionstrubriker & Infoblocks --- */
  .section-title, .page__content-title, .subtitle {
      font-size: var(--CLAMP-25);
      font-weight: var(--fw-bold);
@@ -1309,10 +1482,19 @@ html body .price-table.price-table thead th:nth-child(4) {
      visibility: visible;
 }
 /* ==========================================================================
-   5. UTILITY CLASSES
-   Återanvändbara hjälpklasser för layout och styling
+   5. UTILITY-KLASSER (HJÄLPKLASSER)
+
+   INNEHÅLL:
+   - Textjustering
+   - Mellanrum (margin & padding)
+   - Typografi
+   - Synlighet
+   - Responsiva hjälpklasser
+
+   Återanvändbara hjälpklasser för snabb layout och styling
 ========================================================================== */
-/* Text Alignment & Padding */
+
+/* ===== TEXTJUSTERING & PADDING ===== */
  .text-center {
      text-align: center;
 }
@@ -1500,9 +1682,19 @@ html body .price-table.price-table thead th:nth-child(4) {
      transform: translateY(0);
 }
 /* ==========================================================================
-   6. GRID & CONTAINER SYSTEM
-   Responsiva behållare och kolumnsystem för layout
+   6. RUTNÄT & BEHÅLLARSYSTEM
+
+   INNEHÅLL:
+   - Container (behållare)
+   - Row (rader)
+   - Columns (kolumner)
+   - Responsiva layoutsystem
+
+   Baserat på Bootstrap's grid-system för bekant användning
 ========================================================================== */
+
+/* ===== HUVUDBEHÅLLARE =====
+   Centrerar innehållet och sätter maxbredd */
  .container {
      width: var(--PXP-18);
      padding-right: var(--space-md);
@@ -1527,8 +1719,21 @@ html body .price-table.price-table thead th:nth-child(4) {
      margin-bottom: 0;
      margin-top: var(--space-sm);
 }
-/* ========================================================================== 7. HEADER & NAVIGATION ========================================================================== */
-/* Icon Font Base */
+/* ==========================================================================
+   7. SIDHUVUD & NAVIGATION
+
+   INNEHÅLL:
+   - FontAwesome ikoner
+   - Huvudmeny
+   - Mobilmeny (hamburger)
+   - Mega-menyer
+   - Navigationslogotyp
+
+   Hanterar all navigering och sidhuvudets komponenter
+========================================================================== */
+
+/* ===== FONTAWESOME IKON-BAS =====
+   Grundinställningar för alla FontAwesome-ikoner */
  .fa, .fab, .fad, .fal, .far, .fas {
      -moz-osx-font-smoothing: grayscale;
      -webkit-font-smoothing: antialiased;
@@ -1736,9 +1941,18 @@ a.navigation__item-category {
      content: "\f35d"
 }
 /* ==========================================================================
-   8. FOOTER
+   8. SIDFOT (FOOTER)
+
+   INNEHÅLL:
+   - Huvudsidfot med kontaktinfo
+   - Länkar och navigation
+   - Responsiv layout
+   - Färgschema och typografi
+
    Sidfotsstilar och innehåll
 ========================================================================== */
+
+/* ===== HUVUDSIDFOT ===== */
  footer.footer {
      font-family: filsonpro, sans-serif;
      background-color: #eff9ff;
@@ -1851,9 +2065,19 @@ nav.footer__link-nav ul#footer__links>li.col {
      cursor: pointer;
 }
 /* ==========================================================================
-   9. MAP STYLES
-   Kartstilar för Google Maps inbäddning
+   9. KARTSTILAR
+
+   INNEHÅLL:
+   - Google Maps inbäddning
+   - Laddningsanimation
+   - Responsiv kartvisning
+   - Hover-effekter
+
+   Stilar för interaktiv karta som visar bussens plats
 ========================================================================== */
+
+/* ===== KARTBEHÅLLARE =====
+   Lokala CSS-variabler för enkel anpassning */
  .map-embed-container {
      --map-radius: 12px;
      --map-shadow: 0 4px 12px rgba(1, 35, 99, 0.1);
@@ -1932,12 +2156,21 @@ nav.footer__link-nav ul#footer__links>li.col {
     }
 }
 /* ==========================================================================
-   10. PERFORMANCE OPTIMIZATIONS
-   Prestandaoptimeringar för snabbare rendering
+   10. PRESTANDAOPTIMERINGAR
+
+   INNEHÅLL:
+   - Content-visibility för lazy rendering
+   - Will-change för animationer
+   - Contain för layout-isolering
+
+   Tekniker för att förbättra sidans prestanda och renderingshastighet
 ========================================================================== */
+
+/* ===== LAZY RENDERING AV FAQ-OBJEKT =====
+   Förbättrar prestanda genom att inte rendera innehåll som inte visas */
  .faq-item:not([open]) {
-     content-visibility: auto;
-     contain-intrinsic-size: 0 60px;
+     content-visibility: auto;          /* Renderar endast synligt innehåll */
+     contain-intrinsic-size: 0 60px;    /* Reserverar plats för innehållet */
 }
  .faq-item summary::after {
      will-change: transform;
@@ -1951,21 +2184,34 @@ nav.footer__link-nav ul#footer__links>li.col {
     }
 }
 /* ==========================================================================
-   11. MEDIA QUERIES
-   Responsiva brytpunkter för olika skärmstorlekar
+   11. MEDIA QUERIES (RESPONSIV DESIGN)
+
+   INNEHÅLL:
+   - Tillgänglighet (reduced motion)
+   - Utskriftsstilar
+   - Mobil (< 576px)
+   - Surfplatta (576px - 991px)
+   - Desktop (992px+)
+   - Landskapsläge
+
+   Responsiva brytpunkter för olika skärmstorlekar och enheter
 ========================================================================== */
-/* Reduced Motion */
+
+/* ===== REDUCERAD RÖRELSE =====
+   För användare som föredrar mindre animationer (tillgänglighet) */
  @media (prefers-reduced-motion: reduce) {
      html body *, .faq-item, .faq-icon::before, .faq-icon::after, .fade-in {
          transition: none;
          animation: none;
     }
 }
-/* Print Styles */
+/* ===== UTSKRIFTSSTILAR =====
+   Optimerar layouten för utskrift */
  @media print {
      .faq-item details {
          open: true;
     }
+     /* Döljer interaktiva element som inte behövs på papper */
      .faq-icon {
          display: none;
     }
@@ -1973,24 +2219,28 @@ nav.footer__link-nav ul#footer__links>li.col {
          display: none;
     }
 }
-/* Container System - Mobile-First Bootstrap 5.3 Pattern */
+/* ===== BEHÅLLARSYSTEM - MOBILE-FIRST =====
+   Följer Bootstrap 5.3 mönster för bekant användning */
 .container {
     width: 100%;
     margin-inline: auto;
     padding-inline: 1rem;
 }
 
+/* --- Små skärmar (576px+) --- */
 @media (min-width: 576px) {
     .container {
         padding-inline: clamp(1rem, 4vw, 2rem);
     }
 }
 
+/* --- Desktop (992px+) --- */
 @media (min-width: 992px) {
     .container {
         max-width: 1320px;
     }
 
+    /* Grid-layout för platssektionen */
     .location-section {
         display: grid;
         grid-template-columns: 1fr 2fr;
@@ -2000,6 +2250,8 @@ nav.footer__link-nav ul#footer__links>li.col {
      .location-info {
          text-align: left;
     }
+
+     /* Hover-effekter för FAQ på desktop */
      .faq-item {
          transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-slow) var(--ease-out);
     }
@@ -2007,6 +2259,8 @@ nav.footer__link-nav ul#footer__links>li.col {
          transform: translateY(calc(var(--PXR-2) * -1));
          box-shadow: 0 var(--PXR-4) var(--PXR-12) rgba(0, 0, 0, 0.1);
     }
+
+     /* Extra padding för läsbarhet */
      .page__content-body {
          padding-right: var(--CLAMP-110);
     }
@@ -2032,8 +2286,9 @@ nav.footer__link-nav ul#footer__links>li.col {
          padding: var(--space-xl);
     }
 }
-/* Mobile & Tablet Styles */
-/* Footer Navigation - Mobile-First */
+/* ===== MOBIL & SURFPLATTESTILAR ===== */
+
+/* --- Sidfot Navigation - Mobile-First --- */
 nav.footer__link-nav ul#footer__links.open,
 nav.footer__link-nav ul#footer__links:target {
     flex-direction: column;
@@ -2046,6 +2301,7 @@ nav.footer__link-nav ul#footer__links:target > li.col {
     margin-bottom: 5px;
 }
 
+/* Desktop återställning */
 @media (min-width: 992px) {
     nav.footer__link-nav ul#footer__links.open,
     nav.footer__link-nav ul#footer__links:target {
@@ -2139,9 +2395,16 @@ nav.footer__link-nav ul#footer__links:target > li.col {
          padding-left: 30px;
     }
 }
+ /* ===== MOBIL EXTRA LITEN (< 576px) =====
+    Optimeringar för de minsta skärmarna */
  @media (max-width: 575.98px) {
-    /* Re-order content for mobile
-       Ordning: 1. Intro, 2. Platsschemat, 3. Prislista, 4. Vaccininformation, 5. FAQ */
+    /* INNEHÅLLSORDNING FÖR MOBIL:
+       1. Intro
+       2. Platsschema (var och när)
+       3. Prislista
+       4. Vaccininformation
+       5. FAQ (vanliga frågor) */
+
      html {
          overflow-x: hidden;
     }
@@ -2448,6 +2711,8 @@ nav.footer__link-nav ul#footer__links:target > li.col {
          min-height: 5rem;
     }
 }
+ /* ===== EXTRA LITEN MOBIL (< 480px) =====
+    För de allra minsta enheterna som iPhone SE */
  @media (max-width: 480px) {
      .welcome-title {
          font-size: 1.4em;
@@ -2485,8 +2750,11 @@ nav.footer__link-nav ul#footer__links:target > li.col {
 }
 
 /* ==========================================================================
-   Footer PTJ Logo - Begränsar storleken till max 60px (3.75rem)
+   PRAKTIKERTJÄNST LOGOTYP I SIDFOT
+
+   Begränsar storleken för att behålla proportioner och läsbarhet
 ========================================================================== */
+
 /* Målselektor för footer-logotypen med inline-stil */
 footer img[alt="Praktikertjänst"]{
 	max-width: 19.44rem;
@@ -2496,15 +2764,18 @@ footer img[alt="Praktikertjänst"]{
 }
 
 /* ==========================================================================
-   Page Content Wrapper & Body - Responsiva marginaler och padding
+   SIDINNEHÅLLSOMSLAG & BODY
+
+   Responsiva marginaler och padding för optimal läsbarhet
 ========================================================================== */
-/* Emulerar margin-bottom: 0, margin-top: 1rem responsivt */
+
+/* Responsiv topp-marginal */
 .page__content-wrapper {
     margin-bottom: 0;
     margin-top: clamp(0.75rem, 0.625rem + 0.625vw, 1rem); /* 12px-16px */
 }
 
-/* Emulerar padding-right: 100px för desktop */
+/* Extra höger-padding på desktop för bättre läsbarhet */
 @media (min-width: 992px) {
     .page__content-body {
         padding-right: clamp(4rem, 3rem + 2.5vw, 6.25rem); /* 64px-100px */
@@ -2512,8 +2783,12 @@ footer img[alt="Praktikertjänst"]{
 }
 
 /* ==========================================================================
-   Price Table Optimeringar - Minimerar whitespace, bibehåller 3 kolumner
+   PRISTABELLSOPTIMERINGAR
+
+   Kompakt layout som visar alla priser effektivt
+   Responsiv hantering av kolumner på mobil
 ========================================================================== */
+
 .price-table {
     /* Kompakt tabellayout */
     width: 100%;
@@ -2603,8 +2878,11 @@ footer img[alt="Praktikertjänst"]{
 }
 
 /* ==========================================================================
-   FAQ Grid Layout - Exakt 2 rader med balanserad bredd
+   FAQ GRID-LAYOUT
+
+   Strukturerar FAQ-frågor i exakt 2 rader för konsekvent utseende
 ========================================================================== */
+
 .faq-item summary {
     /* Grid layout för exakt 2 rader */
     display: grid;
@@ -2638,10 +2916,18 @@ footer img[alt="Praktikertjänst"]{
 }
 
 /* ==========================================================================
-   Vaccine Information Progressive Disclosure Styles
-   ========================================================================== */
+   VACCININFORMATION - PROGRESSIV VISNING
 
-/* Vaccine Categories */
+   INNEHÅLL:
+   - Vaccinkategorier
+   - Expanderbara vaccinkort
+   - Prioritetsmarkeringar
+   - Responsiv layout
+
+   Använder details/summary för tillgänglig interaktion
+========================================================================== */
+
+/* ===== VACCINKATEGORIER ===== */
 .vaccine-category {
     margin-bottom: var(--CLAMP-12);
     border-radius: var(--radius-md);
