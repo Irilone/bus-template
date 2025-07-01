@@ -1102,17 +1102,29 @@ color: var(--clr-heading);
  .price-table th:nth-child(3), .price-table td:nth-child(3), .price-table th:nth-child(4), .price-table td:nth-child(4) {
      display: none;
 }
-/* ========================================================================== 8. PRICE TABLE + LOCATION SCHEDULE (MAXIMUM SPECIFICITY) ========================================================================== */
-/* Använder fluid clamp() för responsiv tabellayout */
+/* ==========================================================================
+   8. PRIS- OCH PLATSSCHEMATABELLER (MAXIMAL SPECIFICITET)
+
+   INNEHÅLL:
+   - Pristabeller för vacciner
+   - Platsschema för bussen
+   - Responsiv tabellayout
+   - Zebra-striping för rader
+
+   Använder mycket hög specificitet för att garantera korrekt styling
+========================================================================== */
+
+/* ===== GEMENSAMMA TABELLSTILAR =====
+   Använder fluid clamp() för responsiv tabellayout */
 html body .price-table.price-table,
 html body .location-schedule.location-schedule {
 	margin-block-start: var(--CLAMP-14) !important;
 	margin-block-end: 0 !important;
-	margin-inline: auto !important;
+	margin-inline: auto !important;               /* Centrerad horisontellt */
 	line-height: var(--lh-body) !important;
-	table-layout: fixed !important;
+	table-layout: fixed !important;               /* Fast kolumnbredd för bättre kontroll */
 	overflow: hidden !important;
-	border-collapse: collapse !important;
+	border-collapse: collapse !important;         /* Tar bort mellanrum mellan celler */
 	border: var(--PXR-1) solid var(--clr-border) !important;
 	padding-inline: var(--CLAMP-13) !important;
 	border-top-left-radius: var(--radius-md) !important;
@@ -1139,10 +1151,11 @@ html body .location-schedule.location-schedule {
      border-bottom: none !important;
      vertical-align: top !important;
      line-height: 1.2 !important;
-/* FAQ Component & Other Components
-   Komponenter för FAQ (vanliga frågor) och andra innehållsblock
+/* ===== FAQ-KOMPONENTER & ANDRA INNEHÅLLSBLOCK =====
+   Komponenter för vanliga frågor och informationsblock
 ========================================================================== */
-/* Section Titles & Info Blocks */
+
+/* --- Sektionstrubriker & Infoblocks --- */
  .section-title, .page__content-title, .subtitle {
      font-size: var(--CLAMP-25) !important;
      font-weight: var(--fw-bold) !important;
