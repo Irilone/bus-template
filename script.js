@@ -73,6 +73,50 @@ document.addEventListener('DOMContentLoaded', () => {
   // SEKTION 2: ANVÄNDARINTERAKTION OCH NAVIGATION
   // ═══════════════════════════════════════════════════════════════
 
+  // Responsive date formatting for location schedule
+  function setupResponsiveDates() {
+    const dateCells = document.querySelectorAll('.location-schedule td:first-child');
+
+    dateCells.forEach(cell => {
+      const originalText = cell.textContent.trim();
+      // Parse the date (assuming format like "24 feb 2025")
+      const parts = originalText.split(' ');
+      if (parts.length >= 3) {
+        const day = parts[0];
+        const month = parts[1];
+        const year = parts[2];
+
+        // Create responsive date spans
+        cell.innerHTML = `
+          <span class="date-full">${originalText}</span>
+          <span class="date-medium">${day} ${month.substring(0, 3)}</span>
+          <span class="date-short">${day}/${getMonthNumber(month)}</span>
+        `;
+      }
+    });
+  }
+
+  function getMonthNumber(monthName) {
+    const months = {
+      'jan': '1', 'januari': '1',
+      'feb': '2', 'februari': '2',
+      'mar': '3', 'mars': '3',
+      'apr': '4', 'april': '4',
+      'maj': '5',
+      'jun': '6', 'juni': '6',
+      'jul': '7', 'juli': '7',
+      'aug': '8', 'augusti': '8',
+      'sep': '9', 'september': '9',
+      'okt': '10', 'oktober': '10',
+      'nov': '11', 'november': '11',
+      'dec': '12', 'december': '12'
+    };
+    return months[monthName.toLowerCase()] || monthName;
+  }
+
+  // Call the function after DOM is ready
+  setupResponsiveDates();
+
   // Markera dagens öppettider
   const weekdays = ['Söndag', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag'];
   const today = weekdays[new Date().getDay()];
@@ -192,16 +236,16 @@ document.addEventListener('DOMContentLoaded', () => {
         bottom: 0;
         left: 0;
         right: 0;
-        background: var(--vb-bg-card, #E0F3FA);
-        color: var(--vb-text-primary, #012363);
+        background: var(--clr-gdpr-light-bg,#FFB74D);
+        color: var(--clr-on-primary,#fff);
         padding: 1em;
         z-index: 10000;
         box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
         transform: translateY(100%);
         transition: transform 0.3s ease;
-        border-top: 1px solid var(--vb-border-primary, #e0e0e0);
       `;
 
+      banner.classList.add('gdpr-banner');
       banner.innerHTML = `
         <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1em; flex-wrap: wrap;">
           <p style="flex: 1; margin: 0; font-size: 1em;">

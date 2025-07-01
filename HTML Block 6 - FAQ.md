@@ -1,6 +1,5 @@
 <!-- 6. FAQ SECTION -->
-<section class="faq-section" aria-labelledby="faq-heading">
-<h2 id="faq-heading" class="subtitle">Vanliga Fr&aring;gor</h2>
+<section class="faq-section">
 <div class="faq sidebar-content">
 <div class="faq-section"><details class="faq-item">
 <summary>Beh&ouml;ver jag boka tid eller har ni drop‑in?</summary>
@@ -30,4 +29,6 @@
 </details></div>
 </div>
 </section>
+
+</div>
 <!-- VACCINE BJARRED APP WRAPPER END -->

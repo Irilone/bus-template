@@ -2,341 +2,141 @@
    VACCINE BJARRED APP - ISOLATED SCOPED STYLES
    All styles are scoped under #vaccine-bjarred-app to prevent conflicts
 ========================================================================== */
+
 #vaccine-bjarred-app {
-    /* == Core Palette == */
-    --vb-white: #ffffff;
-    --vb-black: #000000;
-    --vb-primary-main: #012363; /* Core brand blue */
-    --vb-primary-dark: #0B496E; /* Darker shade of primary */
-    --vb-primary-light: #eef5ff; /* Light shade, often for backgrounds */
-    --vb-secondary-main: #40E0D0; /* Turquoise accent */
-    --vb-accent-blue: #4AA6C9;   /* Lighter blue accent */
-    --vb-accent-blue-dark: #1f7ea4; /* Darker accent blue */
-
-    /* == Semantic Colors - Light Mode == */
-    /* Text */
-    --vb-text-primary: var(--vb-primary-main); /* Default text color, was --clr-body, --vb-text */
-    --vb-text-secondary: #003366; /* For headings, was --clr-heading, --blue-dark */
-    --vb-text-inverse: var(--vb-white); /* Text on dark/colored backgrounds */
-    --vb-text-accent: var(--vb-accent-blue); /* Accent text color */
-    --vb-text-disabled: #6c757d; /* General disabled text color */
-
-    /* Background */
-    --vb-bg-primary: var(--vb-white); /* Main background, was --clr-bg, --vb-bg */
-    --vb-bg-secondary: var(--vb-primary-light); /* Alternate backgrounds, e.g., table rows, was --clr-bg-alt */
-    --vb-bg-accent: var(--vb-accent-blue); /* Backgrounds for accented sections */
-    --vb-bg-card: #E0F3FA; /* Card backgrounds, was --clr-bg-card */
-    --vb-bg-footer: #eff9ff; /* Footer background, was --bg-footer */
-    --vb-bg-service: #46b5ff; /* Service background, was --bg-service */
-
-    /* Borders */
-    --vb-border-primary: #e0e0e0; /* Default border, was --vb-border, --clr-border */
-    --vb-border-secondary: #ced4da; /* Secondary border color */
-    --vb-border-accent: var(--vb-accent-blue);
-
-    /* Focus */
-    --vb-focus-ring-color: var(--vb-accent-blue); /* For focus indicators */
-
-    /* == Gradients == */
-    --vb-gradient-table-header-location: linear-gradient(145deg, #5a8fc7 0%, #4a7bb0 60%, #406ba0 100%); /* From .location-schedule th */
-    --vb-gradient-table-header-price: linear-gradient(150deg, #5a9fe0 0%, #518ece 50%, #477eba 100%); /* From --grad-price-table */
-    --vb-gradient-faq-item: linear-gradient(145deg, #5a8fc7 0%, #4a7bb0 60%, #406ba0 100%); /* From .faq-item */
-    --vb-gradient-faq-item-hover: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.06) 60%, rgba(255, 255, 255, 0.04) 100%); /* From .faq-item summary:hover */
-
-    /* == Typography == */
-    /* Font Families */
-    --vb-font-family-primary: 'Filson Pro', sans-serif;
-    --vb-font-family-monospace: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-
-    /* Font Sizes (using established clamp patterns) */
-    --vb-fs-xs: clamp(0.75rem, 0.5vw + 0.7rem, 0.875rem); /* ~12-14px, was --fluid-xs, --vb-fs-small */
-    --vb-fs-sm: clamp(0.875rem, 1vw + 0.8rem, 1rem);    /* ~14-16px, was --fluid-sm, --vb-fs-body (for smaller body text like table cells) */
-    --vb-fs-md: clamp(1rem, 1.5vw + 0.9rem, 1.125rem);  /* ~16-18px, was --fluid-base, (primary body text size) */
-    --vb-fs-lg: clamp(1.125rem, 2vw + 1rem, 1.25rem);   /* ~18-20px, was --fluid-md */
-    --vb-fs-xl: clamp(1.3rem, 2vw + 1rem, 1.75rem);     /* ~20-28px, was --vb-fs-h3, --fluid-lg */
-    --vb-fs-2xl: clamp(1.75rem, 3vw + 1rem, 2.25rem);   /* ~28-36px, was --vb-fs-h2, --fluid-xl */
-    --vb-fs-3xl: clamp(2rem, 4vw + 1rem, 3rem);         /* ~32-48px, was --vb-fs-h1, --fluid-2xl */
-
-    /* Specific Semantic Font Sizes */
-    --vb-fs-body: var(--vb-fs-md); /* Default body text */
-    --vb-fs-body-small: var(--vb-fs-sm); /* Smaller body text, e.g. table content */
-    --vb-fs-caption: var(--vb-fs-xs); /* Captions, very small text */
-    --vb-fs-h1: var(--vb-fs-3xl);
-    --vb-fs-h2: var(--vb-fs-2xl);
-    --vb-fs-h3: var(--vb-fs-xl);
-    --vb-fs-h4: var(--vb-fs-lg);
-    --vb-fs-h5: var(--vb-fs-md); /* Or a new smaller step if needed */
-    --vb-fs-h6: var(--vb-fs-sm); /* Or a new smaller step if needed */
-    --vb-fs-table-header: var(--vb-fs-sm); /* Based on exemplar and legacy */
-    --vb-fs-table-body: var(--vb-fs-sm);   /* Based on exemplar and legacy */
-    --vb-fs-button: var(--vb-fs-md);
-
-    /* Font Weights */
-    --vb-fw-light: 300;
-    --vb-fw-normal: 400; /* was --fw-normal */
-    --vb-fw-medium: 500; /* was --fw-regular (500) and --fw-medium (600), choosing 500 as a mid-point or we can have both */
-    --vb-fw-semibold: 600; /* New addition if needed, or map to medium */
-    --vb-fw-bold: 700;   /* was --fw-bold */
-    --vb-fw-black: 900;  /* was --fw-black */
-
-    /* Line Heights */
-    --vb-lh-condensed: 1.2; /* For headings, was --lh-heading */
-    --vb-lh-normal: 1.5;    /* For base/body text, was --lh-base */
-    --vb-lh-relaxed: 1.7;   /* For longer paragraphs if needed, similar to --lh-body 1.6 */
-
-    /* == Spacing (using established clamp patterns) == */
-    --vb-space-xxs: clamp(0.125rem, 0.25vw + 0.1rem, 0.25rem); /* ~2-4px, new smaller step */
-    --vb-space-xs: clamp(0.25rem, 0.5vw + 0.2rem, 0.5rem);    /* ~4-8px, adjusted --vb-space-xs upper bound */
-    --vb-space-sm: clamp(0.5rem, 1vw + 0.4rem, 0.75rem);     /* ~8-12px, was --vb-space-sm */
-    --vb-space-md: clamp(1rem, 1.5vw + 0.8rem, 1.5rem);    /* ~16-24px, adjusted --vb-space-md, was 2vw */
-    --vb-space-lg: clamp(1.5rem, 2vw + 1rem, 2rem);        /* ~24-32px, adjusted --vb-space-lg */
-    --vb-space-xl: clamp(2rem, 3vw + 1.5rem, 3rem);        /* ~32-48px, adjusted --vb-space-xl */
-    --vb-space-2xl: clamp(3rem, 4vw + 2rem, 4rem);         /* ~48-64px, new step */
-    --vb-space-3xl: clamp(4rem, 5vw + 3rem, 5rem);         /* ~64-80px, new step, adjusted --vb-space-xl upper bound */
-
-    /* == Borders & Radii == */
-    --vb-border-width-thin: 1px;
-    --vb-border-width-medium: 2px;
-    --vb-border-style-solid: solid;
-
-    --vb-radius-sm: 4px;    /* was --vb-radius-sm */
-    --vb-radius-md: 8px;    /* was --vb-radius-md */
-    --vb-radius-lg: 16px;   /* was --vb-radius-lg */
-    --vb-radius-pill: 9999px; /* for fully rounded items */
-    --vb-radius-circle: 50%;
-
-    /* == Shadows == */
-    --vb-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --vb-shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.1);  /* was --shadow-sm */
-    --vb-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12); /* was --shadow-md, adjusted alpha */
-    --vb-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.15); /* was --shadow-lg, adjusted alpha */
-
-    /* == Transitions & Animations == */
-    --vb-duration-instant: 0ms;
-    --vb-duration-fast: 150ms;
-    --vb-duration-normal: 250ms;
-    --vb-duration-slow: 400ms;
-    --vb-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --vb-ease-out: cubic-bezier(0, 0, 0.2, 1);
-    --vb-ease-in: cubic-bezier(0.4, 0, 1, 1);
-
-    /* == Z-Indexes (use sparingly) == */
-    --vb-z-dropdown: 1000;
-    --vb-z-sticky: 1020;
-    --vb-z-modal-backdrop: 1040;
-    --vb-z-modal: 1050;
-    --vb-z-popover: 1060;
-    --vb-z-tooltip: 1070;
-    --vb-z-lightbox: 9999; /* From existing .img-lightbox */
-
-    /* == Component Specific (Examples, expand as needed) == */
-    /* Table */
-    --vb-table-padding-cell: var(--vb-space-sm) var(--vb-space-md); /* Default cell padding */
-    --vb-table-bg-header: var(--vb-gradient-table-header-location);
-    --vb-table-text-header: var(--vb-text-inverse);
-    --vb-table-bg-row-odd: var(--vb-bg-secondary);
-    --vb-table-bg-row-even: var(--vb-bg-primary);
-    --vb-table-border-color: var(--vb-border-primary);
-
-    /* Button */
-    --vb-button-padding-y: var(--vb-space-sm);
-    --vb-button-padding-x: var(--vb-space-md);
-    --vb-button-bg-primary: var(--vb-primary-main);
-    --vb-button-text-primary: var(--vb-text-inverse);
-    --vb-button-radius: var(--vb-radius-md);
+    /* Custom Properties - Scoped */
+    --vb-primary: #012363;
+    --vb-secondary: #40E0D0;
+    --vb-text: #333333;
+    --vb-bg: #ffffff;
+    --vb-border: #e0e0e0;
+    
+    /* Typography - Scoped - Optimized Bootstrap 5.3 Pattern */
+    --vb-fs-h1: clamp(2rem, 4vw + 1rem, 3rem);
+    --vb-fs-h2: clamp(1.75rem, 3vw + 1rem, 2.25rem);
+    --vb-fs-h3: clamp(1.3rem, 2vw + 1rem, 1.75rem);
+    --vb-fs-body: clamp(0.875rem, 1vw + 0.8rem, 1rem);
+    --vb-fs-small: clamp(0.75rem, 0.5vw + 0.7rem, 0.875rem);
+    
+    /* Spacing - Scoped - Optimized Bootstrap 5.3 Pattern */
+    --vb-space-xs: clamp(0.25rem, 0.5vw + 0.2rem, 0.375rem);
+    --vb-space-sm: clamp(0.5rem, 1vw + 0.4rem, 0.75rem);
+    --vb-space-md: clamp(1rem, 2vw + 0.8rem, 1.5rem);
+    --vb-space-lg: clamp(2rem, 4vw + 1.5rem, 3rem);
+    --vb-space-xl: clamp(3rem, 6vw + 2rem, 5rem);
+    
+    /* Radius - Scoped */
+    --vb-radius-sm: 4px;
+    --vb-radius-md: 8px;
+    --vb-radius-lg: 16px;
 }
 
-/* == Dark Mode Semantic Colors == */
-@media (prefers-color-scheme: dark) {
-    #vaccine-bjarred-app {
-        /* Text */
-        --vb-text-primary: #CDDBE6; /* was legacy --clr-body */
-        --vb-text-secondary: #E0F3FA; /* was legacy --clr-heading */
-        /* --vb-text-inverse: var(--vb-black); */ /* Consider if black text on light primary dark needed */
-        --vb-text-accent: #6BC4E7; /* was legacy --clr-accent */
-
-        /* Background */
-        --vb-bg-primary: #0B1929; /* was legacy --clr-bg */
-        --vb-bg-secondary: #142438; /* was legacy --clr-bg-alt */
-        --vb-bg-accent: #5BB5D8; /* was legacy --clr-brand-500 */
-        --vb-bg-card: #1A2F47; /* was legacy --clr-bg-card */
-        --vb-bg-footer: #142438; /* Darker footer */
-
-        /* Borders */
-        --vb-border-primary: #2A3F5C; /* was legacy --clr-border */
-        --vb-border-secondary: #3e5675;
-        --vb-border-accent: #6BC4E7;
-
-        /* Focus */
-        --vb-focus-ring-color: #6BC4E7;
-
-        /* Shadows (adjust if needed for dark backgrounds) */
-        --vb-shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.25);
-        --vb-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-        --vb-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.35);
-
-        /* Component Specific Dark Mode */
-        --vb-table-bg-header: var(--vb-primary-dark); /* Example adjustment */
-        --vb-table-bg-row-odd: var(--vb-bg-secondary);
-        --vb-table-bg-row-even: var(--vb-bg-primary);
-        --vb-table-border-color: var(--vb-border-primary);
-    }
-}
-
-#vaccine-bjarred-app[data-theme="dark"] {
-    /* Text */
-    --vb-text-primary: #CDDBE6;
-    --vb-text-secondary: #E0F3FA;
-    --vb-text-accent: #6BC4E7;
-
-    /* Background */
-    --vb-bg-primary: #0B1929;
-    --vb-bg-secondary: #142438;
-    --vb-bg-accent: #5BB5D8;
-    --vb-bg-card: #1A2F47;
-    --vb-bg-footer: #142438;
-
-    /* Borders */
-    --vb-border-primary: #2A3F5C;
-    --vb-border-secondary: #3e5675;
-    --vb-border-accent: #6BC4E7;
-
-    /* Focus */
-    --vb-focus-ring-color: #6BC4E7;
-
-    /* Shadows */
-    --vb-shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.25);
-    --vb-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --vb-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.35);
-
-    /* Component Specific Dark Mode */
-    --vb-table-bg-header: var(--vb-primary-dark);
-    --vb-table-bg-row-odd: var(--vb-bg-secondary);
-    --vb-table-bg-row-even: var(--vb-bg-primary);
-    --vb-table-border-color: var(--vb-border-primary);
-}
-
-
-/* Legacy styles - REFACTORED */
+/* Legacy styles - TO BE REFACTORED */
 .address-label {
   font-weight: 500;
 }
-#vaccine-bjarred-app .page__content.col-md-8.page__content--left-align h2 {
-  width: clamp(20rem, 100%, 31rem);
+html body .page__content.col-md-8.page__content--left-align h2 {
+  width: clamp(20rem, 100%, 31rem) !important;
 }
-#vaccine-bjarred-app .page__sidebar.col-md-4 h2 {
-  width: clamp(21.444rem, 110%, 23rem);
-}
-
-#vaccine-bjarred-app article#Priser h2 {
-	margin-bottom: 0;
-
-
-#vaccine-bjarred-app article#Priser,
-#vaccine-bjarred-app article#Schema,
-#vaccine-bjarred-app article#FAQ {
-	margin-block: 0;
-
+html body .page__sidebar.col-md-4 h2 {
+  width: clamp(21.444rem, 110%, 23rem) !important;
 }
 
-#vaccine-bjarred-app .location-schedule thead th:last-child {
-    border-top-right-radius: var(--vb-radius-md);
+article#Priser h2 {
+	margin-bottom: 0 !important;
+}
+article#Priser, article#Schema, article#FAQ {
+	margin-block: 0 !important;
+}
+.location-schedule thead th:first-child {
+    border-top-left-radius: var(--radius-md);
 }
 
-/* Mobile: Remove border radius */
-@media (max-width: 767px) {
-    #vaccine-bjarred-app .location-schedule thead th:first-child,
-    #vaccine-bjarred-app .location-schedule thead th:last-child,
-    #vaccine-bjarred-app .price-table thead th:first-child,
-    #vaccine-bjarred-app .price-table thead th:last-child {
-        border-radius: 0;
-    }
+.location-schedule thead th:last-child {
+    border-top-right-radius: var(--radius-md);
 }
 
-#vaccine-bjarred-app h2 {
+html body h2 {
 	margin-top: 0;
-    margin-right: 0;
-	margin-bottom: var(--vb-space-xl);
+    	margin-right: 0;
+	margin-bottom: var(--CLAMP-36);
 	margin-left: 0;
 }
-#vaccine-bjarred-app .row.row0 {
+.row.row0 {
 	margin-top: var(--CLAMP-48);
 }
-#vaccine-bjarred-app article.page__content.col-md-8.page__content--left-align {
+article.page__content.col-md-8.page__content--left-align {
 	width: clamp(280px, 45vw, 800px); /* Support small phones (iPhone SE: 320px) */
 }
-#vaccine-bjarred-app aside.page__sidebar.col-md-4 {
+aside.page__sidebar.col-md-4 {
 	width: clamp(180px, 32vw, 400px); /* Allow sidebar on small phones */
 }
-#vaccine-bjarred-app table.location-schedule.caption-top {
+table.location-schedule.caption-top {
 	caption-side: top;
 }
-#vaccine-bjarred-app .row.row2,
-#vaccine-bjarred-app .row.row1 {
-	margin-top: 0;
+.row.row2, .row.row1 {
+	margin-top: 0rem !important;
+}
+h1#page-content.page__content-title {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-#vaccine-bjarred-app h1#page-content.page__content-title {
-  display: none;
-  visibility: hidden;
-  height: 0;
-  margin: 0;
-  padding: 0;
-}
-
-#vaccine-bjarred-app .textblock__body img {
-	height: auto;
-	width: clamp(250px, 80vw, 100%); /* Improved responsive sizing for images */
-	max-width: 100%;
-	object-fit: contain;
+.textblock__body img {
+	height: auto !important;
+	width: 35% !important;
 }
 /* ==========================================================================
    0. Normalizr, Resets, and Root Variables
-   Basgrunder för hela webbplatsen - resettar standardstilar och definierar variabler<=================================================================== */
+   Basgrunder för hela webbplatsen - resettar standardstilar och definierar variabler
+========================================================================== */
 /* Box Sizing & Font Smoothing Reset */
-#vaccine-bjarred-app *,
-#vaccine-bjarred-app *::before,
-#vaccine-bjarred-app *::after {
-     box-sizing: border-box;
-     -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
-     text-rendering: optimizeLegibility;
-     -webkit-text-rendering: optimizeLegibility;
-     -moz-text-rendering: optimizeLegibility;
-     -o-text-rendering: optimizeLegibility;
+ *, *::before, *::after {
+     box-sizing: border-box !important;
+     -webkit-box-sizing: border-box !important;
+     -moz-box-sizing: border-box !important;
+     -webkit-font-smoothing: antialiased !important;
+     -moz-osx-font-smoothing: grayscale !important;
+     text-rendering: optimizeLegibility !important;
+     -webkit-text-rendering: optimizeLegibility !important;
+     -moz-text-rendering: optimizeLegibility !important;
+     -o-text-rendering: optimizeLegibility !important;
 }
-
 /* Fix: Removes the unwanted top margin from the accessibility navigation bar. */
-#vaccine-bjarred-app nav#accessibility-navigation {
-     margin-top: 0;
+ nav#accessibility-navigation {
+     margin-top: 0 !important;
 }
 /* Base HTML & Body Styles */
-#vaccine-bjarred-app {
-     font-family: var(--vb-font-family-primary);
-     font-size: var(--vb-fs-body);
-     font-weight: var(--vb-fw-normal);
-     line-height: var(--vb-lh-normal);
-     color: var(--vb-text-primary);
-     background: var(--vb-bg-primary);
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
-     text-rendering: optimizeLegibility;
-     -webkit-text-rendering: optimizeLegibility;
-     -moz-text-rendering: optimizeLegibility;
-     -o-text-rendering: optimizeLegibility;
-     overflow-x: hidden;
+ html {
+     font-family: var(--ff-primary, 'Filson Pro', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji') !important;
+     line-height: var(--lh-base) !important;
+     -webkit-text-size-adjust: 100% !important;
+     -ms-text-size-adjust: 100% !important;
+     text-size-adjust: 100% !important;
+     tab-size: var(--PXR-4) !important;
+     font-size: var(--fs-base) !important;
+     scroll-behavior: smooth !important;
+     overflow-x: hidden !important;
+}
+ body {
+     margin: 0 !important;
+     padding: 0 !important;
+     font-family: var(--ff-primary, 'Filson Pro', sans-serif) !important;
+     font-size: var(--fs-body) !important;
+     font-weight: var(--fw-normal) !important;
+     line-height: var(--lh-body) !important;
+     color: var(--clr-body) !important;
+     background: var(--clr-bg) !important;
+     -webkit-font-smoothing: antialiased !important;
+     -moz-osx-font-smoothing: grayscale !important;
+     text-rendering: optimizeLegibility !important;
+     overflow-x: hidden !important;
 }
 /* Root Variable Definitions */
  :root {
-  --clr-primary: #012363;
-  --clr-bg: #fff;
-  --clr-on-primary: #012363;
-  --clr-gdpr-light-bg: #E0F3FA;
-  --clr-gdpr-light-text: #012363;
-  --clr-gdpr-light-btn-bg: #012363;
-  --clr-gdpr-light-btn-text: #fff;
     /* Bootstrap 5.3 Breakpoints */
      --bs-breakpoint-xs: 0;
      --bs-breakpoint-sm: 576px;
@@ -390,7 +190,8 @@
      --fluid-3xl: clamp(2.5rem, 5vw + 2rem, 3.5rem);
     /* 40-56px */
     /* Colors - Light Mode (default) & from second :root block */
-    --clr-primary-dark: #0B496E;
+     --clr-primary: #012363;
+     --clr-primary-dark: #0B496E;
      --clr-heading: #003366;
      --clr-body: #012363;
      --clr-accent: #4AA6C9;
@@ -628,15 +429,25 @@
      --CLAMP-198: clamp(9.9rem, 19.8vw, 11rem);
 }
 /* Dark Mode Support */
+ @media (prefers-color-scheme: dark) {
+     :root {
+         --clr-primary: #4AA6C9;
+         --clr-primary-dark: #5BB5D8;
+         --clr-heading: #E0F3FA;
+         --clr-body: #CDDBE6;
+         --clr-accent: #6BC4E7;
+         --clr-brand-500: #5BB5D8;
+         --clr-bg: #0B1929;
+         --clr-bg-alt: #142438;
+         --clr-bg-card: #1A2F47;
+         --clr-border: #2A3F5C;
+         --clr-white: #0B1929;
+         --clr-black: #E0F3FA;
+    }
+}
 /* Manual Dark Mode Toggle */
-[data-theme="dark"] {
-  --clr-primary: #0B1929;
-  --clr-bg: #0B1929;
-  --clr-on-primary: #E0F3FA;
-  --clr-gdpr-light-bg: #1A2F47;
-  --clr-gdpr-light-text: #E0F3FA;
-  --clr-gdpr-light-btn-bg: #E0F3FA;
-  --clr-gdpr-light-btn-text: #0B1929;
+ [data-theme="dark"] {
+     --clr-primary: #4AA6C9;
      --clr-primary-dark: #5BB5D8;
      --clr-heading: #E0F3FA;
      --clr-body: #CDDBE6;
@@ -649,662 +460,518 @@
      --clr-white: #0B1929;
      --clr-black: #E0F3FA;
 }
-
 /* ==========================================================================
    1. Base Element Styling
    Grundstilar för HTML-element utan klasser
 ========================================================================== */
-#vaccine-bjarred-app article.page__content--left-align.col-md-8 {
+ article.page__content--left-align.col-md-8 {
     /* margin: logical sides */
 	margin-inline-start: 3vw;
 	margin-inline-end: 3vw;
     /* padding: logical sides */
-     padding-inline-start: 0;
-     padding-inline-end: 0;
+     padding-inline-start: 0 !important;
+     padding-inline-end: 0 !important;
 }
-#vaccine-bjarred-app b,
-#vaccine-bjarred-app strong {
-     font-weight: var(--vb-fw-bold);
+ b, strong {
+     font-weight: var(--fw-bold) !important;
 }
-#vaccine-bjarred-app code,
-#vaccine-bjarred-app kbd,
-#vaccine-bjarred-app pre,
-#vaccine-bjarred-app samp {
-     font-family: var(--vb-font-family-monospace);
-     font-size: 1em;
+ code, kbd, pre, samp {
+     font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace !important;
+     font-size: var(--PXE-18) !important;
 }
-#vaccine-bjarred-app small {
-     font-size: 0.875em;
+ small {
+     font-size: var(--PXP-15) !important;
 }
-#vaccine-bjarred-app sub,
-#vaccine-bjarred-app sup {
-     font-size: 0.75em;
-     line-height: 0;
-     position: relative;
-     vertical-align: baseline;
+ sub, sup {
+     font-size: var(--PXP-14) !important;
+     line-height: 0 !important;
+     position: relative !important;
+     vertical-align: baseline !important;
 }
-#vaccine-bjarred-app sub {
-     bottom: -0.25em;
+ sub {
+     bottom: calc(var(--PXE-5) * -1) !important;
 }
-#vaccine-bjarred-app sup {
-     top: -0.5em;
+ sup {
+     top: calc(var(--PXE-9) * -1) !important;
 }
-#vaccine-bjarred-app table {
-     border-color: currentColor;
+ table {
+     border-color: currentColor !important;
 }
-#vaccine-bjarred-app button,
-#vaccine-bjarred-app input,
-#vaccine-bjarred-app optgroup,
-#vaccine-bjarred-app select,
-#vaccine-bjarred-app textarea {
-     font-family: inherit;
-     font-size: 1em;
-     line-height: var(--vb-lh-normal);
-     margin: 0;
+ button, input, optgroup, select, textarea {
+     font-family: inherit !important;
+     font-size: var(--PXP-18) !important;
+     line-height: var(--lh-base) !important;
+     margin: 0 !important;
 }
-#vaccine-bjarred-app button,
-#vaccine-bjarred-app [type="button"],
-#vaccine-bjarred-app [type="reset"],
-#vaccine-bjarred-app [type="submit"] {
-     -webkit-appearance: button;
+ button, [type="button"], [type="reset"], [type="submit"] {
+     -webkit-appearance: button !important;
 }
-#vaccine-bjarred-app legend {
-     padding: 0;
+ legend {
+     padding: 0 !important;
 }
-#vaccine-bjarred-app progress {
-     vertical-align: baseline;
+ progress {
+     vertical-align: baseline !important;
 }
-#vaccine-bjarred-app ::-webkit-inner-spin-button,
-#vaccine-bjarred-app ::-webkit-outer-spin-button {
-     height: auto;
+ ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+     height: auto !important;
 }
-#vaccine-bjarred-app [type="search"] {
-     -webkit-appearance: textfield;
-     outline-offset: -2px;
+ [type="search"] {
+     -webkit-appearance: textfield !important;
+     outline-offset: calc(var(--PXR-2) * -1) !important;
 }
-#vaccine-bjarred-app ::-webkit-search-decoration {
-     -webkit-appearance: none;
+ ::-webkit-search-decoration {
+     -webkit-appearance: none !important;
 }
-#vaccine-bjarred-app ::-webkit-file-upload-button {
-     -webkit-appearance: button;
-     font: inherit;
+ ::-webkit-file-upload-button {
+     -webkit-appearance: button !important;
+     font: inherit !important;
 }
-#vaccine-bjarred-app summary {
-     display: list-item;
+ summary {
+     display: list-item !important;
 }
-#vaccine-bjarred-app img,
-#vaccine-bjarred-app svg,
-#vaccine-bjarred-app video {
-     display: block;
-     max-width: 100%;
-     height: auto;
+ img, svg, video {
+     display: block !important;
+     max-width: var(--PXP-18) !important;
+     height: auto !important;
   margin-left: auto;
   margin-right: auto;
 }
-#vaccine-bjarred-app a {
-     color: var(--vb-text-accent);
-     text-decoration: underline;
-     transition: all 0.2s ease;
+ body > a {
+     color: var(--blue-primary) !important;
+     text-decoration: underline !important;
+     transition: all 0.2s ease !important;
      display: inline-block;
 }
-#vaccine-bjarred-app a:hover {
-     color: var(--vb-accent-blue-dark);
+ a:hover {
+     color: #2196F3 !important;
 }
-#vaccine-bjarred-app h1,
-#vaccine-bjarred-app h2,
-#vaccine-bjarred-app h3,
-#vaccine-bjarred-app h4,
-#vaccine-bjarred-app h5,
-#vaccine-bjarred-app h6 {
-     color: var(--vb-text-secondary);
+ h1, h2, h3, h4, h5, h6 {
+     color: var(--blue-dark) !important;
 }
 /* ==========================================================================
-   2. TYPOGRAPHY SYSTEM v2.0 (SCOPED STYLES)
-   Typografi med scope för att förhindra konflikter
+   2. TYPOGRAPHY SYSTEM v2.0 (HIGH SPECIFICITY OVERRIDE)
+   Typografi med hög specificitet för att överskriva standardstilar
 ========================================================================== */
-#vaccine-bjarred-app h1,
-#vaccine-bjarred-app h2,
-#vaccine-bjarred-app h3,
-#vaccine-bjarred-app h4,
-#vaccine-bjarred-app h5,
-#vaccine-bjarred-app h6 {
-     font-family: var(--vb-font-family-primary);
-     color: var(--vb-text-secondary);
-     line-height: var(--vb-lh-condensed);
-     margin: var(--vb-space-md) 0 var(--vb-space-sm);
+ html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
+     font-family: var(--ff-primary) !important;
+     color: var(--clr-heading) !important;
+     line-height: var(--lh-heading) !important;
+     margin: var(--space-md) 0 var(--space-sm) !important;
 }
-#vaccine-bjarred-app p {
-     font-family: var(--vb-font-family-primary);
-     font-size: var(--vb-fs-body);
-     font-weight: var(--vb-fw-normal);
-     color: var(--vb-text-primary);
-     line-height: var(--vb-lh-relaxed);
-     margin: 0 0 var(--vb-space-md) 0;
-     max-width: 100%;
+ html body p {
+     font-family: var(--ff-primary) !important;
+     font-size: var(--fs-body) !important;
+     font-weight: var(--fw-normal) !important;
+     color: var(--clr-body) !important;
+     line-height: var(--lh-body) !important;
+     margin: 0 0 var(--PXR-18) 0 !important;
+     max-width: 100% !important;
 }
-#vaccine-bjarred-app h1,
-#vaccine-bjarred-app .page__content-title {
-     font-size: var(--vb-fs-h1);
-     font-weight: var(--vb-fw-black);
+ html body h1, html body .page__content-title {
+     font-size: clamp(2rem, 2.2rem + 1vw, var(--fs-h1)) !important;
+     font-weight: var(--fw-black) !important;
 }
-#vaccine-bjarred-app h2,
-#vaccine-bjarred-app .subtitle {
-     font-size: var(--vb-fs-h2);
-     font-weight: var(--vb-fw-bold);
-     position: relative;
-     padding-bottom: var(--vb-space-sm);
+ html body h2, html body .subtitle {
+     font-size: clamp(1.5rem, 1.7rem + 0.6vw, var(--fs-h2)) !important;
+     font-weight: var(--fw-heavy) !important;
 }
-#vaccine-bjarred-app h2::after,
-#vaccine-bjarred-app .subtitle::after {
-     content: "";
-     position: absolute;
-     bottom: 0;
-     left: 0;
-     width: 100%;
-     height: 1px;
-     background-color: var(--vb-primary-main);
-     opacity: 0.3;
-}
-#vaccine-bjarred-app h3,
-#vaccine-bjarred-app .faq-title {
-     font-size: var(--vb-fs-h3);
-     font-weight: var(--vb-fw-semibold);
-     color: var(--vb-text-secondary);
-     margin-block: var(--vb-space-md) var(--vb-space-sm);
-     white-space: normal;
-     overflow: hidden;
-     text-overflow: ellipsis;
-     position: relative;
-     padding-bottom: var(--vb-space-xs);
-}
-#vaccine-bjarred-app h3::after,
-#vaccine-bjarred-app .faq-title::after {
-     content: "";
-     position: absolute;
-     bottom: 0;
-     left: 0;
-     width: 100%;
-     height: 1px;
-     background-color: var(--vb-primary-main);
-     opacity: 0.3;
-}
-#vaccine-bjarred-app .price-heading {
-     font-size: var(--vb-fs-h2);
-     font-weight: var(--vb-fw-bold);
-     color: var(--vb-text-secondary);
-     margin-block: var(--vb-space-md) var(--vb-space-sm);
+ html body h3, html body .faq-title {
+     font-size: clamp(1.25rem, 1.35rem + 0.4vw, var(--fs-h3)) !important;
+     font-weight: var(--fw-bold) !important;
+     color: var(--clr-heading) !important;
+     margin-block: var(--space-md) var(--space-sm) !important;
      white-space: normal;
      overflow: hidden;
      text-overflow: ellipsis;
 }
-#vaccine-bjarred-app h4,
-#vaccine-bjarred-app .vaccine-heading {
-     font-size: var(--vb-fs-h4);
-     font-weight: var(--vb-fw-medium);
+ html body .price-heading, .price-heading {
+     font-size: var(--CLAMP-36) !important;
+     font-weight: var(--fw-bold) !important;
+     color: var(--clr-heading) !important;
+     margin-block: var(--space-md) var(--space-sm) !important;
+     white-space: normal;
+     overflow: hidden;
+     text-overflow: ellipsis;
 }
-#vaccine-bjarred-app h5 {
-     font-size: var(--vb-fs-h5);
-     font-weight: var(--vb-fw-medium);
+ html body h4, html body .vaccine-heading {
+     font-size: clamp(1.125rem, 1.2rem + 0.3vw, var(--fs-h4)) !important;
+     font-weight: var(--fw-medium) !important;
 }
-#vaccine-bjarred-app h6 {
-     font-size: var(--vb-fs-h6);
-     font-weight: var(--vb-fw-semibold);
+ html body h5 {
+     font-size: clamp(1.0625rem, 1.1rem + 0.25vw, var(--fs-h5)) !important;
+     font-weight: var(--fw-regular) !important;
 }
-#vaccine-bjarred-app ul,
-#vaccine-bjarred-app ol {
-     padding-left: 1.5em;
-     margin-bottom: var(--vb-space-md);
+ html body h6 {
+     font-size: clamp(1rem, 1.05rem + 0.2vw, var(--fs-h6)) !important;
+     font-weight: var(--fw-bold) !important;
 }
-#vaccine-bjarred-app th,
-#vaccine-bjarred-app .list-heading {
-     font-size: var(--vb-fs-table-header);
-     font-weight: var(--vb-fw-semibold);
-     color: var(--vb-text-inverse);
+ html body ul, html body ol {
+     padding-left: var(--PXE-27) !important;
+     margin-bottom: var(--PXR-18) !important;
 }
-#vaccine-bjarred-app td {
-     font-size: var(--vb-fs-table-body);
-     font-weight: var(--vb-fw-normal);
-     color: var(--vb-text-primary);
+ html body th, html body .list-heading {
+     font-size: clamp(0.875rem, 0.9rem + 0.2vw, var(--fs-table-header)) !important;
+     font-weight: var(--fw-bold) !important;
+     color: var(--clr-white) !important;
 }
-#vaccine-bjarred-app li {
-     font-size: var(--vb-fs-body-small);
-     font-weight: var(--vb-fw-normal);
-     color: var(--vb-text-primary);
+ html body td {
+     font-size: clamp(0.8125rem, 0.825rem + 0.1vw, var(--fs-table-body)) !important;
+     font-weight: var(--fw-medium) !important;
+     color: var(--clr-black) !important;
 }
-#vaccine-bjarred-app span.font-bold {
-     font-weight: var(--vb-fw-bold);
+ html body li {
+     font-size: var(--fs-table-body) !important;
+     font-weight: var(--fw-medium) !important;
+     color: var(--clr-body) !important;
 }
-#vaccine-bjarred-app span.font-heavy {
-     font-weight: var(--vb-#vaccine-bjarred-app span.font-normal {
-     font-weight: var(--vb-fw-normal);
+ html body span.font-bold {
+     font-weight: var(--fw-bold) !important;
+}
+ html body span.font-heavy {
+     font-weight: var(--fw-heavy) !important;
+}
+ html body span.font-normal {
+     font-weight: var(--fw-normal) !important;
 }
 /* ==========================================================================
    3. LAYOUT & CORE COMPONENTS
    Huvudkomponenter för layout och innehållsstruktur
 ========================================================================== */
 /* Bus Gallery */
-#vaccine-bjarred-app .bus-gallery-row {
-     display: flex;
-     flex-wrap: wrap;
-     gap: var(--vb-space-md);
-     margin-block: var(--vb-space-md);
+ .bus-gallery-row {
+     display: flex !important;
+     flex-wrap: wrap !important;
+     gap: var(--space-md) !important;
+     margin-block: var(--space-md) !important;
 }
-#vaccine-bjarred-app .bus-gallery-col {
-     flex: 1 1 220px;
-     min-width: 220px;
-     max-width: 100%;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     margin-bottom: var(--vb-space-sm);
+ .bus-gallery-col {
+     flex: 1 1 220px !important;
+     min-width: 220px !important;
+     max-width: var(--PXP-18) !important;
+     display: flex !important;
+     flex-direction: column !important;
+     align-items: center !important;
+     margin-bottom: var(--space-sm) !important;
 }
-#vaccine-bjarred-app .img-wrapper {
-     width: 100%
-     background: transparent;
-     border-radius: var(--vb-radius-md);
-     overflow: hidden;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     margin-bottom: var(--vb-space-sm);
+ .img-wrapper {
+     width: var(--PXP-18) !important;
+     background: transparent !important;
+     border-radius: var(--radius-md) !important;
+     overflow: hidden !important;
+     display: flex !important;
+     align-items: center !important;
+     justify-content: center !important;
+     margin-bottom: var(--space-sm) !important;
 }
-#vaccine-bjarred-app .bus-img {
-     width: 100%;
-     height: auto;
-     border-radius: var(--vb-radius-md);
-     box-shadow: var(--vb-shadow-sm);
-     transition: box-shadow var(--vb-duration-normal) var(--vb-ease-in-out), transform var(--vb-duration-normal) var(--vb-ease-out);
-     aspect-ratio: 4/3;
-     cursor: pointer;
-     position: relative;
-     object-fit: cover;
+ .bus-img {
+     width: var(--PXP-11) !important;
+     height: auto !important;
+     border-radius: var(--radius-md) !important;
+     box-shadow: 0 var(--PXR-2) var(--PXR-8) 0 rgba(0, 32, 64, 0.12) !important;
+     transition: box-shadow var(--duration-normal) var(--ease-in-out), transform var(--duration-normal) var(--ease-out) !important;
+     aspect-ratio: 4/3 !important;
+     cursor: pointer !important;
+     position: relative !important;
 }
-#vaccine-bjarred-app .bus-img:hover {
-     box-shadow: var(--vb-shadow-lg);
-     transform: translateY(-4px);
+ .bus-img:hover {
+     box-shadow: 0 var(--PXR-8) var(--PXR-16) 0 rgba(0, 32, 64, 0.2) !important;
+     transform: translateY(-4px) !important;
 }
-#vaccine-bjarred-app .bus-title {
-     font-size: var(--vb-fs-body);
-     font-weight: var(--vb-fw-medium);
-     color: var(--vb-text-secondary);
-     margin: var(--vb-space-sm) 0 0 0;
+ .bus-title {
+     font-size: var(--PXR-18) !important;
+     font-weight: var(--fw-regular) !important;
+     color: var(--clr-heading) !important;
+     margin: var(--CLAMP-4) 0 0 0 !important;
 }
 /* Price Box & Table */
-#vaccine-bjarred-app .price-box {
-     background: transparent;
-     border-radius: var(--vb-radius-sm);
-     padding: 0;
-     margin: 0;
-     width: 100%;
-     max-width: 100%;
-     min-width: auto;
+ .price-box {
+     background: transparent !important;
+     border-radius: var(--radius-sm) !important;
+     padding: 0 !important;
+     margin: 0 !important;
+     width: var(--PXP-18) !important;
+     max-width: var(--PXP-18) !important;
+     min-width: var(--PXP-18) !important;
 }
-#vaccine-bjarred-app .price-box.compact {
-     padding: 0;
+ .price-box.compact {
+     padding: 0 !important;
 }
-#vaccine-bjarred-app .price-toggle-input {
-     position: absolute;
-     width: 1px;
-     height: 1px;
-     opacity: 0;
-     overflow: hidden;
+ .price-toggle-input {
+     position: absolute !important;
+     width: var(--PXR-1) !important;
+     height: var(--PXR-1) !important;
+     opacity: 0 !important;
+     overflow: hidden !important;
 }
-#vaccine-bjarred-app .price-toggle-labels {
+ .price-toggle-labels {
      display: flex;
-     gap: var(--vb-space-xs);
-     background: var(--vb-bg-primary);
-     padding: var(--vb-space-xs);
-     border-radius: var(--vb-radius-sm);
-     margin-inline: auto;
-     margin-block: 0 var(--vb-space-sm);
+     gap: var(--PXR-4);
+     background: var(--clr-white);
+     padding: 0;
+     border-radius: var(--radius-sm);
+     margin-inline: auto ;
+	margin-block: 0 !important;
      justify-content: stretch;
      align-items: stretch;
      flex-wrap: nowrap;
-     width: clamp(17.444rem, 96%, 20rem);
-     box-shadow: var(--vb-shadow-xs);
+}
+.price-toggle-labels {
+  width: clamp(17.444rem, 96%, 20rem);
 }
 
-#vaccine-bjarred-app .price-toggle-label {
+ .price-toggle-label {
      font-size: clamp(0.74rem, 0.75rem, 0.8rem);
-     font-weight: var(--vb-fw-bold);
-     color: var(--vb-text-secondary);
+	font-weight: var(--fw-bold);
+color: var(--clr-heading);
      cursor: pointer;
-     background: var(--vb-bg-secondary);
-     padding-block: 0.15rem;
-     padding-inline: 0.54rem;
+     background: var(--clr-bg-alt);
+    padding-block: 0.15rem;
+    padding-inline: 0.54rem;
      margin: 0;
-     border-radius: calc(var(--vb-radius-sm) - 2px);
-     transition: all var(--vb-duration-normal) var(--vb-ease-in-out);
+     border-radius: var(--radius-sm);
+     transition: all var(--duration-normal) var(--ease-in-out);
      text-align: center;
-     border: 1px solid transparent;
+     border: var(--PXR-1) solid transparent;
      display: flex;
      align-items: center;
      justify-content: center;
      flex: 1 1 auto;
      white-space: nowrap;
 }
-#vaccine-bjarred-app .price-toggle-label:hover {
-     background: var(--vb-bg-card);
-     border-color: var(--vb-border-accent);
-     transform: translateY(-1px);
-     box-shadow: var(--vb-shadow-xs);
+ .price-toggle-label:hover {
+     background: var(--clr-bg-card);
+     border-color: var(--clr-accent);
+     transform: translateY(calc(var(--PXR-1) * -1));
+     box-shadow: 0 var(--PXR-2) var(--PXR-4) rgba(74, 166, 201, 0.15);
 }
-#vaccine-bjarred-app:has(#v-ord:checked) label[for="v-ord"],
-#vaccine-bjarred-app:has(#v-pen:checked) label[for="v-pen"],
-#vaccine-bjarred-app:has(#v-stu:checked) label[for="v-stu"] {
-     background: var(--vb-primary-main);
-     color: var(--vb-text-inverse);
-     border-color: var(--vb-primary-main);
-     box-shadow: var(--vb-shadow-sm);
+ body:has(#v-ord:checked) label[for="v-ord"], body:has(#v-pen:checked) label[for="v-pen"], body:has(#v-stu:checked) label[for="v-stu"] {
+     background: var(--clr-primary);
+     color: var(--clr-white);
+     border-color: var(--clr-primary);
+     box-shadow: 0 var(--PXR-2) var(--PXR-8) rgba(1, 35, 99, 0.25);
 }
-#vaccine-bjarred-app .price-table th:nth-child(3),
-#vaccine-bjarred-app .price-table td:nth-child(3),
-#vaccine-bjarred-app .price-table th:nth-child(4),
-#vaccine-bjarred-app .price-table td:nth-child(4) {
+ .price-table th:nth-child(3), .price-table td:nth-child(3), .price-table th:nth-child(4), .price-table td:nth-child(4) {
      display: none;
 }
-/* ==========================================================================
-   8. PRICE TABLE + LOCATION SCHEDULE (SCOPED STYLES)
-   ========================================================================== */
-/* Responsive table layout with improved spacing */
-#vaccine-bjarred-app .price-table,
-#vaccine-bjarred-app .location-schedule {
-	margin-block-start: var(--vb-space-md);
-	margin-block-end: 0;
-	margin-inline: auto;
-	line-height: var(--vb-lh-normal);
-	table-layout: fixed;
-	overflow: hidden;
-	border-collapse: collapse;
-	border: 1px solid var(--vb-border-primary);
-	border-radius: var(--vb-radius-md);
-	background: var(--vb-bg-primary);
-	box-shadow: var(--vb-shadow-sm);
+/* ========================================================================== 8. PRICE TABLE + LOCATION SCHEDULE (MAXIMUM SPECIFICITY) ========================================================================== */
+/* Använder fluid clamp() för responsiv tabellayout */
+html body .price-table.price-table,
+html body .location-schedule.location-schedule {
+	margin-block-start: var(--CLAMP-14) !important;
+	margin-block-end: 0 !important;
+	margin-inline: auto !important;
+	line-height: var(--lh-body) !important;
+	table-layout: fixed !important;
+	overflow: hidden !important;
+	border-collapse: collapse !important;
+	border: var(--PXR-1) solid var(--clr-border) !important;
+	padding-inline: var(--CLAMP-13) !important;
+	border-top-left-radius: var(--radius-md) !important;
+	border-top-right-radius: var(--radius-md) !important;
+	background: var(--clr-white) !important;
+}
+html body .price-table.price-table {
+	width: clamp(18.64rem, 19vw, 22rem) !important
+}
+html body .faq-section.faq-section {
+	width: clamp(18.64rem, 19vw, 22rem) !important
+}
+html body .location-schedule.location-schedule {
+	width: clamp(17rem, 23vw, 22rem) !important;
 }
 
-#vaccine-bjarred-app .price-table {
-	width: clamp(18.64rem, 100%, 22rem);
-}
-#vaccine-bjarred-app .faq-section {
-	width: clamp(18.64rem, 100%, 22rem);
-}
-#vaccine-bjarred-app .location-schedule {
-	width: clamp(17rem, 100%, 22rem);
-}
-
-/* Mobile: Remove border radius on tables */
-@media (max-width: 767px) {
-	#vaccine-bjarred-app .price-table,
-	#vaccine-bjarred-app .location-schedule {
-		border-radius: 0;
-		width: 100%;
-	}
-}
-
-/* Price table styling with reduced padding */
-#vaccine-bjarred-app .price-table thead th {
-     background: var(--vb-gradient-table-header-price);
-     color: var(--vb-text-inverse);
-     padding: var(--vb-space-xs) var(--vb-space-sm);
-     text-align: left;
-     font-size: var(--vb-fs-table-header);
-     font-weight: var(--vb-fw-medium);
-     border-bottom: none;
-     vertical-align: top;
-     line-height: 1.2;
+ html body .price-table.price-table thead th {
+     background: var(--grad-price-table) !important;
+     color: var(--clr-white) !important;
+     padding: var(--CLAMP-8) var(--CLAMP-12) !important;
+     text-align: left !important;
+     font-size: clamp(0.875rem, 0.9rem + 0.2vw, var(--fs-table-header)) !important;
+     font-weight: var(--fw-medium) !important;
+     border-bottom: none !important;
+     vertical-align: top !important;
+     line-height: 1.2 !important;
 }
 
 /* Two-row headers for price columns */
-#vaccine-bjarred-app .price-table thead th:nth-child(2),
-#vaccine-bjarred-app .price-table thead th:nth-child(3),
-#vaccine-bjarred-app .price-table thead th:nth-child(4) {
-     white-space: pre-line;
-     text-align: center;
-     padding: var(--vb-space-xxs) var(--vb-space-xs);
-     font-size: var(--vb-fs-caption);
+html body .price-table.price-table thead th:nth-child(2),
+html body .price-table.price-table thead th:nth-child(3),
+html body .price-table.price-table thead th:nth-child(4) {
+     white-space: pre-line !important;
+     text-align: center !important;
+     padding: var(--CLAMP-6) var(--CLAMP-8) !important;
+     font-size: clamp(0.75rem, 0.8rem + 0.15vw, 0.875rem) !important;
 }
-
-#vaccine-bjarred-app .price-table td {
-     padding: var(--vb-space-xs) var(--vb-space-sm);
-     border-bottom: 1px solid var(--vb-border-primary);
-     font-family: var(--vb-font-family-primary);
-     font-size: var(--vb-fs-table-body);
-     font-weight: var(--vb-fw-normal);
-     line-height: var(--vb-lh-normal);
-     text-align: left;
-     color: var(--vb-text-primary);
-     overflow-wrap: break-word;
-     word-wrap: break-word;
-     hyphens: auto;
+ html body .price-table.price-table td {
+     padding: var(--CLAMP-8) var(--CLAMP-12) !important;
+     border-bottom: var(--PXR-1) solid var(--clr-border) !important;
+     font-family: var(--ff-primary) !important;
+     font-size: clamp(0.8125rem, 0.825rem + 0.1vw, var(--fs-table-body)) !important;
+     font-weight: var(--fw-regular) !important;
+     line-height: var(--lh-body) !important;
+     text-align: left !important;
+     color: var(--clr-black) !important;
+     overflow-wrap: break-word !important;
+     word-wrap: break-word !important;
+     hyphens: auto !important;
 }
-
-/* Vaccination column width adjustment */
-#vaccine-bjarred-app .price-table td:first-child {
-     max-width: 45%;
-     font-size: var(--vb-fs-caption);
+ html body .price-table.price-table tbody tr:last-child td {
+     border-bottom: none !important;
 }
-
-#vaccine-bjarred-app .price-table tbody tr:last-child td {
-     border-bottom: none;
+ html body .price-table.price-table tbody tr:nth-of-type(odd) {
+     background: var(--clr-bg-alt) !important;
 }
-#vaccine-bjarred-app .price-table tbody tr:nth-of-type(odd) {
-     background: var(--vb-bg-secondary);
+ html body .location-schedule.location-schedule th {
+     background: linear-gradient(145deg, #5a8fc7 0%, #4a7bb0 60%, #406ba0 100%) !important;
+     color: var(--clr-white) !important;
+     padding: var(--CLAMP-8) var(--CLAMP-8) !important;
+     text-align: center !important;
+     font-size: clamp(0.875rem, 0.9rem + 0.2vw, var(--fs-table-header)) !important;
+     font-weight: var(--fw-medium) !important;
+     border-bottom: var(--PXR-2) solid var(--clr-heading) !important;
 }
-/* Location schedule styling with reduced padding */
-#vaccine-bjarred-app .location-schedule th {
-     background: var(--vb-gradient-table-header-location);
-     color: var(--vb-text-inverse);
-     padding: var(--vb-space-xs) var(--vb-space-xs);
-     text-align: center;
-     font-size: var(--vb-fs-table-header);
-     font-weight: var(--vb-fw-medium);
-     border-bottom: 2px solid var(--vb-primary-dark);
+ html body .location-schedule.location-schedule td {
+     padding: var(--CLAMP-8) var(--CLAMP-8) !important;
+     text-align: center !important;
+     color: var(--clr-black) !important;
+     font-size: clamp(0.8125rem, 0.825rem + 0.1vw, var(--fs-table-body)) !important;
+     font-weight: var(--fw-regular) !important;
+     border-bottom: var(--PXR-1) solid var(--clr-border) !important;
+     overflow-wrap: break-word !important;
+     word-wrap: break-word !important;
+     hyphens: auto !important;
 }
-
-#vaccine-bjarred-app .location-schedule td {
-     padding: var(--vb-space-xs) var(--vb-space-xs);
-     text-align: center;
-     color: var(--vb-text-primary);
-     font-size: var(--vb-fs-table-body);
-     font-weight: var(--vb-fw-normal);
-     border-bottom: 1px solid var(--vb-border-primary);
-     overflow-wrap: break-word;
-     word-wrap: break-word;
-     hyphens: auto;
-     white-space: nowrap;
+ html body .location-schedule.location-schedule tbody tr:last-child td {
+     border-bottom: none !important;
 }
-
-/* Responsive date formatting for location schedule */
-#vaccine-bjarred-app .location-schedule td:first-child {
-     position: relative;
+ html body .location-schedule.location-schedule tbody tr:nth-child(odd) td {
+     background: var(--clr-bg-alt) !important;
 }
-
-#vaccine-bjarred-app .location-schedule td:first-child .date-full {
-     display: inline;
+ html body .location-schedule.location-schedule tbody tr:nth-child(even) td {
+     background: var(--clr-white) !important;
 }
-
-#vaccine-bjarred-app .location-schedule td:first-child .date-medium {
-     display: none;
-}
-
-#vaccine-bjarred-app .location-schedule td:first-child .date-short {
-     display: none;
-}
-
-/* Medium screens: Show abbreviated month */
-@media (max-width: 768px) {
-     #vaccine-bjarred-app .location-schedule td:first-child .date-full {
-          display: none;
-     }
-     #vaccine-bjarred-app .location-schedule td:first-child .date-medium {
-          display: inline;
-     }
-}
-
-/* Small screens: Show shortest format */
-@media (max-width: 480px) {
-     #vaccine-bjarred-app .location-schedule td:first-child .date-medium {
-          display: none;
-     }
-     #vaccine-bjarred-app .location-schedule td:first-child .date-short {
-          display: inline;
-     }
-     /* Weekday abbreviation */
-     #vaccine-bjarred-app .location-schedule td:nth-child(2) {
-          font-size: var(--vb-fs-caption);
-     }
-}
-
-#vaccine-bjarred-app .location-schedule tbody tr:last-child td {
-     border-bottom: none;
-}
-#vaccine-bjarred-app .location-schedule tbody tr:nth-child(odd) td {
-     background: var(--vb-bg-secondary);
-}
-#vaccine-bjarred-app .location-schedule tbody tr:nth-child(even) td {
-     background: var(--vb-bg-primary);
-}
-
-/* Price table column visibility based on toggle */
-#vaccine-bjarred-app:has(#v-pen:checked) .price-table th:nth-child(3),
-#vaccine-bjarred-app:has(#v-pen:checked) .price-table td:nth-child(3) {
+ body:has(#v-pen:checked) .price-table th:nth-child(3), body:has(#v-pen:checked) .price-table td:nth-child(3) {
      display: table-cell;
 }
-#vaccine-bjarred-app:has(#v-stu:checked) .price-table th:nth-child(4),
-#vaccine-bjarred-app:has(#v-stu:checked) .price-table td:nth-child(4) {
+ body:has(#v-stu:checked) .price-table th:nth-child(4), body:has(#v-stu:checked) .price-table td:nth-child(4) {
      display: table-cell;
 }
-#vaccine-bjarred-app .price-table td:nth-child(3),
-#vaccine-bjarred-app .price-table td:nth-child(4) {
-     color: var(--vb-accent-blue);
-     font-weight: var(--vb-fw-medium);
+ .price-table td:nth-child(3), .price-table td:nth-child(4) {
+     color: var(--clr-accent) !important;
+     font-weight: var(--fw-medium) !important;
 }
 /* ==========================================================================
    4. FAQ Component & Other Components
    Komponenter för FAQ (vanliga frågor) och andra innehållsblock
 ========================================================================== */
 /* Section Titles & Info Blocks */
-#vaccine-bjarred-app .section-title,
-#vaccine-bjarred-app .page__content-title,
-#vaccine-bjarred-app .subtitle {
-     font-size: var(--vb-fs-h2);
-     font-weight: var(--vb-fw-bold);
-     color: var(--vb-text-secondary);
-     margin: var(--vb-space-sm) 0 var(--vb-space-sm) 0;
+ .section-title, .page__content-title, .subtitle {
+     font-size: var(--CLAMP-25) !important;
+     font-weight: var(--fw-bold) !important;
+     color: var(--clr-heading) !important;
+     margin: var(--space-sm) 0 var(--space-sm) 0 !important;
 }
-#vaccine-bjarred-app .vaccination-info {
-     background: transparent;
-     border-radius: var(--vb-radius-lg);
-     padding: 0;
-     margin: 0;
-     max-width: 100%;
+ .vaccination-info {
+     background: transparent !important;
+     border-radius: var(--PXR-18) !important;
+     padding: 0 !important;
+     margin: 0 !important;
+     max-width: var(--PXP-17) !important;
 }
-#vaccine-bjarred-app .vaccine-heading {
-     font-size: var(--vb-fs-h3);
-     font-weight: var(--vb-fw-medium);
-     color: var(--vb-text-secondary);
-     margin: var(--vb-space-sm) 0 var(--vb-space-sm) 0;
+ .vaccine-heading {
+     font-size: var(--CLAMP-28) !important;
+     font-weight: var(--fw-medium) !important;
+     color: var(--clr-heading) !important;
+     margin: var(--space-sm) 0 var(--space-sm) 0 !important;
 }
-#vaccine-bjarred-app .halsokontroll-text {
-     font-style: normal;
-     color: var(--vb-text-primary);
-     margin-top: var(--vb-space-sm);
+ .halsokontroll-text {
+     font-style: normal !important;
+     color: var(--clr-body) !important;
+     margin-top: var(--CLAMP-9) !important;
 }
 /* FAQ */
-#vaccine-bjarred-app .faq {
-     max-width: 100%;
-     min-width: auto;
+ .faq {
+     max-width: var(--PXP-17);
+     min-width: var(--PXP-9);
      margin: 0 auto;
      padding-inline: 0;
 }
-#vaccine-bjarred-app .faq-title {
-     font-size: var(--vb-fs-h2);
-     font-weight: var(--vb-fw-medium);
-     color: var(--vb-text-secondary);
-     margin-block: var(--vb-space-xl) var(--vb-space-sm);
+ .faq-title {
+     font-size: var(--CLAMP-25);
+     font-weight: var(--fw-medium);
+     color: var(--clr-heading);
+     margin-block: var(--space-xl) var(--space-sm);
      white-space: normal;
      overflow: hidden;
      text-overflow: ellipsis;
 }
-#vaccine-bjarred-app .faq-section {
+ .faq-section {
      display: flex;
      flex-direction: column;
-     gap: var(--vb-space-sm);
+     gap: var(--PXR-8) !important;
      margin-bottom: 0;
      padding-bottom: 0;
 }
-#vaccine-bjarred-app .faq-section > * {
+ .faq-section > * {
      margin-bottom: 0;
 }
-#vaccine-bjarred-app .faq-item {
-     background: var(--vb-gradient-faq-item);
-     border: 1px solid var(--vb-border-primary);
-     border-radius: var(--vb-radius-md);
-     box-shadow: none;
-     margin: 0;
-     padding: var(--vb-space-xs);
-     overflow: hidden;
-     transition: border-color var(--vb-duration-normal), box-shadow var(--vb-duration-fast), background var(--vb-duration-normal);
+ .faq-item {
+     background: linear-gradient(145deg, #5a8fc7 0%, #4a7bb0 60%, #406ba0 100%);
+     border: var(--PXR-1) solid var(--clr-border) !important;
+     border-radius: var(--radius-md) !important;
+     box-shadow: none !important;
+     margin: 0 !important;
+     padding: var(--PXR-4) !important;
+     overflow: hidden !important;
+     transition: border-color var(--duration-normal), box-shadow var(--duration-fast), background var(--duration-normal) !important;
      position: relative;
 }
-#vaccine-bjarred-app .faq-item[open] {
-     border-color: var(--vb-border-accent);
-     box-shadow: var(--vb-shadow-sm);
+ .faq-item[open] {
+     border-color: var(--clr-accent) !important;
 }
-
-/* Mobile FAQ fixes */
-@media (max-width: 767px) {
-     #vaccine-bjarred-app .faq-item {
-          will-change: transform;
-     }
+ .faq-item summary {
+     border-radius: var(--radius-md) !important;
+     overflow: visible !important;
+     display: flex !important;
+     align-items: center !important;
+     gap: 0 !important;
+     padding-inline-start: var(--space-md) !important;
+     padding-inline-end: calc(var(--space-md) + 2.5rem) !important;
+     padding-block: var(--space-md) !important;
+     font-weight: var(--fw-medium) !important;
+     font-size: var(--fluid-base) !important;
+     cursor: pointer !important;
+     list-style: none !important;
+     position: relative !important;
+     color: var(--clr-white) !important;
+     background: transparent !important;
+     transition: background-color var(--duration-fast), color var(--duration-fast) !important;
+     user-select: none !important;
+     outline: none !important;
+     min-height: 4.5rem !important;
+     line-height: 1.5 !important;
+     height: auto !important;
+     word-break: break-word !important;
+     hyphens: manual !important;
+     white-space: normal !important;
 }
-
-#vaccine-bjarred-app .faq-item summary {
-     border-radius: calc(var(--vb-radius-md) - 4px);
-     overflow: visible;
-     display: flex;
-     align-items: center;
-     gap: 0;
-     padding-inline-start: var(--vb-space-md);
-     padding-inline-end: calc(var(--vb-space-md) + 2.5rem);
-     padding-block: var(--vb-space-md);
-     font-weight: var(--vb-fw-medium);
-     font-size: var(--vb-fs-body);
-     cursor: pointer;
-     list-style: none;
-     position: relative;
-     color: var(--vb-text-inverse);
-     background: transparent;
-     transition: background-color var(--vb-duration-fast), color var(--vb-duration-fast);
-     user-select: none;
-     outline: none;
-     min-height: 3rem;
-     line-height: 1.5;
-     height: auto;
-     word-break: break-word;
-     hyphens: manual;
-     white-space: normal;
-     -webkit-tap-highlight-color: transparent;
+ .faq-item summary::-webkit-details-marker, .faq-item summary::marker {
+     display: none !important;
 }
-#vaccine-bjarred-app .faq-item summary::-webkit-details-marker,
-#vaccine-bjarred-app .faq-item summary::marker {
-     display: none;
-}
-#vaccine-bjarred-app .faq-item summary::after {
+ .faq-item summary::after {
      content: "";
      box-sizing: content-box;
      position: absolute;
-     right: var(--vb-space-sm);
-
+     right: var(--space-sm);
      top: 50%;
-     transform: translateY(-50%);
-     font-size: var(--vb-fs-sm);
-     color: var(--vb-text-inverse);
-     transition: transform var(--vb-duration-normal) var(--vb-ease-in-out);
-     pointer-events: none;
+     transform: translateY(-50%) rotate(45deg);
+     width: 0.625rem;
+     height: 0.625rem;
+     border-right: var(--PXR-2) solid var(--clr-white);
+     border-bottom: var(--PXR-2) solid var(--clr-white);
+     transition: transform var(--duration-normal), border-color var(--duration-fast);
 }
-#vaccine-bjarred-app .faq-item[open] summary::after {
-     transform: translateY(-50%) rotate(180deg);
+ .faq-item[open] summary::after {
+     transform: translateY(-50%) rotate(-135deg);
 }
  .faq-item summary:hover, .faq-item summary:focus-visible {
      background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.06) 60%, rgba(255, 255, 255, 0.04) 100%) !important;
@@ -1751,42 +1418,39 @@
      font-weight: 600 !important;
 }
 /* Navigation Logo */
-#vaccine-bjarred-app .navigation__logo {
-     order: -1;
-     width: 100%;
-     display: flex;
-     justify-content: flex-start;
-     padding: var(--vb-space-lg) var(--vb-space-md);
-     padding-left: var(--vb-space-xl); /* Move logo slightly to the right */
-     margin-left: 0;
-     box-sizing: border-box;
-     height: auto;
-     line-height: normal;
-     -webkit-backdrop-filter: blur(10px);
-     backdrop-filter: blur(10px);
+ .navigation__logo {
+     order: -1 !important;
+     width: 100% !important;
+     display: flex !important;
+     justify-content: center !important;
+     padding: var(--space-lg) var(--space-md) !important;
+     margin-left: 0 !important;
+     box-sizing: border-box !important;
+     height: auto !important;
+     line-height: normal !important;
+     -webkit-backdrop-filter: blur(10px) !important;
+     backdrop-filter: blur(10px) !important;
 }
-#vaccine-bjarred-app .navigation__logo.flex-start {
-     display: flex;
-     justify-content: flex-start;
-     align-items: center;
+ .navigation__logo.flex-start {
+     display: flex !important;
+     justify-content: center !important;
+     align-items: center !important;
 }
-#vaccine-bjarred-app .navigation__logo img {
-     max-width: 350px;
-     min-width: 225px;
-     display: block;
-     max-height: 40px;
-     object-fit: contain;
-     object-position: left center;
-     width: 50vw;
+ .navigation__logo img {
+     max-width: 350px !important;
+     min-width: 225px !important;
+     display: block !important;
+     max-height: 40px !important;
+     object-fit: contain !important;
+     object-position: left top !important;
+     width: 50vw !important;
 }
-#vaccine-bjarred-app .navigation__logo>a,
-#vaccine-bjarred-app .navigation__logo>img,
-#vaccine-bjarred-app .navigation__logo>svg {
-     margin-right: auto;
+ .navigation__logo>a, .navigation__logo>img, .navigation__logo>svg {
+     margin-right: auto !important;
 }
-#vaccine-bjarred-app body[class*="logo--normal"] .navigation__logo {
-     height: 60px;
-     padding-top: 50px;
+ body[class*="logo--normal"] .navigation__logo {
+     height: 60px !important;
+     padding-top: 50px !important;
 }
 /* Navigation Menu */
  .navigation__left, .navigation__left--menu {
@@ -2108,17 +1772,8 @@ nav.footer__link-nav ul#footer__links>li.col {
     }
 }
 /* ==========================================================================
-   11. MEDIA QUERIES (RESPONSIV DESIGN)
-
-   INNEHÅLL:
-   - Tillgänglighet (reduced motion)
-   - Utskriftsstilar
-   - Mobil (< 576px)
-   - Surfplatta (576px - 991px)
-   - Desktop (992px+)
-   - Landskapsläge
-
-   Responsiva brytpunkter för olika skärmstorlekar och enheter
+   11. MEDIA QUERIES
+   Responsiva brytpunkter för olika skärmstorlekar
 ========================================================================== */
 /* Reduced Motion */
  @media (prefers-reduced-motion: reduce) {
@@ -2156,7 +1811,7 @@ nav.footer__link-nav ul#footer__links>li.col {
     .container {
         max-width: 1320px;
     }
-
+    
     .location-section {
         display: grid !important;
         grid-template-columns: 1fr 2fr !important;
@@ -2218,7 +1873,7 @@ nav.footer__link-nav ul#footer__links:target > li.col {
         flex-direction: row !important;
         align-items: flex-start !important;
     }
-
+    
     nav.footer__link-nav ul#footer__links.open > li.col,
     nav.footer__link-nav ul#footer__links:target > li.col {
         width: auto !important;
@@ -2809,132 +2464,117 @@ footer img[alt="Praktikertjänst"]{
    ========================================================================== */
 
 /* Vaccine Categories */
-#vaccine-bjarred-app .vaccine-category {
-    margin-bottom: var(--vb-space-lg);
-    border-radius: var(--vb-radius-md);
-    background: transparent;
-    padding: 0;
+.vaccine-category {
+    margin-bottom: var(--CLAMP-12) !important;
+    border-radius: var(--radius-md) !important;
+    background: var(--clr-surface-subtle) !important;
+    padding: var(--CLAMP-8) !important;
 }
 
-/* Remove category titles as requested */
-#vaccine-bjarred-app .vaccine-category-title {
-    display: none;
+.vaccine-category-title {
+    font-size: var(--fluid-md) !important;
+    font-weight: var(--fw-semibold) !important;
+    margin-bottom: var(--CLAMP-6) !important;
+    padding-bottom: var(--CLAMP-3) !important;
+    border-bottom: 2px solid var(--clr-primary-subtle) !important;
+    color: var(--clr-primary) !important;
 }
 
 /* Vaccine Items */
-#vaccine-bjarred-app .vaccine-item {
-    background: var(--vb-bg-primary);
-    border: 1px solid var(--vb-border-primary);
-    border-radius: var(--vb-radius-sm);
-    margin-bottom: var(--vb-space-sm);
-    transition: all 0.2s ease;
-    position: relative;
+.vaccine-item {
+    background: var(--clr-bg) !important;
+    border: 1px solid var(--clr-border-subtle) !important;
+    border-radius: var(--radius-sm) !important;
+    margin-bottom: var(--CLAMP-4) !important;
+    transition: all 0.2s ease !important;
 }
 
-#vaccine-bjarred-app .vaccine-item:hover {
-    border-color: var(--vb-border-accent);
-    box-shadow: var(--vb-shadow-sm);
+.vaccine-item:hover {
+    border-color: var(--clr-primary-subtle) !important;
+    box-shadow: 0 2px 8px var(--clr-shadow-subtle) !important;
 }
 
-#vaccine-bjarred-app .vaccine-item[open] {
-    border-color: var(--vb-primary-main);
-    background: var(--vb-bg-secondary);
+.vaccine-item[open] {
+    border-color: var(--clr-primary) !important;
+    background: var(--clr-primary-subtle) !important;
 }
 
-/* Vaccine Priority Badge - Apple-style glass design */
-#vaccine-bjarred-app .vaccine-priority {
-    border-left: 4px solid var(--vb-accent-blue);
+/* Vaccine Priority Badge */
+.vaccine-priority {
+    border-left: 4px solid var(--clr-accent) !important;
 }
 
-#vaccine-bjarred-app .vaccine-priority .vaccine-badge {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: var(--vb-accent-blue);
-    font-size: var(--vb-fs-caption);
-    font-weight: var(--vb-fw-medium);
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--vb-radius-pill);
-    margin-left: auto;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.vaccine-priority .vaccine-badge {
+    background: var(--clr-accent) !important;
+    color: var(--clr-on-accent) !important;
+    font-size: var(--fluid-xs) !important;
+    font-weight: var(--fw-medium) !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: var(--radius-xs) !important;
+    margin-left: auto !important;
 }
 
 /* Health Service Item */
-#vaccine-bjarred-app .health-service {
-    border-left: 4px solid var(--vb-secondary-main);
+.health-service {
+    border-left: 4px solid var(--clr-secondary) !important;
 }
 
-/* Vaccine Summary with chevron icon */
-#vaccine-bjarred-app .vaccine-summary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--vb-space-md);
-    cursor: pointer;
-    font-weight: var(--vb-fw-medium);
-    list-style: none;
-    position: relative;
+/* Vaccine Summary */
+.vaccine-summary {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: var(--CLAMP-5) var(--CLAMP-6) !important;
+    cursor: pointer !important;
+    font-weight: var(--fw-medium) !important;
+    list-style: none !important;
+    position: relative !important;
 }
 
-#vaccine-bjarred-app .vaccine-summary::-webkit-details-marker {
-    display: none;
+.vaccine-summary::-webkit-details-marker {
+    display: none !important;
 }
 
-/* Change arrow to chevron */
-#vaccine-bjarred-app .vaccine-summary::after {
-    content: "›";
-    font-size: 1.5rem;
-    color: var(--vb-text-accent);
-    transition: transform 0.2s ease;
-    flex-shrink: 0;
-    margin-left: var(--vb-space-sm);
-    font-weight: var(--vb-fw-normal);
+.vaccine-summary::after {
+    content: '▼' !important;
+    font-size: var(--fluid-sm) !important;
+    color: var(--clr-primary) !important;
+    transition: transform 0.2s ease !important;
+    flex-shrink: 0 !important;
+    margin-left: var(--CLAMP-4) !important;
 }
 
-#vaccine-bjarred-app .vaccine-item[open] .vaccine-summary::after {
-    transform: rotate(90deg);
+.vaccine-item[open] .vaccine-summary::after {
+    transform: rotate(180deg) !important;
 }
 
-/* Vaccine description with teaser text */
-#vaccine-bjarred-app .vaccine-desc {
-    font-size: var(--vb-fs-caption);
-    color: var(--vb-text-primary);
-    font-weight: var(--vb-fw-normal);
-    font-style: normal;
-    opacity: 0.7;
-    position: relative;
-}
-
-/* Add teaser text functionality */
-#vaccine-bjarred-app .vaccine-item:not([open]) .vaccine-desc::after {
-    content: "...";
-    position: absolute;
-    right: 0;
-    background: linear-gradient(to right, transparent, var(--vb-bg-primary) 20%);
-    padding-left: 1em;
+.vaccine-desc {
+    font-size: var(--fluid-sm) !important;
+    color: var(--clr-body-secondary) !important;
+    font-weight: var(--fw-normal) !important;
+    font-style: italic !important;
 }
 
 /* Vaccine Content */
-#vaccine-bjarred-app .vaccine-content {
-    padding: 0 var(--vb-space-md) var(--vb-space-md) var(--vb-space-md);
-    border-top: 1px solid var(--vb-border-primary);
-    background: var(--vb-bg-primary);
+.vaccine-content {
+    padding: 0 var(--CLAMP-6) var(--CLAMP-6) var(--CLAMP-6) !important;
+    border-top: 1px solid var(--clr-border-subtle) !important;
+    background: var(--clr-bg) !important;
 }
 
-#vaccine-bjarred-app .vaccine-content p {
-    margin-bottom: var(--vb-space-sm);
-    line-height: var(--vb-lh-relaxed);
+.vaccine-content p {
+    margin-bottom: var(--CLAMP-4) !important;
+    line-height: var(--lh-relaxed) !important;
 }
 
-#vaccine-bjarred-app .vaccine-content ul {
-    margin: var(--vb-space-sm) 0;
-    padding-left: var(--vb-space-lg);
+.vaccine-content ul {
+    margin: var(--CLAMP-4) 0 !important;
+    padding-left: var(--CLAMP-6) !important;
 }
 
-#vaccine-bjarred-app .vaccine-content li {
-    margin-bottom: var(--vb-space-xs);
-    line-height: var(--vb-lh-normal);
+.vaccine-content li {
+    margin-bottom: var(--CLAMP-2) !important;
+    line-height: var(--lh-body) !important;
 }
 
 /* Mobile Optimizations */
@@ -2943,26 +2583,26 @@ footer img[alt="Praktikertjänst"]{
         padding: var(--CLAMP-6) !important;
         margin-bottom: var(--CLAMP-8) !important;
     }
-
+    
     .vaccine-summary {
         padding: var(--CLAMP-4) var(--CLAMP-5) !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: var(--CLAMP-2) !important;
     }
-
+    
     .vaccine-summary::after {
         position: absolute !important;
         top: var(--CLAMP-4) !important;
         right: var(--CLAMP-5) !important;
         margin-left: 0 !important;
     }
-
+    
     .vaccine-desc {
         font-size: var(--fluid-xs) !important;
         margin-top: var(--CLAMP-1) !important;
     }
-
+    
     .vaccine-badge {
         font-size: 0.7rem !important;
         padding: 0.2rem 0.4rem !important;
@@ -2980,7 +2620,7 @@ footer img[alt="Praktikertjänst"]{
     .navbar-nav, .header__nav {
         display: none !important;
     }
-
+    
     /* Create hamburger button */
     .mobile-menu-btn {
         display: block !important;
@@ -2996,7 +2636,7 @@ footer img[alt="Praktikertjänst"]{
         cursor: pointer !important;
         padding: 0 !important;
     }
-
+    
     /* Hamburger icon */
     .mobile-menu-btn::before {
         content: "☰" !important;
@@ -3005,12 +2645,12 @@ footer img[alt="Praktikertjänst"]{
         display: block !important;
         line-height: 48px !important;
     }
-
+    
     /* Active state - X icon */
     body.menu-open .mobile-menu-btn::before {
         content: "✕" !important;
     }
-
+    
     /* Mobile menu panel */
     .mobile-nav {
         position: fixed !important;
@@ -3026,11 +2666,11 @@ footer img[alt="Praktikertjänst"]{
         overflow-y: auto !important;
         padding: 4rem 1rem 2rem !important;
     }
-
+    
     body.menu-open .mobile-nav {
         right: 0 !important;
     }
-
+    
     /* Menu overlay */
     .menu-overlay {
         display: none !important;
@@ -3042,7 +2682,7 @@ footer img[alt="Praktikertjänst"]{
         background: rgba(0,0,0,0.5) !important;
         z-index: 9997 !important;
     }
-
+    
     body.menu-open .menu-overlay {
         display: block !important;
     }
@@ -3058,13 +2698,13 @@ footer img[alt="Praktikertjänst"]{
         margin: 0 -1rem !important;
         padding: 0 1rem !important;
     }
-
+    
     /* Table styling */
     table {
         min-width: 500px !important;
         font-size: var(--fluid-sm, 14px) !important;
     }
-
+    
     /* Scroll indicator */
     .table-responsive-wrapper::after {
         content: "← Dra för att se mer →" !important;
@@ -3076,7 +2716,7 @@ footer img[alt="Praktikertjänst"]{
         color: var(--clr-body-secondary, #666) !important;
         white-space: nowrap !important;
     }
-
+    
     /* Fade edges */
     .table-responsive-wrapper::before {
         content: "" !important;
@@ -3097,15 +2737,15 @@ footer img[alt="Praktikertjänst"]{
     html {
         font-size: 16px !important; /* Prevent iOS zoom */
     }
-
+    
     /* Heading scaling */
     h1 { font-size: clamp(1.5rem, 5vw, 2rem) !important; }
     h2 { font-size: clamp(1.25rem, 4vw, 1.5rem) !important; }
     h3 { font-size: clamp(1.125rem, 3.5vw, 1.25rem) !important; }
     h4, h5, h6 { font-size: clamp(1rem, 3vw, 1.125rem) !important; }
-
+    
     /* Body text */
-    p, li, td {
+    p, li, td { 
         font-size: var(--fluid-base, 16px) !important;
         line-height: 1.6 !important;
     }
@@ -3119,14 +2759,14 @@ footer img[alt="Praktikertjänst"]{
         display: block !important;
         margin: 0 auto !important;
     }
-
+    
     /* Bus images specific */
     .bus-img {
         width: 100% !important;
         max-height: 200px !important;
         object-fit: cover !important;
     }
-
+    
     /* Gallery adjustments */
     .bus-gallery-col {
         margin-bottom: 2rem !important;
@@ -3140,25 +2780,25 @@ footer img[alt="Praktikertjänst"]{
         overflow-x: hidden !important;
         width: 100% !important;
     }
-
+    
     /* Container adjustments */
     .container, .container-fluid {
         padding-left: 1rem !important;
         padding-right: 1rem !important;
         max-width: 100% !important;
     }
-
+    
     /* Row/column fixes */
     .row {
         margin-left: -0.5rem !important;
         margin-right: -0.5rem !important;
     }
-
+    
     [class*="col-"] {
         padding-left: 0.5rem !important;
         padding-right: 0.5rem !important;
     }
-
+    
     /* Stack columns on mobile */
     .col-md-8, .col-md-4 {
         width: 100% !important;
@@ -3170,7 +2810,7 @@ footer img[alt="Praktikertjänst"]{
 /* 6. TOUCH TARGETS */
 @media (max-width: 768px) {
     /* Minimum touch target size */
-    a, button, input, select, textarea,
+    a, button, input, select, textarea, 
     .btn, .clickable, [role="button"] {
         min-height: 44px !important;
         min-width: 44px !important;
@@ -3178,7 +2818,7 @@ footer img[alt="Praktikertjänst"]{
         align-items: center !important;
         justify-content: center !important;
     }
-
+    
     /* Button spacing */
     .btn {
         padding: 0.75rem 1.5rem !important;
@@ -3193,18 +2833,18 @@ footer img[alt="Praktikertjänst"]{
         padding-left: 0.75rem !important;
         padding-right: 0.75rem !important;
     }
-
+    
     /* Smaller headings */
     h1 { font-size: 1.375rem !important; }
     h2 { font-size: 1.25rem !important; }
     h3 { font-size: 1.125rem !important; }
-
+    
     /* Compact cards */
     .vaccine-card, .price-card {
         padding: 0.75rem !important;
         margin-bottom: 0.75rem !important;
     }
-
+    
     /* Smaller images */
     .bus-img {
         max-height: 150px !important;
@@ -3217,26 +2857,26 @@ footer img[alt="Praktikertjänst"]{
     * {
         max-width: 100vw !important;
     }
-
+    
     /* Fix floating elements */
     .float-left, .float-right {
         float: none !important;
         margin: 1rem auto !important;
         display: block !important;
     }
-
+    
     /* Fix position fixed elements */
     .fixed-top {
         position: relative !important;
     }
-
+    
     /* Word wrap for long text */
     p, h1, h2, h3, h4, h5, h6, li, td, th {
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
         hyphens: auto !important;
     }
-
+    
     /* Hide non-essential elements */
     .desktop-only, .d-none-mobile {
         display: none !important;
@@ -3401,7 +3041,7 @@ footer img[alt="Praktikertjänst"]{
     table {
         min-width: 600px !important;
     }
-
+    
     .table-responsive-wrapper::after {
         content: '→' !important;
         position: absolute !important;
@@ -3426,12 +3066,12 @@ footer img[alt="Praktikertjänst"]{
         padding-left: 1rem !important;
         padding-right: 1rem !important;
     }
-
+    
     .row {
         margin-left: -0.5rem !important;
         margin-right: -0.5rem !important;
     }
-
+    
     [class*="col-"] {
         padding-left: 0.5rem !important;
         padding-right: 0.5rem !important;
@@ -3446,7 +3086,7 @@ footer img[alt="Praktikertjänst"]{
     h4 { font-size: clamp(1.125rem, 3.5vw, 1.5rem) !important; }
     h5 { font-size: clamp(1rem, 3vw, 1.25rem) !important; }
     h6 { font-size: clamp(0.875rem, 2.5vw, 1.125rem) !important; }
-
+    
     p, li {
         font-size: clamp(0.875rem, 2.5vw, 1rem) !important;
         line-height: 1.6 !important;
@@ -3458,26 +3098,26 @@ footer img[alt="Praktikertjänst"]{
     .form-group {
         margin-bottom: 1.5rem !important;
     }
-
+    
     .form-label {
         font-size: 0.875rem !important;
         margin-bottom: 0.5rem !important;
     }
-
+    
     .form-control,
     .form-select {
         padding: 0.75rem 1rem !important;
         font-size: 16px !important; /* Prevents zoom on iOS */
         border-radius: var(--radius-sm) !important;
     }
-
+    
     .btn {
         padding: 0.75rem 1.5rem !important;
         font-size: 1rem !important;
         width: 100% !important;
         margin-bottom: 0.5rem !important;
     }
-
+    
     .btn-group {
         flex-direction: column !important;
         width: 100% !important;
@@ -3490,12 +3130,12 @@ footer img[alt="Praktikertjänst"]{
         min-height: 44px !important;
         min-width: 44px !important;
     }
-
+    
     .clickable-card {
         cursor: pointer !important;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
     }
-
+    
     .clickable-card:active {
         transform: scale(0.98) !important;
     }
@@ -3507,15 +3147,15 @@ footer img[alt="Praktikertjänst"]{
         border-radius: var(--radius-sm) !important;
         margin-bottom: 1rem !important;
     }
-
+    
     .card-body {
         padding: 1rem !important;
     }
-
+    
     .container-fluid {
         padding: 0 !important;
     }
-
+    
     .page__content,
     .page__sidebar {
         width: 100% !important;
@@ -3530,13 +3170,13 @@ footer img[alt="Praktikertjänst"]{
         max-width: 100% !important;
         height: auto !important;
     }
-
+    
     .hero-image,
     .banner-image {
         height: 200px !important;
         object-fit: cover !important;
     }
-
+    
     .gallery-grid {
         grid-template-columns: 1fr !important;
         gap: 1rem !important;
@@ -3548,11 +3188,11 @@ footer img[alt="Praktikertjänst"]{
     .desktop-nav {
         display: none !important;
     }
-
+    
     .mobile-nav-toggle {
         display: flex !important;
     }
-
+    
     .navbar-collapse {
         position: fixed !important;
         top: 0 !important;
@@ -3564,7 +3204,7 @@ footer img[alt="Praktikertjänst"]{
         padding: 5rem 1rem 2rem !important;
         overflow-y: auto !important;
     }
-
+    
     .navbar-collapse.show {
         right: 0 !important;
     }
@@ -3586,11 +3226,11 @@ footer img[alt="Praktikertjänst"]{
         top: 0.5rem !important;
         right: 0.5rem !important;
     }
-
+    
     .hero-section {
         min-height: 70vh !important;
     }
-
+    
     .mobile-menu {
         padding-top: 3rem !important;
     }
@@ -3603,13 +3243,13 @@ footer img[alt="Praktikertjänst"]{
         animation-duration: 0.3s !important;
         transition-duration: 0.3s !important;
     }
-
+    
     /* Optimize shadows for performance */
     .card,
     .btn {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
     }
-
+    
     /* Simplify gradients */
     .gradient-bg {
         background: var(--clr-primary) !important;
@@ -3622,7 +3262,7 @@ footer img[alt="Praktikertjänst"]{
     a, button {
         position: relative !important;
     }
-
+    
     a::after,
     button::after {
         content: '' !important;
@@ -3632,7 +3272,7 @@ footer img[alt="Praktikertjänst"]{
         bottom: -8px !important;
         left: -8px !important;
     }
-
+    
     /* Focus indicators */
     :focus {
         outline: 3px solid var(--clr-primary) !important;
@@ -3647,7 +3287,7 @@ footer img[alt="Praktikertjänst"]{
     .mobile-menu-overlay {
         display: none !important;
     }
-
+    
     .container {
         width: 100% !important;
         max-width: 100% !important;
@@ -3680,7 +3320,7 @@ footer img[alt="Praktikertjänst"]{
         margin-inline: auto;
         padding-inline: clamp(1rem, 4vw, 2rem);
     }
-
+    
     /* Two column layout starts */
     .row > .col-sm-6 {
         flex: 0 0 50% !important;
@@ -3696,24 +3336,24 @@ footer img[alt="Praktikertjänst"]{
         margin-inline: auto;
         padding-inline: clamp(1rem, 4vw, 2rem);
     }
-
+    
     /* Show navigation, hide mobile menu */
     .mobile-nav-toggle {
         display: none !important;
     }
-
+    
     /* Restore desktop navigation */
     nav.main-navigation {
         display: block !important;
         position: static !important;
     }
-
+    
     /* Three column layout available */
     .row > .col-md-4 {
         flex: 0 0 33.333333% !important;
         max-width: 33.333333% !important;
     }
-
+    
     .row > .col-md-8 {
         flex: 0 0 66.666667% !important;
         max-width: 66.666667% !important;
@@ -3728,13 +3368,13 @@ footer img[alt="Praktikertjänst"]{
         margin-inline: auto;
         padding-inline: clamp(1rem, 4vw, 2rem);
     }
-
+    
     /* Full desktop layout */
     .row > .col-lg-3 {
         flex: 0 0 25% !important;
         max-width: 25% !important;
     }
-
+    
     /* Remove mobile-specific styling */
     .mobile-only {
         display: none !important;
@@ -3746,7 +3386,7 @@ footer img[alt="Praktikertjänst"]{
     .container {
         max-width: 1140px !important;
     }
-
+    
     /* Optimal reading width for content */
     .content-wrapper {
         max-width: 800px !important;
@@ -3767,25 +3407,25 @@ footer img[alt="Praktikertjänst"]{
     .mobile-nav-toggle {
         display: block !important;
     }
-
+    
     /* Hide desktop navigation */
     nav.main-navigation,
     .desktop-navigation {
         display: none !important;
     }
-
+    
     /* Stack all columns */
     .row > [class*="col-"] {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         margin-bottom: var(--space-md) !important;
     }
-
+    
     /* Mobile-specific utilities */
     .text-center-mobile {
         text-align: center !important;
     }
-
+    
     .order-first-mobile {
         order: -1 !important;
     }
@@ -3799,11 +3439,11 @@ footer img[alt="Praktikertjänst"]{
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
     }
-
+    
     .price-table {
         min-width: 500px !important;
     }
-
+    
     /* Scroll indicator */
     .price-table-wrapper::after {
         content: 'Swipa →' !important;
@@ -3821,7 +3461,7 @@ footer img[alt="Praktikertjänst"]{
 /* Touch-Optimized Components */
 @media (hover: none) and (pointer: coarse) {
     /* Increase all interactive element sizes */
-    button,
+    button, 
     a.btn,
     input[type="submit"],
     input[type="button"],
@@ -3829,7 +3469,7 @@ footer img[alt="Praktikertjänst"]{
         min-height: 44px !important;
         padding: 0.75rem 1rem !important;
     }
-
+    
     /* Remove hover effects on touch devices */
     :hover {
         transition: none !important;
@@ -3842,7 +3482,7 @@ footer img[alt="Praktikertjänst"]{
     .container {
         padding-inline: var(--space-sm) !important;
     }
-
+    
     section {
         padding-block: var(--space-lg) !important;
     }
@@ -3854,7 +3494,7 @@ footer img[alt="Praktikertjänst"]{
     .container {
         padding-inline: clamp(1rem, 2vw, 2rem) !important;
     }
-
+    
     section {
         padding-block: clamp(2rem, 5vw, 4rem) !important;
     }
@@ -3930,25 +3570,25 @@ details[open] summary.vaccine-summary::after {
         padding: var(--space-lg) var(--space-md) !important;
         min-height: 60px !important;
     }
-
+    
     /* Stack vaccine info vertically */
     .vaccine-summary {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: var(--space-xs) !important;
     }
-
+    
     .vaccine-summary::after {
         position: absolute !important;
         right: var(--space-md) !important;
         top: 50% !important;
         transform: translateY(-50%) !important;
     }
-
+    
     details[open] .vaccine-summary::after {
         transform: translateY(-50%) rotate(180deg) !important;
     }
-
+    
     /* Visual hierarchy for vaccine badges */
     .vaccine-badge {
         background: var(--clr-primary) !important;
@@ -3958,7 +3598,7 @@ details[open] summary.vaccine-summary::after {
         font-size: var(--fluid-xs) !important;
         font-weight: 500 !important;
     }
-
+    
     /* Prioritized vaccine highlight */
     .vaccine-priority {
         border-color: var(--clr-primary) !important;
@@ -3988,7 +3628,7 @@ details[open] summary.vaccine-summary::after {
         margin-bottom: var(--space-sm) !important;
         background: var(--clr-bg) !important;
     }
-
+    
     summary.faq-summary {
         padding: var(--space-md) !important;
         cursor: pointer !important;
@@ -3996,7 +3636,7 @@ details[open] summary.vaccine-summary::after {
         font-size: var(--fluid-base) !important;
         min-height: 44px !important;
     }
-
+    
     .faq-content {
         padding: 0 var(--space-md) var(--space-md) !important;
     }
@@ -4010,236 +3650,4 @@ details[open] summary.vaccine-summary::after {
     }
 }
 
-/* --- General Layout & Font --- */
-#vaccine-bjarred-app.vb-app {
-  font-family: 'Inter', Arial, sans-serif;
-  background: var(--vb-bg, #f8fafc);
-  color: var(--vb-fg, #222);
-  padding: 0;
-  min-height: 100vh;
-  transition: background 0.2s, color 0.2s;
-}
-.vb-app.dark {
-  --vb-bg: #151718;
-  --vb-fg: #e2e8f0;
-}
-.vb-app {
-  --vb-bg: #f8fafc;
-  --vb-fg: #222;
-}
-
-/* --- Header --- */
-.vb-app header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: transparent;
-  padding: 1.25rem 1rem 0.5rem 1rem;
-  border-bottom: 2px solid #1e293b12;
-}
-.vb-app h1 {
-  font-size: 2.1rem;
-  margin: 0;
-  font-weight: 800;
-  letter-spacing: -1px;
-}
-
-/* --- Theme Toggle Button --- */
-#vaccine-bjarred-app .theme-toggle-btn {
-  border: 2px solid var(--vb-border-accent);
-  background: var(--vb-bg-card);
-  padding: var(--vb-space-sm);
-  border-radius: var(--vb-radius-sm);
-  cursor: pointer;
-  box-shadow: var(--vb-shadow-sm);
-  transition: all 0.2s ease;
-  outline: none;
-  margin-left: auto;
-  margin-right: 0;
-  position: relative;
-}
-#vaccine-bjarred-app .theme-toggle-btn:focus,
-#vaccine-bjarred-app .theme-toggle-btn:hover {
-  background: var(--vb-bg-secondary);
-  box-shadow: var(--vb-shadow-md);
-  transform: translateY(-1px);
-}
-#vaccine-bjarred-app .theme-toggle-btn i.fas {
-  font-size: 1.25rem;
-  transition: color 0.2s, transform 0.3s ease;
-  color: var(--vb-text-primary);
-}
-#vaccine-bjarred-app[data-theme="dark"] .theme-toggle-btn {
-  background: var(--vb-bg-card);
-  border-color: var(--vb-border-accent);
-}
-#vaccine-bjarred-app[data-theme="dark"] .theme-toggle-btn i.fas {
-  color: var(--vb-text-primary);
-}
-
-/* --- Gallery Card --- */
-.bus-gallery-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--vb-card-bg, #fff);
-  box-shadow: 0 4px 24px #0f172a13;
-  border-radius: 1.1em;
-  padding: 1.1em;
-  margin: 1.25rem auto;
-  max-width: 450px;
-  width: 100%;
-  gap: 0.6em;
-  transition: background 0.2s, color 0.2s;
-}
-.vb-app.dark .bus-gallery-col {
-  --vb-card-bg: #23272c;
-  color: #e2e8f0;
-}
-
-/* --- Image Styles --- */
-.img-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.bus-img {
-  width: 100%;
-  max-width: 350px;
-  height: auto;
-  border-radius: 1em;
-  box-shadow: 0 2px 24px #2563eb15, 0 1.5px 12px #06b6d43a;
-  transition: box-shadow 0.2s;
-}
-.img-blue-glow {
-  box-shadow: 0 0 24px #2563eb42, 0 2px 12px #2563eb1a;
-}
-.vb-app.dark .bus-img,
-.vb-app.dark .img-blue-glow {
-  box-shadow: 0 0 24px #38bdf8, 0 2px 18px #0369a1bb;
-}
-
-/* --- Text Styles --- */
-.bus-title {
-  font-size: 1.15em;
-  font-weight: 700;
-  margin-top: 0.6em;
-  margin-bottom: 0.2em;
-  text-align: center;
-  color: var(--vb-fg, #222);
-}
-
-/* --- Article/Intro --- */
-.intro-content, .why-choose-section > p {
-  margin: 0.9em auto 1em auto;
-  max-width: 650px;
-  font-size: 1.07em;
-  line-height: 1.6;
-}
-.call-to-action {
-  color: #2563eb;
-  font-weight: 600;
-}
-
-/* --- Responsive --- */
-@media (max-width: 700px) {
-  .bus-gallery-col { max-width: 99vw; padding: 0.7em; }
-  .img-wrapper { padding: 0; }
-  .bus-img { max-width: 94vw; }
-  .vb-app header { flex-direction: column; align-items: flex-start; gap: 0.5em; }
-}
-
-/* ==========================================================================
-   GDPR Banner Styling - Light and Dark Mode Compatible
-   ========================================================================== */
-
-#vaccine-bjarred-app .gdpr-banner {
-     position: fixed;
-     bottom: 0;
-     left: 0;
-     right: 0;
-     background: var(--vb-bg-card);
-     color: var(--vb-text-primary);
-     padding: var(--vb-space-md);
-     z-index: 10000;
-     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-     transform: translateY(100%);
-     transition: transform 0.3s ease;
-     border-top: 1px solid var(--vb-border-primary);
-}
-
-#vaccine-bjarred-app .gdpr-banner.visible {
-     transform: translateY(0);
-}
-
-#vaccine-bjarred-app .gdpr-banner .gdpr-content {
-     max-width: 1200px;
-     margin: 0 auto;
-     display: flex;
-     align-items: center;
-     gap: var(--vb-space-md);
-     flex-wrap: wrap;
-}
-
-#vaccine-bjarred-app .gdpr-banner p {
-     flex: 1;
-     margin: 0;
-     font-size: var(--vb-fs-body-small);
-}
-
-#vaccine-bjarred-app .gdpr-banner .gdpr-buttons {
-     display: flex;
-     gap: var(--vb-space-sm);
-}
-
-#vaccine-bjarred-app .gdpr-banner button {
-     border: none;
-     padding: var(--vb-space-xs) var(--vb-space-md);
-     border-radius: var(--vb-radius-sm);
-     font-weight: var(--vb-fw-medium);
-     cursor: pointer;
-     transition: all 0.2s ease;
-     font-size: var(--vb-fs-body-small);
-}
-
-#vaccine-bjarred-app .gdpr-banner #gdpr-accept {
-     background: var(--vb-primary-main);
-     color: var(--vb-text-inverse);
-}
-
-#vaccine-bjarred-app .gdpr-banner #gdpr-accept:hover {
-     background: var(--vb-primary-dark);
-     transform: translateY(-1px);
-     box-shadow: var(--vb-shadow-sm);
-}
-
-#vaccine-bjarred-app .gdpr-banner #gdpr-info {
-     background: transparent;
-     color: var(--vb-text-primary);
-     border: 1px solid var(--vb-border-primary);
-}
-
-#vaccine-bjarred-app .gdpr-banner #gdpr-info:hover {
-     background: var(--vb-bg-secondary);
-     border-color: var(--vb-border-accent);
-}
-
-/* Dark mode specific GDPR styling */
-#vaccine-bjarred-app[data-theme="dark"] .gdpr-banner {
-     background: var(--vb-bg-card);
-     border-top-color: var(--vb-border-primary);
-}
-
-/* Mobile GDPR adjustments */
-@media (max-width: 767px) {
-     #vaccine-bjarred-app .gdpr-banner .gdpr-content {
-          flex-direction: column;
-          text-align: center;
-          gap: var(--vb-space-sm);
-     }
-
-     #vaccine-bjarred-app .gdpr-banner .gdpr-buttons {
-          width: 100%;
-          justify-content: center;
-     }
-}
+/* End of CSS Injection - Total lines: 3550+ */

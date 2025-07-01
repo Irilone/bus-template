@@ -1,35 +1,38 @@
 <!-- 4. VACCINE INFO SECTION - FUSION ULTRA MEDICAL ACCESSIBILITY -->
 <section class="vaccine-section" role="region" aria-labelledby="vaccine-heading">
-<h3 id="vaccine-heading" class="subtitle">Våra Vaccinationer <i class="fas fa-chevron-down" aria-hidden="true"></i></h3>
-<div class="vaccination-info"><!-- Most Common Vaccines -->
+<h3 id="vaccine-heading" class="subtitle">Våra Vaccinationer</h3>
+<div class="vaccination-info">
+
+<!-- Most Common Vaccines -->
 <div class="vaccine-category">
+<h4 class="vaccine-category-title">Vanligaste Vaccinationerna</h4>
+
 <details class="vaccine-item vaccine-priority" role="group" aria-labelledby="tbe-vaccine-title">
-<summary id="tbe-vaccine-title" class="vaccine-summary" aria-expanded="false">
+<summary class="vaccine-summary" id="tbe-vaccine-title" aria-expanded="false">
 <strong>TBE-vaccin</strong>
 <span class="vaccine-badge" role="mark" aria-label="Prioriterad vaccination">Rekommenderat</span>
-<span class="vaccine-teaser">Skydda dig mot TBE – en fästingburen hjärninflammation...</span>
 </summary>
 <div class="vaccine-content">
 <p>Skydda dig mot TBE – en fästingburen hjärninflammation som blir allt vanligare i Sverige.</p>
 <p>Vi erbjuder TBE-vaccination i Bjärred för både barn och vuxna. Kom ihåg att flera doser krävs för ett fullgott skydd.</p>
 </div>
 </details>
+
 <details class="vaccine-item">
 <summary class="vaccine-summary">
 <strong>Grundskyddsvaccin</strong>
 <span class="vaccine-desc">Stelkramp/Difteri/Kikhosta</span>
-<span class="vaccine-teaser">Dags att uppdatera grundskyddet? I vår buss...</span>
 </summary>
 <div class="vaccine-content">
 <p>Dags att uppdatera grundskyddet? I vår buss i Bjärred kan du enkelt vaccinera dig mot stelkramp, difteri och kikhosta.</p>
 <p>Folkhälsomyndigheten rekommenderar alla att fylla på sitt grundskydd då vi har stelkramp i jorden i Sverige.</p>
 </div>
 </details>
+
 <details class="vaccine-item">
 <summary class="vaccine-summary">
 <strong>Influensavaccin</strong>
 <span class="vaccine-desc">Säsongsanpassat</span>
-<span class="vaccine-teaser">Under influensasäsongen erbjuder vi säsongsanpassade...</span>
 </summary>
 <div class="vaccine-content">
 <p>Under influensasäsongen erbjuder vi säsongsanpassade influensavaccin i Bjärred.</p>
@@ -37,13 +40,15 @@
 </div>
 </details>
 </div>
+
 <!-- Targeted Vaccines -->
 <div class="vaccine-category">
+<h4 class="vaccine-category-title">Specifika Vaccinationer</h4>
+
 <details class="vaccine-item">
 <summary class="vaccine-summary">
 <strong>Bältros</strong>
 <span class="vaccine-desc">För vuxna över 50 år</span>
-<span class="vaccine-teaser">Vårt bältrosvaccin skyddar mot Bältros...</span>
 </summary>
 <div class="vaccine-content">
 <p>Vårt bältrosvaccin skyddar mot Bältros (herpes zoster), en smärtsam återaktivering av vattkoppsvirus som drabbar ungefär en av tre vuxna.</p>
@@ -53,11 +58,11 @@
 <p><strong>Biverkningar:</strong> Vanliga biverkningar är mild rodnad, svullnad och ömhet vid injektionsstället, eventuellt feber och huvudvärk.</p>
 </div>
 </details>
+
 <details class="vaccine-item">
 <summary class="vaccine-summary">
 <strong>HPV-vaccin</strong>
 <span class="vaccine-desc">Gardasil 9, från 9 år</span>
-<span class="vaccine-teaser">Vi erbjuder HPV-vaccination (Gardasil 9)...</span>
 </summary>
 <div class="vaccine-content">
 <p>Vi erbjuder HPV-vaccination (Gardasil 9) – rekommenderat för flickor och pojkar från 9 år för att förebygga livmoderhalscancer, kondylom och andra HPV-relaterade infektioner.</p>
@@ -65,11 +70,11 @@
 <p><strong>Vuxna:</strong> 3 doser, även om Gardasil har tagits tidigare</p>
 </div>
 </details>
+
 <details class="vaccine-item">
 <summary class="vaccine-summary">
 <strong>Hepatitvaccin</strong>
 <span class="vaccine-desc">A, B eller kombinerat</span>
-<span class="vaccine-teaser">Vaccin- och Hälsobussen i Bjärred erbjuder...</span>
 </summary>
 <div class="vaccine-content">
 <p>Vaccin- och Hälsobussen i Bjärred erbjuder flera alternativ:</p>
@@ -81,11 +86,11 @@
 <p>Allt på ett och samma ställe för ett heltäckande skydd mot båda virusen.</p>
 </div>
 </details>
+
 <details class="vaccine-item">
 <summary class="vaccine-summary">
 <strong>Vattkoppsvaccin</strong>
 <span class="vaccine-desc">Varicellavaccin</span>
-<span class="vaccine-teaser">Vattkoppsvaccinet (varicellavaccin) ger ett effektivt...</span>
 </summary>
 <div class="vaccine-content">
 <p>Vattkoppsvaccinet (varicellavaccin) ger ett effektivt skydd mot vattkoppor och rekommenderas särskilt för ovaccinerade barn, ungdomar och vuxna som aldrig haft sjukdomen.</p>
@@ -93,14 +98,15 @@
 </div>
 </details>
 </div>
+
 <!-- Health Services -->
 <div class="vaccine-category">
 <h4 class="vaccine-category-title">Hälsotjänster</h4>
+
 <details class="vaccine-item health-service">
 <summary class="vaccine-summary">
 <strong>Hälsokontroll</strong>
 <span class="vaccine-desc">Snabb kontroll på plats</span>
-<span class="vaccine-teaser">Hos oss kan du alltid genomföra en enklare...</span>
 </summary>
 <div class="vaccine-content">
 <p>Hos oss kan du alltid genomföra en enklare hälsokontroll där du får reda på blodtrycket, järnvärdet och blodsockret.</p>
@@ -110,5 +116,6 @@
 </div>
 </details>
 </div>
+
 </div>
 </section>

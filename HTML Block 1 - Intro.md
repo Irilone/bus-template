@@ -1,0 +1,22 @@
+<!-- VACCINE BJARRED APP WRAPPER START -->
+<div id="vaccine-bjarred-app" class="vb-app">
+
+<!-- 1. INTRO SECTION - FUSION ULTRA SEMANTIC STRUCTURE -->
+<header role="banner">
+<h1 id="main-heading" tabindex="-1">Vaccination i Bj&auml;rred</h1>
+</header>
+<main role="main">
+<section class="intro-section" aria-labelledby="main-heading">
+<div class="bus-gallery-col" data-dynamic-style="card">
+<div class="img-wrapper"><img class="bus-img img-blue-glow" src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/1.webp,,146844?epieditmode=False&amp;width=200&amp;mode=max&amp;format=auto&amp;q=80" alt="Vaccinationsbussen &ndash; utsida fr&aring;n sidan" data-fluid /></div>
+<div class="card-body p-0">
+<p class="card-text bus-title text-center">Vaccin- och H&auml;lsobussen, vi kommer till er.</p>
+</div>
+</div>
+<article class="intro-content" role="article" aria-label="Introduktion till vaccinationstjänsten">
+<p><strong>Vaccin- &amp; H&auml;lsobussen</strong> rullar direkt upp till <em>Coop i Bj&auml;rred</em> &ndash; s&aring; att du slipper ta dig till en klinik. Medan du handlar kan du enkelt uppdatera ditt grundskydd eller ta en extra dos mot <abbr title="Tick-borne encephalitis">TBE</abbr>, b&auml;ltros eller vattkoppor.</p>
+<p>I Bj&auml;rred &ndash; d&auml;r <em>L&aring;nga bryggan</em> str&auml;cker sig ut i &Ouml;resund och morgondoppen vid hamnen &auml;r en sj&auml;lvklarhet &ndash; vill du inte missa de st&auml;mningsfulla sommarkv&auml;llarna eller kyliga dopp i gryningen. Genom vaccination skyddar du din egen h&auml;lsa, slipper ov&auml;ntade sjukdagar och f&ouml;rs&auml;krar att du kan forts&auml;tta njuta av allt som g&ouml;r Bj&auml;rred unikt.</p>
+<p class="call-to-action" role="note" aria-label="Uppmaning till handling"><strong>Stanna till vid bussen, kavla upp &auml;rmen och g&ouml;r det smidigt f&ouml;r dig sj&auml;lv</strong> &ndash; vi finns redo vid Coop i Bj&auml;rred n&auml;r du &auml;r i farten!</p>
+</article>
+</section>
+</main>
