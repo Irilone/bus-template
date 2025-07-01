@@ -3935,11 +3935,18 @@ footer img[alt="Praktikertjänst"]{
 }
 
 /* ==========================================================================
-   15. Progressive Disclosure Enhancement for Mobile
-   Optimized vaccine information display
+   15. PROGRESSIV VISNING FÖR MOBIL
+
+   INNEHÅLL:
+   - Details/Summary element
+   - Expanderbara sektioner
+   - Touch-vänlig interaktion
+   - Animerade övergångar
+
+   Optimerad informationsvisning för mobila enheter
 ========================================================================== */
 
-/* Details/Summary Styling for Mobile */
+/* ===== DETAILS/SUMMARY STYLING FÖR MOBIL ===== */
 details.vaccine-item {
     border: 1px solid var(--clr-border, #e0e0e0) !important;
     border-radius: var(--radius-md) !important;
