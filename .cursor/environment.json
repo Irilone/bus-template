@@ -1,14 +1,19 @@
 {
   "install": "npm install",
   "start": "npm run dev",
-  "terminals": [
-    {
-      "name": "iTerm",
-      "command": "Command"
-    }
-  ],
   "build": {
     "context": ".",
     "dockerfile": "Dockerfile"
-  }
+  },
+  "terminals": [
+    {
+      "name": "iTerm",
+      "command": "open -a iTerm ."
+    }
+  ]
 }
+
+
+
+
+
