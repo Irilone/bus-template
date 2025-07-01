@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // SEKTION 1: RESPONSIV BILDOPTIMERING OCH PRESTANDA
   // ═══════════════════════════════════════════════════════════════
 
-  const responsiveBreakpoints = [576, 768, 992, 1200, 1536];
+  const responsiveBreakpoints = [576, 768, 992, 1200];
 
   document.querySelectorAll('img[data-fluid]').forEach(img => {
     const url = new URL(img.src, location.origin);
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       picture.appendChild(source);
     });
-    img.src = `${url.pathname}?width=1920&mode=max&format=auto&q=80`;
+    img.src = `${url.pathname}?width=1200&mode=max&format=auto&q=80`;
     img.classList.add('img-fluid');
     img.loading = 'lazy';
     picture.appendChild(img.cloneNode());
@@ -72,6 +72,50 @@ document.addEventListener('DOMContentLoaded', () => {
   // ═══════════════════════════════════════════════════════════════
   // SEKTION 2: ANVÄNDARINTERAKTION OCH NAVIGATION
   // ═══════════════════════════════════════════════════════════════
+
+  // Responsive date formatting for location schedule
+  function setupResponsiveDates() {
+    const dateCells = document.querySelectorAll('.location-schedule td:first-child');
+
+    dateCells.forEach(cell => {
+      const originalText = cell.textContent.trim();
+      // Parse the date (assuming format like "24 feb 2025")
+      const parts = originalText.split(' ');
+      if (parts.length >= 3) {
+        const day = parts[0];
+        const month = parts[1];
+        const year = parts[2];
+
+        // Create responsive date spans
+        cell.innerHTML = `
+          <span class="date-full">${originalText}</span>
+          <span class="date-medium">${day} ${month.substring(0, 3)}</span>
+          <span class="date-short">${day}/${getMonthNumber(month)}</span>
+        `;
+      }
+    });
+  }
+
+  function getMonthNumber(monthName) {
+    const months = {
+      'jan': '1', 'januari': '1',
+      'feb': '2', 'februari': '2',
+      'mar': '3', 'mars': '3',
+      'apr': '4', 'april': '4',
+      'maj': '5',
+      'jun': '6', 'juni': '6',
+      'jul': '7', 'juli': '7',
+      'aug': '8', 'augusti': '8',
+      'sep': '9', 'september': '9',
+      'okt': '10', 'oktober': '10',
+      'nov': '11', 'november': '11',
+      'dec': '12', 'december': '12'
+    };
+    return months[monthName.toLowerCase()] || monthName;
+  }
+
+  // Call the function after DOM is ready
+  setupResponsiveDates();
 
   // Markera dagens öppettider
   const weekdays = ['Söndag', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag'];
@@ -201,6 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         transition: transform 0.3s ease;
       `;
 
+      banner.classList.add('gdpr-banner');
       banner.innerHTML = `
         <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1em; flex-wrap: wrap;">
           <p style="flex: 1; margin: 0; font-size: 1em;">
@@ -208,10 +253,10 @@ document.addEventListener('DOMContentLoaded', () => {
             Inga personuppgifter lagras utan ditt samtycke enligt GDPR.
           </p>
           <div style="display: flex; gap: 0.5em;">
-            <button id="gdpr-accept" style="background: var(--clr-on-primary,#fff); color: var(--clr-primary,#2563eb); border: none; padding: 0.4em 1.2em; border-radius: 0.4em; font-weight: 600; cursor: pointer;">
+            <button id="gdpr-accept" style="background: var(--vb-primary-main, #012363); color: var(--vb-text-inverse, #fff); border: none; padding: 0.4em 1.2em; border-radius: 0.4em; font-weight: 600; cursor: pointer;">
               Jag förstår
             </button>
-            <button id="gdpr-info" style="background: transparent; color: var(--clr-on-primary,#fff); border: 1px solid var(--clr-on-primary,#fff); padding: 0.4em 1.2em; border-radius: 0.4em; cursor: pointer;">
+            <button id="gdpr-info" style="background: transparent; color: var(--vb-text-primary, #012363); border: 1px solid var(--vb-border-primary, #e0e0e0); padding: 0.4em 1.2em; border-radius: 0.4em; cursor: pointer;">
               Mer info
             </button>
           </div>
@@ -316,74 +361,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initSecurityFramework();
   initGDPRCompliance();
-
-  /* =============================================================
-     SECTION 1b: Schedule table responsive date abbreviations
-     ===========================================================*/
-  function updateScheduleFormats() {
-    const bpSmall = 480;
-    const bpMedium = 768;
-    const bpLarge = 992;
-    document.querySelectorAll('.location-schedule tbody tr').forEach(row => {
-      const dateCell = row.cells[0];
-      const dayCell = row.cells[1];
-      if (!dateCell || !dayCell) return;
-      const fullDate = dateCell.dataset.full || dateCell.textContent.trim();
-      const fullDay = dayCell.dataset.full || dayCell.textContent.trim();
-
-      // Store originals once
-      if (!dateCell.dataset.full) {
-        dateCell.dataset.full = fullDate;
-        dayCell.dataset.full = fullDay;
-      }
-
-      let nowTextDate = fullDate;
-      let nowTextDay = fullDay;
-
-      const [day, mon, yr] = fullDate.split(' '); // e.g., 24 feb 2025
-      const monthMap = {
-        jan: 1, feb: 2, mar: 3, apr: 4, maj: 5, jun: 6,
-        jul: 7, aug: 8, sep: 9, okt: 10, nov: 11, dec: 12
-      };
-      const monthNum = monthMap[mon?.toLowerCase().slice(0,3)] || mon;
-
-      if (window.innerWidth < bpSmall) {
-        // Ultra small – show 24/2
-        nowTextDate = `${day}/${monthNum}`;
-        nowTextDay = fullDay.slice(0,3); // Mån → Mån, Tis → Tis etc.
-      } else if (window.innerWidth < bpMedium) {
-        // Small – show 24 feb 25
-        nowTextDate = `${day} ${mon} ${yr.slice(2)}`;
-        nowTextDay = fullDay.slice(0,3);
-      } else if (window.innerWidth < bpLarge) {
-        // Medium – show 24 feb 2025 (unchanged) but day abbreviated
-        nowTextDay = fullDay.slice(0,3);
-      }
-      dateCell.textContent = nowTextDate;
-      dayCell.textContent = nowTextDay;
-    });
-  }
-  updateScheduleFormats();
-  window.addEventListener('resize', updateScheduleFormats);
-
-  /* =============================================================
-     SECTION 8: Vaccine teaser generation
-     ===========================================================*/
-  function injectVaccineTeasers() {
-    document.querySelectorAll('.vaccine-item').forEach(item => {
-      const descEl = item.querySelector('.vaccine-desc');
-      const contentEl = item.querySelector('.vaccine-content');
-      if (!descEl || !contentEl) return;
-
-      // Only generate once
-      if (descEl.dataset.teaserGenerated) return;
-
-      const plainText = contentEl.textContent.trim().replace(/\s+/g, ' ');
-      const teaser = plainText.slice(0, 100);
-      descEl.textContent = teaser + (plainText.length > 100 ? '…' : '');
-      descEl.style.opacity = '0.65';
-      descEl.dataset.teaserGenerated = 'true';
-    });
-  }
-  injectVaccineTeasers();
 });
