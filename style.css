@@ -2128,22 +2128,35 @@ nav.footer__link-nav ul#footer__links>li.col {
     }
 }
 /* ==========================================================================
-   11. MEDIA QUERIES
-   Responsiva brytpunkter för olika skärmstorlekar
+   11. MEDIA QUERIES (RESPONSIV DESIGN)
+
+   INNEHÅLL:
+   - Tillgänglighet (reduced motion)
+   - Utskriftsstilar
+   - Mobil (< 576px)
+   - Surfplatta (576px - 991px)
+   - Desktop (992px+)
+   - Landskapsläge
+
+   Responsiva brytpunkter för olika skärmstorlekar och enheter
 ========================================================================== */
-/* Reduced Motion */
+
+/* ===== REDUCERAD RÖRELSE =====
+   För användare som föredrar mindre animationer (tillgänglighet) */
  @media (prefers-reduced-motion: reduce) {
      html body *, .faq-item, .faq-icon::before, .faq-icon::after, .fade-in {
-         transition: none !important;
-         animation: none !important;
+         transition: none !important;    /* Tar bort alla övergångar */
+         animation: none !important;     /* Tar bort alla animationer */
     }
 }
-/* Print Styles */
+/* ===== UTSKRIFTSSTILAR =====
+   Optimerar layouten för utskrift */
  @media print {
-     /* Force details to be open when printing */
+     /* Tvingar FAQ-detaljer att vara öppna vid utskrift */
      .faq-item[open] {
          display: block !important;
     }
+     /* Döljer interaktiva element som inte behövs på papper */
      .faq-icon {
          display: none !important;
     }
