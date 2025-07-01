@@ -2656,12 +2656,14 @@ nav.footer__link-nav ul#footer__links:target > li.col {
          min-height: 5rem !important;
     }
 }
+ /* ===== EXTRA LITEN MOBIL (< 480px) =====
+    För de allra minsta enheterna som iPhone SE */
  @media (max-width: 480px) {
      .welcome-title {
-         font-size: 1.4em !important;
+         font-size: 1.4em !important;      /* Mindre rubrik */
     }
      .welcome-subtitle {
-         font-size: 1.0em !important;
+         font-size: 1.0em !important;      /* Mindre underrubrik */
     }
 }
  @supports not selector(:has(*)) {
@@ -2693,26 +2695,32 @@ nav.footer__link-nav ul#footer__links:target > li.col {
 }
 
 /* ==========================================================================
-   Footer PTJ Logo - Begränsar storleken till max 60px (3.75rem)
+   PRAKTIKERTJÄNST LOGOTYP I SIDFOT
+
+   Begränsar storleken för att behålla proportioner och läsbarhet
 ========================================================================== */
+
 /* Målselektor för footer-logotypen med inline-stil */
 footer img[alt="Praktikertjänst"]{
-	max-width: 19.44rem !important;
-	min-width: 3rem !important;
-    height: auto !important;
+	max-width: 19.44rem !important;    /* Max ca 350px */
+	min-width: 3rem !important;        /* Min ca 48px */
+    height: auto !important;           /* Behåll proportioner */
     display: inline-block !important;
 }
 
 /* ==========================================================================
-   Page Content Wrapper & Body - Responsiva marginaler och padding
+   SIDINNEHÅLLSOMSLAG & BODY
+
+   Responsiva marginaler och padding för optimal läsbarhet
 ========================================================================== */
-/* Emulerar margin-bottom: 0, margin-top: 1rem responsivt */
+
+/* Responsiv topp-marginal */
 .page__content-wrapper {
     margin-bottom: 0 !important;
     margin-top: clamp(0.75rem, 0.625rem + 0.625vw, 1rem) !important; /* 12px-16px */
 }
 
-/* Emulerar padding-right: 100px för desktop */
+/* Extra höger-padding på desktop för bättre läsbarhet */
 @media (min-width: 992px) {
     .page__content-body {
         padding-right: clamp(4rem, 3rem + 2.5vw, 6.25rem) !important; /* 64px-100px */
