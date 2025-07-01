@@ -232,7 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
       banner.setAttribute('role', 'banner');
       banner.setAttribute('aria-label', 'Cookie- och dataskyddsmeddelande');
       banner.classList.add('gdpr-banner');
-
       banner.innerHTML = `
         <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 1em; flex-wrap: wrap;">
           <p style="flex: 1; margin: 0; font-size: 1em;">

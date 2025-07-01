@@ -1,6 +1,5 @@
 <!-- 3. PRICE SECTION -->
-<section class="price-section" aria-labelledby="price-heading">
-<h2 id="price-heading" class="price-heading">Vaccinationspriser</h2>
+<section class="price-section">
 <p>Pension&auml;rer f&aring;r 10 % rabatt p&aring; alla vaccinationer och studenter med Mecenat-/Alumnikort 15 %. Kavla upp &auml;rmen f&ouml;r din n&auml;sta vaccination &ndash; vi finns n&auml;ra hemmet och alltid med omsorg i fokus.</p>
 <div class="price-toggles"><input id="v-ord" class="price-toggle-input visually-hidden" checked="checked" name="price-view" type="radio" /> <input id="v-pen" class="price-toggle-input visually-hidden" name="price-view" type="radio" /> <input id="v-stu" class="price-toggle-input visually-hidden" name="price-view" type="radio" />
 <div class="price-toggle-labels"><label class="price-toggle-label" for="v-ord">Ordinarie</label> <label class="price-toggle-label" for="v-pen">Pension&auml;r &ndash; 10&thinsp;%</label> <label class="price-toggle-label" for="v-stu">Student &ndash; 15&thinsp;%</label></div>
