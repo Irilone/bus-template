@@ -1,0 +1,137 @@
+21:03:07.538 665.bundle.dd57cc88cdab03336de1.js:70 close mega menus false null
+21:03:09.285 script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1 Refused to connect to 'https://plausible.io/api/event' because it violates the following Content Security Policy directive: "connect-src 'self'".
+
+c @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+v @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+m @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+21:03:09.285 script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1 Fetch API cannot load https://plausible.io/api/event. Refused to connect because it violates the document's Content Security Policy.
+c @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+v @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+m @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+21:03:09.304 Navigated to https://www.ptj.se/vaccincenter-varvet/mottagningar/test/vaccin-och-halsobuss/bussnu/vaccincenter-varvet/kaninbuss/gitbuss/
+21:03:09.632 gitbuss/:79 Refused to load the script 'https://js.monitor.azure.com/scripts/a/ai.0.js' because it violates the following Content Security Policy directive: "script-src 'self' 'unsafe-inline' 'unsafe-eval' cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js widget.reco.se plausible.io *.plausible.io *.google.com *.googletagmanager.com googletagmanager.com varden-scripts.s3.eu-west-1.amazonaws.com muntra-dev.github.io https://dc.services.visualstudio.com https://az416426.vo.msecnd.net https://code.jquery.com https://maxcdn.bootstrapcdn.com *.juicer.io *.vizzit.se *.facebook.com *.facebook.net *.episerver.net *.bing.com *.virtualearth.net *.googleapis.com *.mediaflowpro.com mfstatic.com *.mfstatic.com *.inviewer.se". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+
+(anonymous) @ gitbuss/:79
+setTimeout
+window.appInsights.instrumentationKey @ gitbuss/:79
+(anonymous) @ gitbuss/:79
+21:03:09.647 vizzit.integration.js:25 
+            
+            
+           GET https://cdn.vizzit.se/integration/ net::ERR_INVALID_HANDLE
+script @ vizzit.integration.js:25
+run @ vizzit.integration.js:13
+(anonymous) @ vizzit.integration.js:37
+21:03:09.779 init_embed.js:286 Search endpoint requested!
+21:03:09.786 main.js:289 XHR finished loading: GET "https://maps.googleapis.com/maps/api/mapsjs/gen_204?csp_test=true".
+_.B.send @ main.js:289
+Sca @ main.js:271
+Uca @ main.js:263
+await in Uca
+google.maps.Load @ js?client=google-maps-embed&paint_origin=&libraries=geometry,search&v=weekly&loading=async&language=sv&region=se&callback=onApiLoad:38
+(anonymous) @ main.js:506
+(anonymous) @ main.js:506
+21:03:09.804 init_embed.js:286 Search endpoint requested!
+21:03:09.841 main.js:289 XHR finished loading: GET "https://maps.googleapis.com/maps/api/mapsjs/gen_204?csp_test=true".
+_.B.send @ main.js:289
+Sca @ main.js:271
+Uca @ main.js:263
+await in Uca
+google.maps.Load @ js?client=google-maps-embed&paint_origin=&libraries=geometry,search&v=weekly&loading=async&language=sv&region=se&callback=onApiLoad:38
+(anonymous) @ main.js:506
+(anonymous) @ main.js:506
+21:03:09.872 index.iife.js:1 content script loaded
+21:03:09.876 main.bundle.4eb6c98f86beb49b2452.js:546 SW registered:  ServiceWorkerRegistration {installing: null, waiting: null, active: ServiceWorker, navigationPreload: NavigationPreloadManager, scope: 'https://www.ptj.se/', …}
+21:03:09.909 418.bundle.6885c189c85aa788bd43.js:254 Refused to load the script 'https://www.googletagmanager.com/gtm.js?id=GTM-55Z27LD9' because it violates the following Content Security Policy directive: "script-src 'self' 'unsafe-inline'". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback.
+
+(anonymous) @ VM295:4
+(anonymous) @ VM295:5
+(anonymous) @ 418.bundle.6885c189c85aa788bd43.js:254
+cookieCallback @ 418.bundle.6885c189c85aa788bd43.js:244
+(anonymous) @ 418.bundle.6885c189c85aa788bd43.js:172
+(anonymous) @ VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:19
+f @ VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:19
+(anonymous) @ VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:19
+(anonymous) @ 418.bundle.6885c189c85aa788bd43.js:181
+Promise.then
+TastyCookieManager @ 418.bundle.6885c189c85aa788bd43.js:166
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:277
+Promise.then
+initCookieConsent @ main.bundle.4eb6c98f86beb49b2452.js:275
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:62
+ready @ main.bundle.4eb6c98f86beb49b2452.js:367
+init @ main.bundle.4eb6c98f86beb49b2452.js:54
+74822 @ main.bundle.4eb6c98f86beb49b2452.js:552
+__webpack_require__ @ runtime.bundle.4cdebfe742f9ded1e8e3.js:23
+__webpack_exec__ @ main.bundle.4eb6c98f86beb49b2452.js:675
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:676
+(anonymous) @ runtime.bundle.4cdebfe742f9ded1e8e3.js:59
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:677
+webpackJsonpCallback @ runtime.bundle.4cdebfe742f9ded1e8e3.js:353
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:1
+21:03:09.909 VM296:2 Uncaught ReferenceError: $vizzit is not defined
+    at <anonymous>:2:5
+    at 418.bundle.6885c189c85aa788bd43.js:254:27
+    at Array.forEach (<anonymous>)
+    at TastyCookieManager.cookieCallback (418.bundle.6885c189c85aa788bd43.js:244:15)
+    at Object.cookieInit (418.bundle.6885c189c85aa788bd43.js:172:32)
+    at VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:19:9138
+    at Array.forEach (<anonymous>)
+    at f (VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:19:9101)
+    at e.init (VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:19:9206)
+    at 418.bundle.6885c189c85aa788bd43.js:181:16
+(anonymous) @ VM296:2
+(anonymous) @ 418.bundle.6885c189c85aa788bd43.js:254
+cookieCallback @ 418.bundle.6885c189c85aa788bd43.js:244
+(anonymous) @ 418.bundle.6885c189c85aa788bd43.js:172
+(anonymous) @ VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:19
+f @ VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:19
+(anonymous) @ VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:19
+(anonymous) @ 418.bundle.6885c189c85aa788bd43.js:181
+Promise.then
+TastyCookieManager @ 418.bundle.6885c189c85aa788bd43.js:166
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:277
+Promise.then
+initCookieConsent @ main.bundle.4eb6c98f86beb49b2452.js:275
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:62
+ready @ main.bundle.4eb6c98f86beb49b2452.js:367
+init @ main.bundle.4eb6c98f86beb49b2452.js:54
+74822 @ main.bundle.4eb6c98f86beb49b2452.js:552
+__webpack_require__ @ runtime.bundle.4cdebfe742f9ded1e8e3.js:23
+__webpack_exec__ @ main.bundle.4eb6c98f86beb49b2452.js:675
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:676
+(anonymous) @ runtime.bundle.4cdebfe742f9ded1e8e3.js:59
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:677
+webpackJsonpCallback @ runtime.bundle.4cdebfe742f9ded1e8e3.js:353
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:1
+21:03:09.913 418.bundle.6885c189c85aa788bd43.js:22 XHR finished loading: GET "https://www.ptj.se/api/cookieinfo?invalidate=2025-07-01T19:03:09.845Z".
+dispatchXhrRequest @ VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:221
+xhrAdapter @ VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:47
+dispatchRequest @ VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:725
+Promise.then
+request @ VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:488
+wrap @ VM274 vendors.bundle.6d06ff74ea3dfa69c36c.js:1121
+get @ 418.bundle.6885c189c85aa788bd43.js:22
+TastyCookieManager @ 418.bundle.6885c189c85aa788bd43.js:166
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:277
+Promise.then
+initCookieConsent @ main.bundle.4eb6c98f86beb49b2452.js:275
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:62
+ready @ main.bundle.4eb6c98f86beb49b2452.js:367
+init @ main.bundle.4eb6c98f86beb49b2452.js:54
+74822 @ main.bundle.4eb6c98f86beb49b2452.js:552
+__webpack_require__ @ runtime.bundle.4cdebfe742f9ded1e8e3.js:23
+__webpack_exec__ @ main.bundle.4eb6c98f86beb49b2452.js:675
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:676
+(anonymous) @ runtime.bundle.4cdebfe742f9ded1e8e3.js:59
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:677
+webpackJsonpCallback @ runtime.bundle.4cdebfe742f9ded1e8e3.js:353
+(anonymous) @ main.bundle.4eb6c98f86beb49b2452.js:1
+21:03:09.999 script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1 Fetch finished loading: POST "https://plausible.io/api/event".
+c @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+b @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+n @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+(anonymous) @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+e @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+(anonymous) @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1
+(anonymous) @ script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js:1

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="sv-SE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination i Bjärred - Vaccin- & Hälsobussen</title>
+    <meta name="description" content="Vaccin- & Hälsobussen kommer till Coop i Bjärred. Drop-in vaccinationer för TBE, influensa, bältros och mer. Se schema och priser.">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="stylesfinal.css">
+    
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Theme color -->
+    <meta name="theme-color" content="#012363">
+</head>
+<body>
+    <!-- VACCINE BJARRED APP WRAPPER START -->
+    <div id="vaccine-bjarred-app" class="vb-app">
+        <!-- 1. INTRO SECTION -->
+        <header role="banner">
+            <h1 id="main-heading" tabindex="-1">Vaccination i Bjärred</h1>
+            <button id="theme-toggle" class="theme-toggle-btn" tabindex="0" type="button" aria-pressed="false" aria-label="Växla mörkt/ljust läge">
+                <i class="fas fa-sun" aria-hidden="true"></i>
+            </button>
+        </header>
+        
+        <main role="main">
+            <section class="intro-section" aria-labelledby="main-heading">
+                <div class="bus-gallery-col" data-dynamic-style="card">
+                    <div class="img-wrapper">
+                        <img class="bus-img img-blue-glow" src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/1.webp,,146844?epieditmode=False&width=200&mode=max&format=auto&q=80" alt="Vaccinationsbussen – utsida från sidan" data-fluid="" />
+                    </div>
+                    <div class="card-body p-0">
+                        <p class="card-text bus-title text-center">Vaccin- och Hälsobussen, vi kommer till er.</p>
+                    </div>
+                </div>
+                <article class="intro-content" role="article" aria-label="Introduktion till vaccinationstjänsten">
+                    <p><strong>Vaccin- &amp; Hälsobussen</strong> rullar direkt upp till <em>Coop i Bjärred</em> – så att du slipper ta dig till en klinik. Medan du handlar kan du enkelt uppdatera ditt grundskydd eller ta en extra dos mot <abbr title="Tick-borne encephalitis">TBE</abbr>, bältros eller vattkoppor.</p>
+                    <p>I Bjärred – där <em>Långa bryggan</em> sträcker sig ut i Öresund och morgondoppen vid hamnen är en självklarhet – vill du inte missa de stämningsfulla sommarkvällarna eller kyliga dopp i gryningen. Genom vaccination skyddar du din egen hälsa, slipper oväntade sjukdagar och försäkrar att du kan fortsätta njuta av allt som gör Bjärred unikt.</p>
+                    <p class="call-to-action" role="note" aria-label="Uppmaning till handling"><strong>Stanna till vid bussen, kavla upp ärmen och gör det smidigt för dig själv</strong> – vi finns redo vid Coop i Bjärred när du är i farten!</p>
+                </article>
+            </section>
+
+            <!-- 2. LOCATION & SCHEDULE SECTION -->
+            <aside role="complementary" aria-labelledby="schedule-heading">
+                <h2 id="schedule-heading" class="visually-hidden">Schema och plats för vaccinationsbussen</h2>
+                <table class="location-schedule caption-top" aria-describedby="location-description">
+                    <caption id="location-description" class="place-title">
+                        <span class="address-label" aria-label="Besöksadress">Adress:</span>
+                        <address>Coop,<br />Norra Västkustvägen 2, 237 37 Bjärred</address>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" abbr="Datum">Datum</th>
+                            <th scope="col" abbr="Veckodag">Dag</th>
+                            <th scope="col" abbr="Öppettider">Tid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>24 feb 2025</td>
+                            <td>Måndag</td>
+                            <td>14:30–18:30</td>
+                        </tr>
+                        <tr>
+                            <td>17 mar 2025</td>
+                            <td>Måndag</td>
+                            <td>14:30–18:30</td>
+                        </tr>
+                        <tr>
+                            <td>28 apr 2025</td>
+                            <td>Måndag</td>
+                            <td>14:30–18:30</td>
+                        </tr>
+                        <tr>
+                            <td>19 maj 2025</td>
+                            <td>Måndag</td>
+                            <td>14:30–18:30</td>
+                        </tr>
+                        <tr>
+                            <td>30 maj 2025</td>
+                            <td>Fredag</td>
+                            <td>14:30–18:30</td>
+                        </tr>
+                        <tr>
+                            <td>30 jun 2025</td>
+                            <td>Måndag</td>
+                            <td>14:30–18:30</td>
+                        </tr>
+                        <tr>
+                            <td>21 jul 2025</td>
+                            <td>Måndag</td>
+                            <td>14:30–18:30</td>
+                        </tr>
+                        <tr>
+                            <td>11 aug 2025</td>
+                            <td>Måndag</td>
+                            <td>14:30–18:30</td>
+                        </tr>
+                        <tr>
+                            <td>1 sep 2025</td>
+                            <td>Måndag</td>
+                            <td>14:30–18:30</td>
+                        </tr>
+                        <tr>
+                            <td>22 sep 2025</td>
+                            <td>Måndag</td>
+                            <td>14:30–18:30</td>
+                        </tr>
+                        <tr>
+                            <td>13 okt 2025</td>
+                            <td>Måndag</td>
+                            <td>14:30–18:30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </aside>
+
+            <!-- 3. PRICE SECTION -->
+            <section class="price-section" aria-labelledby="price-heading">
+                <h2 id="price-heading" class="price-heading">Vaccinationspriser</h2>
+                <p>Pensionärer får 10 % rabatt på alla vaccinationer och studenter med Mecenat-/Alumnikort 15 %. Kavla upp ärmen för din nästa vaccination – vi finns nära hemmet och alltid med omsorg i fokus.</p>
+                <div class="price-toggles">
+                    <input id="v-ord" class="price-toggle-input visually-hidden" checked="checked" name="price-view" type="radio" />
+                    <input id="v-pen" class="price-toggle-input visually-hidden" name="price-view" type="radio" />
+                    <input id="v-stu" class="price-toggle-input visually-hidden" name="price-view" type="radio" />
+                    <div class="price-toggle-labels">
+                        <label class="price-toggle-label" for="v-ord">Ordinarie</label>
+                        <label class="price-toggle-label" for="v-pen">Pensionär – 10%</label>
+                        <label class="price-toggle-label" for="v-stu">Student – 15%</label>
+                    </div>
+                </div>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th class="price-vaccine">Vaccination</th>
+                            <th class="price-col ord">Pris/dos<br />Ordinarie</th>
+                            <th class="price-col pen">Pris/dos<br />Pensionär</th>
+                            <th class="price-col stu">Pris/dos<br />Student</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="price-vaccine">Bältros</td>
+                            <td class="price-val ord">2 550 kr</td>
+                            <td class="price-val pen">2 295 kr</td>
+                            <td class="price-val stu">2 168 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">Hep A vuxen</td>
+                            <td class="price-val ord">550 kr</td>
+                            <td class="price-val pen">495 kr</td>
+                            <td class="price-val stu">468 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">Hep A barn</td>
+                            <td class="price-val ord">450 kr</td>
+                            <td class="price-val pen">405 kr</td>
+                            <td class="price-val stu">382 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">Hep B vuxen</td>
+                            <td class="price-val ord">500 kr</td>
+                            <td class="price-val pen">450 kr</td>
+                            <td class="price-val stu">425 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">Hep B barn</td>
+                            <td class="price-val ord">430 kr</td>
+                            <td class="price-val pen">387 kr</td>
+                            <td class="price-val stu">366 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">Hep AB vuxen</td>
+                            <td class="price-val ord">700 kr</td>
+                            <td class="price-val pen">630 kr</td>
+                            <td class="price-val stu">595 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">Hep AB barn</td>
+                            <td class="price-val ord">540 kr</td>
+                            <td class="price-val pen">486 kr</td>
+                            <td class="price-val stu">459 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">HPV</td>
+                            <td class="price-val ord">2 340 kr</td>
+                            <td class="price-val pen">2 106 kr</td>
+                            <td class="price-val stu">1 989 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">Influensa</td>
+                            <td class="price-val ord">420 kr</td>
+                            <td class="price-val pen">378 kr</td>
+                            <td class="price-val stu">357 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">Grundskydd</td>
+                            <td class="price-val ord">520 kr</td>
+                            <td class="price-val pen">468 kr</td>
+                            <td class="price-val stu">442 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">TBE vuxen</td>
+                            <td class="price-val ord">460 kr</td>
+                            <td class="price-val pen">414 kr</td>
+                            <td class="price-val stu">391 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">TBE barn</td>
+                            <td class="price-val ord">410 kr</td>
+                            <td class="price-val pen">369 kr</td>
+                            <td class="price-val stu">348 kr</td>
+                        </tr>
+                        <tr>
+                            <td class="price-vaccine">Vattkoppor</td>
+                            <td class="price-val ord">860 kr</td>
+                            <td class="price-val pen">774 kr</td>
+                            <td class="price-val stu">731 kr</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 4. WHY CHOOSE US SECTION -->
+            <section class="why-choose-section">
+                <p>Upplev bekvämligheten med vår specialbyggda vaccinationsbuss, fullt utrustad med brits, handtvättstation och garanterad hygien...</p>
+                <div class="bus-gallery-col" data-dynamic-style="card">
+                    <div class="img-wrapper">
+                        <img class="bus-img img-blue-glow img-fluid" src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/2.webp,,146843?epieditmode=False&width=200&mode=max&format=auto&q=80" alt="Vaccinationsbussen – insida med fullskalig brits" data-fluid="" />
+                    </div>
+                    <div class="card-body p-0">
+                        <p class="card-text bus-title text-center">Välkommen in</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. VACCINE INFO SECTION -->
+            <section class="vaccine-section" role="region" aria-labelledby="vaccine-heading">
+                <h3 id="vaccine-heading" class="subtitle">Våra Vaccinationer <i class="fas fa-chevron-down" aria-hidden="true"></i></h3>
+                <div class="vaccination-info">
+                    <!-- Most Common Vaccines -->
+                    <div class="vaccine-category">
+                        <details class="vaccine-item vaccine-priority" role="group" aria-labelledby="tbe-vaccine-title">
+                            <summary id="tbe-vaccine-title" class="vaccine-summary" aria-expanded="false">
+                                <strong>TBE-vaccin</strong>
+                                <span class="vaccine-badge" role="mark" aria-label="Prioriterad vaccination">Rekommenderat</span>
+                                <span class="vaccine-teaser">Skydda dig mot TBE – en fästingburen hjärninflammation...</span>
+                            </summary>
+                            <div class="vaccine-content">
+                                <p>Skydda dig mot TBE – en fästingburen hjärninflammation som blir allt vanligare i Sverige.</p>
+                                <p>Vi erbjuder TBE-vaccination i Bjärred för både barn och vuxna. Kom ihåg att flera doser krävs för ett fullgott skydd.</p>
+                            </div>
+                        </details>
+                        <details class="vaccine-item">
+                            <summary class="vaccine-summary">
+                                <strong>Grundskyddsvaccin</strong>
+                                <span class="vaccine-desc">Stelkramp/Difteri/Kikhosta</span>
+                                <span class="vaccine-teaser">Dags att uppdatera grundskyddet? I vår buss...</span>
+                            </summary>
+                            <div class="vaccine-content">
+                                <p>Dags att uppdatera grundskyddet? I vår buss i Bjärred kan du enkelt vaccinera dig mot stelkramp, difteri och kikhosta.</p>
+                                <p>Folkhälsomyndigheten rekommenderar alla att fylla på sitt grundskydd då vi har stelkramp i jorden i Sverige.</p>
+                            </div>
+                        </details>
+                        <details class="vaccine-item">
+                            <summary class="vaccine-summary">
+                                <strong>Influensavaccin</strong>
+                                <span class="vaccine-desc">Säsongsanpassat</span>
+                                <span class="vaccine-teaser">Under influensasäsongen erbjuder vi säsongsanpassade...</span>
+                            </summary>
+                            <div class="vaccine-content">
+                                <p>Under influensasäsongen erbjuder vi säsongsanpassade influensavaccin i Bjärred.</p>
+                                <p>Rekommenderas särskilt för äldre, gravida och personer i riskgrupp, men även friska vuxna kan ha nytta av att vaccinera sig. Förutom att skydda sig själv, bidrar vaccinationen även till att minska smittspridningen i samhället, särskilt till dem som är mest utsatta.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <!-- Additional vaccine categories can be added here -->
+                </div>
+            </section>
+
+            <!-- 6. FAQ SECTION -->
+            <section class="faq-section" aria-labelledby="faq-heading">
+                <h2 id="faq-heading" class="subtitle">Vanliga Frågor</h2>
+                <div class="faq sidebar-content">
+                    <div class="faq-section">
+                        <details class="faq-item">
+                            <summary>Behöver jag boka tid eller har ni drop‑in?</summary>
+                            <div class="faq-content">
+                                <p>Hos oss är det alltid drop-in, vilket innebär att du kan komma när det passar dig bäst. Tack vare våra effektiva rutiner i Bjärred är väntetiderna korta, så att du snabbt kan få din vaccination och återgå till din dag.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Vilka betalningsalternativ accepterar ni?</summary>
+                            <div class="faq-content">
+                                <p>Vi tar emot kort (Visa, Mastercard) och Swish. Kontant betalning är tyvärr inte möjlig.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Hur lång tid tar ett besök i bussen?</summary>
+                            <div class="faq-content">
+                                <p>Själva vaccinationen tar bara några minuter. Räkna totalt cirka 10 minuter inklusive registrering och vaccinering. Vi strävar alltid efter minimala väntetider och jobbar så fort vi kan, men under vissa rusningstider kan det vara många som vill vaccinera sig och då kan man få räkna med en något längre väntan.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Kan barn vaccineras i bussen?</summary>
+                            <div class="faq-content">
+                                <p>Ja, på Vaccin- och Hälsobussen är barnvaccinationer en självklarhet – vi är vana vid att ta hand om de yngsta på ett tryggt vis. Minderåriga måste komma i sällskap med vårdnadshavare eller ha skriftligt samtycke.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Behöver jag ta med vaccinationskort / journal?</summary>
+                            <div class="faq-content">
+                                <p>Har du ett vaccinationskort får du gärna ta med det. Saknar du dokumentation kan vår personal oftast hitta tidigare doser i vårt journalsystem eller ge råd om ett lämpligt schema.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- VACCINE BJARRED APP WRAPPER END -->
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

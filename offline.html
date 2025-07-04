@@ -3,177 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offline - Vaccinbussen Björred</title>
+    <title>Offline - Vaccin- & Hälsobussen Bjärred</title>
+    <meta name="description" content="Du är offline. Vaccin- & Hälsobussen i Bjärred - Drop-in vaccinationer vid Coop.">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Inline critical CSS to ensure offline page works -->
     <style>
+        :root {
+            --vb-primary-main: #012363;
+            --vb-primary-light: #4AA6C9;
+            --vb-primary-lighter: #E0F3FA;
+            --vb-accent-main: #FFB74D;
+            --vb-text-primary: #222;
+            --vb-text-inverse: #fff;
+            --vb-bg-primary: #f8fafc;
+            --vb-bg-card: #fff;
+            --vb-border-primary: #e0e0e0;
+            --vb-radius-sm: 0.5rem;
+            --vb-radius-md: 0.75rem;
+            --vb-radius-lg: 1rem;
+            --vb-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --vb-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --vb-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Filson Pro', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #012363, #4AA6C9);
-            color: white;
+            padding: 0;
+            background: var(--vb-bg-primary);
+            color: var(--vb-text-primary);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            line-height: 1.6;
+        }
+
+        #vaccine-bjarred-app {
+            width: 100%;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .offline-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--vb-bg-card);
+            border-radius: var(--vb-radius-lg);
+            box-shadow: var(--vb-shadow-lg);
+            overflow: hidden;
+        }
+
+        .offline-header {
+            background: linear-gradient(135deg, var(--vb-primary-main), var(--vb-primary-light));
+            color: var(--vb-text-inverse);
+            padding: 3rem 2rem;
             text-align: center;
         }
-        
-        .offline-container {
-            max-width: 400px;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-        
+
         .offline-icon {
-            font-size: 64px;
-            margin-bottom: 20px;
+            font-size: 4rem;
+            margin-bottom: 1rem;
             display: block;
-        }
-        
-        h1 {
-            margin: 0 0 16px 0;
-            font-size: 28px;
-            font-weight: 600;
-        }
-        
-        p {
-            margin: 0 0 24px 0;
-            font-size: 16px;
-            line-height: 1.6;
             opacity: 0.9;
         }
-        
-        .retry-button {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 16px;
+
+        .offline-header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .offline-header p {
+            margin: 0;
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        .offline-content {
+            padding: 2rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--vb-radius-md);
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: inline-block;
-            text-decoration: none;
-            margin: 8px;
+            border: none;
+            font-family: inherit;
         }
-        
-        .retry-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
+
+        .btn-primary {
+            background: var(--vb-primary-main);
+            color: var(--vb-text-inverse);
+        }
+
+        .btn-primary:hover {
+            background: var(--vb-primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--vb-shadow-md);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--vb-primary-main);
+            border: 2px solid var(--vb-primary-main);
+        }
+
+        .btn-secondary:hover {
+            background: var(--vb-primary-lighter);
             transform: translateY(-2px);
         }
-        
-        .offline-info {
-            margin-top: 32px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            font-size: 14px;
-            line-height: 1.5;
+
+        .info-card {
+            background: var(--vb-primary-lighter);
+            border-radius: var(--vb-radius-md);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
         }
-        
-        .offline-info h3 {
-            margin: 0 0 12px 0;
-            font-size: 16px;
+
+        .info-card h3 {
+            margin: 0 0 1rem 0;
+            color: var(--vb-primary-main);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        
-        .cached-links {
-            margin-top: 20px;
+
+        .info-card p {
+            margin: 0.5rem 0;
+            color: var(--vb-text-primary);
         }
-        
-        .cached-links a {
-            color: white;
-            text-decoration: underline;
-            margin: 0 8px;
+
+        .info-grid {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
-        
-        @media (max-width: 480px) {
-            .offline-container {
-                margin: 20px;
-                padding: 30px 15px;
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .info-item i {
+            color: var(--vb-primary-main);
+            font-size: 1.25rem;
+            width: 24px;
+            flex-shrink: 0;
+        }
+
+        .quick-links {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .quick-links h4 {
+            margin: 0 0 1rem 0;
+            color: var(--vb-primary-main);
+        }
+
+        .link-pills {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .link-pill {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            background: var(--vb-primary-lighter);
+            color: var(--vb-primary-main);
+            text-decoration: none;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .link-pill:hover {
+            background: var(--vb-primary-main);
+            color: var(--vb-text-inverse);
+            transform: translateY(-1px);
+        }
+
+        .status-indicator {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--vb-primary-main);
+            color: var(--vb-text-inverse);
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .status-indicator.visible {
+            opacity: 1;
+        }
+
+        .status-indicator.online {
+            background: #22c55e;
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: currentColor;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
             }
-            
-            .offline-icon {
-                font-size: 48px;
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
             }
-            
-            h1 {
-                font-size: 24px;
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --vb-bg-primary: #1a1a1a;
+                --vb-bg-card: #2a2a2a;
+                --vb-text-primary: #e0e0e0;
+                --vb-border-primary: #444;
+                --vb-primary-lighter: rgba(74, 166, 201, 0.2);
+            }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 576px) {
+            .offline-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .offline-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .offline-content {
+                padding: 1.5rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="offline-container">
-        <span class="offline-icon">📱</span>
-        <h1>Du är offline</h1>
-        <p>Din internetanslutning verkar vara nedkopplad. Vissa funktioner kanske inte fungerar som förväntat.</p>
-        
-        <a href="javascript:window.location.reload()" class="retry-button">
-            🔄 Försök igen
-        </a>
-        
-        <a href="/" class="retry-button">
-            🏠 Hem
-        </a>
-        
-        <div class="offline-info">
-            <h3>🩺 Vaccinbussen Björred</h3>
-            <p>Vi är en mobil vaccinationstjänst som kommer direkt till Coop i Björred.</p>
-            
-            <p><strong>📍 Adress:</strong><br>
-            Coop, Norra Västkustvägen 2<br>
-            237 37 Björred</p>
-            
-            <p><strong>🕒 Nästa besök:</strong><br>
-            Se vårt schema när du kommer online igen</p>
-            
-            <p><strong>💳 Betalning:</strong><br>
-            Visa, Mastercard, Swish</p>
-            
-            <div class="cached-links">
-                <strong>📋 Snabblänkar:</strong><br>
-                <a href="/vaccination-i-bjarred/">Startsida</a>
-                <a href="/vaccination-i-bjarred/#schema">Schema</a>
-                <a href="/vaccination-i-bjarred/#priser">Priser</a>
+    <div id="vaccine-bjarred-app">
+        <div class="offline-container">
+            <div class="offline-header">
+                <span class="offline-icon">
+                    <i class="fas fa-wifi-slash"></i>
+                </span>
+                <h1>Du är offline</h1>
+                <p>Ingen internetanslutning hittades</p>
+            </div>
+
+            <div class="offline-content">
+                <div class="action-buttons">
+                    <button onclick="window.location.reload()" class="btn btn-primary">
+                        <i class="fas fa-redo"></i>
+                        Försök igen
+                    </button>
+                    <a href="/" class="btn btn-secondary">
+                        <i class="fas fa-home"></i>
+                        Till startsidan
+                    </a>
+                </div>
+
+                <div class="info-card">
+                    <h3>
+                        <i class="fas fa-bus"></i>
+                        Vaccin- & Hälsobussen Bjärred
+                    </h3>
+                    <p>Vi är en mobil vaccinationstjänst som kommer direkt till dig. Även om du är offline just nu, här är viktig information om våra tjänster:</p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Plats:</strong><br>
+                            Coop, Norra Västkustvägen 2<br>
+                            237 37 Bjärred
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Öppettider:</strong><br>
+                            Måndagar 14:30–18:30<br>
+                            Se fullständigt schema online
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-syringe"></i>
+                        <div>
+                            <strong>Vaccinationer:</strong><br>
+                            TBE, Influensa, Bältros<br>
+                            Grundskydd, HPV, Hepatit
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-credit-card"></i>
+                        <div>
+                            <strong>Betalning:</strong><br>
+                            Visa, Mastercard, Swish<br>
+                            Rabatt för pensionärer & studenter
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-links">
+                    <h4>Snabblänkar (tillgängliga när du är online)</h4>
+                    <div class="link-pills">
+                        <a href="/vaccination-i-bjarred/" class="link-pill">Startsida</a>
+                        <a href="/vaccination-i-bjarred/#schema" class="link-pill">Schema</a>
+                        <a href="/vaccination-i-bjarred/#priser" class="link-pill">Priser</a>
+                        <a href="/vaccination-i-bjarred/#vacciner" class="link-pill">Våra vacciner</a>
+                        <a href="/vaccination-i-bjarred/#faq" class="link-pill">Vanliga frågor</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+    <div class="status-indicator" id="status-indicator">
+        <span class="pulse"></span>
+        <span id="status-text">Kontrollerar anslutning...</span>
+    </div>
+
     <script>
-        // Auto-retry when back online
-        window.addEventListener('online', function() {
-            setTimeout(() => {
-                window.location.reload();
-            }, 1000);
-        });
-        
-        // Check connection status
+        // Connection status management
+        const statusIndicator = document.getElementById('status-indicator');
+        const statusText = document.getElementById('status-text');
+        let checkInterval;
+
         function updateConnectionStatus() {
             if (navigator.onLine) {
-                document.body.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+                statusIndicator.classList.add('online', 'visible');
+                statusText.textContent = 'Anslutning återställd!';
+                
+                // Auto-reload after 2 seconds
                 setTimeout(() => {
                     window.location.reload();
-                }, 1500);
+                }, 2000);
+            } else {
+                statusIndicator.classList.remove('online');
+                statusIndicator.classList.add('visible');
+                statusText.textContent = 'Kontrollerar anslutning...';
             }
         }
-        
-        // Check periodically
-        setInterval(updateConnectionStatus, 3000);
-        
-        // Visual feedback for retry attempts
-        document.querySelectorAll('.retry-button').forEach(button => {
+
+        // Check connection status when back online
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+
+        // Initial check
+        setTimeout(() => {
+            updateConnectionStatus();
+        }, 1000);
+
+        // Periodic connection check
+        checkInterval = setInterval(updateConnectionStatus, 5000);
+
+        // Button interaction feedback
+        document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('click', function() {
-                this.style.background = 'rgba(255, 255, 255, 0.4)';
-                this.textContent = this.textContent.replace('🔄', '⏳');
+                if (this.onclick) return; // Skip if it has onclick handler
+                
+                this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
-                    this.style.background = 'rgba(255, 255, 255, 0.2)';
-                    this.textContent = this.textContent.replace('⏳', '🔄');
-                }, 2000);
+                    this.style.transform = '';
+                }, 150);
             });
+        });
+
+        // Clean up on page unload
+        window.addEventListener('beforeunload', () => {
+            if (checkInterval) {
+                clearInterval(checkInterval);
+            }
         });
     </script>
 </body>

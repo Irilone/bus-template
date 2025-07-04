@@ -1,3 +1,3121 @@
+
+            /* ==========================================================================
+   10. PERFORMANCE OPTIMIZATIONS
+   Prestandaoptimeringar för snabbare rendering
+========================================================================== */
+            .faq-item:not([open]) {
+                content-visibility: auto;
+                contain-intrinsic-size: 0 60px;
+            }
+
+            .faq-item summary::after {
+                will-change: transform;
+            }
+
+            .faq-item[open] summary::after {
+                will-change: auto;
+            }
+
+            @keyframes lightboxSpin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* ==========================================================================
+   11. MEDIA QUERIES
+   Responsiva brytpunkter för olika skärmstorlekar
+========================================================================== */
+            /* Reduced Motion */
+            @media (prefers-reduced-motion: reduce) {
+
+                html body *,
+                .faq-item,
+                .faq-icon::before,
+                .faq-icon::after,
+                .fade-in {
+                    transition: none;
+                    animation: none;
+                }
+            }
+
+            /* Print Styles */
+            @media print {
+                .faq-item details {
+                    /* Force open state for print */
+                    display: block !important;
+                }
+
+                .faq-item details[open] summary::after {
+                    content: "";
+                }
+
+                .faq-item details > :not(summary) {
+                    display: block !important;
+                }
+
+                .faq-icon {
+                    display: none;
+                }
+
+                .location-schedule tr[data-upcoming]::before {
+                    display: none;
+                }
+            }
+
+            /* Container System - Mobile-First Bootstrap 5.3 Pattern */
+            .container {
+                width: 100%;
+                margin-inline: auto;
+                padding-inline: 1rem;
+            }
+
+            @media (min-width: 576px) {
+                .container {
+                    padding-inline: clamp(1rem, 4vw, 2rem);
+                }
+            }
+
+            @media (min-width: 992px) {
+                .container {
+                    max-width: 1320px;
+                }
+
+                .location-section {
+                    display: grid;
+                    grid-template-columns: 1fr 2fr;
+                    gap: var(--space-xl);
+                    align-items: start;
+                }
+
+                .location-info {
+                    text-align: left;
+                }
+
+                .faq-item {
+                    transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-slow) var(--ease-out);
+                }
+
+                .faq-item:hover {
+                    transform: translateY(calc(var(--PXR-2) * -1));
+                    box-shadow: 0 var(--PXR-4) var(--PXR-12) rgba(0, 0, 0, 0.1);
+                }
+
+                .page__content-body {
+                    padding-right: var(--CLAMP-110);
+                }
+            }
+
+            @media (min-width: 1200px) {
+                .container {
+                    max-width: 1140px;
+                }
+            }
+
+            @media (min-width: 1400px) {
+                .container {
+                    max-width: 1320px;
+                }
+            }
+
+            /* Container Queries */
+            @container main-container (min-width: 400px) {
+                .price-box {
+                    padding: var(--space-lg);
+                }
+            }
+
+            @container main-container (min-width: 600px) {
+                .vaccination-info {
+                    padding: var(--space-xl);
+                }
+            }
+
+            /* Mobile & Tablet Styles */
+            /* Footer Navigation - Mobile-First */
+            nav.footer__link-nav ul#footer__links.open,
+            nav.footer__link-nav ul#footer__links:target {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav.footer__link-nav ul#footer__links.open>li.col,
+            nav.footer__link-nav ul#footer__links:target>li.col {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            @media (min-width: 992px) {
+
+                nav.footer__link-nav ul#footer__links.open,
+                nav.footer__link-nav ul#footer__links:target {
+                    flex-direction: row;
+                    align-items: flex-start;
+                }
+
+                nav.footer__link-nav ul#footer__links.open>li.col,
+                nav.footer__link-nav ul#footer__links:target>li.col {
+                    width: auto;
+                    margin-bottom: 0;
+                }
+            }
+
+            @media (min-width: 576px) and (max-width: 991.98px) {
+                .location-info {
+                    text-align: center;
+                    padding: 0 var(--CLAMP-27);
+                }
+
+                .faq-question {
+                    padding: var(--CLAMP-16);
+                }
+
+                .faq-content {
+                    padding: 0 var(--CLAMP-16) var(--CLAMP-16);
+                }
+            }
+
+            @media (max-width: 767px) {
+
+                html,
+                body {
+                    overflow-x: hidden;
+                }
+
+                .welcome-header {
+                    min-width: 0;
+                    width: 100%;
+                    max-width: 100vw;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    box-sizing: border-box;
+                    margin-bottom: 20px;
+                }
+
+                .welcome-title {
+                    font-size: 1.6em;
+                    line-height: 1.2;
+                }
+
+                .welcome-subtitle {
+                    font-size: 1.1em;
+                    line-height: 1.3;
+                }
+
+                footer.footer {
+                    padding: 20px 15px;
+                }
+
+                footer.footer h4 {
+                    font-size: 1.1em;
+                }
+
+                footer.footer p,
+                footer.footer a {
+                    font-size: 0.9em;
+                }
+
+                nav.footer__link-nav ul#footer__links.open>li.col a.footer__link,
+                nav.footer__link-nav ul#footer__links:target>li.col a.footer__link {
+                    padding: 12px 15px;
+                    font-size: 0.95em;
+                }
+
+                /* Footer länkar på mobil - behåll radlayout om möjligt */
+                nav.footer__link-nav ul#footer__links {
+                    flex-wrap: wrap;
+                    /* Tillåt radbrytning på små skärmar */
+                    gap: var(--space-sm);
+                    padding: 0 var(--space-sm);
+                }
+
+                nav.footer__link-nav ul#footer__links>li.col {
+                    flex: 1 1 auto;
+                    /* Tillåt flex för mobil */
+                    min-width: 0;
+                    font-size: 0.875rem;
+                }
+
+                /* Off-Canvas Menu */
+                .mobile-navigation__left .mobile-navigation__item#open-offside-menu {
+                    padding: 10px;
+                }
+
+                .hamburger-menu {
+                    width: 24px;
+                    height: 20px;
+                }
+
+                .hamburger-menu__line {
+                    height: 3px;
+                    margin: 4px 0;
+                    background-color: #ffffff;
+                    display: block;
+                }
+
+                .offside-navbar--menu__item a,
+                .offside-navbar--menu__item span[role="button"] {
+                    padding: 14px 18px;
+                    font-size: 1rem;
+                    display: block;
+                }
+
+                .offside-navbar--menu.child-menu .offside-navbar--menu__item a {
+                    padding-left: 30px;
+                }
+            }
+
+            @media (max-width: 575.98px) {
+
+                /* Re-order content for mobile
+      Ordning: 1. Intro, 2. Platsschemat, 3. Prislista, 4. Vaccininformation, 5. FAQ */
+                html {
+                    overflow-x: hidden;
+                }
+
+                body {
+                    width: 100%;
+                    max-width: 100vw;
+                    overflow-x: hidden;
+                    margin: 0;
+                    padding: 0;
+                }
+
+
+                /* Fix all containers to respect viewport width */
+                body * {
+                    box-sizing: border-box;
+                }
+
+                /* Force proper viewport scaling and prevent zoom */
+                html {
+                    font-size: 16px;
+                    -webkit-text-size-adjust: 100%;
+                    -ms-text-size-adjust: 100%;
+                    text-size-adjust: 100%;
+                    zoom: 1;
+                    transform: scale(1);
+                    position: relative;
+                    left: 0;
+                    right: 0;
+                }
+
+                /* Force viewport to start at left edge */
+                body {
+                    position: relative;
+                    left: 0;
+                    right: 0;
+                    margin: 0;
+                    padding: 0;
+                    transform: translateX(0);
+                }
+
+                /* Prevent any element from causing horizontal scroll and fix left cutoff */
+                body,
+                html {
+                    margin: 0;
+                    padding: 0;
+                }
+
+
+                .welcome-header,
+                .navigation,
+                .main-content,
+                .page-content,
+                main,
+                section,
+                article {
+                    max-width: 100vw;
+                    overflow-x: hidden;
+                    box-sizing: border-box;
+                }
+
+                /* Ensure content doesn't get cut off on left */
+                .page__content--left-align,
+                article.page__content--left-align {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+
+                /* Fix mobile menu - ensure it starts hidden */
+                .offside-navbar {
+                    width: 0;
+                    display: none;
+                }
+
+                .offside-navbar--menu.child-menu {
+                    display: none;
+                }
+
+                .footer__links {
+                    display: none;
+                }
+
+                .navigation__left--menu,
+                .header-navigation-menu {
+                    display: none;
+                }
+
+                /* FORCE footer menu closed by default */
+                nav.footer__link-nav ul#footer__links {
+                    display: none;
+                }
+
+                nav.footer__link-nav ul#footer__links:not(.open):not(.visible):not(:target) {
+                    display: none;
+                    visibility: hidden;
+                    opacity: 0;
+                    height: 0;
+                    overflow: hidden;
+                }
+
+                /* Only show mobile menu when toggled */
+                .offside-navbar.show-side-nav,
+                .offside-navbar.open {
+                    width: 100%;
+                    display: block;
+                }
+
+                .offside-navbar--menu.child-menu.open {
+                    display: block;
+                }
+
+                .footer__links.visible,
+                .footer__links.open,
+                nav.footer__link-nav ul#footer__links.open,
+                nav.footer__link-nav ul#footer__links.visible,
+                nav.footer__link-nav ul#footer__links:target {
+                    display: flex;
+                    visibility: visible;
+                    opacity: 1;
+                    height: auto;
+                }
+
+                /* Fix footer layout on mobile */
+                footer.footer {
+                    padding: 15px;
+                    margin: 0;
+                    width: 100vw;
+                    max-width: 100vw;
+                    box-sizing: border-box;
+                    overflow-x: hidden;
+                }
+
+                nav.footer__link-nav {
+                    width: 100%;
+                    margin: 0;
+                    padding: 10px;
+                    box-sizing: border-box;
+                }
+
+                nav.footer__link-nav ul#footer__links {
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    padding: 0;
+                    margin: 0;
+                    justify-content: center;
+                }
+
+                nav.footer__link-nav ul#footer__links>li.col {
+                    flex: 0 1 auto;
+                    margin: 2px;
+                    padding: 5px 8px;
+                }
+
+                /* MOBILE ORDERING - Make main container flex */
+                main,
+                .main-content,
+                .page-content,
+                body>.container,
+                body>.container-fluid {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                /* 1. Intro first */
+                article.page__content--left-align,
+                .intro-content {
+                    order: 1;
+                }
+
+                /* 2. Location/Schedule */
+                aside,
+                .sidebar-content,
+                .location-schedule-wrapper,
+                .location-schedule {
+                    order: 2;
+                }
+
+                /* 3. Price heading */
+                .price-heading {
+                    order: 3;
+                }
+
+                /* 4. Price toggles */
+                .price-toggle-labels {
+                    order: 4;
+                }
+
+                /* 5. Price table */
+                .price-box,
+                section.price-box {
+                    order: 5;
+                }
+
+                /* 6. Vaccine info */
+                .vaccination-info,
+                section.vaccination-info,
+                .vaccine-heading {
+                    order: 6;
+                }
+
+                /* 7. FAQ */
+                .faq,
+                section.faq,
+                .faq-title {
+                    order: 7;
+                }
+
+                /* Övriga innehåll */
+                .page__content--left-align,
+                article.page__content--left-align {
+                    order: 0;
+                }
+
+                .location-info {
+                    text-align: left;
+                    padding: 0 var(--CLAMP-18);
+                }
+
+                .faq-question {
+                    padding: var(--CLAMP-14);
+                    font-size: var(--CLAMP-16);
+                }
+
+                .faq-content {
+                    padding: 0 var(--CLAMP-14) var(--CLAMP-14);
+                    font-size: var(--CLAMP-15);
+                }
+
+                .table-container {
+                    margin: 0 calc(var(--PXR-18) * -1);
+                    padding: 0 var(--PXR-18);
+                }
+
+                .bus-img {
+                    width: calc(var(--PXP-11) * 1.2);
+                }
+
+                .price-table {
+                    font-size: var(--fs-table-body);
+                    table-layout: auto;
+                }
+
+                .price-table th,
+                .price-table td {
+                    padding: var(--PXR-4) var(--PXR-4);
+                    font-size: var(--fluid-sm);
+                    /* 14-16px - WCAG AA compliant */
+                }
+
+                /* Keep first 2 columns always visible */
+                .price-table th:nth-child(1),
+                .price-table td:nth-child(1),
+                .price-table th:nth-child(2),
+                .price-table td:nth-child(2) {
+                    display: table-cell;
+                }
+
+                /* Hide columns 3 and 4 by default, show only when toggled */
+                .price-table th:nth-child(3),
+                .price-table td:nth-child(3),
+                .price-table th:nth-child(4),
+                .price-table td:nth-child(4) {
+                    display: none;
+                }
+
+                .price-table th:first-child,
+                .price-table td:first-child {
+                    width: 27%;
+                    padding-right: var(--PXR-6);
+                }
+
+                .price-table th:nth-child(n+2),
+                .price-table td:nth-child(n+2) {
+                    width: 20%;
+                    text-align: right;
+                    white-space: nowrap;
+                }
+
+                .price-table thead th {
+                    font-size: var(--fluid-xs);
+                    /* 12-14px - Minimum accessibility */
+                    line-height: 1.2;
+                }
+
+                .price-table thead th br {
+                    display: none;
+                }
+
+                .faq-item:not([open]) .faq-content {
+                    display: none;
+                    height: 0;
+                    overflow: hidden;
+                    visibility: hidden;
+                    opacity: 0;
+                    padding: 0;
+                    margin: 0;
+                    max-height: 0;
+                }
+
+                .faq-item:not([open]) {
+                    height: auto;
+                    min-height: 0;
+                    padding-bottom: var(--PXR-4);
+                }
+
+                .faq-item:not([open]) summary {
+                    margin-bottom: 0;
+                }
+
+                details.faq-item:not([open])>*:not(summary) {
+                    display: none;
+                }
+
+                .price-toggle-labels {
+                    gap: var(--PXR-8);
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+
+                .price-toggle-label {
+                    font-size: var(--CLAMP-14);
+                    padding: var(--CLAMP-7) var(--CLAMP-9);
+                    flex: 1 1 auto;
+                    min-width: 0;
+                }
+
+                .map-embed-container {
+                    --map-max-width: 100%;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    border-radius: 0;
+                    --map-border-width: 0px;
+                }
+
+                .faq-item summary {
+                    font-size: clamp(0.95rem, 1rem + 0.2vw, 1.1rem);
+                    padding-block: var(--space-lg);
+                    min-height: 5rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .welcome-title {
+                    font-size: 1.4em;
+                }
+
+                .welcome-subtitle {
+                    font-size: 1.0em;
+                }
+            }
+
+            @supports not selector(:has(*)) {
+                @media (max-width: 575.98px) {
+
+                    /* Fallback for browsers without :has() */
+                    .location-schedule-wrapper,
+                    .location-schedule {
+                        order: -8;
+                        width: 100%;
+                        margin-bottom: var(--space-lg);
+                    }
+
+                    .price-box,
+                    .price-toggle-labels {
+                        order: -6;
+                        width: 100%;
+                        margin-bottom: var(--space-lg);
+                    }
+
+                    .vaccination-info {
+                        order: -4;
+                        width: 100%;
+                        margin-bottom: var(--space-lg);
+                    }
+
+                    .faq-sidebar {
+                        order: 1;
+                    }
+                }
+            }
+
+            nav#accessibility-navigation ul.accessibility-navigation__items {
+                padding-left: 0;
+                margin-bottom: 0;
+            }
+
+            /* ==========================================================================
+   Footer PTJ Logo - Begränsar storleken till max 60px (3.75rem)
+========================================================================== */
+            /* Målselektor för footer-logotypen med inline-stil */
+            footer img[alt="Praktikertjänst"] {
+                max-width: 19.44rem;
+                min-width: 3rem;
+                height: auto;
+                display: inline-block;
+            }
+
+            /* ==========================================================================
+   Page Content Wrapper & Body - Responsiva marginaler och padding
+========================================================================== */
+            /* Emulerar margin-bottom: 0, margin-top: 1rem responsivt */
+            .page__content-wrapper {
+                margin-bottom: 0;
+                margin-top: clamp(0.75rem, 0.625rem + 0.625vw, 1rem);
+                /* 12px-16px */
+            }
+
+            /* Emulerar padding-right: 100px för desktop */
+            @media (min-width: 992px) {
+                .page__content-body {
+                    padding-right: clamp(4rem, 3rem + 2.5vw, 6.25rem);
+                    /* 64px-100px */
+                }
+            }
+
+            /* ==========================================================================
+   Price Table Optimeringar - Minimerar whitespace, bibehåller 3 kolumner
+========================================================================== */
+            .price-table {
+                /* Kompakt tabellayout */
+                width: 100%;
+                table-layout: fixed;
+                border-spacing: 0;
+            }
+
+            .price-table th,
+            .price-table td {
+                /* Minimalt padding för kompakt layout */
+                padding: var(--PXR-6) var(--PXR-8);
+                vertical-align: middle;
+            }
+
+            /* Första kolumnen får mer plats för vaccinnamn */
+            .price-table th:first-child,
+            .price-table td:first-child {
+                width: 26.9%;
+                text-align: left;
+                padding-left: var(--PXR-12);
+            }
+
+            /* Priskolumnerna får lika bredd */
+            .price-table th:not(:first-child),
+            .price-table td:not(:first-child) {
+                width: 18.33%;
+                text-align: right;
+                padding-right: var(--PXR-12);
+            }
+
+            /* Visa alltid alla tre priskolumner på mobil */
+            @media (max-width: 575.98px) {
+                .price-table {
+                    font-size: var(--fluid-sm);
+                    /* 14-16px - WCAG AA compliant */
+                }
+
+                /* Keep first 2 columns always visible */
+                .price-table th:nth-child(1),
+                .price-table td:nth-child(1),
+                .price-table th:nth-child(2),
+                .price-table td:nth-child(2) {
+                    display: table-cell;
+                    padding: var(--PXR-3) var(--PXR-4);
+                }
+
+                /* Hide columns 3 and 4 by default on mobile too */
+                .price-table th:nth-child(3),
+                .price-table td:nth-child(3),
+                .price-table th:nth-child(4),
+                .price-table td:nth-child(4) {
+                    display: none;
+                    padding: var(--PXR-3) var(--PXR-4);
+                }
+
+                /* Mobile toggle functionality */
+                body:has(#v-pen:checked) .price-table th:nth-child(3),
+                body:has(#v-pen:checked) .price-table td:nth-child(3) {
+                    display: table-cell;
+                }
+
+                body:has(#v-stu:checked) .price-table th:nth-child(4),
+                body:has(#v-stu:checked) .price-table td:nth-child(4) {
+                    display: table-cell;
+                }
+
+                /* Justera kolumnbredder för mobil */
+                .price-table th:first-child,
+                .price-table td:first-child {
+                    width: 40%;
+                    padding-left: var(--PXR-6);
+                }
+
+                .price-table th:not(:first-child),
+                .price-table td:not(:first-child) {
+                    width: 20%;
+                    padding-right: var(--PXR-6);
+                }
+
+                /* Enable two-row headers on mobile */
+                .price-table thead th {
+                    font-size: var(--fluid-sm);
+                    /* 14-16px - WCAG compliant */
+                    line-height: 1.1;
+                    white-space: pre-line;
+                    vertical-align: top;
+                }
+
+                /* Center price column headers */
+                .price-table thead th:nth-child(2),
+                .price-table thead th:nth-child(3),
+                .price-table thead th:nth-child(4) {
+                    text-align: center;
+                }
+            }
+
+            /* ==========================================================================
+   FAQ Grid Layout - Exakt 2 rader med balanserad bredd
+========================================================================== */
+            .faq-item summary {
+                /* Grid layout för exakt 2 rader */
+                display: grid;
+                grid-template-columns: 1fr auto;
+                grid-template-rows: 1fr 1fr;
+                align-items: start;
+                gap: 0 var(--space-sm);
+            }
+
+            /* FAQ frågetext som grid child */
+            .faq-item summary::before {
+                content: attr(data-question);
+                grid-column: 1;
+                grid-row: 1 / -1;
+                align-self: center;
+                line-height: 1.4;
+                word-break: break-word;
+                hyphens: auto;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            /* Chevron i grid */
+            .faq-item summary::after {
+                grid-column: 2;
+                grid-row: 1 / -1;
+                align-self: center;
+            }
+
+            /* ==========================================================================
+   Vaccine Information Progressive Disclosure Styles
+   ========================================================================== */
+
+            /* Vaccine Categories */
+            .vaccine-category {
+                margin-bottom: var(--CLAMP-12);
+                border-radius: var(--radius-md);
+                background: var(--clr-surface-subtle);
+                padding: var(--CLAMP-8);
+            }
+
+            .vaccine-category-title {
+                font-size: var(--fluid-md);
+                font-weight: var(--fw-semibold);
+                margin-bottom: var(--CLAMP-6);
+                padding-bottom: var(--CLAMP-3);
+                border-bottom: 2px solid var(--clr-primary-subtle);
+                color: var(--clr-primary);
+            }
+
+            /* Vaccine Items */
+            .vaccine-item {
+                background: var(--clr-bg);
+                border: 1px solid var(--clr-border-subtle);
+                border-radius: var(--radius-sm);
+                margin-bottom: var(--CLAMP-4);
+                transition: all 0.2s ease;
+            }
+
+            .vaccine-item:hover {
+                border-color: var(--clr-primary-subtle);
+                box-shadow: 0 2px 8px var(--clr-shadow-subtle);
+            }
+
+            .vaccine-item[open] {
+                border-color: var(--clr-primary);
+                background: var(--clr-primary-subtle);
+            }
+
+            /* Vaccine Priority Badge */
+            .vaccine-priority {
+                border-left: 4px solid var(--clr-accent);
+            }
+
+            .vaccine-priority .vaccine-badge {
+                background: var(--clr-accent);
+                color: var(--clr-on-accent);
+                font-size: var(--fluid-xs);
+                font-weight: var(--fw-medium);
+                padding: 0.25rem 0.5rem;
+                border-radius: var(--radius-xs);
+                margin-left: auto;
+            }
+
+            /* Health Service Item */
+            .health-service {
+                border-left: 4px solid var(--clr-secondary);
+            }
+
+            /* Vaccine Summary */
+            .vaccine-summary {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: var(--CLAMP-5) var(--CLAMP-6);
+                cursor: pointer;
+                font-weight: var(--fw-medium);
+                list-style: none;
+                position: relative;
+            }
+
+            .vaccine-summary::-webkit-details-marker {
+                display: none;
+            }
+
+            .vaccine-summary::after {
+                content: '›';
+                font-size: var(--fluid-sm);
+                color: var(--clr-primary);
+                transition: transform 0.2s ease;
+                flex-shrink: 0;
+                margin-left: var(--CLAMP-4);
+            }
+
+            .vaccine-item[open] .vaccine-summary::after {
+                transform: rotate(90deg);
+            }
+
+            .vaccine-desc {
+                font-size: var(--fluid-sm);
+                color: var(--clr-body-secondary);
+                font-weight: var(--fw-normal);
+                font-style: italic;
+            }
+
+            /* Vaccine Content */
+            .vaccine-content {
+                padding: 0 var(--CLAMP-6) var(--CLAMP-6) var(--CLAMP-6);
+                border-top: 1px solid var(--clr-border-subtle);
+                background: var(--clr-bg);
+            }
+
+            .vaccine-content p {
+                margin: 0;
+                color: var(--clr-white);
+            }
+
+            .vaccine-content p:last-child {
+                margin-bottom: 0;
+            }
+
+            section.faq.sidebar-content details.faq-item {
+                min-width: var(--PXR-180);
+            }
+
+            .faq-question:focus {
+                outline: var(--PXR-2) solid var(--clr-accent);
+                outline-offset: var(--PXR-2);
+                box-shadow: 0 0 0 var(--PXR-4) rgba(74, 166, 201, 0.1);
+            }
+
+            .faq-question:focus-visible {
+                outline: var(--PXR-2) solid var(--clr-accent);
+                outline-offset: var(--PXR-2);
+            }
+
+            /* Lightbox */
+            .img-lightbox {
+                display: none;
+                position: fixed;
+                z-index: 9999;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                cursor: pointer;
+                animation: fadeIn var(--duration-fast) var(--ease-out);
+                justify-content: center;
+                align-items: center;
+                transition: opacity 0.2s;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.92);
+            }
+
+            .img-lightbox.open {
+                display: flex;
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .img-lightbox::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 40px;
+                height: 40px;
+                margin: -20px 0 0 -20px;
+                border: 3px solid rgba(255, 255, 255, 0.3);
+                border-top-color: #fff;
+                border-radius: 50%;
+                animation: lightboxSpin 0.8s linear infinite;
+                opacity: 0;
+                transition: opacity 0.2s;
+            }
+
+            .img-lightbox.loading::before {
+                opacity: 1;
+            }
+
+            .img-lightbox img,
+            .img-lightbox .lightbox-img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 92vw;
+                max-height: 85vh;
+                border-radius: var(--radius-md);
+                box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
+                display: block;
+                margin: 0 auto;
+                width: auto;
+                height: auto;
+                object-fit: contain;
+                cursor: default;
+                user-select: none;
+                pointer-events: none;
+            }
+
+            /* ==========================================================================
+   5. UTILITY CLASSES
+   Återanvändbara hjälpklasser för layout och styling
+========================================================================== */
+            /* Text Alignment & Padding */
+            .text-center {
+                text-align: center;
+            }
+
+            .text-start {
+                text-align: left;
+            }
+
+            .text-end {
+                text-align: right;
+            }
+
+            .p-0 {
+                padding: 0;
+            }
+
+            .card-body.p-0 {
+                padding: 0;
+            }
+
+            .mt-2 {
+                margin-top: var(--CLAMP-9);
+            }
+
+            .mb-2 {
+                margin-bottom: var(--CLAMP-9);
+            }
+
+            .visually-hidden,
+            .sr-only {
+                position: absolute;
+                width: var(--PXR-1);
+                height: var(--PXR-1);
+                padding: 0;
+                margin: calc(var(--PXR-1) * -1);
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                border: 0;
+            }
+
+            /* Spacing Utilities */
+            .p-xs {
+                padding: var(--space-xs);
+            }
+
+            .p-sm {
+                padding: var(--space-sm);
+            }
+
+            .p-md {
+                padding: var(--space-md);
+            }
+
+            .p-lg {
+                padding: var(--space-lg);
+            }
+
+            .p-xl {
+                padding: var(--space-xl);
+            }
+
+            .p-2xl {
+                padding: var(--space-2xl);
+            }
+
+            .px-xs {
+                padding-inline: var(--space-xs);
+            }
+
+            .px-sm {
+                padding-inline: var(--space-sm);
+            }
+
+            .px-md {
+                padding-inline: var(--space-md);
+            }
+
+            .px-lg {
+                padding-inline: var(--space-lg);
+            }
+
+            .px-xl {
+                padding-inline: var(--space-xl);
+            }
+
+            .py-xs {
+                padding-block: var(--space-xs);
+            }
+
+            .py-sm {
+                padding-block: var(--space-sm);
+            }
+
+            .py-md {
+                padding-block: var(--space-md);
+            }
+
+            .py-lg {
+                padding-block: var(--space-lg);
+            }
+
+            .py-xl {
+                padding-block: var(--space-xl);
+            }
+
+            .m-xs {
+                margin: var(--space-xs);
+            }
+
+            .m-sm {
+                margin: var(--space-sm);
+            }
+
+            .m-md {
+                margin: var(--space-md);
+            }
+
+            .m-lg {
+                margin: var(--space-lg);
+            }
+
+            .m-xl {
+                margin: var(--space-xl);
+            }
+
+            .mx-auto {
+                margin-inline: auto;
+            }
+
+            .my-xs {
+                margin-block: var(--space-xs);
+            }
+
+            .my-sm {
+                margin-block: var(--space-sm);
+            }
+
+            .my-md {
+                margin-block: var(--space-md);
+            }
+
+            .my-lg {
+                margin-block: var(--space-lg);
+            }
+
+            .my-xl {
+                margin-block: var(--space-xl);
+            }
+
+            /* Typography Utilities */
+            .text-xs {
+                font-size: var(--fluid-xs);
+            }
+
+            .text-sm {
+                font-size: var(--fluid-sm);
+            }
+
+            .text-base {
+                font-size: var(--fluid-base);
+            }
+
+            .text-md {
+                font-size: var(--fluid-md);
+            }
+
+            .text-lg {
+                font-size: var(--fluid-lg);
+            }
+
+            .text-xl {
+                font-size: var(--fluid-xl);
+            }
+
+            .text-2xl {
+                font-size: var(--fluid-2xl);
+            }
+
+            .text-3xl {
+                font-size: var(--fluid-3xl);
+            }
+
+            /* Gap Utilities */
+            .gap-xs {
+                gap: var(--space-xs);
+            }
+
+            .gap-sm {
+                gap: var(--space-sm);
+            }
+
+            .gap-md {
+                gap: var(--space-md);
+            }
+
+            .gap-lg {
+                gap: var(--space-lg);
+            }
+
+            .gap-xl {
+                gap: var(--space-xl);
+            }
+
+            /* Border Radius Utilities */
+            .rounded-sm {
+                border-radius: var(--radius-sm);
+            }
+
+            .rounded-md {
+                border-radius: var(--radius-md);
+            }
+
+            .rounded-lg {
+                border-radius: var(--radius-lg);
+            }
+
+            .rounded-full {
+                border-radius: 9999px;
+            }
+
+            /* Animation & Transition Utilities */
+            .transition-fast {
+                transition-duration: var(--duration-fast);
+            }
+
+            .transition-normal {
+                transition-duration: var(--duration-normal);
+            }
+
+            .transition-slow {
+                transition-duration: var(--duration-slow);
+            }
+
+            .fade-in {
+                opacity: 0;
+                transform: translateY(var(--PXR-20));
+                transition: opacity var(--duration-slower) var(--ease-out), transform var(--duration-slower) var(--ease-out);
+            }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* ==========================================================================
+   6. GRID & CONTAINER SYSTEM
+   Responsiva behållare och kolumnsystem för layout
+========================================================================== */
+            .container {
+                width: var(--PXP-18);
+                padding-right: var(--space-md);
+                padding-left: var(--space-md);
+                margin-right: auto;
+                margin-left: auto;
+                container-type: inline-size;
+                container-name: main-container;
+            }
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                margin-right: calc(var(--space-md) * -1);
+                margin-left: calc(var(--space-md) * -1);
+            }
+
+            .col {
+                flex: 1 0 0%;
+                padding-right: var(--space-md);
+                padding-left: var(--space-md);
+            }
+
+            .page__content-wrapper {
+                margin-bottom: 0;
+                margin-top: var(--space-sm);
+            }
+
+            /* ========================================================================== 7. HEADER & NAVIGATION ========================================================================== */
+            /* Icon Font Base */
+            .fa,
+            .fab,
+            .fad,
+            .fal,
+            .far,
+            .fas {
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                -webkit-font-feature-settings: normal;
+                font-feature-settings: normal;
+                display: inline-block;
+                font-style: normal;
+                font-variant: normal;
+                line-height: 1;
+                text-rendering: auto;
+                font-size: 1em;
+                font-family: 'Font Awesome 5 Pro';
+            }
+
+            /* Main Header Container */
+            .header {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                height: auto;
+            }
+
+            header .container-fluid {
+                width: 100%;
+                max-width: 100%;
+                padding-left: 0;
+                padding-right: 0;
+                --bs-gutter-x: 0;
+                --bs-gutter-y: 0;
+            }
+
+            .navigation {
+                display: flex;
+                flex-direction: column;
+                width: clamp(95vw, 100vw, 95vw);
+                height: auto;
+                padding: 0;
+                margin: 0 auto;
+            }
+
+            .header .float-right,
+            .header .pull-right {
+                float: none;
+            }
+
+            .header [class*="position-absolute"] {
+                position: relative;
+            }
+
+            /* Welcome Header */
+            .welcome-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                max-width: 100vw;
+                margin-bottom: 16px;
+                font-family: filsonpro, sans-serif;
+                text-align: center;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+
+            .welcome-title {
+                font-size: 38px;
+                color: var(--blue-primary);
+                margin: 0 0 4px;
+                font-weight: 800;
+            }
+
+            .welcome-subtitle {
+                font-size: 32px;
+                color: var(--blue-dark);
+                margin: 0;
+                font-weight: 600;
+            }
+
+            /* Navigation Logo */
+            .navigation__logo {
+                order: -1;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                padding: var(--space-lg) var(--space-md);
+                margin-left: 0.25rem;
+                box-sizing: border-box;
+                height: auto;
+                line-height: normal;
+                -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+            }
+
+            .navigation__logo.flex-start {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .navigation__logo img {
+                max-width: 350px;
+                min-width: 225px;
+                display: block;
+                max-height: 40px;
+                object-fit: contain;
+                object-position: left top;
+                width: 50vw;
+            }
+
+            .navigation__logo>a,
+            .navigation__logo>img,
+            .navigation__logo>svg {
+                margin-right: auto;
+            }
+
+            body[class*="logo--normal"] .navigation__logo {
+                height: 60px;
+                padding-top: 50px;
+            }
+
+            /* Navigation Menu */
+            .navigation__left,
+            .navigation__left--menu {
+                display: flex;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+
+            .navigation__left--menu,
+            nav.navigation__item--has-mega-menu .navigation__item-category,
+            .header-navigation-menu {
+                order: -1;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width: 100%;
+                padding: 0 0;
+                margin: 0;
+                list-style: none;
+                height: 60px;
+                flex-wrap: nowrap; /* Förhindrar radbrytning */
+                align-content: center;
+                align-items: center;
+            }
+
+            .navigation__item {
+                flex-grow: 1;
+                flex-basis: 0;
+                text-align: center;
+                padding: 0 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-left: none;
+                border-right: none;
+            }
+
+            button.navigation__item-category,
+            a.navigation__item-category {
+                color: #012363;
+                font-weight: 500;
+                font-size: 1rem;
+            }
+
+            .navigation__item-category {
+                color: #012363;
+                padding-left: 5px;
+                padding-right: 5px;
+                font-weight: 600;
+            }
+
+            .fal.fa-chevron-down.navigation__item-chevron--collapsed {
+                color: #012363;
+                font-weight: 600;
+            }
+
+            .navigation__item-chevron--collapsed,
+            .navigation__item-chevron--expanded {
+                font-weight: 600;
+                transition: transform 0.3s ease;
+            }
+
+            .navigation__item-category[aria-expanded="true"] .navigation__item-chevron--collapsed {
+                transform: rotate(180deg);
+            }
+
+            /* Mega Menu */
+            .navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--collapsed,
+            .navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--expanded {
+                font-size: .75rem;
+                margin-left: .5rem;
+            }
+
+            .mega-menu__wrapper a.link {
+                color: #fff;
+                font-weight: 700;
+            }
+
+            .mega-menu__wrapper .mega-menu__item {
+                font-weight: 700;
+                align-items: center;
+                display: inline-flex;
+                min-height: 2em;
+                position: relative;
+                width: 100%;
+            }
+
+            body.megamenu-visible .mega-container {
+                overflow-y: auto;
+                margin-top: 1.94rem;
+            }
+
+            /* CORRECTED Specificity Comment */
+            body.theme--white.accent--turquoise .mega-container .mega-menu__wrapper .mega-menu__item,
+            body.theme--white.accent--turquoise .mega-container .mega-menu__wrapper .mega-menu__item a.link
+
+            /* Specificity: (0,6,2) */
+                {
+                color: #fff;
+            }
+
+            /* FontAwesome Chevrons */
+            .navigation__item-category .fa-chevron-up {
+                display: none
+            }
+
+            .navigation__item-category .fa-chevron-down {
+                transform: rotate(0deg);
+                transition: transform .3s ease-in-out
+            }
+
+            .navigation__item-category[aria-expanded=true] .fa-chevron-down {
+                display: inline-block;
+                transform: rotate(180deg)
+            }
+
+            .fa-chevron-down:before {
+                content: "\f078"
+            }
+
+            .fa-chevron-up:before {
+                content: "\f077"
+            }
+
+            .fa-external-link:before {
+                content: "\f35d"
+            }
+
+            /* ==========================================================================
+   8. FOOTER
+   Sidfotsstilar och innehåll
+========================================================================== */
+            footer.footer {
+                font-family: filsonpro, sans-serif;
+                background-color: #eff9ff;
+                color: #012363;
+                padding: 24px 16px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            footer.footer a {
+                transition: all 0.2s ease;
+                font-family: filsonpro, sans-serif;
+                color: var(--clr-body-text);
+                text-decoration: underline;
+                font-weight: normal;
+            }
+
+            footer.footer a:hover {
+                color: var(--clr-brand-500);
+                text-decoration: none;
+            }
+
+            footer.footer .container-fluid {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            footer.footer .block-container,
+            footer.footer .textblock,
+            footer.footer .row {
+                margin: 0;
+            }
+
+            footer.footer h4,
+            footer.footer h5 {
+                font-family: filsonpro, sans-serif;
+                color: #012363;
+                margin-top: 1em;
+                margin-bottom: 0.5em;
+                line-height: 1.3;
+            }
+
+            footer.footer h4 {
+                font-size: 18px;
+                font-weight: 600;
+                margin-top: 0;
+            }
+
+            footer.footer h5 {
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            footer.footer p {
+                font-family: filsonpro, sans-serif;
+                font-size: 14px;
+                color: #003366;
+                line-height: 1.6;
+                margin-top: 0;
+                margin-bottom: 10px;
+            }
+
+            footer.footer p:last-child,
+            footer.footer .textblock__body>p:last-of-type {
+                margin-bottom: 0;
+            }
+
+            footer.footer p a:not([href^="tel:"]):not([href^="mailto:"]) {
+                font-family: filsonpro, sans-serif;
+                color: #044999;
+                text-decoration: underline;
+                font-size: inherit;
+                font-weight: normal;
+            }
+
+            footer.footer a[href^="tel:"],
+            footer.footer a[href^="mailto:"] {
+                font-family: filsonpro, sans-serif;
+                color: #0066CC;
+                text-decoration: underline;
+                font-size: inherit;
+            }
+
+            nav.footer__link-nav {
+                background-color: #1f7ea4;
+                padding: 15px 15px;
+                width: 100%;
+                box-sizing: border-box;
+                font-family: filsonpro, sans-serif;
+            }
+
+            nav.footer__link-nav ul#footer__links {
+                list-style: none;
+                padding-left: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: row; /* Säkerställer radlayout */
+                justify-content: space-between; /* Jämn fördelning */
+                align-items: center;
+                flex-wrap: nowrap; /* Förhindrar radbrytning */
+                gap: var(--space-md); /* Mellanrum mellan länkar */
+            }
+
+            nav.footer__link-nav ul#footer__links>li.col {
+                flex: unset;
+                padding: 5px 10px;
+                text-align: initial;
+                white-space: nowrap;
+            }
+
+            nav.footer__link-nav a.footer__link {
+                font-family: filsonpro, sans-serif;
+                color: #ffffff;
+                text-decoration: none;
+            }
+
+            nav.footer__link-nav a.footer__link:hover {
+                text-decoration: underline;
+            }
+
+            .footer__link .fa-external-link {
+                font-size: .9em;
+                margin-right: .5em
+            }
+
+            nav.footer__link-nav button#footer__links-toggle-button {
+                background: transparent;
+                border: 1px solid #ffffff;
+                padding: 8px 10px;
+                margin-left: 15px;
+                margin-bottom: 10px;
+                cursor: pointer;
+            }
+
+            /* ==========================================================================
+   9. MAP STYLES
+   Kartstilar för Google Maps inbäddning
+========================================================================== */
+            .map-embed-container {
+                --map-radius: 12px;
+                --map-shadow: 0 4px 12px rgba(1, 35, 99, 0.1);
+                --map-hover-shadow: 0 7px 28px rgba(1, 35, 99, 0.18);
+                --map-focus-outline-color: #007bff;
+                --map-max-width: 375px;
+                --map-aspect-ratio: 16/9;
+                --map-vertical-margin: 16px;
+                --map-border-width: 1px;
+                --map-border-color: rgba(1, 35, 99, 0.15);
+                --map-loading-text-color: #333;
+                --map-loading-bg-color: #f0f2f5;
+                --map-spinner-color: var(--map-focus-outline-color);
+                --map-transition-duration: 0.25s;
+                position: relative;
+                width: 100%;
+                max-width: var(--map-max-width);
+                margin-top: var(--map-vertical-margin);
+                margin-bottom: var(--map-vertical-margin);
+                margin-left: 0;
+                margin-right: auto;
+                border-radius: var(--map-radius);
+                overflow: hidden;
+                box-shadow: var(--map-shadow);
+                border: var(--map-border-width) solid var(--map-border-color);
+                aspect-ratio: var(--map-aspect-ratio);
+                background-color: var(--map-loading-bg-color);
+                transition: transform var(--map-transition-duration) ease, box-shadow var(--map-transition-duration) ease, border-color var(--map-transition-duration) ease;
+            }
+
+            .map-embed-container:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--map-hover-shadow);
+                border-color: var(--map-spinner-color);
+            }
+
+            .map-embed-frame {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                display: block;
+                z-index: 1;
+            }
+
+            .map-embed-container::after {
+                content: "Laddar karta...";
+                position: absolute;
+                top: calc(50% + 10px);
+                left: 50%;
+                transform: translateX(-50%);
+                color: var(--map-loading-text-color);
+                font-size: 13px;
+                z-index: 0;
+            }
+
+            @keyframes map-spinner-rotation {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* ==========================================================================
+   10. PERFORMANCE OPTIMIZATIONS
+   Prestandaoptimeringar för snabbare rendering
+========================================================================== */
+            .faq-item:not([open]) {
+                content-visibility: auto;
+                contain-intrinsic-size: 0 60px;
+            }
+
+            .faq-item summary::after {
+                will-change: transform;
+            }
+
+            .faq-item[open] summary::after {
+                will-change: auto;
+            }
+
+            @keyframes lightboxSpin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* ==========================================================================
+   11. MEDIA QUERIES
+   Responsiva brytpunkter för olika skärmstorlekar
+========================================================================== */
+            /* Reduced Motion */
+            @media (prefers-reduced-motion: reduce) {
+
+                html body *,
+                .faq-item,
+                .faq-icon::before,
+                .faq-icon::after,
+                .fade-in {
+                    transition: none;
+                    animation: none;
+                }
+            }
+
+            /* Print Styles */
+            @media print {
+                .faq-item details {
+                    /* Force open state for print */
+                    display: block !important;
+                }
+
+                .faq-item details[open] summary::after {
+                    content: "";
+                }
+
+                .faq-item details > :not(summary) {
+                    display: block !important;
+                }
+
+                .faq-icon {
+                    display: none;
+                }
+
+                .location-schedule tr[data-upcoming]::before {
+                    display: none;
+                }
+            }
+
+            /* Container System - Mobile-First Bootstrap 5.3 Pattern */
+            .container {
+                width: 100%;
+                margin-inline: auto;
+                padding-inline: 1rem;
+            }
+
+            @media (min-width: 576px) {
+                .container {
+                    padding-inline: clamp(1rem, 4vw, 2rem);
+                }
+            }
+
+            @media (min-width: 992px) {
+                .container {
+                    max-width: 1320px;
+                }
+
+                .location-section {
+                    display: grid;
+                    grid-template-columns: 1fr 2fr;
+                    gap: var(--space-xl);
+                    align-items: start;
+                }
+
+                .location-info {
+                    text-align: left;
+                }
+
+                .faq-item {
+                    transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-slow) var(--ease-out);
+                }
+
+                .faq-item:hover {
+                    transform: translateY(calc(var(--PXR-2) * -1));
+                    box-shadow: 0 var(--PXR-4) var(--PXR-12) rgba(0, 0, 0, 0.1);
+                }
+
+                .page__content-body {
+                    padding-right: var(--CLAMP-110);
+                }
+            }
+
+            @media (min-width: 1200px) {
+                .container {
+                    max-width: 1140px;
+                }
+            }
+
+            @media (min-width: 1400px) {
+                .container {
+                    max-width: 1320px;
+                }
+            }
+
+            /* Container Queries */
+            @container main-container (min-width: 400px) {
+                .price-box {
+                    padding: var(--space-lg);
+                }
+            }
+
+            @container main-container (min-width: 600px) {
+                .vaccination-info {
+                    padding: var(--space-xl);
+                }
+            }
+
+            /* Mobile & Tablet Styles */
+            /* Footer Navigation - Mobile-First */
+            nav.footer__link-nav ul#footer__links.open,
+            nav.footer__link-nav ul#footer__links:target {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav.footer__link-nav ul#footer__links.open>li.col,
+            nav.footer__link-nav ul#footer__links:target>li.col {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            @media (min-width: 992px) {
+
+                nav.footer__link-nav ul#footer__links.open,
+                nav.footer__link-nav ul#footer__links:target {
+                    flex-direction: row;
+                    align-items: flex-start;
+                }
+
+                nav.footer__link-nav ul#footer__links.open>li.col,
+                nav.footer__link-nav ul#footer__links:target>li.col {
+                    width: auto;
+                    margin-bottom: 0;
+                }
+            }
+
+            @media (min-width: 576px) and (max-width: 991.98px) {
+                .location-info {
+                    text-align: center;
+                    padding: 0 var(--CLAMP-27);
+                }
+
+                .faq-question {
+                    padding: var(--CLAMP-16);
+                }
+
+                .faq-content {
+                    padding: 0 var(--CLAMP-16) var(--CLAMP-16);
+                }
+            }
+
+            @media (max-width: 767px) {
+
+                html,
+                body {
+                    overflow-x: hidden;
+                }
+
+                .welcome-header {
+                    min-width: 0;
+                    width: 100%;
+                    max-width: 100vw;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    box-sizing: border-box;
+                    margin-bottom: 20px;
+                }
+
+                .welcome-title {
+                    font-size: 1.6em;
+                    line-height: 1.2;
+                }
+
+                .welcome-subtitle {
+                    font-size: 1.1em;
+                    line-height: 1.3;
+                }
+
+                footer.footer {
+                    padding: 20px 15px;
+                }
+
+                footer.footer h4 {
+                    font-size: 1.1em;
+                }
+
+                footer.footer p,
+                footer.footer a {
+                    font-size: 0.9em;
+                }
+
+                nav.footer__link-nav ul#footer__links.open>li.col a.footer__link,
+                nav.footer__link-nav ul#footer__links:target>li.col a.footer__link {
+                    padding: 12px 15px;
+                    font-size: 0.95em;
+                }
+
+                /* Footer länkar på mobil - behåll radlayout om möjligt */
+                nav.footer__link-nav ul#footer__links {
+                    flex-wrap: wrap;
+                    /* Tillåt radbrytning på små skärmar */
+                    gap: var(--space-sm);
+                    padding: 0 var(--space-sm);
+                }
+
+                nav.footer__link-nav ul#footer__links>li.col {
+                    flex: 1 1 auto;
+                    /* Tillåt flex för mobil */
+                    min-width: 0;
+                    font-size: 0.875rem;
+                }
+
+                /* Off-Canvas Menu */
+                .mobile-navigation__left .mobile-navigation__item#open-offside-menu {
+                    padding: 10px;
+                }
+
+                .hamburger-menu {
+                    width: 24px;
+                    height: 20px;
+                }
+
+                .hamburger-menu__line {
+                    height: 3px;
+                    margin: 4px 0;
+                    background-color: #ffffff;
+                    display: block;
+                }
+
+                .offside-navbar--menu a,
+                .offside-navbar--menu span[role="button"] {
+                    padding: 14px 18px;
+                    font-size: 1rem;
+                    display: block;
+                }
+
+                .offside-navbar--menu.child-menu .offside-navbar--menu__item a {
+                    padding-left: 30px;
+                }
+            }
+
+            @media (max-width: 575.98px) {
+
+                /* Re-order content for mobile
+      Ordning: 1. Intro, 2. Platsschemat, 3. Prislista, 4. Vaccininformation, 5. FAQ */
+                html {
+                    overflow-x: hidden;
+                }
+
+                body {
+                    width: 100%;
+                    max-width: 100vw;
+                    overflow-x: hidden;
+                    margin: 0;
+                    padding: 0;
+                }
+
+
+                /* Fix all containers to respect viewport width */
+                body * {
+                    box-sizing: border-box;
+                }
+
+                /* Force proper viewport scaling and prevent zoom */
+                html {
+                    font-size: 16px;
+                    -webkit-text-size-adjust: 100%;
+                    -ms-text-size-adjust: 100%;
+                    text-size-adjust: 100%;
+                    zoom: 1;
+                    transform: scale(1);
+                    position: relative;
+                    left: 0;
+                    right: 0;
+                }
+
+                /* Force viewport to start at left edge */
+                body {
+                    position: relative;
+                    left: 0;
+                    right: 0;
+                    margin: 0;
+                    padding: 0;
+                    transform: translateX(0);
+                }
+
+                /* Prevent any element from causing horizontal scroll and fix left cutoff */
+                body,
+                html {
+                    margin: 0;
+                    padding: 0;
+                }
+
+
+                .welcome-header,
+                .navigation,
+                .main-content,
+                .page-content,
+                main,
+                section,
+                article {
+                    max-width: 100vw;
+                    overflow-x: hidden;
+                    box-sizing: border-box;
+                }
+
+                /* Ensure content doesn't get cut off on left */
+                .page__content--left-align,
+                article.page__content--left-align {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+
+                /* Fix mobile menu - ensure it starts hidden */
+                .offside-navbar {
+                    width: 0;
+                    display: none;
+                }
+
+                .offside-navbar--menu.child-menu {
+                    display: none;
+                }
+
+                .footer__links {
+                    display: none;
+                }
+
+                .navigation__left--menu,
+                .header-navigation-menu {
+                    display: none;
+                }
+
+                /* FORCE footer menu closed by default */
+                nav.footer__link-nav ul#footer__links {
+                    display: none;
+                }
+
+                nav.footer__link-nav ul#footer__links:not(.open):not(.visible):not(:target) {
+                    display: none;
+                    visibility: hidden;
+                    opacity: 0;
+                    height: 0;
+                    overflow: hidden;
+                }
+
+                /* Only show mobile menu when toggled */
+                .offside-navbar.show-side-nav,
+                .offside-navbar.open {
+                    width: 100%;
+                    display: block;
+                }
+
+                .offside-navbar--menu.child-menu.open {
+                    display: block;
+                }
+
+                .footer__links.visible,
+                .footer__links.open,
+                nav.footer__link-nav ul#footer__links.open,
+                nav.footer__link-nav ul#footer__links.visible,
+                nav.footer__link-nav ul#footer__links:target {
+                    display: flex;
+                    visibility: visible;
+                    opacity: 1;
+                    height: auto;
+                }
+
+                /* Fix footer layout on mobile */
+                footer.footer {
+                    padding: 15px;
+                    margin: 0;
+                    width: 100vw;
+                    max-width: 100vw;
+                    box-sizing: border-box;
+                    overflow-x: hidden;
+                }
+
+                nav.footer__link-nav {
+                    width: 100%;
+                    margin: 0;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    max-width: 1320px;
+                }
+            }
+
+            /* Mobile Navigation Enhancement */
+            @media (max-width: 767.98px) {
+
+                /* Show mobile toggle */
+                .mobile-nav-toggle {
+                    display: block;
+                }
+
+                /* Hide desktop navigation */
+                nav.main-navigation,
+                .desktop-navigation {
+                    display: none;
+                }
+
+                /* Stack all columns */
+                .row>[class*="col-"] {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    margin-bottom: var(--space-md);
+                }
+
+                /* Mobile-specific utilities */
+                .text-center-mobile {
+                    text-align: center;
+                }
+
+                .order-first-mobile {
+                    order: -1;
+                }
+
+                nav.footer__link-nav ul#footer__links {
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    padding: 0;
+                    margin: 0;
+                    justify-content: center;
+                }
+
+                nav.footer__link-nav ul#footer__links>li.col {
+                    flex: 0 1 auto;
+                    margin: 2px;
+                    padding: 5px 8px;
+                }
+
+                /* MOBILE ORDERING - Make main container flex */
+                main,
+                .main-content,
+                .page-content,
+                body>.container,
+                body>.container-fluid {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+
+            /* Touch-Optimized Components */
+            @media (hover: none) and (pointer: coarse) {
+
+                /* Increase all interactive element sizes */
+                button,
+                a.btn,
+                input[type="submit"],
+                input[type="button"],
+                .touch-target {
+                    min-height: 44px;
+                    padding: 0.75rem 1rem;
+                }
+
+                /* Remove hover effects on touch devices */
+                :hover {
+                    transition: none;
+                }
+            }
+
+            /* Responsive Spacing System */
+            @media (max-width: 575.98px) {
+
+                /* Tighter spacing on mobile */
+                .container {
+                    padding-inline: var(--space-sm);
+                }
+
+                section {
+                    padding-block: var(--space-lg);
+                }
+            }
+
+            /* --------------------------------------------------------------------------
+   Mobile tables – remove corner radius for full-width look
+   ----------------------------------------------------------------------- */
+            @media (max-width: 575.98px) {
+
+                .price-table,
+                .location-schedule {
+                    border-radius: 0;
+                }
+            }
+
+            @supports not selector(:has(*)) {
+                @media (max-width: 575.98px) {
+
+                    /* Fallback for browsers without :has() */
+                    .location-schedule-wrapper,
+                    .location-schedule {
+                        order: -8;
+                        width: 100%;
+                        margin-bottom: var(--space-lg);
+                    }
+
+                    .price-box,
+                    .price-toggle-labels {
+                        order: -6;
+                        width: 100%;
+                        margin-bottom: var(--space-lg);
+                    }
+
+                    .vaccination-info {
+                        order: -4;
+                        width: 100%;
+                        margin-bottom: var(--space-lg);
+                    }
+
+                    .faq-sidebar {
+                        order: 1;
+                    }
+                }
+            }
+
+            nav#accessibility-navigation ul.accessibility-navigation__items {
+                padding-left: 0;
+                margin-bottom: 0;
+            }
+
+            /* ==========================================================================
+   Footer PTJ Logo - Begränsar storleken till max 60px (3.75rem)
+========================================================================== */
+            /* Målselektor för footer-logotypen med inline-stil */
+            footer img[alt="Praktikertjänst"] {
+                max-width: 19.44rem;
+                min-width: 3rem;
+                height: auto;
+                display: inline-block;
+            }
+
+            /* ==========================================================================
+   Page Content Wrapper & Body - Responsiva marginaler och padding
+========================================================================== */
+            /* Emulerar margin-bottom: 0, margin-top: 1rem responsivt */
+            .page__content-wrapper {
+                margin-bottom: 0;
+                margin-top: clamp(0.75rem, 0.625rem + 0.625vw, 1rem);
+                /* 12px-16px */
+            }
+
+            /* Emulerar padding-right: 100px för desktop */
+            @media (min-width: 992px) {
+                .page__content-body {
+                    padding-right: clamp(4rem, 3rem + 2.5vw, 6.25rem);
+                    /* 64px-100px */
+                }
+            }
+
+            /* ==========================================================================
+   Price Table Optimeringar - Minimerar whitespace, bibehåller 3 kolumner
+========================================================================== */
+                                            .price-table {
+                                                /* Kompakt tabellayout */
+                                                width: 100%;
+                                                table-layout: fixed;
+                                                border-spacing: 0;
+                                            }
+
+                                            .price-table th,
+                                            .price-table td {
+                                                /* Minimalt padding för kompakt layout */
+                                                padding: var(--PXR-6) var(--PXR-8);
+                                                vertical-align: middle;
+                                            }
+
+                                            /* Första kolumnen får mer plats för vaccinnamn */
+                                            .price-table th:first-child,
+                                            .price-table td:first-child {
+                                                width: 26.9%;
+                                                text-align: left;
+                                                padding-left: var(--PXR-12);
+                                            }
+
+                                            /* Priskolumnerna får lika bredd */
+                                            .price-table th:not(:first-child),
+                                            .price-table td:not(:first-child) {
+                                                width: 18.33%;
+                                                text-align: right;
+                                                padding-right: var(--PXR-12);
+                                                /* PROGRESSIV VISNING FÖR MOBIL INNEHÅLL: - Details/Summary element - Expanderbara sektioner - Touch-vänlig interaktion - Animerade övergångar Optimerad informationsvisning för mobila enheter */
+                                                /* ===== DETAILS/SUMMARY STYLING FÖR MOBIL ===== */
+                                                details.vaccine-item {
+                                                    border: 1px solid var(--clr-border, #e0e0e0);
+                                                    border-radius: var(--radius-md);
+                                                    margin-bottom: var(--space-sm);
+                                                    background: var(--clr-bg);
+                                                    transition: all 0.3s ease;
+                                                }
+
+                                                details.vaccine-item[open] {
+                                                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                                                }
+
+                                                summary.vaccine-summary {
+                                                    padding: var(--space-md);
+                                                    cursor: pointer;
+                                                    list-style: none;
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                    align-items: center;
+                                                    font-size: var(--fluid-base);
+                                                    min-height: 44px;
+                                                    /* Touch target */
+                                                }
+
+                                                /* Remove default arrow */
+                                                summary.vaccine-summary::-webkit-details-marker {
+                                                    display: none;
+                                                }
+
+                                                /* Custom arrow indicator */
+                                                summary.vaccine-summary::after {
+                                                    content: '▼';
+                                                    font-size: 0.8em;
+                                                    transition: transform 0.3s ease;
+                                                    color: var(--clr-primary);
+                                                }
+
+                                                details[open] summary.vaccine-summary::after {
+                                                    transform: rotate(180deg);
+                                                }
+
+                                                /* Vaccine content styling */
+                                                .vaccine-content {
+                                                    padding: 0 var(--space-md) var(--space-md);
+                                                    animation: slideDown 0.3s ease;
+                                                }
+
+                                                /* Visa alltid alla tre priskolumner på mobil */
+                                                @media (max-width: 575.98px) {
+                                                    .price-table {
+                                                        font-size: var(--fluid-sm);
+                                                        /* 14-16px - WCAG AA compliant */
+                                                    }
+
+                                                    /* Keep first 2 columns always visible */
+                                                    .price-table th:nth-child(1),
+                                                    .price-table td:nth-child(1),
+                                                    .price-table th:nth-child(2),
+                                                    .price-table td:nth-child(2) {
+                                                        display: table-cell;
+                                                        padding: var(--PXR-3) var(--PXR-4);
+                                                    }
+
+                                                    /* Hide columns 3 and 4 by default on mobile too */
+                                                    .price-table th:nth-child(3),
+                                                    .price-table td:nth-child(3),
+                                                    .price-table th:nth-child(4),
+                                                    .price-table td:nth-child(4) {
+                                                        display: none;
+                                                        padding: var(--PXR-3) var(--PXR-4);
+                                                    }
+
+                                                    /* Mobile toggle functionality */
+                                                    body:has(#v-pen:checked) .price-table th:nth-child(3),
+                                                    body:has(#v-pen:checked) .price-table td:nth-child(3) {
+                                                        display: table-cell;
+                                                    }
+
+                                                    body:has(#v-stu:checked) .price-table th:nth-child(4),
+                                                    body:has(#v-stu:checked) .price-table td:nth-child(4) {
+                                                        display: table-cell;
+                                                    }
+
+                                                    /* Justera kolumnbredder för mobil */
+                                                    .price-table th:first-child,
+                                                    .price-table td:first-child {
+                                                        width: 40%;
+                                                        padding-left: var(--PXR-6);
+                                                    }
+
+                                                    .price-table th:not(:first-child),
+                                                    .price-table td:not(:first-child) {
+                                                        width: 20%;
+                                                        padding-right: var(--PXR-6);
+                                                    }
+
+                                                    /* Enable two-row headers on mobile */
+                                                    .price-table thead th {
+                                                        font-size: var(--fluid-sm);
+                                                        /* 14-16px - WCAG compliant */
+                                                        line-height: 1.1;
+                                                        white-space: pre-line;
+                                                        vertical-align: top;
+                                                    }
+
+                                                    /* Center price column headers */
+                                                    .price-table thead th:nth-child(2),
+                                                    .price-table thead th:nth-child(3),
+                                                    .price-table thead th:nth-child(4) {
+                                                        text-align: center;
+
+                                                        /* Mobile-specific enhancements */
+                                                        @media (max-width: 767.98px) {
+
+                                                            /* Larger touch targets on mobile */
+                                                            summary.vaccine-summary {
+                                                                padding: var(--space-lg) var(--space-md);
+                                                                min-height: 60px;
+                                                            }
+
+                                                            /* Stack vaccine info vertically */
+                                                            .vaccine-summary {
+                                                                flex-direction: column;
+                                                                align-items: flex-start;
+                                                                gap: var(--space-xs);
+                                                            }
+
+                                                            .vaccine-summary::after {
+                                                                position: absolute;
+                                                                right: var(--space-md);
+                                                                top: 50%;
+                                                                transform: translateY(-50%);
+                                                            }
+
+                                                            details[open] .vaccine-summary::after {
+                                                                transform: translateY(-50%) rotate(180deg);
+                                                            }
+
+                                                            /* Visual hierarchy for vaccine badges */
+                                                            .vaccine-badge {
+                                                                background: var(--clr-primary);
+                                                                color: white;
+                                                                padding: 0.25rem 0.5rem;
+                                                                border-radius: var(--radius-sm);
+                                                                font-size: var(--fluid-xs);
+                                                                font-weight: 500;
+                                                            }
+
+                                                            /* Prioritized vaccine highlight */
+                                                            .vaccine-priority {
+                                                                border-color: var(--clr-primary);
+                                                                border-width: 2px;
+                                                            }
+                                                        }
+
+                                                        /* ==========================================================================
+   FAQ Grid Layout - Exakt 2 rader med balanserad bredd
+========================================================================== */
+                                                        .faq-item summary {
+                                                            /* Grid layout för exakt 2 rader */
+                                                            display: grid;
+                                                            grid-template-columns: 1fr auto;
+                                                            grid-template-rows: 1fr 1fr;
+                                                            align-items: start;
+                                                            gap: 0 var(--space-sm);
+                                                        }
+
+                                                        /* FAQ frågetext som grid child */
+                                                        .faq-item summary::before {
+                                                            content: attr(data-question);
+                                                            grid-column: 1;
+                                                            grid-row: 1 / -1;
+                                                            align-self: center;
+                                                            line-height: 1.4;
+                                                            word-break: break-word;
+                                                            hyphens: auto;
+                                                            display: -webkit-box;
+                                                            -webkit-line-clamp: 2;
+                                                            line-clamp: 2;
+                                                            -webkit-box-orient: vertical;
+                                                            overflow: hidden;
+                                                            text-overflow: ellipsis;
+                                                        }
+
+                                                        /* Chevron i grid */
+                                                        .faq-item summary::after {
+                                                            grid-column: 2;
+                                                            grid-row: 1 / -1;
+                                                            align-self: center;
+                                                        }
+
+                                                        /* ==========================================================================
+   Vaccine Information Progressive Disclosure Styles
+   ========================================================================== */
+
+                                                        /* Vaccine Categories */
+                                                        .vaccine-category {
+                                                            margin-bottom: var(--CLAMP-12);
+                                                            border-radius: var(--radius-md);
+                                                            background: var(--clr-surface-subtle);
+                                                            padding: var(--CLAMP-8);
+                                                        }
+
+                                                        .vaccine-category-title {
+                                                            font-size: var(--fluid-md);
+                                                            font-weight: var(--fw-semibold);
+                                                            margin-bottom: var(--CLAMP-6);
+                                                            padding-bottom: var(--CLAMP-3);
+                                                            border-bottom: 2px solid var(--clr-primary-subtle);
+                                                            color: var(--clr-primary);
+                                                        }
+
+                                                        /* Vaccine Items */
+                                                        .vaccine-item {
+                                                            background: var(--clr-bg);
+                                                            border: 1px solid var(--clr-border-subtle);
+                                                            border-radius: var(--radius-sm);
+                                                            margin-bottom: var(--CLAMP-4);
+                                                            transition: all 0.2s ease;
+                                                        }
+
+                                                        .vaccine-item:hover {
+                                                            border-color: var(--clr-primary-subtle);
+                                                            box-shadow: 0 2px 8px var(--clr-shadow-subtle);
+                                                        }
+
+                                                        .vaccine-item[open] {
+                                                            border-color: var(--clr-primary);
+                                                            background: var(--clr-primary-subtle);
+                                                        }
+
+                                                        /* Vaccine Priority Badge */
+                                                        .vaccine-priority {
+                                                            border-left: 4px solid var(--clr-accent);
+                                                        }
+
+                                                        .vaccine-priority .vaccine-badge {
+                                                            background: var(--clr-accent);
+                                                            color: var(--clr-on-accent);
+                                                            font-size: var(--fluid-xs);
+                                                            font-weight: var(--fw-medium);
+                                                            padding: 0.25rem 0.5rem;
+                                                            border-radius: var(--radius-xs);
+                                                            margin-left: auto;
+                                                        }
+
+                                                        /* Health Service Item */
+                                                        .health-service {
+                                                            border-left: 4px solid var(--clr-secondary);
+                                                        }
+
+                                                        /* Vaccine Summary */
+                                                        .vaccine-summary {
+                                                            display: flex;
+                                                            align-items: center;
+                                                            justify-content: space-between;
+                                                            padding: var(--CLAMP-5) var(--CLAMP-6);
+                                                            cursor: pointer;
+                                                            font-weight: var(--fw-medium);
+                                                            list-style: none;
+                                                            position: relative;
+                                                        }
+
+                                                        .vaccine-summary::-webkit-details-marker {
+                                                            display: none;
+                                                        }
+
+                                                        .vaccine-summary::after {
+                                                            content: '›';
+                                                            font-size: var(--fluid-sm);
+                                                            color: var(--clr-primary);
+                                                            transition: transform 0.2s ease;
+                                                            flex-shrink: 0;
+                                                            margin-left: var(--CLAMP-4);
+                                                        }
+
+                                                        .vaccine-item[open] .vaccine-summary::after {
+                                                            transform: rotate(90deg);
+                                                        }
+
+                                                        .vaccine-desc {
+                                                            font-size: var(--fluid-sm);
+                                                            color: var(--clr-body-secondary);
+                                                            font-weight: var(--fw-normal);
+                                                            font-style: italic;
+                                                            margin-bottom: var(--space-xl);
+                                                        }
+
+                                                        .vaccine-category-title {
+                                                            font-size: var(--fluid-lg);
+                                                            color: var(--clr-primary);
+                                                            margin-bottom: var(--space-md);
+                                                            padding-bottom: var(--space-sm);
+                                                            border-bottom: 2px solid var(--clr-primary);
+                                                        }
+
+                                                        /* Mobile FAQ Enhancement */
+                                                        @media (max-width: 767.98px) {
+
+                                                            /* FAQ items use same progressive disclosure */
+                                                            details.faq-item {
+                                                                border: 1px solid var(--clr-border);
+                                                                border-radius: var(--radius-md);
+                                                                margin-bottom: var(--space-sm);
+                                                                background: var(--clr-bg);
+                                                            }
+
+                                                            summary.faq-summary {
+                                                                padding: var(--space-md);
+                                                                cursor: pointer;
+                                                                list-style: none;
+                                                                font-size: var(--fluid-base);
+                                                                min-height: 44px;
+                                                            }
+
+                                                            .faq-content {
+                                                                padding: 0 var(--space-md) var(--space-md);
+                                                            }
+                                                        }
+
+                                                        /* Accordion behavior on mobile */
+                                                        @media (max-width: 575.98px) {
+
+                                                            /* Auto-close other details when opening new one */
+                                                            details.vaccine-item:not([open])+details.vaccine-item[open] {
+                                                                margin-top: var(--space-md);
+                                                            }
+                                                        }
+
+                                                        /* ==========================================================================
+   16. VACCINE BJARRED APP - MODERN TEMA
+
+   Separat modern stil som kan aktiveras/deaktiveras
+========================================================================== */
+
+                                                        /* ===== ALLMÄN LAYOUT & TYPSNITT ===== */
+                                                        #vaccine-bjarred-app.vb-app {
+                                                            font-family: 'Inter', Arial, sans-serif;
+                                                            /* Modern typsnitt */
+                                                            background: var(--vb-bg, #f8fafc);
+                                                            /* Ljus bakgrund */
+                                                            color: var(--vb-fg, #222);
+                                                            /* Mörk text */
+                                                            padding: 0;
+                                                            min-height: 100vh;
+                                                            /* Full viewport-höjd */
+                                                            transition: background 0.2s, color 0.2s;
+                                                            /* Mjuka temaövergångar */
+                                                        }
+
+                                                        /* Vaccine Content */
+                                                        .vaccine-content {
+                                                            padding: 0 var(--CLAMP-6) var(--CLAMP-6) var(--CLAMP-6);
+                                                            border-top: 1px solid var(--clr-border-subtle);
+                                                            background: var(--clr-bg);
+                                                        }
+
+                                                        .vaccine-content p {
+                                                            margin: 0;
+                                                            color: var(--clr-white);
+                                                        }
+
+                                                        .vaccine-content p:last-child {
+                                                            margin-bottom: 0;
+                                                        }
+
+                                                        section.faq.sidebar-content details.faq-item {
+                                                            min-width: var(--PXR-180);
+                                                        }
+
+                                                        .faq-question:focus {
+                                                            outline: var(--PXR-2) solid var(--clr-accent);
+                                                            outline-offset: var(--PXR-2);
+                                                            box-shadow: 0 0 0 var(--PXR-4) rgba(74, 166, 201, 0.1);
+                                                        }
+
+                                                        .faq-question:focus-visible {
+                                                            outline: var(--PXR-2) solid var(--clr-accent);
+                                                            outline-offset: var(--PXR-2);
+                                                        }
+
+                                                        /* Lightbox */
+                                                        .img-lightbox {
+                                                            display: none;
+                                                            position: fixed;
+                                                            z-index: 9999;
+                                                            top: 0;
+                                                            left: 0;
+                                                            right: 0;
+                                                            bottom: 0;
+                                                            margin: auto;
+                                                            width: 92vw;
+                                                            max-width: 92vw;
+                                                            height: 85vh;
+                                                            max-height: 85vh;
+                                                            background: rgba(0, 0, 0, 0.92);
+                                                            opacity: 0;
+                                                            pointer-events: none;
+                                                            transition: opacity 0.2s;
+                                                            inset: 0;
+                                                            background: rgba(0, 0, 0, 0.92);
+                                                        }
+
+                                                        .img-lightbox.open {
+                                                            display: flex;
+                                                            opacity: 1;
+                                                            pointer-events: auto;
+                                                        }
+
+                                                        .img-lightbox::before {
+                                                            content: '';
+                                                            position: absolute;
+                                                            top: 50%;
+                                                            left: 50%;
+                                                            transform: translate(-50%, -50%);
+                                                            width: 100%;
+                                                            height: 100%;
+                                                            background-image: url('../images/loader.gif');
+                                                            background-size: 100px 100px;
+                                                            background-repeat: no-repeat;
+                                                            background-position: center;
+                                                            opacity: 0;
+                                                            transition: opacity 0.2s;
+                                                        }
+
+                                                        .img-lightbox.loading::before {
+                                                            opacity: 1;
+                                                        }
+
+                                                        .img-lightbox img,
+                                                        .img-lightbox .lightbox-img {
+                                                            position: absolute;
+                                                            top: 50%;
+                                                            left: 50%;
+                                                            transform: translate(-50%, -50%);
+                                                            max-width: 92vw;
+                                                            max-height: 85vh;
+                                                            width: auto;
+                                                            height: auto;
+                                                            object-fit: contain;
+                                                            border-radius: var(--radius-md);
+                                                            box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+                                                            transition: transform 0.2s;
+                                                        }
+
+                                                        .img-lightbox img:hover,
+                                                        .img-lightbox .lightbox-img:hover {
+                                                            transform: translate(-50%, -50%) scale(1.05);
+                                                        }
+
+                                                        .img-lightbox .close-btn {
+                                                            position: absolute;
+                                                            top: 1rem;
+                                                            right: 1rem;
+                                                            font-size: 2rem;
+                                                            color: var(--clr-white);
+                                                            cursor: pointer;
+                                                            background: none;
+                                                            border: none;
+                                                            padding: 0;
+                                                            z-index: 1;
+                                                        }
+
+                                                        .img-lightbox .close-btn:hover {
+                                                            color: var(--clr-accent);
+                                                        }
+
+                                                        /* --------------------------------------------------------------------------
+   Mobile tables – remove corner radius for full-width look
+   ----------------------------------------------------------------------- */
+                                                        @media (max-width: 575.98px) {
+
+                                                            .price-table,
+                                                            .location-schedule {
+                                                                border-radius: 0;
+                                                            }
+                                                        }
+
+} /* End of #vaccine-bjarred-app - close main container before modern theme styles */
+
+/* ============================================================================
+   100. July-2025 Final Responsive Polish
+   ============================================================================ */
+
+/* Mobile table adjustments */
+@media (max-width: 576px) {
+    #vaccine-bjarred-app.vb-app .price-table,
+    #vaccine-bjarred-app.vb-app .location-schedule {
+        border-radius: 0;
+    }
+
+    #vaccine-bjarred-app.vb-app .price-table th:first-child,
+    #vaccine-bjarred-app.vb-app .location-schedule th:first-child {
+        border-top-left-radius: 0;
+    }
+
+    #vaccine-bjarred-app.vb-app .price-table th:last-child,
+    #vaccine-bjarred-app.vb-app .location-schedule th:last-child {
+        border-top-right-radius: 0;
+    }
+}
+
+/* GDPR banner styling */
+#vaccine-bjarred-app.vb-app .gdpr-banner {
+    background: var(--clr-gdpr-light-bg);
+    color: var(--clr-gdpr-light-text, #012363);
+}
+
+/* Apple-style glass badge */
+#vaccine-bjarred-app.vb-app .recommended-label {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    padding: 0.15rem 0.6rem;
+    font-weight: 600;
+    color: var(--clr-primary, #012363);
+}
+
+                                                        } /* Close .vaccine-content and other nested blocks */
+                                                    } /* Close another nested block */
+                                                } /* Close another nested block */
+                                            } /* Close another nested block */
+                                        } /* Close another nested block */
+                                    } /* Close another nested block */
+
+</style>
+
+
+     <!-- Google Tag Manager -->
+<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-55Z27LD9');</script>
+<!-- End Google Tag Manager -->
+<script defer="" data-domain="praktikertjanst.se" src="./GitHubElizabeth_files/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+<script type="text/javascript">var appInsights=window.appInsights||function(config){function t(config){i[config]=function(){var t=arguments;i.queue.push(function(){i[config].apply(i,t)})}}var i={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",r,f;setTimeout(function(){var t=u.createElement(o);t.src=config.url||"https://js.monitor.azure.com/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(t)});try{i.cookie=u.cookie}catch(y){}for(i.queue=[],r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)t("track"+r.pop());return t("set"+s),t("clear"+s),t(h+a),t(c+a),t(h+v),t(c+v),t("flush"),config.disableExceptionTracking||(r="onerror",t("_"+r),f=e[r],e[r]=function(config,t,u,e,o){var s=f&&f(config,t,u,e,o);return s!==!0&&i["_"+r](config,t,u,e,o),s}),i}({instrumentationKey:"a8e7b90b-bea4-4170-99b4-383e07ce9667",sdkExtension:"a"});window.appInsights=appInsights;appInsights.queue&&appInsights.queue.length===0&&appInsights.trackPageView();</script><script src="./GitHubElizabeth_files/ai.0.js"></script><meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39;; style-src &#39;self&#39; &#39;unsafe-inline&#39;; img-src &#39;self&#39; data: https:; connect-src &#39;self&#39;; font-src &#39;self&#39; data:"></head>
+
+<body class="theme--white accent--turquoise logo--normal using-mouse"><div id="tc-consent" aria-hidden="true"><div id="tc-banner" class="tc-banner" style="display: none;"><div class="tc-container"><div class="tc-row"><div class="tc-group-container"><div class="tc-policy"><h3 class="tc-policy-title">Den här webbplatsen innehåller cookies</h3><p class="tc-policy-text"><p>Vi använder cookies för att ge dig en förbättrad upplevelse och för att viss nödvändig funktionalitet ska fungera på webbplatsen.&nbsp;</p></p></div></div><div class="tc-button-group-container tc-button-group"><button class="tc-accept-btn" aria-label="Godkänn endast nödvändiga kakor">Godkänn urval av cookies</button><button class="tc-see-all-cookies-btn" aria-label="Visa och redigera grupper av kakor etc.">Redigera cookies</button><button class="tc-accept-all-btn" aria-label="Godkänn alla kakor">Godkänn cookies</button></div></div></div></div><div id="tc-dark-filter" class="tc-dark-filter" style="display: none;"></div><div id="tc-modal" class="tc-modal" aria-modal="true" style="display: none;"><button class="tc-modal-close-btn" aria-label="Stäng"></button><div class="tc-modal-content"><h3 class="tc-modal-content-title">Hantera dina inställningar för cookies</h3><p class="tc-modal-content-policy-text"><p>På www.ptj.se används följande cookies:</p></p><button class="tc-modal-accept-all-btn" aria-label="Godkänn alla kakor">Godkänn cookies</button><section class="tc-modal-cookie-preferences"><h3 class="tc-modal-cookie-preferences-title">Anpassa dina inställningar</h3><div id="necessary-cookies" class="tc-modal-cookie-category"><div class="tc-modal-cookie-category-header-container"><button class="tc-arrow" aria-haspopup="true" aria-controls="necessary-cookies--container"><h4 class="tc-modal-cookie-category-header">Nödvändiga cookies</h4></button><div class="tc-switch-container"><span class="tc-always-active">Alltid aktiv</span> <label style="display: none;" class="tc-switch"> <input type="checkbox" id="necessary-cookies" name="Nödvändiga cookies" class="tc-checkbox" disabled="" checked=""> <span class="tc-slider tc-round"></span> </label></div></div><div class="tc-modal-cookie-category-desc-container" id="necessary-cookies--container" aria-hidden="true"><p class="tc-modal-cookie-category-desc">Dessa behövs för att webbplatsen ska fungera och de kan inte stängas av. De används när du använder en funktion på webbplatsen som behöver ett svar, till exempel när du fyller i ett formulär eller lagrar nödvändiga inställningar. Du kan ställa in så att din webbläsare blockerar eller varnar dig om dessa kakor, men då fungerar inte vissa delar av webbplatsen.<table><thead><tr><th>Namn</th><th>Beskrivning</th><th>Domän</th><th>Utgår</th></tr></thead><tr class="tr"><td>TS01abd254</td><td>Sessionscookien som tillfälligt lagrar information gällande den kodade IP-adressen och porten till destinationsservern.</td><td>www.ptj.se</td><td>Session</td></tr><tr class="tr"><td>.ASPXANONYMOUS</td><td></td><td>www.ptj.se</td><td>6 veckor</td></tr><tr class="tr"><td>ai_user</td><td></td><td>www.ptj.se</td><td>1 år</td></tr><tr class="tr"><td>ai_session</td><td></td><td>www.ptj.se</td><td>30min</td></tr><tr class="tr"><td>ARRAffinity</td><td></td><td>www.ptj.se</td><td>Session</td></tr><tr class="tr"><td>EPi:StateMarker</td><td>Cookie som används för att hålla koll på sessioner.</td><td>www.ptj.se</td><td>Session</td></tr><tr class="tr"><td>TS01684556</td><td>Sessionscookien som tillfälligt lagrar information gällande den kodade IP-adressen och porten till destinationsservern.</td><td>www.ptj.se</td><td>Session</td></tr><tr class="tr"><td>__RequestVerificationToken</td><td>Används av Episerver säkerhetskomponenter. Skyddar användaren mot cross-site request forgery (XSRF). Används endast av CMS-gränssnittet. Raderas när webbläsaren stängs.</td><td>www.ptj.se</td><td>Session</td></tr><tr class="tr"><td>TiPMix</td><td></td><td>www.ptj.se</td><td>1 timme</td></tr><tr class="tr"><td>ARRAffinitySameSite</td><td></td><td>www.ptj.se</td><td>Session</td></tr><tr class="tr"><td>.EPiForm_VisitorIdentifier</td><td>Identifierar formuläret som skickas till webbplatsen när en besökare skickar data till via ett Episerver-formulär. Lagrar en GUID som är besökaridentifieraren. </td><td>www.ptj.se</td><td>3 mån</td></tr><tr class="tr"><td>.EPiForm_BID</td><td>Identifierar formuläret som skickas till webbplatsen när en besökare skickar data till via ett Episerver-formulär. Lagrar en GUID som är besökaridentifieraren. </td><td>www.ptj.se</td><td>3 mån</td></tr><tr class="tr"><td>UserConsentedToTastyCookies</td><td>Lagrar dina cookieinställningar</td><td>www.ptj.se</td><td>1 år</td></tr><tr class="tr"><td>x-ms-routing-name</td><td></td><td>www.ptj.se</td><td>1 timme</td></tr></table></p></div></div><div id="external" class="tc-modal-cookie-category"><div class="tc-modal-cookie-category-header-container"><button class="tc-arrow" aria-haspopup="true" aria-controls="external--container"><h4 class="tc-modal-cookie-category-header">Funktionella cookies</h4></button><div class="tc-switch-container"><label class="tc-switch"> <input type="checkbox" id="external" name="Funktionella cookies" aria-label="Godkänn funktionella kakor" class="tc-checkbox" checked=""> <span class="tc-slider tc-round"></span> </label></div></div><div class="tc-modal-cookie-category-desc-container" id="external--container" aria-hidden="true"><p class="tc-modal-cookie-category-desc">Funktionella cookies är t.ex. Vimeo och Youtube. Du måste godkänna att dessa kakor sätts för att du ska kunna se videos från dessa kanaler.<table><thead><tr><th>Namn</th><th>Beskrivning</th><th>Domän</th><th>Utgår</th></tr></thead><tr class="tr"><td>YSC</td><td>Används av YouTube för att komma ihåg användarens inmatning och associera en användares handlingar</td><td>youtube.com	</td><td>Session</td></tr></table></p></div></div><div id="statistics" class="tc-modal-cookie-category"><div class="tc-modal-cookie-category-header-container"><button class="tc-arrow" aria-haspopup="true" aria-controls="statistics--container"><h4 class="tc-modal-cookie-category-header">Statistik-cookies</h4></button><div class="tc-switch-container"><label class="tc-switch"> <input type="checkbox" id="statistics" name="Statistik-cookies" aria-label="Godkänn Statistik-cookies" class="tc-checkbox" checked=""> <span class="tc-slider tc-round"></span> </label></div></div><div class="tc-modal-cookie-category-desc-container" id="statistics--container" aria-hidden="true"><p class="tc-modal-cookie-category-desc">Dessa cookies tillåter oss att analysera hur webbplatsen används och hjälper oss i vårt arbete med olika anpassningar och förbättringar. Till exempel vilka sidor som besöks mest, och hur besökare tar sig runt mellan sidorna. Vi använder anonym och sammanräknad information vilket inte identifierar dig som person. Om du inte tillåter dessa cookies vet vi inte när du har besökt vår webbplats.<table><thead><tr><th>Namn</th><th>Beskrivning</th><th>Domän</th><th>Utgår</th></tr></thead><tr class="tr"><td>___vizzit</td><td>Vizzits cookie innehåller bara en unik, slumpmässig serie tecken. Vizzit använder denna teckenserie för att avgöra om webbläsaren har besökt webbplatsen förut, och för att samla in statistik över hur besökare navigerar på webbplatsen.</td><td>www.ptj.se</td><td>1 år</td></tr><tr class="tr"><td>_ga</td><td>Sätts för att för att kunna särskilja unika användare. Ett slumpmässigt genererat nummer som id.</td><td>.ptj.se</td><td>2 år</td></tr><tr class="tr"><td>_ga_...</td><td>Sätts för att hålla koll på användarens session.</td><td>.ptj.se</td><td>2 år</td></tr></table></p></div></div><div class="tc-save-prefernces-btn-container"><button aria-label="Spara dina inställningar">Spara dina inställningar</button></div></section></div><style>@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  .tc-modal td:nth-of-type(1):before { content: "Namn"; }
+  .tc-modal td:nth-of-type(2):before { content: "Beskrivning"; }
+  .tc-modal td:nth-of-type(3):before { content: "Domän"; }
+  .tc-modal td:nth-of-type(4):before { content: "Utgår"; }
+}</style></div></div>
+    
+    <nav id="accessibility-navigation" aria-label="accessibility-navigation-title">
+        <h2 class="sr-only" id="accessibility-navigation-title">Tillgänglighetsmeny</h2>
+        <ul class="accessibility-navigation__items">
+            <li class="accessibility-navigation__skip-to-content"><a href="https://www.ptj.se/vaccincenter-varvet/mottagningar/test/vaccin-och-halsobuss/bussnu/vaccincenter-varvet/kaninbuss/gitbuss/#page-content" class="link">Hoppa till innehållet på sidan</a></li>
+        </ul>
+    </nav>
+    
+
+
+<link rel="stylesheet" type="text/css" href="./GitHubElizabeth_files/quicknavigator.css">
+<script type="text/javascript" src="./GitHubElizabeth_files/quicknavigator.js"></script>
+<script type="text/javascript">
+
+                //<![CDATA[ 
+                (function () { new epi.QuickNavigator({"menuItems":{"dashboard":{"caption":"Dashboard","url":"/episerver","javascript":null,"enabledScript":"true","imageUrl":null},"editMode":{"caption":"CMS-redigering","url":"/episerver/CMS/?language=sv#context=epi.cms.contentdata:///148020","javascript":null,"enabledScript":"true","imageUrl":null}},"menuTitle":"Episerver","defaultUrl":"/episerver/CMS/?language=sv#context=epi.cms.contentdata:///148020"}); }()); 
+                //]]>
+</script>
+
+
+<header role="banner" class="header sticky-top" data-nosnippet="">
+    <div class="container-fluid header__wrapper clearfix">
+        
+
+<!-- Navigation bar for Mobile -->
+<div class="mobile-navigation-wrapper">
+    <div class="d-sm-block d-lg-none">
+        <!-- Navigation -->
+        <div class="mobile-navigation">
+            <!-- Left Menu -->
+            <div class="mobile-navigation__left">
+                <button class="mobile-navigation__item" id="open-offside-menu" aria-controls="offside-menu-mobile" aria-haspopup="true" aria-label="Visa mobilmeny">
+                    <div class="hamburger-menu">
+                        <span class="hamburger-menu__line"></span>
+                        <span class="hamburger-menu__line"></span>
+                        <span class="hamburger-menu__line"></span>
+                    </div>
+                </button>
+                <div class="mobile-navigation__item" style="order: -1">
+                    <a href="https://www.ptj.se/vaccincenter-varvet/mottagningar/test/vaccin-och-halsobuss/bussnu/vaccincenter-varvet/" class="mobile-navigation__logo" aria-label="Vaccincenter Varvet">
+                            <img data-src="/49e9e7/globalassets/vaccincenter-varvet/vaccincenter-varvet-blue-webb.svg?format=png&amp;width=225" class="img-fluid lazyload" role="presentation" alt="mobile logo">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Side menu of Navigation bar for Mobile -->
+        <div class="d-sm-block d-lg-none offside-navbar" id="offside-menu-mobile">
+            <div class="tab-content offside-navbar__tab-content">
+                <div id="mobile-menu" class="tab-pane fade show active">
+                    <ul class="offside-navbar--menu" role="menu">
+                                <li class="offside-navbar--menu__item jsFirstLi" role="none">
+                                        <span role="button" class="expand-collapse-child">Vaccin</span>
+                                        <i class="fal fa-chevron-up collapsed expand-collapse-child hidden jsExpandCollapse" role="presentation"></i>
+                                        <i class="fal fa-chevron-down expanded expand-collapse-child jsExpandCollapse" role="presentation"></i>
+                                        <ul class="offside-navbar--menu child-menu" role="menu">
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/" role="menuitem">Vaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/baltros-vaccin/" role="menuitem">Bältrosvaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/chikungunya-vaccin/" role="menuitem">Chikungunyavaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/denguefeber-vaccin/" role="menuitem">Denguevaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/gula-febern-vaccin/" role="menuitem">Gula febern-vaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/hepatit-a-vaccin/" role="menuitem">Hepatit A - vaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/hepatit-b-vaccin/" role="menuitem">Hepatit B - vaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/hpv-humant-papillomvirus-vaccin/" role="menuitem">HPV – vaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/influensa-vaccin/" role="menuitem">Influensavaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/japansk-encefalit-vaccin/" role="menuitem">Japansk Encefalit - vaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/kolera-etec-vaccin/" role="menuitem">Kolera- / ETEC- Vaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/malaria-vaccin/" role="menuitem">Malaria</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/meningokocker-vaccin/" role="menuitem">Meningokockvaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/mpr-massling-passjuka-roda-hund-vaccin/" role="menuitem">MPR-vaccin (Mässling, Påssjuka, Röda hund)</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/pneumokocker-vaccin/" role="menuitem">Pneumokockvaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/polio-vaccin/" role="menuitem">Poliovaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/rabies-vaccin/" role="menuitem">Rabiesvaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/rs-virus-vaccin/" role="menuitem">RS-vaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/stelkramp-difteri-kikhosta-vaccin/" role="menuitem">Stelkramp/ Difteri/ Kikhoste-vaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/tbe-tick-borne-encephalitis-vaccin/" role="menuitem">TBE-vaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/tyfoid-vaccin/" role="menuitem">Tyfoidvaccin</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/vaccin/vattkoppor-vaccin/" role="menuitem">Vattkoppsvaccin</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="offside-navbar--menu__item jsFirstLi" role="none">
+                                        <span role="button" class="expand-collapse-child">Reserådgivning</span>
+                                        <i class="fal fa-chevron-up collapsed expand-collapse-child hidden jsExpandCollapse" role="presentation"></i>
+                                        <i class="fal fa-chevron-down expanded expand-collapse-child jsExpandCollapse" role="presentation"></i>
+                                        <ul class="offside-navbar--menu child-menu" role="menu">
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/mottagningar/test/vaccin-och-halsobuss/bussnu/vaccincenter-varvet/busstest/" role="menuitem">Reserådgivning</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/mottagningar/test/vaccin-och-halsobuss/bussnu/vaccincenter-varvet/busstest/vaccincenter-varvet/" role="menuitem">Vaccincenter Varvet</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="offside-navbar--menu__item jsFirstLi" role="none">
+                                        <span role="button" class="expand-collapse-child">Vaccin- &amp; Hälsobuss</span>
+                                        <i class="fal fa-chevron-up collapsed expand-collapse-child hidden jsExpandCollapse" role="presentation"></i>
+                                        <i class="fal fa-chevron-down expanded expand-collapse-child jsExpandCollapse" role="presentation"></i>
+                                        <ul class="offside-navbar--menu child-menu" role="menu">
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/mottagningar/test/vaccin-och-halsobuss/bussnu/" role="menuitem">Vaccin- &amp; Hälsobuss</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/mottagningar/test/vaccin-och-halsobuss/bussnu/vaccincenter-varvet/" role="menuitem">Vaccincenter Varvet</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="offside-navbar--menu__item jsFirstLi" role="none">
+                                        <a href="https://www.ptj.se/vaccincenter-varvet/intyg-och-halsokontroller/" role="menuitem">Intyg &amp; hälsokontroller</a>
+                                </li>
+                                <li class="offside-navbar--menu__item jsFirstLi" role="none">
+                                        <span role="button" class="expand-collapse-child">Företag</span>
+                                        <i class="fal fa-chevron-up collapsed expand-collapse-child hidden jsExpandCollapse" role="presentation"></i>
+                                        <i class="fal fa-chevron-down expanded expand-collapse-child jsExpandCollapse" role="presentation"></i>
+                                        <ul class="offside-navbar--menu child-menu" role="menu">
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/foretagsvaccinering/" role="menuitem">Företagsvaccinering(2)</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/foretagsvaccinering/foretagshalsovard/" role="menuitem">Företagshälsovård</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="offside-navbar--menu__item jsFirstLi" role="none">
+                                        <span role="button" class="expand-collapse-child">Mottagningar</span>
+                                        <i class="fal fa-chevron-up collapsed expand-collapse-child hidden jsExpandCollapse" role="presentation"></i>
+                                        <i class="fal fa-chevron-down expanded expand-collapse-child jsExpandCollapse" role="presentation"></i>
+                                        <ul class="offside-navbar--menu child-menu" role="menu">
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/mottagningar/" role="menuitem">Mottagningar</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/mottagningar/varvet-malmo-vaccin/" role="menuitem">Varvet - Malmö</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/vaccincenter-varvet/mottagningar/varvet-lund-vaccin/" role="menuitem">Varvet - Lund</a>
+                                                </li>
+                                                <li class="offside-navbar--menu__item" role="none">
+                                                    <a href="https://www.ptj.se/link/6bc71f654e744ef4ab435aa57f77f070.aspx" role="menuitem">Vaccin- &amp; Hälsobussen</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="offside-navbar--menu__item jsFirstLi" role="none">
+                                        <a href="https://www.ptj.se/vaccincenter-varvet/om-praktikertjanst/" role="menuitem">Om Praktikertjänst</a>
+                                </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- END - Side menu of Navigation bar for Mobile -->
+    </div>
+</div>
+        
+
+
+
 {
   "install": "npm install",
   "start": "npm run dev",
